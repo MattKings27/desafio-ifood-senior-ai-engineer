@@ -1,0 +1,97 @@
+{
+  "sobre": "Os exemplos da máscara de valores do rascunho da conversa, lidos pelos dois lados: gateway/tests/test_mascara.py (gateway/src/gateway/mascara.py) e webapp/src/lib/conversa/mascara.test.ts (webapp/src/lib/conversa/mascara.ts). {S} é o caractere sentinela (U+E000). `mascarado` é o texto inteiro mascarado; `rascunho` é o que pode aparecer no meio do turno, sem o fim que ainda pode virar valor. O navegador é a segunda porta e mascara também o \"r$\" minúsculo; onde ele difere do backend, vale o campo com `_no_navegador`.",
+  "casos": [
+    {
+      "texto": "A porção sai R$ 2,47 de ingrediente.",
+      "mascarado": "A porção sai {S} de ingrediente.",
+      "rascunho": "A porção sai {S} de ingrediente."
+    },
+    {
+      "texto": "Total R$ 1.234,56 hoje",
+      "mascarado": "Total {S} hoje",
+      "rascunho": "Total {S} hoje"
+    },
+    {
+      "texto": "R$12,5 e R$ 7",
+      "mascarado": "{S} e {S}",
+      "rascunho": "{S} e "
+    },
+    {
+      "texto": "custa 6 reais",
+      "mascarado": "custa {S}",
+      "rascunho": "custa "
+    },
+    {
+      "texto": "1 real só",
+      "mascarado": "{S} só",
+      "rascunho": "{S} só"
+    },
+    {
+      "texto": "4,50 reais cada",
+      "mascarado": "{S} cada",
+      "rascunho": "{S} cada"
+    },
+    {
+      "texto": "1.234 reais",
+      "mascarado": "{S}",
+      "rascunho": ""
+    },
+    {
+      "texto": "R$ 6 reais",
+      "mascarado": "{S} reais",
+      "rascunho": ""
+    },
+    {
+      "texto": "R$ 1500,00 no total",
+      "mascarado": "{S} no total",
+      "rascunho": "{S} no total"
+    },
+    {
+      "texto": "O prato sai R$ 12.5 hoje",
+      "mascarado": "O prato sai {S} hoje",
+      "rascunho": "O prato sai {S} hoje"
+    },
+    {
+      "texto": "O leite subiu para R$ 7,",
+      "mascarado": "O leite subiu para {S},",
+      "rascunho": "O leite subiu para "
+    },
+    {
+      "texto": "Custa 4,5 rea",
+      "mascarado": "Custa 4,5 rea",
+      "rascunho": "Custa "
+    },
+    {
+      "texto": "a R",
+      "mascarado": "a R",
+      "rascunho": "a "
+    },
+    {
+      "texto": "1 em cada 8 reais",
+      "mascarado": "1 em cada {S}",
+      "rascunho": "1 em cada "
+    },
+    {
+      "texto": "6 REAIS de troco",
+      "mascarado": "{S} de troco",
+      "rascunho": "{S} de troco"
+    },
+    {
+      "texto": "10 realidades",
+      "mascarado": "10 realidades",
+      "rascunho": "10 realidades"
+    },
+    {
+      "texto": "Sem valor nenhum aqui.",
+      "mascarado": "Sem valor nenhum aqui.",
+      "rascunho": "Sem valor nenhum aqui."
+    },
+    {
+      "texto": "r$ 7 e R$ 8",
+      "mascarado": "r$ 7 e {S}",
+      "rascunho": "r$ 7 e ",
+      "mascarado_no_navegador": "{S} e {S}",
+      "rascunho_no_navegador": "{S} e "
+    }
+  ]
+}

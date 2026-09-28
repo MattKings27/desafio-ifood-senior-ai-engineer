@@ -1,0 +1,55 @@
+{
+  "id": "cv-7f3a",
+  "titulo": "Arroz com frango",
+  "turno_em_andamento": null,
+  "mensagens": [
+    {
+      "id": "m-1",
+      "papel": "senhora",
+      "partes": [
+        {
+          "tipo": "texto",
+          "texto": "Quero vender arroz com frango."
+        }
+      ],
+      "quando_texto": "hoje, 14:58"
+    },
+    {
+      "id": "m-2",
+      "papel": "consultora",
+      "partes": [
+        {
+          "tipo": "texto",
+          "texto": "Dá pra fazer hoje, com o que a senhora tem. A porção sai **R$ 2,47** de ingrediente."
+        },
+        {
+          "tipo": "cartao",
+          "cartao": {
+            "cartao_id": "k-1",
+            "ref": {
+              "rota": "/api/receitas/arroz-com-frango/custo"
+            },
+            "gerado_texto": "conta de hoje, 14:59",
+            "dados": {
+              "prato": "Arroz com frango",
+              "total": {
+                "valor": 2.47,
+                "texto": "R$ 2,47"
+              }
+            },
+            "tipo_cartao": "custo_porcao"
+          }
+        }
+      ],
+      "quando_texto": "hoje, 14:59",
+      "atividades": [
+        {
+          "rotulo_feito": "conferi se a senhora consegue fazer arroz com frango"
+        },
+        {
+          "rotulo_feito": "calculei o custo por porção"
+        }
+      ]
+    }
+  ]
+}

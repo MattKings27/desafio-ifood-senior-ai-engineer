@@ -1,0 +1,1401 @@
+{
+  "itens": [
+    {
+      "id": "alcaparras",
+      "nome": "Alcaparras",
+      "categoria": "conservas",
+      "categoria_rotulo": "Conservas e molhos",
+      "estoque": 2.0,
+      "unidade": "kg",
+      "estoque_texto": "2 kg (1 balde de 2 kg)",
+      "pago": {
+        "valor": 82.0,
+        "texto": "R$ 82,00"
+      },
+      "custo_unitario": {
+        "valor": 41.0,
+        "texto": "R$ 41,00/kg"
+      },
+      "derivacao": "1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.122,
+      "fracao_texto": "12% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/623c4d1cdf11ac4e5ebdd3d160fdd984",
+        "credito": "Foto: Danielle Keller, Public domain, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/alcaparras"
+    },
+    {
+      "id": "cobertura-de-chocolate",
+      "nome": "Cobertura de chocolate",
+      "categoria": "confeitaria",
+      "categoria_rotulo": "Confeitaria",
+      "estoque": 1.0,
+      "unidade": "un",
+      "estoque_texto": "1 embalagem (peso não informado)",
+      "pago": {
+        "valor": 79.9,
+        "texto": "R$ 79,90"
+      },
+      "custo_unitario": null,
+      "derivacao": "R$ 79,90 ÷ 1 embalagem; sem o peso da embalagem, não dá para saber o custo por quilo",
+      "confianca": "desconhecida",
+      "confianca_rotulo": "falta o peso da embalagem",
+      "fracao_do_total": 0.1188,
+      "fracao_texto": "12% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/c0baf8bc7d5213484580c5631b600384",
+        "credito": "Foto: SKopp, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": true,
+      "rota": "/despensa/cobertura-de-chocolate"
+    },
+    {
+      "id": "carne-moida-patinho",
+      "nome": "Carne moída (patinho)",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 1.5,
+      "unidade": "kg",
+      "estoque_texto": "1,5 kg",
+      "pago": {
+        "valor": 42.0,
+        "texto": "R$ 42,00"
+      },
+      "custo_unitario": {
+        "valor": 28.0,
+        "texto": "R$ 28,00/kg"
+      },
+      "derivacao": "R$ 42,00 ÷ 1,5 kg = R$ 28,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0625,
+      "fracao_texto": "6% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/9ad9f94df574f92c2511e0f57680347f",
+        "credito": "Foto: Gajda-13 at Danish Wikipedia, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/carne-moida-patinho"
+    },
+    {
+      "id": "miolo-de-alcatra",
+      "nome": "Miolo de alcatra",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 0.8,
+      "unidade": "kg",
+      "estoque_texto": "800 g",
+      "pago": {
+        "valor": 34.0,
+        "texto": "R$ 34,00"
+      },
+      "custo_unitario": {
+        "valor": 42.5,
+        "texto": "R$ 42,50/kg"
+      },
+      "derivacao": "R$ 34,00 ÷ 0,8 kg = R$ 42,50/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0506,
+      "fracao_texto": "5% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/2936caff81f8be778983cabd3cc1a963",
+        "credito": "Foto: FotoosVanRobin from Netherlands, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/miolo-de-alcatra"
+    },
+    {
+      "id": "azeite-de-oliva-extra-virgem",
+      "nome": "Azeite de oliva extra virgem",
+      "categoria": "oleos",
+      "categoria_rotulo": "Óleos e azeites",
+      "estoque": 0.5,
+      "unidade": "L",
+      "estoque_texto": "500 ml (1 embalagem de 500 ml)",
+      "pago": {
+        "valor": 30.99,
+        "texto": "R$ 30,99"
+      },
+      "custo_unitario": {
+        "valor": 61.98,
+        "texto": "R$ 61,98/L"
+      },
+      "derivacao": "1 × 0,5 L = 0,5 L; R$ 30,99 ÷ 0,5 L = R$ 61,98/L",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0461,
+      "fracao_texto": "5% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/c7a36aca6975dff0e727af0856288e1b",
+        "credito": "Foto: jules / stone soup, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/azeite-de-oliva-extra-virgem"
+    },
+    {
+      "id": "peito-de-frango",
+      "nome": "Peito de frango",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 2.0,
+      "unidade": "kg",
+      "estoque_texto": "2 kg",
+      "pago": {
+        "valor": 28.0,
+        "texto": "R$ 28,00"
+      },
+      "custo_unitario": {
+        "valor": 14.0,
+        "texto": "R$ 14,00/kg"
+      },
+      "derivacao": "R$ 28,00 ÷ 2 kg = R$ 14,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0416,
+      "fracao_texto": "4% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/d921d732731e934cb16eff714b02fd67",
+        "credito": "Foto: kakyusei, CC0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 1,
+      "receitas_que_usam_texto": "entra em 1 receita",
+      "pendente": false,
+      "rota": "/despensa/peito-de-frango"
+    },
+    {
+      "id": "feijao-carioquinha",
+      "nome": "Feijão carioquinha",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 3.0,
+      "unidade": "kg",
+      "estoque_texto": "3 kg",
+      "pago": {
+        "valor": 27.0,
+        "texto": "R$ 27,00"
+      },
+      "custo_unitario": {
+        "valor": 9.0,
+        "texto": "R$ 9,00/kg"
+      },
+      "derivacao": "R$ 27,00 ÷ 3 kg = R$ 9,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0402,
+      "fracao_texto": "4% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/7f60838bed83c43e94a06a6808c30cd2",
+        "credito": "Foto: Agent010, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/feijao-carioquinha"
+    },
+    {
+      "id": "arroz-branco-tipo-1",
+      "nome": "Arroz branco tipo 1",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 5.0,
+      "unidade": "kg",
+      "estoque_texto": "5 kg",
+      "pago": {
+        "valor": 24.9,
+        "texto": "R$ 24,90"
+      },
+      "custo_unitario": {
+        "valor": 4.98,
+        "texto": "R$ 4,98/kg"
+      },
+      "derivacao": "R$ 24,90 ÷ 5 kg = R$ 4,98/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.037,
+      "fracao_texto": "4% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/1638933727f63f9a916806bce3652bd3",
+        "credito": "Foto: Takeaway, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 2,
+      "receitas_que_usam_texto": "entra em 2 receitas",
+      "pendente": false,
+      "rota": "/despensa/arroz-branco-tipo-1"
+    },
+    {
+      "id": "ovos",
+      "nome": "Ovos",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 30.0,
+      "unidade": "un",
+      "estoque_texto": "30 unidades",
+      "pago": {
+        "valor": 24.0,
+        "texto": "R$ 24,00"
+      },
+      "custo_unitario": {
+        "valor": 0.8,
+        "texto": "R$ 0,80/un"
+      },
+      "derivacao": "R$ 24,00 ÷ 30 un = R$ 0,80/un",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0357,
+      "fracao_texto": "4% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/f72749c0f98195f6a72900b7dc1b0139",
+        "credito": "Foto: www.Pixel.la Free Stock Photos, CC0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/ovos"
+    },
+    {
+      "id": "chantilly",
+      "nome": "Chantilly",
+      "categoria": "confeitaria",
+      "categoria_rotulo": "Confeitaria",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g (1 embalagem de 500 g)",
+      "pago": {
+        "valor": 23.67,
+        "texto": "R$ 23,67"
+      },
+      "custo_unitario": {
+        "valor": 47.34,
+        "texto": "R$ 47,34/kg"
+      },
+      "derivacao": "1 × 0,5 kg = 0,5 kg; R$ 23,67 ÷ 0,5 kg = R$ 47,34/kg",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0352,
+      "fracao_texto": "4% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/8f2daf8f41ffb0ff36bdbbdca30e5e42",
+        "credito": "Foto: Paul Downey, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/chantilly"
+    },
+    {
+      "id": "carne-de-panela-acem",
+      "nome": "Carne de panela (acém)",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 23.2,
+        "texto": "R$ 23,20"
+      },
+      "custo_unitario": {
+        "valor": 23.2,
+        "texto": "R$ 23,20/kg"
+      },
+      "derivacao": "R$ 23,20 ÷ 1 kg = R$ 23,20/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0345,
+      "fracao_texto": "3% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/5b57be7f22e7dca93a588d5a5d143c0f",
+        "credito": "Foto: Sakartvelo, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/carne-de-panela-acem"
+    },
+    {
+      "id": "queijo-mussarela",
+      "nome": "Queijo mussarela",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g",
+      "pago": {
+        "valor": 20.0,
+        "texto": "R$ 20,00"
+      },
+      "custo_unitario": {
+        "valor": 40.0,
+        "texto": "R$ 40,00/kg"
+      },
+      "derivacao": "R$ 20,00 ÷ 0,5 kg = R$ 40,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0297,
+      "fracao_texto": "3% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/9a917f618ff3ed22b23d816c82ec64b6",
+        "credito": "Foto: Martula13, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/queijo-mussarela"
+    },
+    {
+      "id": "manteiga",
+      "nome": "Manteiga",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g",
+      "pago": {
+        "valor": 20.0,
+        "texto": "R$ 20,00"
+      },
+      "custo_unitario": {
+        "valor": 40.0,
+        "texto": "R$ 40,00/kg"
+      },
+      "derivacao": "R$ 20,00 ÷ 0,5 kg = R$ 40,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0297,
+      "fracao_texto": "3% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/4e323e4ef137ef81fa28d342f61bc559",
+        "credito": "Foto: Renee Comet (National Cancer Institute), Public domain, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/manteiga"
+    },
+    {
+      "id": "batata",
+      "nome": "Batata",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 3.0,
+      "unidade": "kg",
+      "estoque_texto": "3 kg",
+      "pago": {
+        "valor": 18.0,
+        "texto": "R$ 18,00"
+      },
+      "custo_unitario": {
+        "valor": 6.0,
+        "texto": "R$ 6,00/kg"
+      },
+      "derivacao": "R$ 18,00 ÷ 3 kg = R$ 6,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0268,
+      "fracao_texto": "3% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/8e9acb80dcaccc36eed34d78d6e449ed",
+        "credito": "Foto: Dvetter, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/batata"
+    },
+    {
+      "id": "amendoa-fatiada",
+      "nome": "Amêndoa fatiada",
+      "categoria": "confeitaria",
+      "categoria_rotulo": "Confeitaria",
+      "estoque": 0.3,
+      "unidade": "kg",
+      "estoque_texto": "300 g",
+      "pago": {
+        "valor": 18.0,
+        "texto": "R$ 18,00"
+      },
+      "custo_unitario": {
+        "valor": 60.0,
+        "texto": "R$ 60,00/kg"
+      },
+      "derivacao": "R$ 18,00 ÷ 0,3 kg = R$ 60,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0268,
+      "fracao_texto": "3% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/5b6006cef539ce40aae57d87fdb7733e",
+        "credito": "Foto: Fumikas Sagisavas, CC0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/amendoa-fatiada"
+    },
+    {
+      "id": "tomate",
+      "nome": "Tomate",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 2.0,
+      "unidade": "kg",
+      "estoque_texto": "2 kg",
+      "pago": {
+        "valor": 16.0,
+        "texto": "R$ 16,00"
+      },
+      "custo_unitario": {
+        "valor": 8.0,
+        "texto": "R$ 8,00/kg"
+      },
+      "derivacao": "R$ 16,00 ÷ 2 kg = R$ 8,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0238,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/99250da7f56259bd60263413918738e9",
+        "credito": "Foto: Softeis, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/tomate"
+    },
+    {
+      "id": "leite-ninho-em-po",
+      "nome": "Leite ninho em pó",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 0.4,
+      "unidade": "kg",
+      "estoque_texto": "400 g (1 embalagem de 400 g)",
+      "pago": {
+        "valor": 15.18,
+        "texto": "R$ 15,18"
+      },
+      "custo_unitario": {
+        "valor": 37.95,
+        "texto": "R$ 37,95/kg"
+      },
+      "derivacao": "1 × 0,4 kg = 0,4 kg; R$ 15,18 ÷ 0,4 kg = R$ 37,95/kg",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0226,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/8ea515006a93731c814ab71b464a70bf",
+        "credito": "Foto: ProjectManhattan, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/leite-ninho-em-po"
+    },
+    {
+      "id": "macarrao-espaguete",
+      "nome": "Macarrão espaguete",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 13.99,
+        "texto": "R$ 13,99"
+      },
+      "custo_unitario": {
+        "valor": 13.99,
+        "texto": "R$ 13,99/kg"
+      },
+      "derivacao": "R$ 13,99 ÷ 1 kg = R$ 13,99/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0208,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/2684106b4abab7c4d7e46dfa8f8ea3c4",
+        "credito": "Foto: Dira0101, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/macarrao-espaguete"
+    },
+    {
+      "id": "aceto-balsamico",
+      "nome": "Aceto balsâmico",
+      "categoria": "temperos",
+      "categoria_rotulo": "Temperos e condimentos",
+      "estoque": 0.5,
+      "unidade": "L",
+      "estoque_texto": "500 ml (1 embalagem de 500 ml)",
+      "pago": {
+        "valor": 12.99,
+        "texto": "R$ 12,99"
+      },
+      "custo_unitario": {
+        "valor": 25.98,
+        "texto": "R$ 25,98/L"
+      },
+      "derivacao": "1 × 0,5 L = 0,5 L; R$ 12,99 ÷ 0,5 L = R$ 25,98/L",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0193,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/7cc54ec2c6f1a895396a3a9dd57c451d",
+        "credito": "Foto: Andrea Levers, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/aceto-balsamico"
+    },
+    {
+      "id": "bacon",
+      "nome": "Bacon",
+      "categoria": "proteinas",
+      "categoria_rotulo": "Carnes e ovos",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g",
+      "pago": {
+        "valor": 11.95,
+        "texto": "R$ 11,95"
+      },
+      "custo_unitario": {
+        "valor": 23.9,
+        "texto": "R$ 23,90/kg"
+      },
+      "derivacao": "R$ 11,95 ÷ 0,5 kg = R$ 23,90/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0178,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/2001fe96398e5f480acb3566e9003de2",
+        "credito": "Foto: ryan.dowd, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/bacon"
+    },
+    {
+      "id": "farinha-de-trigo",
+      "nome": "Farinha de trigo",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 2.0,
+      "unidade": "kg",
+      "estoque_texto": "2 kg",
+      "pago": {
+        "valor": 10.3,
+        "texto": "R$ 10,30"
+      },
+      "custo_unitario": {
+        "valor": 5.15,
+        "texto": "R$ 5,15/kg"
+      },
+      "derivacao": "R$ 10,30 ÷ 2 kg = R$ 5,15/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0153,
+      "fracao_texto": "2% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/16bc7002b1d821fec10ccb25237fd03a",
+        "credito": "Foto: Veganbaking.net from USA, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/farinha-de-trigo"
+    },
+    {
+      "id": "polenta-fuba",
+      "nome": "Polenta (fubá)",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 10.0,
+        "texto": "R$ 10,00"
+      },
+      "custo_unitario": {
+        "valor": 10.0,
+        "texto": "R$ 10,00/kg"
+      },
+      "derivacao": "R$ 10,00 ÷ 1 kg = R$ 10,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0149,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/28595d944feabeba73d0147c03fc4e8e",
+        "credito": "Foto: Popo le Chien, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/polenta-fuba"
+    },
+    {
+      "id": "leite-integral",
+      "nome": "Leite integral",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 2.0,
+      "unidade": "L",
+      "estoque_texto": "2 L",
+      "pago": {
+        "valor": 10.0,
+        "texto": "R$ 10,00"
+      },
+      "custo_unitario": {
+        "valor": 5.0,
+        "texto": "R$ 5,00/L"
+      },
+      "derivacao": "R$ 10,00 ÷ 2 L = R$ 5,00/L",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0149,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/ef77af57351a9ae33df6661795da0123",
+        "credito": "Foto: Santeri Viinamäki, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/leite-integral"
+    },
+    {
+      "id": "feijao-preto",
+      "nome": "Feijão preto",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 9.6,
+        "texto": "R$ 9,60"
+      },
+      "custo_unitario": {
+        "valor": 9.6,
+        "texto": "R$ 9,60/kg"
+      },
+      "derivacao": "R$ 9,60 ÷ 1 kg = R$ 9,60/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0143,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/fef6a8309a409d918e3e195b8ee94853",
+        "credito": "Foto: Sanjay Acharya, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/feijao-preto"
+    },
+    {
+      "id": "oleo-de-soja",
+      "nome": "Óleo de soja",
+      "categoria": "oleos",
+      "categoria_rotulo": "Óleos e azeites",
+      "estoque": 1.0,
+      "unidade": "L",
+      "estoque_texto": "1 L",
+      "pago": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "custo_unitario": {
+        "valor": 9.0,
+        "texto": "R$ 9,00/L"
+      },
+      "derivacao": "R$ 9,00 ÷ 1 L = R$ 9,00/L",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0134,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/e0296b2ca5b967c4f8683a8d85c71505",
+        "credito": "Foto: United Soybean Board, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/oleo-de-soja"
+    },
+    {
+      "id": "item-4f7a1c2e",
+      "nome": "Creme de leite",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 0.4,
+      "unidade": "kg",
+      "estoque_texto": "400 g (2 embalagens de 200 g)",
+      "pago": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "custo_unitario": {
+        "valor": 22.5,
+        "texto": "R$ 22,50/kg"
+      },
+      "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0134,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "orcamento",
+      "origem_rotulo": "comprado com os complementos",
+      "imagem": null,
+      "receitas_que_usam": 1,
+      "receitas_que_usam_texto": "entra em 1 receita",
+      "pendente": false,
+      "rota": "/despensa/item-4f7a1c2e"
+    },
+    {
+      "id": "farinha-de-mandioca",
+      "nome": "Farinha de mandioca",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 8.6,
+        "texto": "R$ 8,60"
+      },
+      "custo_unitario": {
+        "valor": 8.6,
+        "texto": "R$ 8,60/kg"
+      },
+      "derivacao": "R$ 8,60 ÷ 1 kg = R$ 8,60/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0128,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/4502c807c1557129125d5b32d0e9c8b7",
+        "credito": "Foto: User Carioca, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/farinha-de-mandioca"
+    },
+    {
+      "id": "queijo-parmesao-ralado",
+      "nome": "Queijo parmesão ralado",
+      "categoria": "laticinios",
+      "categoria_rotulo": "Laticínios",
+      "estoque": 0.2,
+      "unidade": "kg",
+      "estoque_texto": "200 g",
+      "pago": {
+        "valor": 8.58,
+        "texto": "R$ 8,58"
+      },
+      "custo_unitario": {
+        "valor": 42.9,
+        "texto": "R$ 42,90/kg"
+      },
+      "derivacao": "R$ 8,58 ÷ 0,2 kg = R$ 42,90/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0128,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/813649fdd0ce0ff6e9f9552fadc01a48",
+        "credito": "Foto: Famartin, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/queijo-parmesao-ralado"
+    },
+    {
+      "id": "alho",
+      "nome": "Alho",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 0.3,
+      "unidade": "kg",
+      "estoque_texto": "300 g",
+      "pago": {
+        "valor": 6.0,
+        "texto": "R$ 6,00"
+      },
+      "custo_unitario": {
+        "valor": 20.0,
+        "texto": "R$ 20,00/kg"
+      },
+      "derivacao": "R$ 6,00 ÷ 0,3 kg = R$ 20,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0089,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/797f15fcb2d76c828f860cddeba31013",
+        "credito": "Foto: Ivar Leidus, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/alho"
+    },
+    {
+      "id": "couve",
+      "nome": "Couve",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g",
+      "pago": {
+        "valor": 6.0,
+        "texto": "R$ 6,00"
+      },
+      "custo_unitario": {
+        "valor": 12.0,
+        "texto": "R$ 12,00/kg"
+      },
+      "derivacao": "R$ 6,00 ÷ 0,5 kg = R$ 12,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0089,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/2f1f81827248fb628b33bc103a88eaf8",
+        "credito": "Foto: Evan-Amos, Public domain, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/couve"
+    },
+    {
+      "id": "acucar",
+      "nome": "Açúcar",
+      "categoria": "confeitaria",
+      "categoria_rotulo": "Confeitaria",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 4.28,
+        "texto": "R$ 4,28"
+      },
+      "custo_unitario": {
+        "valor": 4.28,
+        "texto": "R$ 4,28/kg"
+      },
+      "derivacao": "R$ 4,28 ÷ 1 kg = R$ 4,28/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0064,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/0a9f57946f25268f57006f4ff2324cb7",
+        "credito": "Foto: Douglas P Perkins, CC BY 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/acucar"
+    },
+    {
+      "id": "cebola",
+      "nome": "Cebola",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 4.0,
+        "texto": "R$ 4,00"
+      },
+      "custo_unitario": {
+        "valor": 4.0,
+        "texto": "R$ 4,00/kg"
+      },
+      "derivacao": "R$ 4,00 ÷ 1 kg = R$ 4,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0059,
+      "fracao_texto": "1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/a87a099e432f0c1ca0b6e101003e3cbd",
+        "credito": "Foto: Colin, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 1,
+      "receitas_que_usam_texto": "entra em 1 receita",
+      "pendente": false,
+      "rota": "/despensa/cebola"
+    },
+    {
+      "id": "acafrao-em-po-curcuma",
+      "nome": "Açafrão em pó (cúrcuma)",
+      "categoria": "temperos",
+      "categoria_rotulo": "Temperos e condimentos",
+      "estoque": 0.2,
+      "unidade": "kg",
+      "estoque_texto": "200 g",
+      "pago": {
+        "valor": 2.16,
+        "texto": "R$ 2,16"
+      },
+      "custo_unitario": {
+        "valor": 10.8,
+        "texto": "R$ 10,80/kg"
+      },
+      "derivacao": "R$ 2,16 ÷ 0,2 kg = R$ 10,80/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0032,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/a1e16b79325236cedbe1bb1e48803810",
+        "credito": "Foto: formulatehealth, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/acafrao-em-po-curcuma"
+    },
+    {
+      "id": "salsinha-cheiro-verde",
+      "nome": "Salsinha (cheiro-verde)",
+      "categoria": "hortifruti",
+      "categoria_rotulo": "Hortifrúti",
+      "estoque": 0.1,
+      "unidade": "kg",
+      "estoque_texto": "100 g",
+      "pago": {
+        "valor": 2.1,
+        "texto": "R$ 2,10"
+      },
+      "custo_unitario": {
+        "valor": 21.0,
+        "texto": "R$ 21,00/kg"
+      },
+      "derivacao": "R$ 2,10 ÷ 0,1 kg = R$ 21,00/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0031,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/386d417b679a2432bcd74ba65f9050d8",
+        "credito": "Foto: Garitzko, Public domain, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/salsinha-cheiro-verde"
+    },
+    {
+      "id": "adocante-liquido",
+      "nome": "Adoçante líquido",
+      "categoria": "confeitaria",
+      "categoria_rotulo": "Confeitaria",
+      "estoque": 0.1,
+      "unidade": "L",
+      "estoque_texto": "100 ml (1 embalagem de 100 ml)",
+      "pago": {
+        "valor": 1.9,
+        "texto": "R$ 1,90"
+      },
+      "custo_unitario": {
+        "valor": 19.0,
+        "texto": "R$ 19,00/L"
+      },
+      "derivacao": "1 × 0,1 L = 0,1 L; R$ 1,90 ÷ 0,1 L = R$ 19,00/L",
+      "confianca": "media",
+      "confianca_rotulo": "conta com conversão de embalagem",
+      "fracao_do_total": 0.0028,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": null,
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/adocante-liquido"
+    },
+    {
+      "id": "sal",
+      "nome": "Sal",
+      "categoria": "temperos",
+      "categoria_rotulo": "Temperos e condimentos",
+      "estoque": 1.0,
+      "unidade": "kg",
+      "estoque_texto": "1 kg",
+      "pago": {
+        "valor": 1.85,
+        "texto": "R$ 1,85"
+      },
+      "custo_unitario": {
+        "valor": 1.85,
+        "texto": "R$ 1,85/kg"
+      },
+      "derivacao": "R$ 1,85 ÷ 1 kg = R$ 1,85/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0028,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/205a008fb72f50d2020885b301f46215",
+        "credito": "Foto: Poyraz 72, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/sal"
+    },
+    {
+      "id": "canela-em-po",
+      "nome": "Canela em pó",
+      "categoria": "temperos",
+      "categoria_rotulo": "Temperos e condimentos",
+      "estoque": 0.1,
+      "unidade": "kg",
+      "estoque_texto": "100 g",
+      "pago": {
+        "valor": 1.83,
+        "texto": "R$ 1,83"
+      },
+      "custo_unitario": {
+        "valor": 18.3,
+        "texto": "R$ 18,30/kg"
+      },
+      "derivacao": "R$ 1,83 ÷ 0,1 kg = R$ 18,30/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0027,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/35591a744ae330eb5a3d6cc170647da1",
+        "credito": "Foto: Alabama Extension, CC0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/canela-em-po"
+    },
+    {
+      "id": "caldo-de-carne-tempero",
+      "nome": "Caldo de carne (tempero)",
+      "categoria": "temperos",
+      "categoria_rotulo": "Temperos e condimentos",
+      "estoque": 0.2,
+      "unidade": "kg",
+      "estoque_texto": "200 g",
+      "pago": {
+        "valor": 1.42,
+        "texto": "R$ 1,42"
+      },
+      "custo_unitario": {
+        "valor": 7.1,
+        "texto": "R$ 7,10/kg"
+      },
+      "derivacao": "R$ 1,42 ÷ 0,2 kg = R$ 7,10/kg",
+      "confianca": "alta",
+      "confianca_rotulo": "conta direta da planilha",
+      "fracao_do_total": 0.0021,
+      "fracao_texto": "menos de 1% do que a senhora pagou",
+      "origem": "planilha",
+      "origem_rotulo": "da planilha",
+      "imagem": {
+        "url": "/motor/imagens/020031325e5767746f9761cbe3eb691f",
+        "credito": "Foto: Jup111, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": false,
+      "rota": "/despensa/caldo-de-carne-tempero"
+    },
+    {
+      "id": "item-7b2d9e10",
+      "nome": "Farinha de rosca",
+      "categoria": "graos",
+      "categoria_rotulo": "Grãos, farinhas e massas",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "estoque_texto": "500 g",
+      "pago": null,
+      "custo_unitario": null,
+      "derivacao": "a senhora não disse quanto pagou; sem o preço, não dá para saber o custo",
+      "confianca": "desconhecida",
+      "confianca_rotulo": "falta o preço que a senhora pagou",
+      "fracao_do_total": 0.0,
+      "fracao_texto": "sem o preço, fica fora do total",
+      "origem": "ja_tinha",
+      "origem_rotulo": "a senhora já tinha",
+      "imagem": null,
+      "receitas_que_usam": 0,
+      "receitas_que_usam_texto": "ainda sem receita",
+      "pendente": true,
+      "rota": "/despensa/item-7b2d9e10"
+    }
+  ],
+  "total_investido": {
+    "valor": 672.39,
+    "texto": "R$ 672,39"
+  },
+  "total_itens": 39,
+  "encontrados": 39,
+  "categorias": [
+    {
+      "id": "proteinas",
+      "rotulo": "Carnes e ovos",
+      "quantidade": 6
+    },
+    {
+      "id": "graos",
+      "rotulo": "Grãos, farinhas e massas",
+      "quantidade": 8
+    },
+    {
+      "id": "hortifruti",
+      "rotulo": "Hortifrúti",
+      "quantidade": 6
+    },
+    {
+      "id": "laticinios",
+      "rotulo": "Laticínios",
+      "quantidade": 6
+    },
+    {
+      "id": "temperos",
+      "rotulo": "Temperos e condimentos",
+      "quantidade": 5
+    },
+    {
+      "id": "oleos",
+      "rotulo": "Óleos e azeites",
+      "quantidade": 2
+    },
+    {
+      "id": "conservas",
+      "rotulo": "Conservas e molhos",
+      "quantidade": 1
+    },
+    {
+      "id": "confeitaria",
+      "rotulo": "Confeitaria",
+      "quantidade": 5
+    }
+  ],
+  "categorias_para_escolher": [
+    {
+      "id": "proteinas",
+      "rotulo": "Carnes e ovos"
+    },
+    {
+      "id": "graos",
+      "rotulo": "Grãos, farinhas e massas"
+    },
+    {
+      "id": "hortifruti",
+      "rotulo": "Hortifrúti"
+    },
+    {
+      "id": "laticinios",
+      "rotulo": "Laticínios"
+    },
+    {
+      "id": "temperos",
+      "rotulo": "Temperos e condimentos"
+    },
+    {
+      "id": "oleos",
+      "rotulo": "Óleos e azeites"
+    },
+    {
+      "id": "conservas",
+      "rotulo": "Conservas e molhos"
+    },
+    {
+      "id": "confeitaria",
+      "rotulo": "Confeitaria"
+    },
+    {
+      "id": "outros",
+      "rotulo": "Outros"
+    }
+  ],
+  "pendencias": [
+    {
+      "id": "cobertura-de-chocolate",
+      "ingrediente": "Cobertura de chocolate",
+      "tipo": "conteudo_embalagem",
+      "pergunta": "Dona Maria, quanto vem na embalagem da cobertura de chocolate que a senhora comprou por R$ 79,90? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.",
+      "impacto": {
+        "valor": 79.9,
+        "texto": "R$ 79,90"
+      },
+      "impacto_texto": "R$ 79,90 parados até isso ser respondido",
+      "resposta_inline": {
+        "tipo": "conteudo_embalagem",
+        "rotulo": "Quanto vem na embalagem?",
+        "unidades": [
+          "g",
+          "kg",
+          "ml",
+          "L"
+        ]
+      },
+      "rascunho_chat": "A embalagem da cobertura de chocolate tem ",
+      "rota": "/despensa/cobertura-de-chocolate"
+    },
+    {
+      "id": "item-7b2d9e10",
+      "ingrediente": "Farinha de rosca",
+      "tipo": "preco_pago",
+      "pergunta": "Dona Maria, sobre a farinha de rosca: quanto a senhora pagou, e por qual quantidade? Se não lembrar, o preço de hoje no mercado serve.",
+      "impacto": {
+        "valor": 0.0,
+        "texto": "R$ 0,00"
+      },
+      "impacto_texto": "sem o preço, as receitas com farinha de rosca ficam sem custo",
+      "resposta_inline": {
+        "tipo": "preco_pago",
+        "rotulo": "Quanto a senhora pagou?",
+        "unidades": [],
+        "campos": [
+          "preco_pago",
+          "quantidade_comprada"
+        ]
+      },
+      "rascunho_chat": "Paguei por farinha de rosca ",
+      "rota": "/despensa/item-7b2d9e10"
+    }
+  ],
+  "orcamento": {
+    "inicial": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "restante": {
+      "valor": 71.0,
+      "texto": "R$ 71,00"
+    },
+    "gasto": {
+      "valor": 9.0,
+      "texto": "R$ 9,00"
+    },
+    "fracao_gasta": 0.1125,
+    "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+    "compras": [
+      {
+        "id": 1,
+        "descricao": "Creme de leite (despensa, para Arroz com frango)",
+        "ingrediente": null,
+        "item_id": "item-4f7a1c2e",
+        "valor": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "quando_texto": "hoje, 10:02",
+        "canal": "tela",
+        "estornada": false,
+        "estorno": false,
+        "pode_estornar": true,
+        "rota_estorno": "/api/compras/1/estorno"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1457 @@
+{
+  "completude": 0.3188,
+  "respondidos": 3,
+  "supostos": 17,
+  "em_aberto": 43,
+  "fracao_respondida": 0.0476,
+  "resumo": "3 respondidos pela senhora · 17 supostos · 1 que a senhora não sabe · 42 ainda não perguntei",
+  "progresso_texto": "3 de 63 respondidos pela senhora",
+  "equipamentos": [
+    {
+      "id": "fogao",
+      "nome": "Fogão",
+      "categoria": "cocção",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem fogão aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/b25cf8e6f91b9fc0bbf9eea2f3f78828",
+        "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 2,
+      "receitas_afetadas_texto": "2 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "forno",
+      "nome": "Forno",
+      "categoria": "cocção",
+      "estado": "nao_tem",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.",
+      "imagem": {
+        "url": "/motor/imagens/fca45656d63c88c36e3099e90fa0bc79",
+        "credito": "Foto: Shixart1985, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 1,
+      "receitas_afetadas_texto": "1 receita",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    {
+      "id": "forno_eletrico",
+      "nome": "Forno elétrico",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem forno elétrico aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/6643da01a11a3487a3d1238b2d3103a2",
+        "credito": "Foto: lokate366, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "air_fryer",
+      "nome": "Air fryer",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem air fryer aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/7e859e14eda3eb645c12234cc6d83267",
+        "credito": "Foto: I am R., CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "microondas",
+      "nome": "Micro-ondas",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem micro-ondas aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/3f14e24ecee69e34ee57655326637ce7",
+        "credito": "Foto: Wrightmt, Public domain, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "panela_pressao",
+      "nome": "Panela de pressão",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem panela de pressão? Faz muita diferença pra carne e feijão.",
+      "imagem": {
+        "url": "/motor/imagens/ce0f7239f7ff94df17c9c2fc583f3345",
+        "credito": "Foto: Hustvedt, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "frigideira",
+      "nome": "Frigideira",
+      "categoria": "cocção",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem frigideira aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1825a02ae45373f2d3db34a7d36c1efe",
+        "credito": "Foto: F ASTILY, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "frigideira_antiaderente",
+      "nome": "Frigideira antiaderente",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem frigideira antiaderente aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1d8533098dcdd382b624614b8356c0e5",
+        "credito": "Foto: Andrevan, CC BY-SA 2.5, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "panela_funda",
+      "nome": "Panela funda",
+      "categoria": "cocção",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem panela funda aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/ad0b64a12505facd57d2d287112a68c9",
+        "credito": "Foto: Photograph: Frank C. Müller , Baden-Baden, CC BY-SA 2.5, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "assadeira",
+      "nome": "Assadeira",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem assadeira aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1bf67b2c0ef784f64fff11d5a921e29e",
+        "credito": "Foto: Aidan Wojtas, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "forma_bolo",
+      "nome": "Forma de bolo",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem forma de bolo aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/2d8736fe7329b45269b71e9f12ae74cc",
+        "credito": "Foto: \"giveoften\", Public domain, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "chapa",
+      "nome": "Chapa ou grill",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem chapa ou grill aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/57a63741174a28a1bef84eed6c9669db",
+        "credito": "Foto: Lymantria, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "churrasqueira",
+      "nome": "Churrasqueira",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem churrasqueira aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/9c5fcf4978a2d1977b26cb4bc85c4d88",
+        "credito": "Foto: Eduardo P, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "banho_maria",
+      "nome": "Banho-maria",
+      "categoria": "cocção",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem banho-maria aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/8de11ea124372d972012630be5401ac5",
+        "credito": "Foto: Veganbaking.net from USA, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "liquidificador",
+      "nome": "Liquidificador",
+      "categoria": "preparo",
+      "estado": "tem",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem liquidificador aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/3a18f8e30679f4ff6a6c75d0ebe19524",
+        "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": "conversa",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    {
+      "id": "batedeira",
+      "nome": "Batedeira",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem batedeira? Se for na mão dá, mas cansa bastante.",
+      "imagem": {
+        "url": "/motor/imagens/0f99ece4ad5bdc326286e611a440221f",
+        "credito": "Foto: Schekinov Alexey Victorovich, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": true
+    },
+    {
+      "id": "mixer",
+      "nome": "Mixer de mão",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem mixer de mão aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1a3ae7e36c14ac4f789fd46520dd14a9",
+        "credito": "Foto: Fluous, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "processador",
+      "nome": "Processador de alimentos",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem processador de alimentos aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/61ff3e7900363e5107768398baa52dd8",
+        "credito": "Foto: Donovan Govan, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "ralador",
+      "nome": "Ralador",
+      "categoria": "preparo",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem ralador aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/009c30d46a60155236d080e34b684daa",
+        "credito": "Foto: Superbass, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "peneira",
+      "nome": "Peneira",
+      "categoria": "preparo",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem peneira aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/7b0a83e110c43b5019477e9f2be5968d",
+        "credito": "Foto: Nuoska, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "rolo_massa",
+      "nome": "Rolo de massa",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem rolo de massa aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/95e3cc870463769e99622b6ff77b1d98",
+        "credito": "Foto: Famartin, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "cilindro",
+      "nome": "Cilindro de massa",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem cilindro de massa aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/122582613aa2c98512a1de1bdb176e7f",
+        "credito": "Foto: Donovan Govan., CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "fouet",
+      "nome": "Batedor de arame (fouet)",
+      "categoria": "preparo",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem batedor de arame (fouet) aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1963b6682bba9057cbcde9df16bad110",
+        "credito": "Foto: Matti Blume, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "saco_confeitar",
+      "nome": "Saco de confeitar",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem saco de confeitar aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/b25b3775800adba36e8ab30600e432f6",
+        "credito": "Foto: oskay, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "espremedor",
+      "nome": "Espremedor",
+      "categoria": "preparo",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem espremedor aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/1abf9e6363106b4a81b17631d78878d9",
+        "credito": "Foto: James Quinn from Albuquerque. NM, USA, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "geladeira",
+      "nome": "Geladeira",
+      "categoria": "frio",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem geladeira aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/44665e291daad75465c5fa73ae4471bc",
+        "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "freezer",
+      "nome": "Freezer",
+      "categoria": "frio",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem freezer separado, ou só o congelador da geladeira?",
+      "imagem": {
+        "url": "/motor/imagens/97539f2ab2976c9ac75a00bcf562948b",
+        "credito": "Foto: Yvwv, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "balanca",
+      "nome": "Balança de cozinha",
+      "categoria": "medição",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem balança de cozinha? Pra vender ajuda muito a padronizar a porção.",
+      "imagem": {
+        "url": "/motor/imagens/f9982a58c50cd75319e4da9107d46943",
+        "credito": "Foto: Jacek Halicki, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "termometro",
+      "nome": "Termômetro culinário",
+      "categoria": "medição",
+      "estado": "desconhecido",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem termômetro culinário aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/8e84e4da77490adaa8167862ee320a72",
+        "credito": "Foto: Steven Jackson from USA, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "faca",
+      "nome": "Faca",
+      "categoria": "utensílio",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem faca aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/4d71eb8468c6db520678837f347eecb8",
+        "credito": "Foto: ProjectManhattan, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "tabua",
+      "nome": "Tábua de corte",
+      "categoria": "utensílio",
+      "estado": "tem",
+      "pressuposto": true,
+      "suposto": true,
+      "pergunta": "A senhora tem tábua de corte aí na cozinha?",
+      "imagem": {
+        "url": "/motor/imagens/4a67360b125224713a0d25434851afa2",
+        "credito": "Foto: Sarah5252, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    }
+  ],
+  "tecnicas": [
+    {
+      "id": "refogar",
+      "nome": "Refogar",
+      "categoria": "básica",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com refogar?",
+      "imagem": {
+        "url": "/motor/imagens/5c8df82cf8fa6e9b14e7f0789852d532",
+        "credito": "Foto: Rootology, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 2,
+      "receitas_afetadas_texto": "2 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "cozinhar_arroz",
+      "nome": "Cozinhar arroz",
+      "categoria": "básica",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com cozinhar arroz?",
+      "imagem": {
+        "url": "/motor/imagens/3c55f0d77a742283a3c20a925530a48c",
+        "credito": "Foto: mario, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "cozinhar_feijao",
+      "nome": "Cozinhar feijão",
+      "categoria": "básica",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com cozinhar feijão?",
+      "imagem": {
+        "url": "/motor/imagens/a5765644bf2031217ed010907bc3ce0a",
+        "credito": "Foto: Hedestad, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "fritar",
+      "nome": "Fritar",
+      "categoria": "básica",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com fritar?",
+      "imagem": {
+        "url": "/motor/imagens/e269126d9a68207baaaf79dd2f8f169f",
+        "credito": "Foto: Takeaway, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "empanar",
+      "nome": "Empanar",
+      "categoria": "básica",
+      "dificuldade": 2,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com empanar?",
+      "imagem": {
+        "url": "/motor/imagens/9ad0e778b3850effed4a488758bd3770",
+        "credito": "Foto: mteson Marcelo Teson Los Angeles, CA, USA, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "assar",
+      "nome": "Assar",
+      "categoria": "básica",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com assar?",
+      "imagem": {
+        "url": "/motor/imagens/b7e2c3b337b27791c1ca35788965d839",
+        "credito": "Foto: Phoebe, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "grelhar",
+      "nome": "Grelhar",
+      "categoria": "básica",
+      "dificuldade": 2,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com grelhar?",
+      "imagem": {
+        "url": "/motor/imagens/000bd2095ba72a170b89759f5f451b62",
+        "credito": "Foto: Elissa Capelle Vaughn, CC0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "massa_fresca",
+      "nome": "Massa fresca",
+      "categoria": "massas",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora já fez massa fresca em casa? Dá certo, mas dá trabalho.",
+      "imagem": {
+        "url": "/motor/imagens/defeb01d35008330dcf2922890ab3fde",
+        "credito": "Foto: Joy, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "sovar_pao",
+      "nome": "Sovar e fermentar pão",
+      "categoria": "massas",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com sovar e fermentar pão?",
+      "imagem": {
+        "url": "/motor/imagens/14c52dc4dd6cb83fa008a2889ea07706",
+        "credito": "Foto: Shixart1985, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "massa_folhada",
+      "nome": "Massa folhada",
+      "categoria": "massas",
+      "dificuldade": 5,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com massa folhada?",
+      "imagem": {
+        "url": "/motor/imagens/b44e42329c645decc77354265da7b772",
+        "credito": "Foto: LukaszKatlewa, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "massa_podre",
+      "nome": "Massa podre / torta",
+      "categoria": "massas",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com massa podre / torta?",
+      "imagem": {
+        "url": "/motor/imagens/2dd1e13ab442a6a5c9d1598c3d992940",
+        "credito": "Foto: WhatamIdoing, CC BY 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "bechamel",
+      "nome": "Molho béchamel",
+      "categoria": "molhos",
+      "dificuldade": 3,
+      "estado": "tem",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora sabe fazer molho branco (béchamel)? Aquele da lasanha.",
+      "imagem": {
+        "url": "/motor/imagens/958f251c86c43fd1a4429467e56635b9",
+        "credito": "Foto: Jacek Halicki, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    {
+      "id": "roux",
+      "nome": "Roux",
+      "categoria": "molhos",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com roux?",
+      "imagem": {
+        "url": "/motor/imagens/7fadbda79ffce6361b5b4f6eeb8c00e6",
+        "credito": "Foto: Roger469, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "reducao",
+      "nome": "Redução de molho",
+      "categoria": "molhos",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com redução de molho?",
+      "imagem": null,
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "emulsao",
+      "nome": "Emulsão / maionese",
+      "categoria": "molhos",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com emulsão / maionese?",
+      "imagem": {
+        "url": "/motor/imagens/e8bd61f67f827561828112485052b3bf",
+        "credito": "Foto: Jason Terk from Somerville, MA, US, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "molho_tomate",
+      "nome": "Molho de tomate caseiro",
+      "categoria": "molhos",
+      "dificuldade": 2,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com molho de tomate caseiro?",
+      "imagem": {
+        "url": "/motor/imagens/3560957f53cff846f2ad5ae0c4b7ce0a",
+        "credito": "Foto: Dennis Klein klein2, CC0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "ponto_carne",
+      "nome": "Pontos de carne",
+      "categoria": "carnes",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora se vira bem com ponto de carne, como mal passado e ao ponto?",
+      "imagem": {
+        "url": "/motor/imagens/f074fa5a56dd0170662be58b3fa0e15c",
+        "credito": "Foto: Tim Reckmann, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "selar",
+      "nome": "Selar carne",
+      "categoria": "carnes",
+      "dificuldade": 2,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com selar carne?",
+      "imagem": {
+        "url": "/motor/imagens/0436870be99ff1b32ae3e6861bfd62cf",
+        "credito": "Foto: sousvideguy, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "braseado",
+      "nome": "Braseado / cozimento lento",
+      "categoria": "carnes",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com braseado / cozimento lento?",
+      "imagem": {
+        "url": "/motor/imagens/94c8582504f40b6937d20a725e14414c",
+        "credito": "Foto: FiveRings, CC BY 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "desossar",
+      "nome": "Desossar",
+      "categoria": "carnes",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com desossar?",
+      "imagem": {
+        "url": "/motor/imagens/dd8aef0f47933cdba0aa516e91b9984c",
+        "credito": "Foto: Food & Spirits Magazine, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "limpar_peixe",
+      "nome": "Limpar peixe",
+      "categoria": "carnes",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com limpar peixe?",
+      "imagem": {
+        "url": "/motor/imagens/134b2a0f537a3f2720d217e8c27d06b8",
+        "credito": "Foto: Benreis, CC BY 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "ponto_caramelo",
+      "nome": "Ponto de caramelo",
+      "categoria": "confeitaria",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora já fez calda de caramelo? Aquela que queima fácil se distrair.",
+      "imagem": {
+        "url": "/motor/imagens/3f9d0e4f7f3f264e736ce99bfd1bce2b",
+        "credito": "Foto: Delphine Ménard, CC BY-SA 2.0 fr, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "ponto_calda",
+      "nome": "Ponto de calda",
+      "categoria": "confeitaria",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com ponto de calda?",
+      "imagem": {
+        "url": "/motor/imagens/8f3349a6f620ee118fcb4e324f54f16d",
+        "credito": "Foto: Andreamorillo, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "merengue",
+      "nome": "Merengue / claras em neve",
+      "categoria": "confeitaria",
+      "dificuldade": 3,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com merengue / claras em neve?",
+      "imagem": {
+        "url": "/motor/imagens/1d992e7854d2734b2badac573e0a088e",
+        "credito": "Foto: Nillerdk, CC BY 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "ganache",
+      "nome": "Ganache",
+      "categoria": "confeitaria",
+      "dificuldade": 2,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com ganache?",
+      "imagem": {
+        "url": "/motor/imagens/b80debe230d1c9f1be4d46d140df72c6",
+        "credito": "Foto: Luisa Contreras, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "temperagem",
+      "nome": "Temperagem de chocolate",
+      "categoria": "confeitaria",
+      "dificuldade": 5,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora já temperou chocolate? É aquele processo de esfriar e esquentar.",
+      "imagem": {
+        "url": "/motor/imagens/ac7e65f6d76fc8eaed9124d8e1755c5e",
+        "credito": "Foto: Roozitaa, CC BY-SA 3.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "brigadeiro",
+      "nome": "Brigadeiro / doce de panela",
+      "categoria": "confeitaria",
+      "dificuldade": 1,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com brigadeiro / doce de panela?",
+      "imagem": {
+        "url": "/motor/imagens/164482dd42549fe73f507a13efccb2e5",
+        "credito": "Foto: User Mayra (Maych) on Flickr, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "bolo_simples",
+      "nome": "Bolo caseiro",
+      "categoria": "confeitaria",
+      "dificuldade": 2,
+      "estado": "tem",
+      "pressuposta": true,
+      "suposto": true,
+      "pergunta": "A senhora tem prática com bolo caseiro?",
+      "imagem": {
+        "url": "/motor/imagens/43676b8f799b6b9fa860ea0224fdaf1b",
+        "credito": "Foto: Wilfredor, CC0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "sous_vide",
+      "nome": "Sous vide",
+      "categoria": "avançada",
+      "dificuldade": 5,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com sous vide?",
+      "imagem": {
+        "url": "/motor/imagens/852f400a49728d3d905c2e73224bcb28",
+        "credito": "Foto: David Lippincott for Chassis Plans, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "defumar",
+      "nome": "Defumar",
+      "categoria": "avançada",
+      "dificuldade": 5,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com defumar?",
+      "imagem": {
+        "url": "/motor/imagens/35ffa3de08a1582e57831a0674b2abcf",
+        "credito": "Foto: we-make-money-not-art , cropped by User:Nordelch, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "flambar",
+      "nome": "Flambar",
+      "categoria": "avançada",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com flambar?",
+      "imagem": {
+        "url": "/motor/imagens/889b1f275b5d5d9081e98fc6ee965d45",
+        "credito": "Foto: Marc-Lautenbacher, CC BY-SA 4.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    {
+      "id": "confit",
+      "nome": "Confit",
+      "categoria": "avançada",
+      "dificuldade": 4,
+      "estado": "desconhecido",
+      "pressuposta": false,
+      "suposto": false,
+      "pergunta": "A senhora tem prática com confit?",
+      "imagem": {
+        "url": "/motor/imagens/78ed440ff7db785edcf6e4bba789ef2c",
+        "credito": "Foto: Mack Male from Edmonton, AB, Canada, CC BY-SA 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 0,
+      "receitas_afetadas_texto": "0 receitas",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    }
+  ],
+  "restricoes": {
+    "bocas_fogao": {
+      "valor": 4,
+      "tipo": "inteiro",
+      "unidade": "bocas",
+      "min": 1,
+      "max": 8,
+      "pergunta": "Seu fogão tem quantas bocas? Isso limita quantas panelas andam juntas.",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    "tempo_max_por_fornada_min": {
+      "tipo": "horas",
+      "unidade": "horas",
+      "min": 0.5,
+      "max": 12,
+      "passo": 0.5,
+      "casas": 2,
+      "valor": 1.5,
+      "valor_texto": "1,5 hora",
+      "pergunta": "Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    "porcoes_por_fornada": {
+      "valor": null,
+      "tipo": "inteiro",
+      "unidade": "porções",
+      "min": 1,
+      "max": 500,
+      "pergunta": "Quantas marmitas a senhora consegue montar numa leva só?",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    "espaco_geladeira_litros": {
+      "valor": null,
+      "tipo": "inteiro",
+      "unidade": "litros",
+      "min": 0,
+      "max": 1000,
+      "pergunta": "Como está o espaço na geladeira? Cabe guardar preparo pronto, em litros mais ou menos? Pode chutar.",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    "energia_aparelhos_simultaneos": {
+      "valor": null,
+      "tipo": "inteiro",
+      "unidade": "aparelhos",
+      "min": 0,
+      "max": 10,
+      "pergunta": "Quantos aparelhos de alta potência a senhora consegue ligar ao mesmo tempo sem cair o disjuntor? Forno elétrico, air fryer, batedeira.",
+      "atualizado_por": null,
+      "atualizado_texto": null,
+      "nao_sei": false
+    },
+    "tem_gas_sobrando": {
+      "valor": null,
+      "tipo": "sim_nao",
+      "pergunta": "Como está o botijão de gás? Tem reserva?",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": true
+    }
+  },
+  "toda_cozinha": {
+    "titulo": "O que toda cozinha tem",
+    "texto": "Eu supus que a senhora tem estas coisas e faz estes pratos do dia a dia. Confirme para eu ter certeza antes de qualquer compra.",
+    "a_confirmar": 17,
+    "a_confirmar_texto": "17 para confirmar",
+    "tudo_confirmado": false,
+    "itens": [
+      {
+        "tipo": "equipamento",
+        "id": "fogao",
+        "nome": "Fogão",
+        "imagem": {
+          "url": "/motor/imagens/b25cf8e6f91b9fc0bbf9eea2f3f78828",
+          "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "frigideira",
+        "nome": "Frigideira",
+        "imagem": {
+          "url": "/motor/imagens/1825a02ae45373f2d3db34a7d36c1efe",
+          "credito": "Foto: F ASTILY, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "panela_funda",
+        "nome": "Panela funda",
+        "imagem": {
+          "url": "/motor/imagens/ad0b64a12505facd57d2d287112a68c9",
+          "credito": "Foto: Photograph: Frank C. Müller , Baden-Baden, CC BY-SA 2.5, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "ralador",
+        "nome": "Ralador",
+        "imagem": {
+          "url": "/motor/imagens/009c30d46a60155236d080e34b684daa",
+          "credito": "Foto: Superbass, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "peneira",
+        "nome": "Peneira",
+        "imagem": {
+          "url": "/motor/imagens/7b0a83e110c43b5019477e9f2be5968d",
+          "credito": "Foto: Nuoska, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "fouet",
+        "nome": "Batedor de arame (fouet)",
+        "imagem": {
+          "url": "/motor/imagens/1963b6682bba9057cbcde9df16bad110",
+          "credito": "Foto: Matti Blume, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "geladeira",
+        "nome": "Geladeira",
+        "imagem": {
+          "url": "/motor/imagens/44665e291daad75465c5fa73ae4471bc",
+          "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "faca",
+        "nome": "Faca",
+        "imagem": {
+          "url": "/motor/imagens/4d71eb8468c6db520678837f347eecb8",
+          "credito": "Foto: ProjectManhattan, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "equipamento",
+        "id": "tabua",
+        "nome": "Tábua de corte",
+        "imagem": {
+          "url": "/motor/imagens/4a67360b125224713a0d25434851afa2",
+          "credito": "Foto: Sarah5252, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "refogar",
+        "nome": "Refogar",
+        "imagem": {
+          "url": "/motor/imagens/5c8df82cf8fa6e9b14e7f0789852d532",
+          "credito": "Foto: Rootology, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "cozinhar_arroz",
+        "nome": "Cozinhar arroz",
+        "imagem": {
+          "url": "/motor/imagens/3c55f0d77a742283a3c20a925530a48c",
+          "credito": "Foto: mario, CC BY 2.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "cozinhar_feijao",
+        "nome": "Cozinhar feijão",
+        "imagem": {
+          "url": "/motor/imagens/a5765644bf2031217ed010907bc3ce0a",
+          "credito": "Foto: Hedestad, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "fritar",
+        "nome": "Fritar",
+        "imagem": {
+          "url": "/motor/imagens/e269126d9a68207baaaf79dd2f8f169f",
+          "credito": "Foto: Takeaway, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "assar",
+        "nome": "Assar",
+        "imagem": {
+          "url": "/motor/imagens/b7e2c3b337b27791c1ca35788965d839",
+          "credito": "Foto: Phoebe, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "molho_tomate",
+        "nome": "Molho de tomate caseiro",
+        "imagem": {
+          "url": "/motor/imagens/3560957f53cff846f2ad5ae0c4b7ce0a",
+          "credito": "Foto: Dennis Klein klein2, CC0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "brigadeiro",
+        "nome": "Brigadeiro / doce de panela",
+        "imagem": {
+          "url": "/motor/imagens/164482dd42549fe73f507a13efccb2e5",
+          "credito": "Foto: User Mayra (Maych) on Flickr, CC BY-SA 2.0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "bolo_simples",
+        "nome": "Bolo caseiro",
+        "imagem": {
+          "url": "/motor/imagens/43676b8f799b6b9fa860ea0224fdaf1b",
+          "credito": "Foto: Wilfredor, CC0, Wikimedia Commons"
+        },
+        "estado": "tem",
+        "status": "suposto",
+        "status_texto": "suposto: confirme"
+      }
+    ]
+  }
+}

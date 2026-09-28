@@ -1,0 +1,64 @@
+{
+  "id": "peito-de-frango",
+  "nome": "Peito de frango",
+  "categoria": "proteinas",
+  "categoria_rotulo": "Carnes e ovos",
+  "estoque": 2.0,
+  "unidade": "kg",
+  "estoque_texto": "2 kg",
+  "pago": {
+    "valor": 28.0,
+    "texto": "R$ 28,00"
+  },
+  "custo_unitario": {
+    "valor": 14.0,
+    "texto": "R$ 14,00/kg"
+  },
+  "derivacao": "R$ 28,00 ÷ 2 kg = R$ 14,00/kg",
+  "confianca": "alta",
+  "confianca_rotulo": "conta direta da planilha",
+  "fracao_do_total": 0.0416,
+  "fracao_texto": "4% do que a senhora pagou",
+  "origem": "planilha",
+  "origem_rotulo": "da planilha",
+  "imagem": {
+    "url": "/motor/imagens/d921d732731e934cb16eff714b02fd67",
+    "credito": "Foto: kakyusei, CC0, Wikimedia Commons"
+  },
+  "receitas_que_usam": 1,
+  "receitas_que_usam_texto": "entra em 1 receita",
+  "pendente": false,
+  "rota": "/despensa/peito-de-frango",
+  "comprado_texto": "2 kg por R$ 28,00",
+  "unidade_compra_rotulo": "kg",
+  "pendencia": null,
+  "receitas": [
+    {
+      "slug": "arroz-com-frango",
+      "nome": "Arroz com frango",
+      "veredito": "FALTA INFO",
+      "veredito_rotulo": "Falta saber",
+      "imagem": null,
+      "usa_texto": "usa 500 g",
+      "rota": "/receitas/arroz-com-frango"
+    }
+  ],
+  "historico": [
+    {
+      "id": "planilha",
+      "tipo": "planilha",
+      "acao": "planilha",
+      "texto": "Veio da planilha: 2 kg por R$ 28,00.",
+      "quando_texto": "na planilha que a senhora entregou",
+      "canal": "planilha",
+      "pode_desfazer": false,
+      "desfaz": null,
+      "item_id": "peito-de-frango",
+      "item_nome": "Peito de frango",
+      "motivo": null,
+      "rota": "/despensa/peito-de-frango"
+    }
+  ],
+  "compras": [],
+  "rascunho_chat": "O que eu posso fazer com peito de frango?"
+}

@@ -1,0 +1,163 @@
+{
+  "prato": "Arroz com frango",
+  "rendimento_original": 4,
+  "e_faixa": false,
+  "total": {
+    "valor": 2.37,
+    "texto": "R$ 2,37"
+  },
+  "minimo": {
+    "valor": 2.33,
+    "texto": "R$ 2,33"
+  },
+  "maximo": {
+    "valor": 2.41,
+    "texto": "R$ 2,41"
+  },
+  "linhas": [
+    {
+      "ingrediente": "Peito de frango",
+      "quantidade": "0,125 kg",
+      "custo": {
+        "valor": 1.75,
+        "texto": "R$ 1,75"
+      },
+      "derivacao": "500 g = 500 g × R$ 14,00/kg = R$ 7,00 ÷ 4 porções",
+      "fracao": 0.74
+    },
+    {
+      "ingrediente": "Arroz branco tipo 1",
+      "quantidade": "0,102 kg",
+      "custo": {
+        "valor": 0.51,
+        "texto": "R$ 0,51"
+      },
+      "derivacao": "2 xícaras = 480 ml × 0,85 g/ml = 408 g × R$ 4,98/kg = R$ 2,03 ÷ 4 porções",
+      "fracao": 0.21
+    },
+    {
+      "ingrediente": "Cebola",
+      "quantidade": "0,0275 kg",
+      "custo": {
+        "valor": 0.11,
+        "texto": "R$ 0,11"
+      },
+      "derivacao": "1 × 110 g (peso típico de cebola) = 110 g × R$ 4,00/kg = R$ 0,44 ÷ 4 porções",
+      "fracao": 0.05
+    }
+  ],
+  "itens_a_gosto": [
+    "sal"
+  ],
+  "explicacao": "Custo de ingrediente de 1 porção de Arroz com frango:\n  · Peito de frango: 0,125 kg = R$ 1,75\n  · Arroz branco tipo 1: 0,102 kg = R$ 0,51\n  · Cebola: 0,0275 kg = R$ 0,11\n  · sal: a gosto, custo desprezível (mas contado, não esquecido)\n  Total: R$ 2,37\n  (a receita original rende 4 porções; os valores acima já são de uma só)",
+  "ingrediente_que_falta_exemplo": {
+    "nome": "milho verde",
+    "quantidade_texto": "1 lata",
+    "preco_conhecido": true,
+    "custo_compra": {
+      "valor": 6.0,
+      "texto": "R$ 6,00"
+    },
+    "custo_no_prato": {
+      "valor": 6.0,
+      "texto": "R$ 6,00"
+    },
+    "derivacao": "1 lata × R$ 6,00 por 1 lata = R$ 6,00; na compra, 1 × R$ 6,00 = R$ 6,00",
+    "origem_preco": "informado pela senhora",
+    "cabe_no_orcamento": true,
+    "referencia": null
+  },
+  "ingrediente_com_preco_de_referencia_exemplo": {
+    "nome": "creme de leite",
+    "quantidade_texto": "1 caixinha",
+    "preco_conhecido": true,
+    "custo_compra": {
+      "valor": 3.32,
+      "texto": "R$ 3,32"
+    },
+    "custo_no_prato": {
+      "valor": 3.32,
+      "texto": "R$ 3,32"
+    },
+    "derivacao": "0,2 kg × R$ 3,32 por 0,2 kg = R$ 3,32; na compra, 1 × R$ 3,32 = R$ 3,32 (preço médio em São Paulo: R$ 3,32 pela caixinha de 200 g (média de 6 mercados de São Paulo: R$ 14,95, R$ 16,45, R$ 9,95, R$ 22,35, R$ 17,45 e R$ 18,45 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Casa Santa Luzia (R$ 32,00 o quilo)); a senhora pode corrigir)",
+    "origem_preco": "preço de referência",
+    "cabe_no_orcamento": true,
+    "referencia": {
+      "ingrediente": "creme de leite",
+      "texto": "Preço médio em São Paulo: R$ 3,32 pela caixinha de 200 g (média de 6 mercados de São Paulo: R$ 14,95, R$ 16,45, R$ 9,95, R$ 22,35, R$ 17,45 e R$ 18,45 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Casa Santa Luzia (R$ 32,00 o quilo)); a senhora pode corrigir.",
+      "preco_texto": "R$ 3,32 pela caixinha de 200 g, preço médio em São Paulo, 27/09/2026",
+      "produto": "Creme de Leite Italac 200g",
+      "site": "mercado de São Paulo",
+      "url": "https://www.mambo.com.br/creme-de-leite-italac-200g/p",
+      "data_texto": "27/09/2026",
+      "titulo": "Preço médio em São Paulo",
+      "preco_medio_texto": "R$ 16,60 o quilo",
+      "media_texto": "média de 6 mercados de São Paulo: R$ 14,95, R$ 16,45, R$ 9,95, R$ 22,35, R$ 17,45 e R$ 18,45 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Casa Santa Luzia (R$ 32,00 o quilo)",
+      "fontes": [
+        {
+          "site": "Mambo",
+          "produto": "Creme de Leite Italac 200g",
+          "preco_texto": "R$ 2,99 por 200 g",
+          "por_unidade_texto": "R$ 14,95 o quilo",
+          "url": "https://www.mambo.com.br/creme-de-leite-italac-200g/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Coop",
+          "produto": "Creme de Leite Jussara Tetra Pak 200g",
+          "preco_texto": "R$ 3,29 por 200 g",
+          "por_unidade_texto": "R$ 16,45 o quilo",
+          "url": "https://www.coopsupermercado.com.br/creme-de-leite-jussara-tetra-pak-200g/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Atacadão",
+          "produto": "Creme de Leite Bulnez 200g",
+          "preco_texto": "R$ 1,99 por 200 g",
+          "por_unidade_texto": "R$ 9,95 o quilo",
+          "url": "https://www.atacadao.com.br/creme-de-leite-bulnez-14211/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Swift",
+          "produto": "Creme de Leite Nestlé 200g",
+          "preco_texto": "R$ 4,47 por 200 g",
+          "por_unidade_texto": "R$ 22,35 o quilo",
+          "url": "https://www.swift.com.br/creme-de-leite-nestle-200g/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Savegnago",
+          "produto": "Creme Leite Italac 200g TP",
+          "preco_texto": "R$ 3,49 por 200 g",
+          "por_unidade_texto": "R$ 17,45 o quilo",
+          "url": "https://www.savegnago.com.br/creme-leite-italac-200g-tp/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Covabra",
+          "produto": "Creme de Leite Shefa 200g",
+          "preco_texto": "R$ 3,69 por 200 g",
+          "por_unidade_texto": "R$ 18,45 o quilo",
+          "url": "https://www.covabra.com.br/creme-de-leite-shefa-200g/p",
+          "data_texto": "27/09/2026",
+          "na_media": true
+        },
+        {
+          "site": "Casa Santa Luzia",
+          "produto": "Creme de Leite Original Nestlé 200g",
+          "preco_texto": "R$ 6,40 por 200 g",
+          "por_unidade_texto": "R$ 32,00 o quilo",
+          "url": "https://www.santaluzia.com.br/creme-de-leite-original-nestle-200g-574104/p",
+          "data_texto": "27/09/2026",
+          "na_media": false
+        }
+      ]
+    }
+  }
+}

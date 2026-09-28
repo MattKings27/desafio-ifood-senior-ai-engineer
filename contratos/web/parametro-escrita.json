@@ -1,0 +1,18 @@
+{
+  "pedido": {
+    "valor": 1.2
+  },
+  "resposta": {
+    "nome": "embalagem_por_porcao",
+    "rotulo": "Embalagem por porção",
+    "valor": {
+      "valor": 1.2,
+      "texto": "R$ 1,20 por porção"
+    },
+    "origem": "dela",
+    "fonte": "informado pela senhora",
+    "fonte_url": null,
+    "atualizado_texto": "hoje, 10:30",
+    "editavel": true
+  }
+}

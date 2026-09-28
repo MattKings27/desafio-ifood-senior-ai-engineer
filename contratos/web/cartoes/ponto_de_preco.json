@@ -1,0 +1,34 @@
+{
+  "cartao_id": "k-11",
+  "tipo_cartao": "ponto_de_preco",
+  "ref": {
+    "rota": "/api/preco-em?prato=Arroz%20com%20frango&preco=12.0",
+    "parametros": {
+      "prato": "Arroz com frango",
+      "preco": 12.0
+    }
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "preco": {
+      "valor": 12.0,
+      "texto": "R$ 12,00"
+    },
+    "taxa": {
+      "valor": 1.2,
+      "texto": "R$ 1,20"
+    },
+    "recebe": {
+      "valor": 10.8,
+      "texto": "R$ 10,80"
+    },
+    "lucro": {
+      "valor": 7.8,
+      "texto": "R$ 7,80"
+    },
+    "food_cost": 0.25,
+    "margem": 0.65,
+    "da_prejuizo": false,
+    "explicacao": "Vendendo a R$ 12,00: o iFood fica com R$ 1,20 (10%), então chegam R$ 10,80 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 7,80 limpos por porção. Isso é 65% do que o cliente paga."
+  }
+}

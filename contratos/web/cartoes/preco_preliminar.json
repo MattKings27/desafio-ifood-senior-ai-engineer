@@ -1,0 +1,217 @@
+{
+  "cartao_id": "k-12",
+  "tipo_cartao": "preco_preliminar",
+  "ref": {
+    "rota": "/api/receitas/arroz-com-frango/estimativa",
+    "parametros": {
+      "slug": "arroz-com-frango",
+      "prato": "Arroz com frango"
+    }
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "slug": "arroz-com-frango",
+    "prato": "Arroz com frango",
+    "preliminar": true,
+    "rotulo": "Preço preliminar",
+    "linhas": [
+      {
+        "id": "ingredientes",
+        "rotulo": "Ingredientes da porção",
+        "valor": {
+          "valor": 2.47,
+          "texto": "R$ 2,47"
+        },
+        "derivacao": "a soma das linhas do custo por porção",
+        "premissas": []
+      },
+      {
+        "id": "mao_de_obra",
+        "rotulo": "Mão de obra sugerida",
+        "valor": {
+          "valor": 2.5,
+          "texto": "R$ 2,50"
+        },
+        "derivacao": "40 min ÷ 60 × R$ 15,00 por hora ÷ 4 porções = R$ 2,50",
+        "premissas": [
+          "valor_hora"
+        ]
+      },
+      {
+        "id": "gas",
+        "rotulo": "Gás",
+        "valor": {
+          "valor": 0.3,
+          "texto": "R$ 0,30"
+        },
+        "derivacao": "botijão de R$ 120,00 ÷ (67 h × 60 min) = 2,99 centavos por minuto de fogo; 40 min × 2,99 centavos ÷ 4 porções = R$ 0,30, arredondado para cima",
+        "premissas": [
+          "botijao_preco",
+          "botijao_horas"
+        ]
+      },
+      {
+        "id": "embalagem",
+        "rotulo": "Embalagem",
+        "valor": null,
+        "derivacao": "a senhora ainda não disse quanto paga na embalagem; fica de fora da conta",
+        "premissas": [
+          "embalagem_por_porcao"
+        ]
+      }
+    ],
+    "premissas": [
+      {
+        "nome": "valor_hora",
+        "rotulo": "Valor da hora da senhora",
+        "valor": {
+          "valor": 15.0,
+          "texto": "R$ 15,00 por hora"
+        },
+        "origem": "dela",
+        "fonte": "informado pela senhora",
+        "fonte_url": null,
+        "atualizado_texto": "hoje, 10:20",
+        "editavel": true
+      },
+      {
+        "nome": "botijao_preco",
+        "rotulo": "Preço do botijão de gás",
+        "valor": {
+          "valor": 120.0,
+          "texto": "R$ 120,00 o botijão de 13 kg"
+        },
+        "origem": "dela",
+        "fonte": "informado pela senhora",
+        "fonte_url": null,
+        "atualizado_texto": "hoje, 10:21",
+        "editavel": true
+      },
+      {
+        "nome": "botijao_horas",
+        "rotulo": "Quanto tempo o botijão dura no fogo",
+        "valor": {
+          "valor": 67.0,
+          "texto": "67 horas de fogo"
+        },
+        "origem": "dela",
+        "fonte": "informado pela senhora",
+        "fonte_url": null,
+        "atualizado_texto": "hoje, 10:21",
+        "editavel": true
+      },
+      {
+        "nome": "embalagem_por_porcao",
+        "rotulo": "Embalagem por porção",
+        "valor": null,
+        "origem": "falta",
+        "fonte": null,
+        "fonte_url": null,
+        "atualizado_texto": null,
+        "editavel": true
+      }
+    ],
+    "custo_producao": {
+      "valor": 5.27,
+      "texto": "R$ 5,27",
+      "derivacao": "R$ 2,47 + R$ 2,50 + R$ 0,30 = R$ 5,27, sem a embalagem"
+    },
+    "piso": {
+      "valor": 5.86,
+      "texto": "R$ 5,86",
+      "derivacao": "R$ 5,27 ÷ 0,90 = 5,856, arredondado para cima: R$ 5,86"
+    },
+    "minimo_so_ingrediente": {
+      "valor": 2.75,
+      "texto": "R$ 2,75",
+      "derivacao": "R$ 2,47 ÷ 0,90 = 2,744, arredondado para cima: R$ 2,75"
+    },
+    "pontos": [
+      {
+        "nome": "Conservador",
+        "descricao": "preço mais baixo, ganha menos por prato mas atrai mais pedido",
+        "preco": {
+          "valor": 6.18,
+          "texto": "R$ 6,18"
+        },
+        "taxa": {
+          "valor": 0.62,
+          "texto": "R$ 0,62"
+        },
+        "recebe": {
+          "valor": 5.56,
+          "texto": "R$ 5,56"
+        },
+        "lucro": {
+          "valor": 3.09,
+          "texto": "R$ 3,09"
+        },
+        "sobra_real": {
+          "valor": 0.29,
+          "texto": "R$ 0,29"
+        },
+        "derivacao": "R$ 2,47 ÷ 0,40 = R$ 6,18; a plataforma fica com R$ 0,62 e chegam R$ 5,56; tirando R$ 2,47 de ingrediente, sobram R$ 3,09; tirando também a mão de obra e o gás, sobram R$ 0,29"
+      },
+      {
+        "nome": "Equilibrado",
+        "descricao": "o meio-termo: o ingrediente fica em cerca de um terço do preço",
+        "preco": {
+          "valor": 7.06,
+          "texto": "R$ 7,06"
+        },
+        "taxa": {
+          "valor": 0.71,
+          "texto": "R$ 0,71"
+        },
+        "recebe": {
+          "valor": 6.35,
+          "texto": "R$ 6,35"
+        },
+        "lucro": {
+          "valor": 3.88,
+          "texto": "R$ 3,88"
+        },
+        "sobra_real": {
+          "valor": 1.08,
+          "texto": "R$ 1,08"
+        },
+        "derivacao": "R$ 2,47 ÷ 0,35 = R$ 7,06; a plataforma fica com R$ 0,71 e chegam R$ 6,35; tirando R$ 2,47 de ingrediente, sobram R$ 3,88; tirando também a mão de obra e o gás, sobram R$ 1,08"
+      },
+      {
+        "nome": "Premium",
+        "descricao": "preço mais alto, ganha mais por prato mas vende para menos gente",
+        "preco": {
+          "valor": 8.23,
+          "texto": "R$ 8,23"
+        },
+        "taxa": {
+          "valor": 0.82,
+          "texto": "R$ 0,82"
+        },
+        "recebe": {
+          "valor": 7.41,
+          "texto": "R$ 7,41"
+        },
+        "lucro": {
+          "valor": 4.94,
+          "texto": "R$ 4,94"
+        },
+        "sobra_real": {
+          "valor": 2.14,
+          "texto": "R$ 2,14"
+        },
+        "derivacao": "R$ 2,47 ÷ 0,30 = R$ 8,23; a plataforma fica com R$ 0,82 e chegam R$ 7,41; tirando R$ 2,47 de ingrediente, sobram R$ 4,94; tirando também a mão de obra e o gás, sobram R$ 2,14"
+      }
+    ],
+    "referencias_de_mercado": [],
+    "referencias_texto": "Ainda não tenho preço de mercado conferido numa página para comparar; os três preços saem da conta do custo.",
+    "sinais": {
+      "mercado_abaixo_do_piso": false,
+      "faltam_parametros": [
+        "embalagem_por_porcao"
+      ],
+      "falta_confirmar": []
+    },
+    "texto": "Preço preliminar, sem compromisso: com o que eu sei hoje, a porção de arroz com frango fica entre R$ 6,18 e R$ 8,23. Falta a senhora me dizer quanto paga na embalagem."
+  }
+}

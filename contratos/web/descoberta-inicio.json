@@ -1,0 +1,6 @@
+{
+  "execucao_id": "dx-0007",
+  "estado": "procurando",
+  "texto": "Procurando receitas com o que a senhora tem…",
+  "eventos": "/api/receitas/descoberta/eventos?execucao=dx-0007"
+}

@@ -1,0 +1,49 @@
+{
+  "eventos": [
+    {
+      "id": "ev-0008",
+      "tipo": "remover",
+      "acao": "estorno",
+      "texto": "A compra voltou para os complementos (R$ 9,00) e o item saiu da despensa.",
+      "quando_texto": "hoje, 10:02",
+      "canal": "tela",
+      "pode_desfazer": true,
+      "desfaz": null,
+      "item_id": "item-4f7a1c2e",
+      "item_nome": "Creme de leite",
+      "motivo": null,
+      "rota": "/despensa/item-4f7a1c2e"
+    },
+    {
+      "id": "ev-0007",
+      "tipo": "restaurar",
+      "acao": "desfazer",
+      "texto": "Voltou para a despensa. R$ 9,00 saíram de novo dos complementos.",
+      "quando_texto": "hoje, 10:02",
+      "canal": "tela",
+      "pode_desfazer": false,
+      "desfaz": "ev-0006",
+      "item_id": "item-4f7a1c2e",
+      "item_nome": "Creme de leite",
+      "motivo": null,
+      "rota": "/despensa/item-4f7a1c2e"
+    },
+    {
+      "id": "ev-0006",
+      "tipo": "remover",
+      "acao": "remover",
+      "texto": "Tirado da despensa. R$ 9,00 voltaram para os complementos.",
+      "quando_texto": "hoje, 10:02",
+      "canal": "tela",
+      "pode_desfazer": false,
+      "desfaz": null,
+      "item_id": "item-4f7a1c2e",
+      "item_nome": "Creme de leite",
+      "motivo": null,
+      "rota": "/despensa/item-4f7a1c2e"
+    }
+  ],
+  "proximo_cursor": "ev-0006",
+  "total": 8,
+  "versao": 8
+}

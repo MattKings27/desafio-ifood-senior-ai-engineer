@@ -1,0 +1,22 @@
+{
+  "nome": "Bolo de cenoura",
+  "ingredientes": [
+    {
+      "texto": "2 xícaras (chá) de farinha de trigo",
+      "nome": "farinha de trigo"
+    },
+    {
+      "texto": "4 ovos",
+      "nome": "ovos"
+    },
+    {
+      "texto": "1/2 xícara de óleo",
+      "nome": "óleo"
+    },
+    {
+      "texto": "sal a gosto",
+      "nome": "sal a gosto"
+    }
+  ],
+  "rendimento_porcoes": 4
+}

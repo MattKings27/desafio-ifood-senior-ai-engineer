@@ -1,0 +1,35 @@
+{
+  "cartao_id": "k-14",
+  "tipo_cartao": "avaliacao_da_receita",
+  "ref": {
+    "rota": "/api/receitas/8747bf504b200286/avaliacao",
+    "parametros": {
+      "slug": "8747bf504b200286",
+      "prato": "Frango com milho verde"
+    }
+  },
+  "gerado_texto": "hoje, 14:32",
+  "dados": {
+    "slug": "8747bf504b200286",
+    "nome": "Frango com milho verde",
+    "avaliacao": {
+      "gosta": true,
+      "estrelas": {
+        "sabor": 4,
+        "facilidade": null,
+        "tempo": null,
+        "entrega": 5,
+        "apelo": null
+      },
+      "notas": "Servir com arroz branco.",
+      "pontuacao": {
+        "valor": 88.8,
+        "texto": "88,8",
+        "derivacao": "Estrelas: sabor 4 (peso 0,30), aguenta a entrega 5 (0,20), dão 0,85 de 1 (contam só as que a senhora deu); a senhora gosta de fazer, que vale 1; pontuação = 100 × (0,75 × 0,85 + 0,25 × 1) = 88,8"
+      }
+    },
+    "posicao_no_ranking": 1,
+    "atualizado_texto": "hoje, 14:30",
+    "texto": "Anotei. Frango com milho verde está em primeiro lugar no ranking da senhora."
+  }
+}

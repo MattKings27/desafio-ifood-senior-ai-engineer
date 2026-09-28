@@ -1,0 +1,78 @@
+{
+  "id": "item-4f7a1c2e",
+  "nome": "Creme de leite",
+  "categoria": "laticinios",
+  "categoria_rotulo": "Laticínios",
+  "estoque": 0.4,
+  "unidade": "kg",
+  "estoque_texto": "400 g (2 embalagens de 200 g)",
+  "pago": {
+    "valor": 9.0,
+    "texto": "R$ 9,00"
+  },
+  "custo_unitario": {
+    "valor": 22.5,
+    "texto": "R$ 22,50/kg"
+  },
+  "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+  "confianca": "media",
+  "confianca_rotulo": "conta com conversão de embalagem",
+  "fracao_do_total": 0.0134,
+  "fracao_texto": "1% do que a senhora pagou",
+  "origem": "orcamento",
+  "origem_rotulo": "comprado com os complementos",
+  "imagem": null,
+  "receitas_que_usam": 1,
+  "receitas_que_usam_texto": "entra em 1 receita",
+  "pendente": false,
+  "rota": "/despensa/item-4f7a1c2e",
+  "comprado_texto": "2 embalagens de 200 g por R$ 9,00",
+  "unidade_compra_rotulo": "un 200g",
+  "pendencia": null,
+  "receitas": [
+    {
+      "slug": "arroz-com-frango",
+      "nome": "Arroz com frango",
+      "veredito": "FALTA INFO",
+      "veredito_rotulo": "Falta saber",
+      "imagem": null,
+      "usa_texto": "usa 200 g",
+      "rota": "/receitas/arroz-com-frango"
+    }
+  ],
+  "historico": [
+    {
+      "id": "ev-0001",
+      "tipo": "adicionar",
+      "acao": "adicionar",
+      "texto": "A senhora comprou com os complementos: 2 embalagens de 200 g por R$ 9,00.",
+      "quando_texto": "hoje, 10:02",
+      "canal": "tela",
+      "pode_desfazer": true,
+      "desfaz": null,
+      "item_id": "item-4f7a1c2e",
+      "item_nome": "Creme de leite",
+      "motivo": null,
+      "rota": "/despensa/item-4f7a1c2e"
+    }
+  ],
+  "compras": [
+    {
+      "id": 1,
+      "descricao": "Creme de leite (despensa, para Arroz com frango)",
+      "ingrediente": null,
+      "item_id": "item-4f7a1c2e",
+      "valor": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "quando_texto": "hoje, 10:02",
+      "canal": "tela",
+      "estornada": false,
+      "estorno": false,
+      "pode_estornar": true,
+      "rota_estorno": "/api/compras/1/estorno"
+    }
+  ],
+  "rascunho_chat": "O que eu posso fazer com creme de leite?"
+}

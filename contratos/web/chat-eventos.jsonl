@@ -1,0 +1,9 @@
+{"seq": 1, "turno_id": "t-88c1", "tipo": "turno.iniciado", "conversa_id": "cv-7f3a"}
+{"seq": 2, "turno_id": "t-88c1", "tipo": "atividade.iniciada", "atividade_id": "at-1", "ferramenta": "avaliar_receita", "rotulo": "conferindo se a senhora consegue fazer arroz com frango", "rotulo_feito": "conferi se a senhora consegue fazer arroz com frango"}
+{"seq": 3, "turno_id": "t-88c1", "tipo": "atividade.concluida", "atividade_id": "at-1", "ok": true}
+{"seq": 4, "turno_id": "t-88c1", "tipo": "cartao", "cartao_id": "k-2", "tipo_cartao": "viabilidade", "ref": {"rota": "/api/receitas/arroz-com-frango"}, "gerado_texto": "conta de hoje, 15:10", "dados": {"slug": "arroz-com-frango", "veredito_rotulo": "Dá pra fazer"}}
+{"seq": 5, "turno_id": "t-88c1", "tipo": "texto.parcial", "delta": "Dá pra fazer. A porção sai  de ingrediente"}
+{"seq": 6, "turno_id": "t-88c1", "tipo": "estado.alterado", "recursos": ["receitas", "perfil"]}
+{"seq": 7, "turno_id": "t-88c1", "tipo": "texto.final", "texto": "Dá pra fazer. A porção sai R$ 2,47 de ingrediente.", "retirados": 0}
+{"seq": 8, "turno_id": "t-88c1", "tipo": "sugestoes", "opcoes": [{"rotulo": "Quanto cobrar?", "texto": "Quanto eu cobro por porção?"}, {"rotulo": "Outra receita", "texto": "Me mostra outra receita com o que eu tenho."}]}
+{"seq": 9, "turno_id": "t-88c1", "tipo": "turno.concluido"}

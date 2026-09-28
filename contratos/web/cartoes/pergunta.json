@@ -1,0 +1,45 @@
+{
+  "cartao_id": "k-6",
+  "tipo_cartao": "pergunta",
+  "ref": {
+    "rota": null,
+    "parametros": {}
+  },
+  "gerado_texto": "hoje, 14:32",
+  "dados": {
+    "ha_pergunta": true,
+    "pergunta": "A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.",
+    "tipo": "equipamento",
+    "campo": "forno",
+    "por_que_esta": "aparece em 1 prato candidato",
+    "pratos_afetados": [
+      "Bolo de fubá"
+    ],
+    "opcoes": [
+      {
+        "rotulo": "Tenho",
+        "texto": "Tenho forno.",
+        "acao": {
+          "tipo": "responder",
+          "tipo_pergunta": "equipamento",
+          "campo": "forno",
+          "resposta": "sim"
+        }
+      },
+      {
+        "rotulo": "Não tenho",
+        "texto": "Não tenho forno.",
+        "acao": {
+          "tipo": "responder",
+          "tipo_pergunta": "equipamento",
+          "campo": "forno",
+          "resposta": "nao"
+        }
+      },
+      {
+        "rotulo": "Não sei",
+        "texto": "Não sei se tenho forno."
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "pedido_item": {
+    "estado": "nao_tem"
+  },
+  "pedido_restricao": {
+    "valor": 4
+  },
+  "resposta": {
+    "item": {
+      "id": "forno",
+      "nome": "Forno",
+      "categoria": "cocção",
+      "estado": "nao_tem",
+      "pressuposto": false,
+      "suposto": false,
+      "pergunta": "A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.",
+      "imagem": {
+        "url": "/motor/imagens/fca45656d63c88c36e3099e90fa0bc79",
+        "credito": "Foto: Shixart1985, CC BY 2.0, Wikimedia Commons"
+      },
+      "receitas_afetadas": 1,
+      "receitas_afetadas_texto": "1 receita",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    "impacto": {
+      "liberadas": [],
+      "bloqueadas": [],
+      "pendentes": [
+        "Frango assado"
+      ],
+      "texto": "Sem forno, Frango assado fica dependendo de uma resposta da senhora."
+    },
+    "perfil": {
+      "respondidos": 3,
+      "supostos": 17,
+      "em_aberto": 43,
+      "fracao_respondida": 0.0476,
+      "resumo": "3 respondidos pela senhora · 17 supostos · 1 que a senhora não sabe · 42 ainda não perguntei",
+      "progresso_texto": "3 de 63 respondidos pela senhora"
+    }
+  },
+  "resposta_restricao": {
+    "item": {
+      "id": "bocas_fogao",
+      "valor": 4,
+      "tipo": "inteiro",
+      "unidade": "bocas",
+      "min": 1,
+      "max": 8,
+      "pergunta": "Seu fogão tem quantas bocas? Isso limita quantas panelas andam juntas.",
+      "atualizado_por": "tela",
+      "atualizado_texto": "hoje, 10:02",
+      "nao_sei": false
+    },
+    "impacto": {
+      "liberadas": [],
+      "bloqueadas": [],
+      "pendentes": [],
+      "texto": "Anotado. Nenhuma receita em avaliação muda com isso."
+    },
+    "perfil": {
+      "respondidos": 3,
+      "supostos": 17,
+      "em_aberto": 43,
+      "fracao_respondida": 0.0476,
+      "resumo": "3 respondidos pela senhora · 17 supostos · 1 que a senhora não sabe · 42 ainda não perguntei",
+      "progresso_texto": "3 de 63 respondidos pela senhora"
+    }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "pedido_da_receita": {
+    "receita": "arroz-com-frango"
+  },
+  "pedido_dos_itens": {
+    "itens": [
+      {
+        "tipo": "equipamento",
+        "id": "fogao"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "refogar"
+      }
+    ]
+  },
+  "pedido_de_tudo": {},
+  "resposta": {
+    "confirmados": [
+      {
+        "tipo": "equipamento",
+        "id": "fogao",
+        "nome": "Fogão"
+      },
+      {
+        "tipo": "tecnica",
+        "id": "refogar",
+        "nome": "Refogar"
+      }
+    ],
+    "texto": "Anotei: a senhora tem fogão e sabe refogar.",
+    "perfil": {
+      "respondidos": 2,
+      "supostos": 15,
+      "em_aberto": 46,
+      "fracao_respondida": 0.0317,
+      "resumo": "2 respondidos pela senhora · 15 supostos · 46 ainda não perguntei",
+      "progresso_texto": "2 de 63 respondidos pela senhora"
+    },
+    "toda_cozinha": {
+      "titulo": "O que toda cozinha tem",
+      "texto": "Eu supus que a senhora tem estas coisas e faz estes pratos do dia a dia. Confirme para eu ter certeza antes de qualquer compra.",
+      "a_confirmar": 15,
+      "a_confirmar_texto": "15 para confirmar",
+      "tudo_confirmado": false,
+      "itens": [
+        {
+          "tipo": "equipamento",
+          "id": "fogao",
+          "nome": "Fogão",
+          "imagem": {
+            "url": "/motor/imagens/b25cf8e6f91b9fc0bbf9eea2f3f78828",
+            "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "confirmado",
+          "status_texto": "a senhora tem"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "frigideira",
+          "nome": "Frigideira",
+          "imagem": {
+            "url": "/motor/imagens/1825a02ae45373f2d3db34a7d36c1efe",
+            "credito": "Foto: F ASTILY, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "panela_funda",
+          "nome": "Panela funda",
+          "imagem": {
+            "url": "/motor/imagens/ad0b64a12505facd57d2d287112a68c9",
+            "credito": "Foto: Photograph: Frank C. Müller , Baden-Baden, CC BY-SA 2.5, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "ralador",
+          "nome": "Ralador",
+          "imagem": {
+            "url": "/motor/imagens/009c30d46a60155236d080e34b684daa",
+            "credito": "Foto: Superbass, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "peneira",
+          "nome": "Peneira",
+          "imagem": {
+            "url": "/motor/imagens/7b0a83e110c43b5019477e9f2be5968d",
+            "credito": "Foto: Nuoska, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "fouet",
+          "nome": "Batedor de arame (fouet)",
+          "imagem": {
+            "url": "/motor/imagens/1963b6682bba9057cbcde9df16bad110",
+            "credito": "Foto: Matti Blume, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "geladeira",
+          "nome": "Geladeira",
+          "imagem": {
+            "url": "/motor/imagens/44665e291daad75465c5fa73ae4471bc",
+            "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "faca",
+          "nome": "Faca",
+          "imagem": {
+            "url": "/motor/imagens/4d71eb8468c6db520678837f347eecb8",
+            "credito": "Foto: ProjectManhattan, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "tabua",
+          "nome": "Tábua de corte",
+          "imagem": {
+            "url": "/motor/imagens/4a67360b125224713a0d25434851afa2",
+            "credito": "Foto: Sarah5252, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "refogar",
+          "nome": "Refogar",
+          "imagem": {
+            "url": "/motor/imagens/5c8df82cf8fa6e9b14e7f0789852d532",
+            "credito": "Foto: Rootology, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "confirmado",
+          "status_texto": "a senhora faz"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "cozinhar_arroz",
+          "nome": "Cozinhar arroz",
+          "imagem": {
+            "url": "/motor/imagens/3c55f0d77a742283a3c20a925530a48c",
+            "credito": "Foto: mario, CC BY 2.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "cozinhar_feijao",
+          "nome": "Cozinhar feijão",
+          "imagem": {
+            "url": "/motor/imagens/a5765644bf2031217ed010907bc3ce0a",
+            "credito": "Foto: Hedestad, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "fritar",
+          "nome": "Fritar",
+          "imagem": {
+            "url": "/motor/imagens/e269126d9a68207baaaf79dd2f8f169f",
+            "credito": "Foto: Takeaway, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "assar",
+          "nome": "Assar",
+          "imagem": {
+            "url": "/motor/imagens/b7e2c3b337b27791c1ca35788965d839",
+            "credito": "Foto: Phoebe, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "molho_tomate",
+          "nome": "Molho de tomate caseiro",
+          "imagem": {
+            "url": "/motor/imagens/3560957f53cff846f2ad5ae0c4b7ce0a",
+            "credito": "Foto: Dennis Klein klein2, CC0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "brigadeiro",
+          "nome": "Brigadeiro / doce de panela",
+          "imagem": {
+            "url": "/motor/imagens/164482dd42549fe73f507a13efccb2e5",
+            "credito": "Foto: User Mayra (Maych) on Flickr, CC BY-SA 2.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "bolo_simples",
+          "nome": "Bolo caseiro",
+          "imagem": {
+            "url": "/motor/imagens/43676b8f799b6b9fa860ea0224fdaf1b",
+            "credito": "Foto: Wilfredor, CC0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        }
+      ]
+    }
+  }
+}

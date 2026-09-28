@@ -1,0 +1,25 @@
+{
+  "cartao_id": "k-8",
+  "tipo_cartao": "orcamento",
+  "ref": {
+    "rota": "/api/orcamento",
+    "parametros": {}
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "inicial": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "gasto": {
+      "valor": 0.0,
+      "texto": "R$ 0,00"
+    },
+    "restante": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "fracao_usada": 0.0,
+    "compras": []
+  }
+}

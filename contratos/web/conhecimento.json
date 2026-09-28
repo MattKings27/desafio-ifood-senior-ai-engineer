@@ -1,0 +1,22 @@
+{
+  "trechos": [
+    {
+      "id": "despensa:oleo-de-soja",
+      "tipo": "despensa",
+      "rota": "/despensa/oleo-de-soja",
+      "fonte": "a despensa da senhora",
+      "texto": "Óleo de soja, na despensa da senhora: Tem 1 L. Comprou 1 L por R$ 9,00. Custo de R$ 9,00/L (R$ 9,00 ÷ 1 L = R$ 9,00/L), conta direta da planilha. Origem: da planilha. Na planilha dela: aba Despensa, linha 21 (Óleo de soja | 1 | L); aba Precos, linha 21 (Óleo de soja | 1 | L | R$ 9,00).",
+      "pontuacao": 0.98
+    },
+    {
+      "id": "conhecimento:oleo-de-fritura-ate-180-graus",
+      "tipo": "conhecimento",
+      "rota": null,
+      "fonte": "Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)",
+      "texto": "Conhecimento de cozinha, segurança dos alimentos, Óleo de fritura: até 180 °C e troca imediata: Óleo e gordura de fritura não devem ser aquecidos acima de 180 °C e precisam ser trocados imediatamente quando houver alteração evidente, como mudança de cheiro e sabor ou muita espuma e fumaça. Na fonte (anvisalegis.datalegis.net, conferida em 26/09/2026): “Os óleos e gorduras utilizados devem ser aquecidos a temperaturas não superiores a 180ºC (cento e oitenta graus Celsius), sendo substituídos imediatamente sempre que houver alteração evidente das características físico-químicas ou sensoriais, tais como aroma e sabor, e formação intensa de espuma e fumaça.”",
+      "pontuacao": 0.96
+    }
+  ],
+  "nada_relevante": false,
+  "texto": "Achei 2 trechos com fonte sobre a pergunta."
+}
