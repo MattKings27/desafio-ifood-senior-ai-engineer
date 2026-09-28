@@ -79,6 +79,13 @@ test.describe("o cardápio", () => {
     // O nome exato: o histórico também tem "Ver a receita: <prato>".
     const { link: doPrato, cartao } = await cartaoDoPrato(page, prato);
     await expect(cartao).toBeVisible();
+    // Os dois botões cabem no card em toda largura de tela: nenhum passa da borda.
+    const caixaDoCartao = await cartao.boundingBox();
+    for (const nome of ["Mudar preço", "Tirar do cardápio"]) {
+      const caixaDoBotao = await cartao.getByRole("button", { name: nome }).boundingBox();
+      expect(caixaDoCartao && caixaDoBotao, nome).toBeTruthy();
+      expect(caixaDoBotao!.x + caixaDoBotao!.width, nome).toBeLessThanOrEqual(caixaDoCartao!.x + caixaDoCartao!.width + 0.5);
+    }
     await cartao.getByRole("button", { name: "Tirar do cardápio" }).click();
     const confirmacao = page.getByRole("alertdialog", { name: `Tirar ${prato} do cardápio?` });
     await confirmacao.getByRole("button", { name: "Tirar do cardápio" }).click();

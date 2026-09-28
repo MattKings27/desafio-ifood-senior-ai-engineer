@@ -94,12 +94,14 @@ export function CartaoDoPrato({
             </p>
           ) : null}
           {prato.notas ? <p className="text-sm text-texto italic minimalista:hidden">“{prato.notas}”</p> : null}
-          <AcimaDoLink className="mt-auto flex flex-col gap-2 pt-1 min-[420px]:flex-row">
+          {/* Os botões seguem a largura do card, não a da tela: lado a lado quando cabem,
+              um embaixo do outro quando não, e nenhum passa da borda. */}
+          <AcimaDoLink className="mt-auto flex flex-wrap gap-2 pt-1">
             <Botao
               variante="secundario"
               tamanho="md"
               icone={<ChatCircleDots size={18} weight="bold" />}
-              className="min-[420px]:flex-1"
+              className="flex-auto"
               onClick={(evento) =>
                 abrir({
                   rascunho: rascunhos.mudarPreco(prato.prato),
@@ -114,7 +116,7 @@ export function CartaoDoPrato({
               variante="terciario"
               tamanho="md"
               icone={<Trash size={18} weight="bold" />}
-              className="min-[420px]:flex-1"
+              className="flex-auto"
               onClick={() => setConfirmando(true)}
             >
               Tirar do cardápio
