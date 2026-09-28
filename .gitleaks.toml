@@ -1,0 +1,11 @@
+# As regras de sempre do gitleaks, mais uma exceção estreita. O comando que
+# regrava os contrastes do design ("ATUALIZAR_CONTRASTE=1 npx vitest ...") vem
+# logo depois da palavra "token" (um token de design, não uma credencial), e a
+# regra genérica de chave o lia como segredo. Só essa linha é liberada.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "O comando que regrava os contrastes do design não é credencial"
+regexTarget = "line"
+regexes = ['''ATUALIZAR_CONTRASTE=1 npx vitest run src/lib/contraste\.test\.ts''']
