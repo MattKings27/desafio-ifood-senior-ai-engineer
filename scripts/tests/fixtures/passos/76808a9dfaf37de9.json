@@ -1,0 +1,73 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "76808a9dfaf37de9",
+ "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Feijão carioca simples",
+  "recipeIngredient": [
+   "1/2 kg de feijão carioca",
+   "2 dentes de alho",
+   "2 colheres de pimentão amarelo",
+   "2 colheres de pimentão verde",
+   "2 colheres de cebola picada",
+   "bacon picado a gosto",
+   "sal a gosto",
+   "1 colher de pimenta e cominho",
+   "2 a 3 colheres de molho de tomate"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Coloque o feij&amp;atilde;o de molho de um dia para o outro.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque para cozinhar na panela de press&amp;atilde;o por aproximadamente 15 a 20 minutos, com 2 dedos de &amp;aacute;gua acima do feij&amp;atilde;o.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Depois do feij&amp;atilde;o cozido, em outra panela, doure o bacon, a cebola, os piment&amp;otilde;es e o alho.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Acrescente por &amp;uacute;ltimo o molho de tomate.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Adicione o feij&amp;atilde;o cozido com o caldo.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Por &amp;uacute;ltimo, acerte o sal e a pimenta.",
+    "url": "https://www.tudogostoso.com.br/receita/198444-feijao-carioca-simples.html#recipe-step6"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Coloque o feijão de molho de um dia para o outro."
+  },
+  {
+   "texto": "Coloque para cozinhar na panela de pressão por aproximadamente 15 a 20 minutos, com 2 dedos de água acima do feijão."
+  },
+  {
+   "texto": "Depois do feijão cozido, em outra panela, doure o bacon, a cebola, os pimentões e o alho."
+  },
+  {
+   "texto": "Acrescente por último o molho de tomate."
+  },
+  {
+   "texto": "Adicione o feijão cozido com o caldo."
+  },
+  {
+   "texto": "Por último, acerte o sal e a pimenta."
+  }
+ ]
+}

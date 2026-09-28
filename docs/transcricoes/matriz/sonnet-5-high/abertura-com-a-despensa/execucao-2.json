@@ -1,0 +1,83 @@
+{
+  "cenario": "abertura-com-a-despensa",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de prato pra vender no iFood. Por onde a gente começa?",
+      "resposta": "Oi, Dona Maria! Que bom. Já dei uma olhada na sua despensa. A senhora tem 37 itens comprados, R$ 663,39 investidos ao todo. E ainda tem os R$ 80,00 pra complementar, inteirinhos, ninguém mexeu.\n\nTrês coisas que valem a pena a senhora saber antes de começar:\n\nPrimeiro: onde o dinheiro está mais concentrado. As alcaparras foram R$ 82,00, sozinhas isso é quase 1 em cada 8 reais que a senhora gastou. Alcaparra entra de colher em colher nos pratos, então esse dinheiro demora a voltar — não é errado ter comprado, só é bom saber que vai levar um tempo pra essa parte se pagar.\n\nSegundo: a cobertura de chocolate, R$ 79,90, é quase a mesma fatia do total. Só que aqui eu travei numa conta: a senhora comprou uma embalagem única e não tenho o peso dela, então não consigo calcular quanto custa por quilo. Sem isso, nenhum prato de sobremesa que leve essa cobertura vai fechar conta de preço depois. A senhora sabe quanto vem escrito no rótulo, em gramas ou ml?\n\nTerceiro: carne moída, miolo de alcatra, peito de frango, feijão e arroz também pesam bastante na despensa — esses dão prato salgado com mais facilidade.\n\nPra eu já ir puxando receitas que aproveitem o que a senhora tem parado: me conta, a senhora prefere começar pensando num prato salgado (tipo com a carne ou o frango) ou numa sobremesa (com a cobertura e o leite ninho)?",
+      "sessao": "20260924_022345_02ed7e",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 23740,
+      "uso": {
+        "entrada": 12,
+        "saida": 1185,
+        "cache_leitura": 93177,
+        "cache_escrita": 20665
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "consultoria-gastronomica:diagnostico-despensa"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico despensa",
+              "avaliar receita despensa"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "panorama despensa investimento",
+              "consultar perfil cozinha",
+              "orçamento complementos"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "despensa",
+              "diagnóstico"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

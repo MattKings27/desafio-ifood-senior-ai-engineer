@@ -1,0 +1,141 @@
+# Varredura de segredos, dependências vulneráveis e análise estática.
+#
+# Uma distinção que o resto do CI não faz e aqui importa: "o scanner rodou e não
+# achou nada" é diferente de "o scanner não rodou". A segunda é vermelha. Um
+# scanner que falha em silêncio dá a mesma tela verde de um repositório limpo, e
+# é pior que não ter scanner, porque gera confiança sem base.
+name: Segurança
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, reopened, synchronize]
+  schedule:
+    # Segunda de manhã. CVE nova aparece em dependência que não mudou, então
+    # depender só de push deixa o repositório envelhecer sem ninguém perceber.
+    - cron: '0 9 * * 1'
+
+concurrency:
+  group: seguranca-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  segredos:
+    name: Segredo commitado
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Histórico inteiro: um segredo removido no commit seguinte continua
+          # recuperável e continua vazado. Varrer só o topo não adianta.
+          fetch-depth: 0
+
+      - name: Instalar o gitleaks
+        run: |
+          versao="8.21.2"
+          url="https://github.com/gitleaks/gitleaks/releases/download/v${versao}/gitleaks_${versao}_linux_x64.tar.gz"
+          curl -sSfL "$url" -o /tmp/gitleaks.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          sudo install /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Varrer o histórico
+        run: |
+          set +e
+          gitleaks detect --source . --redact --verbose --exit-code 2
+          status=$?
+          set -e
+          case "$status" in
+            0) echo "gitleaks: nenhum segredo no histórico" ;;
+            2) echo "::error::gitleaks encontrou segredo versionado. O valor foi omitido do log de propósito. Rotacione a credencial antes de limpar o histórico."; exit 1 ;;
+            *) echo "::error::gitleaks não conseguiu rodar (saída ${status}). Sem veredito, e sem veredito o portão é vermelho."; exit "$status" ;;
+          esac
+
+  dependencias-python:
+    name: CVE nas dependências Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: pip-audit
+        run: |
+          python -m pip install --upgrade pip pip-audit
+          # Os seis: o gateway depende de três pacotes locais que não estão no
+          # PyPI, e o que não é instalado não é auditado.
+          python -m pip install -e ./mise -e ./gateway -e ./retrieval -e ./telemetria \
+            -e ./auditor -e ./evals
+          set +e
+          pip-audit --progress-spinner off 2>&1 | tee /tmp/audit.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "pip-audit: nenhuma vulnerabilidade conhecida"
+          elif grep -qiE "found [0-9]+ known|vulnerabilit" /tmp/audit.log; then
+            echo "::warning::pip-audit encontrou vulnerabilidade (só aviso nesta fase); veja o log acima"
+          else
+            echo "::error::pip-audit não produziu veredito (saída ${status})"
+            exit "$status"
+          fi
+
+  dependencias-node:
+    name: CVE nas dependências Node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: webapp/package-lock.json
+
+      - name: npm audit
+        working-directory: webapp
+        run: |
+          set +e
+          npm audit --audit-level=high 2>&1 | tee /tmp/npm-audit.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "npm audit: nada em nível alto ou crítico"
+          elif grep -qiE "vulnerabilit" /tmp/npm-audit.log; then
+            echo "::warning::npm audit encontrou vulnerabilidade (só aviso nesta fase)"
+          else
+            echo "::error::npm audit não produziu veredito (saída ${status})"
+            exit "$status"
+          fi
+
+  analise-estatica:
+    name: CodeQL (${{ matrix.linguagem }})
+    # Code scanning em repositório **privado** exige GitHub Advanced Security.
+    # Sem ele o upload do SARIF falha com "Resource not accessible by
+    # integration", e um portão que nunca consegue emitir veredito não é
+    # portão, é ruído vermelho permanente.
+    #
+    # A condição não desliga a análise: ela liga sozinha no dia em que o
+    # repositório virar público, que é o que vai acontecer na entrega. Preferi
+    # isto a apagar o job e perder a configuração.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        linguagem: [python, javascript-typescript]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: github/codeql-action/init@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
+        with:
+          languages: ${{ matrix.linguagem }}
+          queries: security-and-quality
+      - uses: github/codeql-action/analyze@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
+        with:
+          category: /language:${{ matrix.linguagem }}

@@ -1,0 +1,195 @@
+{
+  "grupos": [
+    {
+      "dia": "2026-09-26",
+      "rotulo": "Hoje",
+      "itens": [
+        {
+          "id": "decisao-5",
+          "quem": "senhora",
+          "quem_rotulo": "A senhora",
+          "categoria": "cardapio",
+          "categoria_rotulo": "Cardápio",
+          "texto": "A senhora aceitou o frango com milho verde a R$ 22,00.",
+          "quando_texto": "hoje, 15:10",
+          "hora_texto": "15:10",
+          "dia": "2026-09-26",
+          "canal_texto": "pela conversa",
+          "resultado": "ok",
+          "link": "/receitas/8747bf504b200286"
+        },
+        {
+          "id": "consulta-1790436540000-12",
+          "quem": "consultora",
+          "quem_rotulo": "O agente",
+          "categoria": "preco",
+          "categoria_rotulo": "Preço",
+          "texto": "Calculei o custo por porção.",
+          "quando_texto": "hoje, 15:09",
+          "hora_texto": "15:09",
+          "dia": "2026-09-26",
+          "canal_texto": "pela conversa",
+          "resultado": "ok",
+          "link": "/precificar"
+        },
+        {
+          "id": "receita-8747bf504b200286",
+          "quem": "consultora",
+          "quem_rotulo": "O agente",
+          "categoria": "receitas",
+          "categoria_rotulo": "Receitas",
+          "texto": "Trouxe a receita Frango com milho verde, do TudoGostoso.",
+          "quando_texto": "hoje, 15:05",
+          "hora_texto": "15:05",
+          "dia": "2026-09-26",
+          "canal_texto": null,
+          "resultado": "ok",
+          "link": "/receitas/8747bf504b200286"
+        },
+        {
+          "id": "despensa-ev-0003",
+          "quem": "senhora",
+          "quem_rotulo": "A senhora",
+          "categoria": "despensa",
+          "categoria_rotulo": "Despensa",
+          "texto": "A senhora informou que a embalagem da cobertura de chocolate tem 1 kg.",
+          "quando_texto": "hoje, 14:20",
+          "hora_texto": "14:20",
+          "dia": "2026-09-26",
+          "canal_texto": "pela tela",
+          "resultado": "ok",
+          "link": "/despensa/cobertura-de-chocolate"
+        },
+        {
+          "id": "cozinha-2",
+          "quem": "senhora",
+          "quem_rotulo": "A senhora",
+          "categoria": "cozinha",
+          "categoria_rotulo": "Cozinha",
+          "texto": "A senhora disse que não tem forno.",
+          "quando_texto": "hoje, 14:10",
+          "hora_texto": "14:10",
+          "dia": "2026-09-26",
+          "canal_texto": "pela conversa",
+          "resultado": "ok",
+          "link": "/cozinha"
+        },
+        {
+          "id": "receita-6f1c0a93d2b54e87",
+          "quem": "tela",
+          "quem_rotulo": "A tela",
+          "categoria": "receitas",
+          "categoria_rotulo": "Receitas",
+          "texto": "Receita nova na grade: Bolo de milho cremoso, do Panelinha.",
+          "quando_texto": "hoje, 10:02",
+          "hora_texto": "10:02",
+          "dia": "2026-09-26",
+          "canal_texto": null,
+          "resultado": "ok",
+          "link": "/receitas/6f1c0a93d2b54e87"
+        }
+      ]
+    },
+    {
+      "dia": "2026-09-25",
+      "rotulo": "Ontem",
+      "itens": [
+        {
+          "id": "preco-milho-verde",
+          "quem": "senhora",
+          "quem_rotulo": "A senhora",
+          "categoria": "preco",
+          "categoria_rotulo": "Preço",
+          "texto": "A senhora informou o preço do milho verde: R$ 6,00 por 1 lata.",
+          "quando_texto": "ontem, 18:55",
+          "hora_texto": "18:55",
+          "dia": "2026-09-25",
+          "canal_texto": null,
+          "resultado": "ok",
+          "link": "/receitas"
+        },
+        {
+          "id": "decisao-1",
+          "quem": "senhora",
+          "quem_rotulo": "A senhora",
+          "categoria": "cardapio",
+          "categoria_rotulo": "Cardápio",
+          "texto": "A senhora aceitou o arroz com frango a R$ 18,00.",
+          "quando_texto": "ontem, 18:40",
+          "hora_texto": "18:40",
+          "dia": "2026-09-25",
+          "canal_texto": "pela tela",
+          "resultado": "ok",
+          "link": "/receitas/arroz-com-frango"
+        },
+        {
+          "id": "consulta-1790371200000-3",
+          "quem": "consultora",
+          "quem_rotulo": "O agente",
+          "categoria": "despensa",
+          "categoria_rotulo": "Despensa",
+          "texto": "Olhei sua despensa, mas não deu certo.",
+          "quando_texto": "ontem, 09:02",
+          "hora_texto": "09:02",
+          "dia": "2026-09-25",
+          "canal_texto": "pela conversa",
+          "resultado": "erro",
+          "link": "/despensa"
+        }
+      ]
+    }
+  ],
+  "total": 23,
+  "texto": "23 registros",
+  "proximo_cursor": "consulta-1790371200000-3",
+  "categorias": [
+    {
+      "id": "despensa",
+      "rotulo": "Despensa"
+    },
+    {
+      "id": "receitas",
+      "rotulo": "Receitas"
+    },
+    {
+      "id": "cozinha",
+      "rotulo": "Cozinha"
+    },
+    {
+      "id": "preco",
+      "rotulo": "Preço"
+    },
+    {
+      "id": "cardapio",
+      "rotulo": "Cardápio"
+    }
+  ],
+  "quem": [
+    {
+      "id": "senhora",
+      "rotulo": "A senhora"
+    },
+    {
+      "id": "consultora",
+      "rotulo": "O agente"
+    },
+    {
+      "id": "tela",
+      "rotulo": "A tela"
+    }
+  ],
+  "dias": [
+    {
+      "id": "2026-09-26",
+      "rotulo": "Hoje"
+    },
+    {
+      "id": "2026-09-25",
+      "rotulo": "Ontem"
+    },
+    {
+      "id": "2026-09-24",
+      "rotulo": "24 de setembro"
+    }
+  ]
+}

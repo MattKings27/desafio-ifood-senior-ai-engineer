@@ -1,0 +1,48 @@
+{
+ "padrao": "Tipos escritos com o endereço do schema.org (http://schema.org/HowToStep, schema:HowToSection): valem o mesmo que o nome curto",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo",
+  "recipeIngredient": [
+   "2 ovos"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "schema:HowToSection",
+    "name": "Massa",
+    "itemListElement": [
+     {
+      "@type": "http://schema.org/HowToStep",
+      "itemListElement": [
+       {
+        "@type": "https://schema.org/HowToDirection",
+        "text": "Misture."
+       },
+       {
+        "@type": "HowToTip",
+        "text": "Sem bater demais."
+       }
+      ]
+     },
+     {
+      "@type": [
+       "http://schema.org/HowToStep"
+      ],
+      "text": "Asse."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Misture. Sem bater demais.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Asse.",
+   "secao": "Massa"
+  }
+ ]
+}

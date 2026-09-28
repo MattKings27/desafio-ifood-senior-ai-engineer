@@ -1,0 +1,24 @@
+{
+  "cenario": "nao-sei-sem-fonte",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Qual a capital da França?",
+      "resposta": "Essa eu não sei daqui. A minha busca cobre só a cozinha e o negócio da senhora, e o que é de fora eu não respondo de memória.\n\nSe a senhora quiser, eu procuro na internet e trago a resposta com a fonte. Quer que eu procure?",
+      "sessao": "20260927_181024_dd3ba3",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 5687,
+      "uso": {
+        "entrada": 4,
+        "saida": 96,
+        "cache_leitura": 29079,
+        "cache_escrita": 1140
+      },
+      "chamadas": []
+    }
+  ]
+}

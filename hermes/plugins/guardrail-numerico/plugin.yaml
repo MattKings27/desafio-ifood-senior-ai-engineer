@@ -1,0 +1,21 @@
+name: guardrail-numerico
+version: "1.0.0"
+description: >-
+  Impede que o agente diga à Dona Maria um valor em reais que não tenha vindo
+  do motor `mise` nem dela. Antes de a resposta sair, confere cada R$, e cada
+  quantia escrita como "18 reais", contra o que as ferramentas do motor
+  devolveram em qualquer turno da conversa e o que ela mesma disse. O valor sem
+  procedência é retirado do texto, no lugar dele fica "[valor retirado]", e uma
+  nota no fim pede que ela peça de novo, para a conta vir aberta.
+  Também encapsula conteúdo vindo da web como dado não confiável, para que uma
+  página de receita não consiga passar instrução ao agente. Das ferramentas,
+  barra uma só, skill_manage, para as skills da consultoria não mudarem no meio
+  de uma conversa.
+author: "Sabor da Maria (desafio Senior AI Engineer iFood)"
+license: MIT
+provides_hooks:
+  - pre_tool_call
+  - post_tool_call
+  - transform_tool_result
+  - transform_llm_output
+  - on_session_start

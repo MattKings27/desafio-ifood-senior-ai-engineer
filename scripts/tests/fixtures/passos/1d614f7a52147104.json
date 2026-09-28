@@ -1,0 +1,64 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "1d614f7a52147104",
+ "url": "https://www.tudogostoso.com.br/receita/96776-frango-xadrez-a-minha-moda.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Frango xadrez à minha moda",
+  "recipeIngredient": [
+   "1 kg de peito de frango cortado em cubos",
+   "3 cenouras cozidas cortadas em rodelas",
+   "3 batatas grandes cozidas cortadas em cubo",
+   "2 pimentões cortados em quadrados",
+   "1 cebola cortada em quadrados",
+   "Milho",
+   "Ervilha ",
+   "Azeitona sem caroço",
+   "Sal",
+   "Pimenta",
+   "Sazón",
+   "Caldo de galinha",
+   "1/2 xícara de água",
+   "1/2 xícara de molho shoyu",
+   "1 limão",
+   "Azeite"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Tempere o frango com o lim&amp;atilde;o, o sal, a pimenta e o saz&amp;oacute;n. ",
+    "url": "https://www.tudogostoso.com.br/receita/96776-frango-xadrez-a-minha-moda.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em uma panela coloque o azeite e despeje o frango para cozinhar, em seguida coloque o caldo de galinha. ",
+    "url": "https://www.tudogostoso.com.br/receita/96776-frango-xadrez-a-minha-moda.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Depois de o frango estar bem dourado, acrescente a cebola e o piment&amp;atilde;o, mexa bem. Acrescente a &amp;aacute;gua e o molho shoyu, em seguida a batata, a cenoura, o milho, a ervilha e a azeitona.",
+    "url": "https://www.tudogostoso.com.br/receita/96776-frango-xadrez-a-minha-moda.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Misture tudo e deixe cozinhar por 5 minutos.",
+    "url": "https://www.tudogostoso.com.br/receita/96776-frango-xadrez-a-minha-moda.html#recipe-step4"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Tempere o frango com o limão, o sal, a pimenta e o sazón."
+  },
+  {
+   "texto": "Em uma panela coloque o azeite e despeje o frango para cozinhar, em seguida coloque o caldo de galinha."
+  },
+  {
+   "texto": "Depois de o frango estar bem dourado, acrescente a cebola e o pimentão, mexa bem. Acrescente a água e o molho shoyu, em seguida a batata, a cenoura, o milho, a ervilha e a azeitona."
+  },
+  {
+   "texto": "Misture tudo e deixe cozinhar por 5 minutos."
+  }
+ ]
+}

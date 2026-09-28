@@ -1,0 +1,48 @@
+{
+  "cenario": "contexto-da-tela",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu paguei nisso?\n\n[a senhora está vendo o ingrediente Alcaparras]",
+      "resposta": "A senhora pagou R$ 82,00 nas alcaparras.\n\nForam 2 kg, então sai a R$ 41,00 o quilo. É um dos itens mais caros da despensa por quilo, e 2 kg é bastante alcaparra. Se quiser, eu procuro receitas que usem uma boa quantidade dela, pra esse dinheiro não ficar parado no pote.",
+      "sessao": "20260927_061009_7bb230",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 17013,
+      "uso": {
+        "entrada": 8,
+        "saida": 394,
+        "cache_leitura": 39505,
+        "cache_escrita": 2828
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__custo_unitario",
+              "mcp__mise__consultar_planilha"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__custo_unitario\": {\"description\": \"Custo por quilo, litro ou unidade de um item da despensa, com a derivação.\", \"parameters\": {\"properties\": {\"ingrediente\": {\"title\": \"Ingrediente\", \"type\": \"string\"}}, \"required\": [\"ingrediente\"], \"type\": \"object\", \"title\": \"custo_unitarioArguments\"}}, \"mcp__mise__consultar_planilha\": {\"description\": \"A planilha dela em texto: as duas abas célula a célula, as mudanças dela,\\n        os itens de hoje com o custo unitário e a conta, o que falta saber e o\\n        extrato dos complementos.\\n\\n        Use quando ela perguntar o que está na planilha ou o que mudou. Os valores\\n        em reais daqui podem ser repetidos a ela como estão.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_planilhaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__custo_unitario",
+          "entrada": {
+            "ingrediente": "Alcaparras"
+          },
+          "saida": "{\n  \"encontrado\": true,\n  \"ingrediente\": \"Alcaparras\",\n  \"como_encontrei\": \"'Alcaparras' → 'Alcaparras' (nome idêntico)\",\n  \"custo_unitario\": \"R$ 41,00/kg\",\n  \"derivacao\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\",\n  \"confianca\": \"media\",\n  \"estoque\": \"2 kg\",\n  \"pago_na_compra\": {\n    \"valor\": 82.0,\n    \"texto\": \"R$ 82,00\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

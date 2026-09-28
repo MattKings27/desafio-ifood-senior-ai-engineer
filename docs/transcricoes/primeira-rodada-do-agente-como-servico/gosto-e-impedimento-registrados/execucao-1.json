@@ -1,0 +1,154 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: chegou a ela com 1 valor(es) apagado(s)"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "Anotei o strogonoff como receita da senhora. Conferi com a despensa, e a coisa está assim:\n\nA senhora já tem:\n  Peito de frango: precisa de 500 g, tem 2 kg, sobra 1,5 kg.\n  Cebola: precisa de 1 (cerca de 70 g, pela tabela do IBGE), tem 1 kg, sobra 930 g.\n  Sal: a gosto, tem 1 kg.\n\nFalta comprar:\n  Creme de leite: 1 caixinha. Preço de referência R$ 3,99 pela caixinha de 200 g no Savegnago, e isso cabe nos [valor retirado]. A senhora pode corrigir se paga outro valor.\n  Ketchup: 2 colheres de sopa (30 ml). Ainda não tenho o preço, então não sei dizer se cabe.\n\nDe equipamento, o prato só pede fogão, e os 25 minutos no fogo não trazem nenhum aviso.\n\nAntes de fechar se dá pra fazer, preciso de três respostas da senhora. Começo pela que decide mais: a senhora gosta de fazer esse strogonoff, e vê algum impedimento pra preparar ele aí na sua cozinha? Pergunto porque não adianta a conta fechar se a senhora não quiser cozinhar o prato.\n\n---\nTirei 1 valor desta resposta que eu não consegui conferir na conta do sistema. Me peça de novo que eu trago o número com a conta aberta.",
+      "sessao": "20260927_061200_2f8dfe",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 17397,
+      "uso": {
+        "entrada": 8,
+        "saida": 1084,
+        "cache_leitura": 39633,
+        "cache_escrita": 18092
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__consultar_gostos"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Chame com o `receita_id` que `buscar_receita_na_web` devolve: a receita é\\n        a que o servidor leu da página, e não se redigita. A `receita` inteira é\\n        para a receita que ELA dita, sem endereço (um endereço digitado não faz\\n        a receita ser da internet). Com o `receita_id` e a `receita` juntos, a\\n        `receita` leva só o que ela respondeu sobre a receita guardada: o\\n        rendimento que a página não dizia, o modo de preparo que faltava, ou\\n        quanto vai de uma linha que eu não entendi (a linha com o mesmo texto e\\n        a quantidade dela). Mudar o que a página diz é recusado.\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata (em avaliação) para\\n        `proxima_pergunta`, e devolve o `receita_id` dela.\\n\\n        `ingredientes` é o §2.3 linha por linha: quanto a receita pede, quanto\\n        ela tem, quanto sobra, e o que falta comprar com o custo e se cabe no\\n        orçamento. A linha que eu não entendi vem em `linhas_nao_entendidas`,\\n        com a pergunta a fazer a ela (\\\"Não entendi quanto vai de milho nessa\\n        receita, a senhora sabe?\\\"); o tempero escrito só pelo nome (\\\"Sal\\\",\\n        \\\"Azeite\\\") vale a gosto. O que a receita diz ser opcional vem em\\n        `opcionais`: diga a ela que ficou de fora, nunca omita.\\n\\n        Quando o que a receita pede só se parece com um item dela, a pergunta\\n        vem com assunto `mesmo_ingrediente` (\\\"A receita pede alcatra. É o seu\\n        miolo de alcatra?\\\"): nunca conte como se ela tivesse. A resposta dela\\n        volta com o `receita_id` e a linha com o mesmo texto e\\n        `item_da_despensa` (o nome do item, ou \\\"\\\" quando ela diz que não é).\\n\\n        Quando a medida de uma linha não se converte, a pergunta vem com\\n        assunto `medida` e o texto da linha em `campo` (\\\"Não sei quanto pesa um\\n        peito de frango\\\"). A resposta dela volta com o `receita_id` e a linha\\n        com o mesmo texto e `peso` (\\\"300 g\\\", \\\"0,3 kg\\\"): de uma unidade, como a\\n        pergunta pede, ou da linha inteira com `por_unidade` false. Só o peso\\n        que ela disse; sem ele, a pergunta continua.\\n\\n        Cada pergunta vem com as `opcoes` de resposta (inclusive \\\"não sei\\\"), e\\n        `por_passo` mostra onde cada exigência aparece: o passo, o trecho que a\\n        denunciou e o estado na cozinha dela; o tempo, a temperatura e o frio de\\n        cada passo; e, à parte, o que vem do nome ou dos ingredientes.\\n\\n        `avisos` é o que não impede o prato, mas ela precisa saber antes de\\n        decidir (com uma boca só, uma panela espera a outra e leva mais tempo):\\n        conte a ela junto com o veredito.\\n\\n        `pode_aceitar` diz se ela já pode aceitar o prato (ou comprar para ele);\\n        `falta_para_aceitar` diz o que falta, em frases para ela. O que toda\\n        cozinha tem (fogão, panela funda, refogar) passa como suposto e não se\\n        pergunta item por item: quando a receita usa algo disso que ela não\\n        confirmou, `confirmar_a_cozinha` traz a `pergunta`, uma só, para a hora\\n        do aceite ou da compra, e o sim dela vai em\\n        registrar_resposta(tipo=\\\"cozinha\\\", campo=<receita_id>, resposta=\\\"tem\\\").\\n        \", \"parameters\": {\"properties\": {\"receita_id\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Receita Id\", \"default\": null}, \"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\", \"nullable\": true}}, \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}, \"item_da_despensa\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Item Da Despensa\", \"description\": \"Só na resposta a 'A receita pede X. É o seu Y?' (pergunta de assunto mesmo_ingrediente): o nome do item da despensa que ela confirmou ser esta linha (Y), ou \\\"\\\" se ela disse que não é. Omita em todos os outros casos.\", \"default\": null}, \"peso\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Peso\", \"description\": \"Só na resposta a 'Não sei quanto pesa ...' (pergunta de assunto medida, com o receita_id e o texto da linha): o peso que ela disse, em gramas ou quilos ('300 g', '0,3 kg'). Nunca um palpite. Omita em todos os outros casos.\", \"default\": null}, \"por_unidade\": {\"type\": \"boolean\", \"nullable\": true, \"title\": \"Por Unidade\", \"description\": \"Junto de peso: true quando é o peso de uma unidade (um peito, uma colher), que é o que a pergunta pede; false quando é o da linha inteira (as duas colheres juntas). Omitido, vale o que ela disse ('cada', 'as duas'), senão uma unidade.\", \"default\": null}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita digitada por quem chama: a que ela dita, ou a resposta dela sobre uma guardada.\\n\\nReceita da internet não entra por aqui: entra pela página que o servidor\\nlê (`buscar_receita_na_web`) e depois é chamada pelo `receita_id`. Por isso\\na receita digitada é sempre \\\"como a senhora me passou\\\", mesmo que venha com\\num endereço: endereço digitado não é procedência, é só um texto.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: a avaliação pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"minimum\": 0, \"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"description\": \"Tempo de preparo que a receita declara (prepTime), a mão na massa antes do fogo. Não é tempo no fogo: não decide se cabe na cozinhada dela.\", \"default\": null}, \"tempo_cozimento_min\": {\"minimum\": 0, \"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Cozimento Min\", \"description\": \"Tempo de cozimento que a receita declara (cookTime), com fogo ou forno ligado. Vale quando os passos não dizem o tempo. Omita se ninguém disse.\", \"default\": null}, \"tempo_total_min\": {\"minimum\": 0, \"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Total Min\", \"description\": \"Tempo total que a receita declara (totalTime), com as esperas de geladeira e descanso. Não é tempo no fogo.\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"Só para achar a receita que o servidor já leu desse endereço. Receita da internet entra por buscar_receita_na_web e se chama pelo receita_id; a receita digitada é a que ela dita, e nunca vira receita da internet.\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"description\": \"Ignorada: a fonte de uma receita vem da página que o servidor leu.\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\", \"required\": []}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        `ela_disse_que_nao_sabe` é o que ela respondeu \\\"não sei\\\": ela respondeu,\\n        e a resposta foi essa.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__consultar_gostos\": {\"description\": \"O que ela já disse sobre gostar ou não de fazer cada prato.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_gostosArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Strogonoff de frango (receita da Dona Maria)",
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "medida": "caixinha"
+                },
+                {
+                  "texto": "2 colheres de ketchup",
+                  "nome": "ketchup",
+                  "quantidade": 2,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "rendimento_porcoes": 4,
+              "modo_preparo": [
+                "Refoga tudo na panela por 25 minutos."
+              ],
+              "tempo_cozimento_min": 25
+            }
+          },
+          "saida": "{\n  \"receita_id\": \"strogonoff-de-frango-receita-da-dona-maria\",\n  \"prato\": \"Strogonoff de frango (receita da Dona Maria)\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Strogonoff de frango (receita da Dona Maria): antes de decidir, preciso saber 3 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"assunto\": \"preco_de_compra\",\n      \"campo\": \"ketchup\",\n      \"texto\": \"Falta comprar: ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\",\n      \"compras\": [\n        {\n          \"ingrediente\": \"ketchup\",\n          \"quantidade_texto\": \"30 ml\"\n        }\n      ],\n      \"opcoes\": [],\n      \"entrada\": {\n        \"tipo\": \"texto\"\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n      \"motivo\": \"Strogonoff de frango (receita da Dona Maria) fica 25 minutos no fogo\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": {\n        \"tipo\": \"horas\",\n        \"unidade\": \"horas\",\n        \"min\": 0.5,\n        \"max\": 12.0,\n        \"passo\": 0.5,\n        \"casas\": 2\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"assunto\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer strogonoff de frango (receita da dona maria)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Gosto de fazer\",\n          \"resposta\": \"gosta\"\n        },\n        {\n          \"rotulo\": \"Não gosto\",\n          \"resposta\": \"nao_gosta\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    }\n  ],\n  \"rendimento\": \"4 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,07 kg\",\n      \"custo\": {\n        \"valor\": 0.28,\n        \"texto\": \"R$ 0,28\"\n      },\n      \"derivacao\": \"1 × 70 g (cebola média, pela tabela de medidas do IBGE) = 70 g × R$ 4,00/kg = R$ 0,28\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"creme de leite\",\n      \"quanto\": \"1 caixinha de creme de leite\",\n      \"custo\": {\n        \"valor\": 3.99,\n        \"texto\": \"R$ 3,99\"\n      },\n      \"preco_de_referencia\": \"preço de referência: R$ 3,99 pela caixinha de 200 g no Savegnago, 27/09/2026; a senhora pode corrigir\"\n    },\n    {\n      \"ingrediente\": \"ketchup\",\n      \"quanto\": \"2 colher de sopa de ketchup\",\n      \"custo\": null,\n      \"preco_de_referencia\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Refoga tudo na panela por 25 minutos.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"refoga tudo na panela por 25 minutos....\",\n            \"trecho\": \"na panela\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 25,\n            \"graus\": null,\n            \"texto\": \"25 min no fogo\",\n            \"trecho\": \"25 minutos\",\n            \"equipamento\": \"fogao\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"Responder: Falta comprar: ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\",\n    \"Responder: Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n    \"Dizer se a senhora gosta de fazer strogonoff de frango (receita da dona maria).\",\n    \"Confirmar que a senhora tem fogão.\"\n  ],\n  \"confirmar_a_cozinha\": {\n    \"pergunta\": \"Antes de aceitar, a senhora confirma que tem fogão?\",\n    \"itens\": [\n      {\n        \"tipo\": \"equipamento\",\n        \"id\": \"fogao\",\n        \"nome\": \"Fogão\"\n      }\n    ]\n  },\n  \"ingredientes\": [\n    {\n      \"nome\": \"Peito de frango\",\n      \"item_id\": \"peito-de-frango\",\n      \"precisa\": {\n        \"texto\": \"500 g\"\n      },\n      \"tem\": {\n        \"texto\": \"2 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"1,5 kg\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Cebola\",\n      \"item_id\": \"cebola\",\n      \"precisa\": {\n        \"texto\": \"1 unidade (cerca de 70 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"930 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Uma cebola pesa cerca de 70 g, pela tabela de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 70.0,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"1 cebola\",\n          \"texto\": \"Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": null\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"creme de leite\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 caixinha\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 caixinha, R$ 3,99 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"ketchup\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"2 colheres de sopa (30 ml)\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"30 ml, preço ainda não informado\",\n        \"cabe\": null\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"falta comprar creme de leite e ketchup; falta saber o preço de ketchup\",\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Que bom que a senhora gosta de fazer. Anotei isso, e anotei também o impedimento: creme de leite estraga rápido aí, porque a geladeira é pequena e vive cheia.\n\nCom esse impedimento anotado, o strogonoff fica parado por enquanto. Não é que o prato não dê, é que não faço a senhora comprar creme de leite pra descobrir depois que ele estragou na sua cozinha.\n\nSobre conservação do creme de leite, procurei na base de cozinha e não achei nada, então prefiro não afirmar de cabeça. Se a senhora quiser, procuro na internet como a caixinha se conserva antes e depois de aberta, e a senhora decide se resolve o seu caso.\n\nEnquanto isso, uma pergunta só, pra saber se o impedimento está no creme de leite ou na geladeira em geral: o problema é guardar a caixinha fechada, ou é a sobra depois de aberta? Se for só a sobra, e a receita usa a caixinha inteira, pode ser que o impedimento nem exista na prática. A senhora é quem sabe.",
+      "sessao": "20260927_061200_2f8dfe",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 30731,
+      "uso": {
+        "entrada": 12,
+        "saida": 1190,
+        "cache_leitura": 138770,
+        "cache_escrita": 6433
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia: quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, litros, porções, aparelhos), ou\\n          sim/não para `tem_gas_sobrando`; `tempo_max_por_fornada_min` vai em\\n          horas, como ela disse (\\\"2 horas\\\", \\\"1,5 hora\\\", \\\"1h30\\\"; um número\\n          sozinho é em horas), e o motor guarda em minutos\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        - cozinha: o sim dela à pergunta de confirmar o que toda cozinha tem\\n          (a que vem em `confirmar_a_cozinha` de `avaliar_receita`, ou na recusa\\n          do aceite e da compra); `campo` é o `receita_id`, ou \\\"toda_cozinha\\\"\\n          para confirmar tudo o que ainda é suposto; `resposta` é \\\"tem\\\". O item\\n          que ela não tiver vai sozinho, como equipamento ou técnica\\n        - em qualquer tipo, \\\"nao_sei\\\" quando ela diz que não sabe: apaga a\\n          resposta anterior e o item fica em aberto, e o portão pergunta de novo\\n          quando uma receita precisar. Vale também para o que toda cozinha tem\\n          (fogão, panela, geladeira): ele deixa de ser suposto. \\\"Não sei\\\" nunca\\n          vira \\\"não tem\\\"; já o \\\"não tem\\\" dela bloqueia as receitas que precisam\\n          do item, inclusive do que toda cozinha tem.\\n        A resposta traz `impacto`: as receitas em avaliação que passaram a dar,\\n        as que deixaram de dar e as que continuam dependendo de uma resposta.\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender (\\\"talvez\\\", \\\"mais ou menos\\\") é recusada,\\n        não adivinhada: pergunte de outro jeito.\\n        Para modo de preparo, rendimento e tempo de cozimento (`tempo_cozimento_min`),\\n        reenvie a receita em `avaliar_receita` com o campo preenchido.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "strogonoff-de-frango-receita-da-dona-maria",
+            "gosta": true,
+            "impedimento": "Creme de leite estraga rápido na cozinha dela: a geladeira é pequena e vive cheia."
+          },
+          "saida": "{\n  \"registrado\": \"strogonoff-de-frango-receita-da-dona-maria: gosta (Creme de leite estraga rápido na cozinha dela: a geladeira é pequena e vive cheia.)\",\n  \"efeito\": \"prato bloqueado no portão\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_conhecimento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_conhecimento\": {\"description\": \"Busca na plataforma inteira e na base de cozinha, com a fonte de cada trecho.\\n\\n        Use para responder o que está em alguma tela (o que ela tem na despensa\\n        e quanto pagou, o que a cozinha dela tem, o que uma receita pede passo a\\n        passo, o que ela decidiu, o que sobrou dos complementos) e para\\n        conhecimento de cozinha (técnica, conservação, segurança, embalagem,\\n        preço), que só pode ser dito com fonte.\\n\\n        `tipos` limita a busca a partes da plataforma: `despensa`, `cozinha`,\\n        `receita`, `avaliacao`, `cardapio`, `orcamento`, `conhecimento`. `k` é\\n        quantos trechos voltam, no máximo (padrão 6).\\n\\n        Devolve `trechos` (cada um com `id`, `tipo`, `rota`, `fonte`, `texto` e\\n        `pontuacao`), `nada_relevante` e `texto`. Repasse só o que os trechos\\n        dizem e cite a fonte. Com `nada_relevante`, diga que não sabe e ofereça\\n        procurar na internet: não responda de memória. Conta nova (custo de\\n        receita, preço, soma) sai das ferramentas de conta; do trecho, só o\\n        valor que já está escrito nele.\\n        \", \"parameters\": {\"properties\": {\"pergunta\": {\"title\": \"Pergunta\", \"type\": \"string\"}, \"tipos\": {\"items\": {\"type\": \"string\"}, \"type\": \"array\", \"nullable\": true, \"title\": \"Tipos\", \"default\": null}, \"k\": {\"default\": 6, \"title\": \"K\", \"type\": \"integer\"}}, \"required\": [\"pergunta\"], \"type\": \"object\", \"title\": \"consultar_conhecimentoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "pergunta": "creme de leite caixinha UHT conservação precisa de geladeira antes de abrir validade",
+            "tipos": [
+              "conhecimento"
+            ]
+          },
+          "saida": "{\n  \"trechos\": [],\n  \"nada_relevante\": true,\n  \"texto\": \"Não achei nada sobre isso na plataforma nem na base de cozinha. Não sei, e prefiro não chutar. Se a senhora quiser, posso procurar na internet.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

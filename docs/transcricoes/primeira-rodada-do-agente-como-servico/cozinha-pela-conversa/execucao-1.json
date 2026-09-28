@@ -1,0 +1,50 @@
+{
+  "cenario": "cozinha-pela-conversa",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Só pra você saber, aqui em casa não tem liquidificador.",
+      "resposta": "Anotado, obrigado. Ficou gravado no perfil da sua cozinha que não tem liquidificador.\n\nIsso ainda não muda nada por enquanto, porque não há receita em avaliação. Daqui em diante, qualquer receita que precise de liquidificador vai aparecer como \"esse não dá\", e eu não vou sugerir compra para ela.\n\nSe a senhora quiser, posso começar a procurar receitas que usem o que tem na despensa, já respeitando isso.",
+      "sessao": "20260927_061029_2762ec",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 16946,
+      "uso": {
+        "entrada": 8,
+        "saida": 509,
+        "cache_leitura": 39485,
+        "cache_escrita": 4774
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_resposta",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, litros, porções, aparelhos), ou\\n          sim/não para `tem_gas_sobrando`; `tempo_max_por_fornada_min` vai em\\n          horas, como ela disse (\\\"2 horas\\\", \\\"1,5 hora\\\", \\\"1h30\\\"; um número\\n          sozinho é em horas), e o motor guarda em minutos\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        - cozinha: o sim dela à pergunta de confirmar o que toda cozinha tem\\n          (a que vem em `confirmar_a_cozinha` de `avaliar_receita`, ou na recusa\\n          do aceite e da compra); `campo` é o `receita_id`, ou \\\"toda_cozinha\\\"\\n          para confirmar tudo o que ainda é suposto; `resposta` é \\\"tem\\\". O item\\n          que ela não tiver vai sozinho, como equipamento ou técnica\\n        - em qualquer tipo, \\\"nao_sei\\\" quando ela diz que não sabe: apaga a\\n          resposta anterior e o item fica em aberto, e o portão pergunta de novo\\n          quando uma receita precisar. Vale também para o que toda cozinha tem\\n          (fogão, panela, geladeira): ele deixa de ser suposto. \\\"Não sei\\\" nunca\\n          vira \\\"não tem\\\"; já o \\\"não tem\\\" dela bloqueia as receitas que precisam\\n          do item, inclusive do que toda cozinha tem.\\n        A resposta traz `impacto`: as receitas em avaliação que passaram a dar,\\n        as que deixaram de dar e as que continuam dependendo de uma resposta.\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender (\\\"talvez\\\", \\\"mais ou menos\\\") é recusada,\\n        não adivinhada: pergunte de outro jeito.\\n        Para modo de preparo, rendimento e tempo de cozimento (`tempo_cozimento_min`),\\n        reenvie a receita em `avaliar_receita` com o campo preenchido.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        `ela_disse_que_nao_sabe` é o que ela respondeu \\\"não sei\\\": ela respondeu,\\n        e a resposta foi essa.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "liquidificador",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"1 respondido por ela · 17 supostos de qualquer cozinha · 45 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

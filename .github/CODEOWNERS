@@ -1,0 +1,17 @@
+# Dono padrão de tudo.
+*                       @MattKings27
+
+# O que decide dinheiro. Mudança aqui altera o número que a Dona Maria vê e
+# usa para cobrar, então nunca entra sem leitura atenta.
+/mise/src/mise/dinheiro.py      @MattKings27
+/mise/src/mise/cmv.py           @MattKings27
+/mise/src/mise/preco.py         @MattKings27
+/mise/src/mise/unidades.py      @MattKings27
+
+# O que decide o que o agente pode fazer.
+/gateway/src/gateway/politica.py    @MattKings27
+/hermes/plugins/                    @MattKings27
+
+# Os próprios portões. Quem edita o portão está mexendo em quem o fiscaliza.
+/.github/                       @MattKings27
+/scripts/                       @MattKings27

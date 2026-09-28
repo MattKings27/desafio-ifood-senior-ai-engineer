@@ -1,0 +1,49 @@
+{
+  "cenario": "despensa-pela-conversa",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Ah, antes que eu esqueça, acabou o leite.",
+      "resposta": "Anotado: o leite integral acabou. Na despensa ele estava com 2 L, e agora aparece como \"acabou\".\n\nIsso não mexe nos R$ 80,00 dos complementos, que seguem inteiros. Se mais adiante alguma receita pedir leite, ele vai aparecer na lista do que falta comprar, com o preço.\n\nQuer que eu siga com a despensa, ou prefere começar a olhar receitas?",
+      "sessao": "20260927_072435_c4425d",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 16328,
+      "uso": {
+        "entrada": 8,
+        "saida": 384,
+        "cache_leitura": 39761,
+        "cache_escrita": 5933
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__atualizar_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__atualizar_despensa\": {\"description\": \"Anota uma mudança na despensa que ela contou, e refaz a conta do item.\\n\\n        acao: \\\"adicionar\\\" (algo que ela já tinha em casa: estoque e unidade, e o\\n        preço se ela souber), \\\"corrigir\\\" (estoque, unidade, quantidade comprada ou\\n        preço), \\\"acabou\\\", \\\"remover\\\" ou \\\"informar_embalagem\\\" (conteudo_da_embalagem,\\n        como \\\"1 kg\\\" ou \\\"400 g\\\": resolve a pergunta do peso da embalagem).\\n        O nome do item não muda. Nada aqui gasta dos complementos: tirar um item\\n        que ela comprou com eles devolve o valor, e o que ela for comprar vai por\\n        registrar_compra, pelo prato confirmado.\\n        Devolve o antes e o depois, o custo novo com a conta, as perguntas\\n        resolvidas e as receitas afetadas.\\n        \", \"parameters\": {\"properties\": {\"acao\": {\"title\": \"Acao\", \"type\": \"string\"}, \"ingrediente\": {\"title\": \"Ingrediente\", \"type\": \"string\"}, \"estoque\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Estoque\", \"default\": null}, \"unidade\": {\"default\": \"\", \"title\": \"Unidade\", \"type\": \"string\"}, \"quantidade_comprada\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade Comprada\", \"default\": null}, \"preco_pago\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Preco Pago\", \"default\": null}, \"conteudo_da_embalagem\": {\"default\": \"\", \"title\": \"Conteudo Da Embalagem\", \"type\": \"string\"}, \"motivo\": {\"default\": \"\", \"title\": \"Motivo\", \"type\": \"string\"}}, \"required\": [\"acao\", \"ingrediente\"], \"type\": \"object\", \"title\": \"atualizar_despensaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__atualizar_despensa",
+          "entrada": {
+            "acao": "acabou",
+            "ingrediente": "leite",
+            "motivo": "Dona Maria contou na conversa que o leite acabou"
+          },
+          "saida": "{\n  \"item\": {\n    \"id\": \"leite-integral\",\n    \"nome\": \"Leite integral\",\n    \"categoria\": \"laticinios\",\n    \"categoria_rotulo\": \"Laticínios\",\n    \"estoque\": 0.0,\n    \"unidade\": \"L\",\n    \"estoque_texto\": \"acabou\",\n    \"pago\": {\n      \"valor\": 10.0,\n      \"texto\": \"R$ 10,00\"\n    },\n    \"custo_unitario\": {\n      \"valor\": 5.0,\n      \"texto\": \"R$ 5,00/L\"\n    },\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\",\n    \"confianca_rotulo\": \"conta direta da planilha\",\n    \"fracao_do_total\": 0.0151,\n    \"fracao_texto\": \"2% do que a senhora pagou\",\n    \"origem\": \"planilha\",\n    \"origem_rotulo\": \"da planilha\",\n    \"imagem\": {\n      \"url\": \"/motor/imagens/ef77af57351a9ae33df6661795da0123\",\n      \"credito\": \"Foto: Santeri Viinamäki, CC BY-SA 4.0, Wikimedia Commons\"\n    },\n    \"receitas_que_usam\": 0,\n    \"receitas_que_usam_texto\": \"ainda sem receita\",\n    \"pendente\": false,\n    \"rota\": \"/despensa/leite-integral\",\n    \"custo_texto\": \"R$ 5,00/L\",\n    \"normalizacao_importou\": false,\n    \"custo_ingenuo\": {\n      \"valor\": 5.0,\n      \"texto\": \"R$ 5,00\"\n    },\n    \"rotulo_original\": \"L\"\n  },\n  \"id\": \"leite-integral\",\n  \"ingrediente\": \"Leite integral\",\n  \"mudou\": true,\n  \"repetida\": false,\n  \"evento\": \"ev-0001\",\n  \"antes\": {\n    \"estoque\": \"2 L\",\n    \"pago\": \"R$ 10,00\",\n    \"custo_unitario\": \"R$ 5,00/L\",\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\"\n  },\n  \"depois\": {\n    \"estoque\": \"acabou\",\n    \"pago\": \"R$ 10,00\",\n    \"custo_unitario\": \"R$ 5,00/L\",\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\"\n  },\n  \"removido\": null,\n  \"estorno\": null,\n  \"compra\": null,\n  \"pendencias_resolvidas\": [],\n  \"pendencia\": null,\n  \"receitas_afetadas\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"mudaram\": [],\n    \"texto\": \"Ainda não há receita em avaliação.\"\n  },\n  \"orcamento\": {\n    \"inicial\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    },\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    },\n    \"gasto\": {\n      \"valor\": 0.0,\n      \"texto\": \"R$ 0,00\"\n    },\n    \"fracao_gasta\": 0.0,\n    \"texto\": \"Nada gasto ainda: restam R$ 80,00 para complementos.\",\n    \"compras\": []\n  },\n  \"orcamento_mudou\": false,\n  \"texto\": \"Anotei que o leite integral acabou.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

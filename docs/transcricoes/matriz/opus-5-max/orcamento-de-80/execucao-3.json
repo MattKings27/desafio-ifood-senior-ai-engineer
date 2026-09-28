@@ -1,0 +1,46 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nO motor registrou assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra lançada até agora.\n\nEntão nada foi comprometido ainda. O valor só começa a cair quando a gente registrar uma compra de verdade, com o preço que a senhora pagou.\n\nUma coisa antes de a senhora sair gastando: o que \"falta\" depende do prato. Só dá para dizer o que falta comprar depois que a gente escolhe as receitas e confirma que a senhora consegue fazer cada uma na sua cozinha. Comprar antes disso é o jeito mais fácil de esses R$ 80,00 virarem coisa parada na prateleira.\n\nQuer que eu comece olhando a despensa que a senhora já comprou, pra ver o que dá pra fazer com o que está lá dentro?",
+      "sessao": "20260924_032323_579d82",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 23387,
+      "uso": {
+        "entrada": 6,
+        "saida": 1113,
+        "cache_leitura": 39554,
+        "cache_escrita": 4957
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento",
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

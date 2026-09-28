@@ -1,0 +1,60 @@
+{
+ "padrao": "HowToStep com name e text: o text vale, e o name que repete o texto (inteiro ou cortado) não vira título",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Feijão com bacon",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "name": "Deixe o feijão de molho na água por até 12 horas.",
+    "text": "Deixe o feijão de molho na água por até 12 horas."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Descarte a água e pique…",
+    "text": "Descarte a água e pique o alho e a cebola."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Leve a panela de pressão ao fogo...",
+    "text": "Leve a panela de pressão ao fogo alto e doure o bacon."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Tempere com limão e sal.",
+    "text": "Tempere com lim&amp;atilde;o e sal."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Sirva quente."
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Deixe o feijão de molho na água por até 12 horas.",
+   "secao": null
+  },
+  {
+   "texto": "Descarte a água e pique o alho e a cebola.",
+   "secao": null
+  },
+  {
+   "texto": "Leve a panela de pressão ao fogo alto e doure o bacon.",
+   "secao": null
+  },
+  {
+   "texto": "Tempere com limão e sal.",
+   "secao": null
+  },
+  {
+   "texto": "Sirva quente.",
+   "secao": null
+  }
+ ]
+}

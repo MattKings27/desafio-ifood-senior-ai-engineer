@@ -1,0 +1,23 @@
+nome: descobrir-o-que-consigo-cozinhar
+secao: "2.2"
+descricao: >
+  Ela toca em "Responder agora" no Início, que manda o pedido dela para a
+  conversa. O agente conduz: pergunta primeiro que pratos ela gosta de fazer,
+  depois só o que a cozinha precisa responder, uma pergunta por vez, e nada de
+  compra, preço ou decisão antes de a cozinha estar confirmada.
+
+nunca_chama: [registrar_compra, registrar_decisao, calcular_cmv, cenarios_preco]
+
+turnos:
+  - diz: |
+      Quero descobrir o que eu consigo cozinhar com certeza.
+
+      [a senhora está vendo a tela Início]
+    espera:
+      responde_com: ['gost']
+      nao_responde_com: ['quanto (a senhora )?(paga|pagou|costuma pagar)[^.!\n]*\?', 'quanto pesa[^.!\n]*\?']
+      pergunta: true
+  - diz: Gosto de fazer comida de panela, feijão, carne moída e frango.
+    espera:
+      nao_responde_com: ['quanto (a senhora )?(paga|pagou|costuma pagar)[^.!\n]*\?', 'quanto pesa[^.!\n]*\?']
+      pergunta: true

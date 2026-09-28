@@ -1,0 +1,178 @@
+{
+  "cenario": "nao-gosta-encerra-o-prato",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola, 4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.",
+      "resposta": "Passei a sua feijoada pelo portão, Dona Maria. Boa notícia de saída: os quatro ingredientes que a senhora listou já estão na sua despensa — feijão preto, bacon, cebola e alho. Não falta comprar nada para esse prato.\n\nSó que o portão ainda não liberou. Faltam três coisas que eu preciso ouvir da senhora antes de falar em preço. Vou por partes, começando pela que mais decide.\n\nA senhora gosta de fazer feijoada? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\n\nPergunto porque não adianta a conta fechar bonito se o prato for um sacrifício de fazer toda semana. Quem vai cozinhar é a senhora.",
+      "sessao": "20260924_025357_0c177c",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 34770,
+      "uso": {
+        "entrada": 8,
+        "saida": 1965,
+        "cache_leitura": 58186,
+        "cache_escrita": 35882
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__consultar_gostos",
+              "mcp__mise__proxima_pergunta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__consultar_gostos\": {\"description\": \"O que ela já disse sobre gostar ou não de fazer cada prato.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_gostosArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "diagnostico-despensa"
+          },
+          "saida": "{\"success\": true, \"name\": \"diagnostico-despensa\", \"description\": \"Ler a despensa e achar o dinheiro parado.\", \"tags\": [\"Despensa\", \"Capital\", \"Diagnóstico\"], \"related_skills\": [\"pesquisa-receitas\", \"fechamento-cardapio\"], \"content\": \"---\\nname: diagnostico-despensa\\ndescription: \\\"Ler a despensa e achar o dinheiro parado.\\\"\\nversion: 2.0.0\\nauthor: Sabor da Maria\\nlicense: MIT\\nplatforms: [linux, macos, windows]\\nmetadata:\\n  hermes:\\n    tags: [Despensa, Capital, Diagnóstico]\\n    related_skills: [pesquisa-receitas, fechamento-cardapio]\\n---\\n\\n# Diagnóstico da Despensa Skill\\n\\nEntender onde o dinheiro da Dona Maria está antes de falar de cardápio. A\\ndespensa é o capital dela, já gasto, e a primeira pergunta útil é qual parte\\ndesse capital vai voltar como prato vendido.\\n\\n## When to Use\\n\\n- Primeira conversa da consultoria\\n- Ela perguntou o que dá para fazer com o que tem\\n- Antes de pesquisar receitas: a busca parte da despensa, não do que é popular\\n- Depois de avaliar algumas receitas, para ver quanto do dinheiro já tem prato\\n\\n## Prerequisites\\n\\nNenhum. Esta é a porta de entrada.\\n\\n## How to Run\\n\\n1. `mcp__mise__diagnostico_despensa`\\n2. Leia `pendencias` primeiro: o que a planilha não resolve\\n3. Traga onde o dinheiro está e o que ainda não tem prato\\n4. Termine com uma pergunta\\n\\n## Quick Reference\\n\\n| Campo | O que significa |\\n|---|---|\\n| `total_investido` | quanto ela já colocou na despensa |\\n| `maiores_investimentos` | onde o capital está concentrado, com a fração do total |\\n| `itens_com_normalizacao_relevante` | onde dividir preço por quantidade crua erraria o custo |\\n| `pendencias` | o que exige perguntar a ela, com a pergunta pronta |\\n| `orcamento` | quanto dos R$ 80,00 de complemento resta |\\n| `capital_sem_prato` | quanto do que ela comprou nenhuma receita avaliada usa ainda |\\n\\n## Procedure\\n\\n### 1. Comece pelas pendências\\n\\n`pendencias` lista o que a planilha não permite deduzir. Cada uma traz\\n`pergunta` e `dinheiro_envolvido`. Não deixe para o fim: enquanto o custo de um\\nitem for desconhecido, nenhum prato que o use fecha a conta.\\n\\n### 2. Mostre onde o dinheiro está\\n\\nUse `maiores_investimentos` com `fracao_do_total`. Concentração alta em\\ningrediente de uso pequeno por prato é dinheiro que demora a voltar. Diga isso\\nsem julgar a compra: ela já gastou, e criticar não devolve nada.\\n\\n> \\\"As alcaparras são ⟨pago⟩, ⟨fração⟩ de tudo que a senhora comprou. Alcaparra\\n> entra de colher em colher, então esse dinheiro volta devagar.\\\"\\n\\n### 3. Use o que ainda não tem prato\\n\\n`capital_sem_prato` diz quanto do dinheiro dela nenhuma receita em avaliação\\nusa. No começo da conversa é a despensa inteira; a cada receita avaliada o\\nnúmero diminui. É a pergunta do \\\"aproveitar o que ela já tem\\\" em número: traga\\nos `maiores` quando for procurar receitas.\\n\\n### 4. Traga as armadilhas de custo quando forem úteis\\n\\n`itens_com_normalizacao_relevante` mostra onde a conta ingênua erraria: um vidro\\nde 500 ml cotado como se fosse um litro, um balde de 2 kg como se fosse um. É o\\nque ela precisa saber para não cobrar menos do que o prato custa. Não explique a\\nmatemática; diga o efeito.\\n\\n### 5. Termine com uma pergunta\\n\\nO diagnóstico é o começo da conversa. Feche com a pergunta que mais destrava:\\nnormalmente a pendência de maior valor, ou que tipo de prato ela gosta de fazer.\\n\\n## Pitfalls\\n\\n- **Recitar os 37 itens.** Três ou quatro pontos que importam.\\n- **Criticar as compras dela.** O dinheiro já saiu; o trabalho é fazer voltar.\\n- **Afirmar o que o motor não disse.** \\\"Sobremesa é o que mais dá lucro\\\" é\\n  palpite. Lucro de prato se mostra com a conta do prato.\\n- **Guardar a pendência para o fim.** É justamente o que trava o resto.\\n- **Sugerir prato antes de entender a despensa.**\\n\\n## Verification\\n\\n- [ ] As pendências foram ditas, com a pergunta correspondente\\n- [ ] Todo valor dito veio de `mcp__mise__diagnostico_despensa`\\n- [ ] No máximo quatro pontos, não a lista inteira\\n- [ ] Nenhuma crítica às compras já feitas\\n- [ ] A mensagem terminou com uma pergunta\\n\", \"path\": \"consultoria-gastronomica/diagnostico-despensa/SKILL.md\", \"skill_dir\": \"<home>/.hermes/profiles/sabor-da-maria-opus-high-avaliacao/skills/consultoria-gastronomica/diagnostico-despensa\", \"org_provenance\": null, \"linked_files\": null, \"usage_hint\": null, \"required_environment_variables\": [], \"required_commands\": [], \"missing_required_environment_variables\": [], \"missing_credential_files\": [], \"missing_required_commands\": [], \"setup_needed\": false, \"setup_skipped\": false, \"readiness_status\": \"available\", \"_source_path\": \"<home>/.hermes/profiles/sabor-da-maria-opus-high-avaliacao/skills/consultoria-gastronomica/diagnostico-despensa/SKILL.md\", \"metadata\": {\"hermes\": {\"tags\": [\"Despensa\", \"Capital\", \"Diagnóstico\"], \"related_skills\": [\"pesquisa-receitas\", \"fechamento-cardapio\"]}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0.5 kg = 0.5 kg; R$ 23,67 ÷ 0.5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0.4 kg = 0.4 kg; R$ 15,18 ÷ 0.4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 30,99 ÷ 0.5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 12,99 ÷ 0.5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0.1 L = 0.1 L; R$ 1,90 ÷ 0.1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ]\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"perfil 21% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Feijoada",
+              "rendimento_porcoes": 8,
+              "tempo_preparo_min": 120,
+              "fonte": "Receita da própria Dona Maria",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de feijão preto",
+                  "nome": "feijão preto",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "500 g de bacon",
+                  "nome": "bacon",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "4 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 4,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal",
+                  "medida": ""
+                }
+              ],
+              "modo_preparo": [
+                "Cozinhar na panela por 2 horas"
+              ]
+            }
+          },
+          "saida": "{\n  \"prato\": \"Feijoada\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Feijoada: FALTA INFO — 3 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Feijoada leva cerca de 120 min\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tem_gas_sobrando\",\n      \"texto\": \"Como está o botijão de gás? Tem reserva?\",\n      \"motivo\": \"Feijoada fica 120 min no fogo, e ficar sem gás no meio estraga o pedido\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer feijoada? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Feijão preto\",\n      \"quantidade\": \"1 kg\",\n      \"custo\": {\n        \"valor\": 9.6,\n        \"texto\": \"R$ 9,60\"\n      },\n      \"derivacao\": \"1 kg = 1000 g × R$ 9,60/kg = R$ 9,60\"\n    },\n    {\n      \"ingrediente\": \"Bacon\",\n      \"quantidade\": \"0.5 kg\",\n      \"custo\": {\n        \"valor\": 11.95,\n        \"texto\": \"R$ 11,95\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 23,90/kg = R$ 11,95\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de unidade) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.012 kg\",\n      \"custo\": {\n        \"valor\": 0.24,\n        \"texto\": \"R$ 0,24\"\n      },\n      \"derivacao\": \"4 × 3 g (peso típico de dente de alho) = 12 g × R$ 20,00/kg = R$ 0,24\"\n    }\n  ],\n  \"falta_comprar\": [],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": true,\n  \"pergunta\": \"A senhora gosta de fazer feijoada? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n  \"tipo\": \"gosto\",\n  \"campo\": \"gosto\",\n  \"por_que_esta\": \"aparece em 1 prato(s) candidato(s)\",\n  \"pratos_afetados\": [\n    \"Feijoada\"\n  ],\n  \"seguintes\": [\n    \"Como está o botijão de gás? Tem reserva?\",\n    \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\"\n  ],\n  \"resumo\": \"0 prato(s) apto(s) · 1 aguardando resposta · 0 bloqueado(s) · 3 pergunta(s) em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.",
+      "resposta": "Então está fechado: a feijoada sai. Gravei como recusada, com o motivo. Não vou insistir nem trazer de volta.\n\nE a senhora acertou em dizer agora, antes de eu fazer conta. Prato que a senhora detesta fazer é o que atrasa pedido, cansa e some do cardápio sozinho depois de duas semanas. Quem cozinha todo dia é a senhora.\n\nO bacon, o feijão preto, a cebola e o alho continuam na despensa e podem entrar em outro prato. Nada foi perdido.\n\nVamos por outro caminho. Me diz: qual prato a senhora faz de olho fechado, aquele que sai bom sempre e a senhora nem reclama de fazer?\n\nPergunto porque quero procurar receita de verdade em cima do que a senhora gosta de cozinhar, e não do contrário. Depois eu vejo o que a sua despensa já cobre e quanto sobra no preço.",
+      "sessao": "20260924_025357_0c177c",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 28460,
+      "uso": {
+        "entrada": 8,
+        "saida": 1230,
+        "cache_leitura": 123446,
+        "cache_escrita": 6251
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_decisao",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}, \"mcp__mise__registrar_decisao\": {\"description\": \"Grava a decisão DELA sobre um prato: aceito, recusado ou adiado.\\n\\n        Aceitar exige o prato aprovado no portão e o preço que ela escolheu; o\\n        preço fica na trilha com o lucro calculado. Abaixo do mínimo sem\\n        prejuízo a decisão ainda é dela, e a resposta diz quanto ela perde.\\n        Recusar e adiar valem sempre.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"decisao\": {\"title\": \"Decisao\", \"type\": \"string\"}, \"motivo\": {\"default\": \"\", \"title\": \"Motivo\", \"type\": \"string\"}, \"preco\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Preco\", \"default\": null}}, \"required\": [\"prato\", \"decisao\"], \"type\": \"object\", \"title\": \"registrar_decisaoArguments\"}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender é recusada, não adivinhada: \\\"não sei\\\"\\n        não é \\\"não tem\\\", e registrar como se fosse bloquearia o prato à toa.\\n        Para modo de preparo e rendimento, reenvie a receita em `avaliar_receita`.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": false,
+            "impedimento": "Dá muito trabalho; ela não gosta de fazer.",
+            "prato": "Feijoada"
+          },
+          "saida": "{\n  \"registrado\": \"Feijoada: nao gosta — Dá muito trabalho; ela não gosta de fazer.\",\n  \"efeito\": \"prato bloqueado no portão\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_decisao",
+          "entrada": {
+            "decisao": "recusado",
+            "motivo": "Ela não gosta de fazer feijoada: dá muito trabalho.",
+            "prato": "Feijoada"
+          },
+          "saida": "{\n  \"registrado\": \"[24/09 06:54] Feijoada: recusado — Ela não gosta de fazer feijoada: dá muito trabalho.\",\n  \"cardapio_atual\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

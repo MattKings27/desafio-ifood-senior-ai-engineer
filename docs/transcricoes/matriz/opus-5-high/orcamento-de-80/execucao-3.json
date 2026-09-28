@@ -1,0 +1,46 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nO motor mostra assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra registrada até agora.\n\nEntão o valor todo está livre pra usar no que faltar.\n\nUma coisa antes de gastar: dá pra escolher melhor o que comprar se eu souber primeiro quais pratos a senhora quer botar no cardápio. Aí eu vejo o que a despensa já cobre e o que precisa ser comprado — e a senhora gasta os R$ 80,00 no que realmente destrava prato, não em item solto.\n\nQuer que eu comece olhando a despensa pra ver o que já dá pra fazer sem gastar nada?",
+      "sessao": "20260924_025703_007c10",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 22582,
+      "uso": {
+        "entrada": 6,
+        "saida": 534,
+        "cache_leitura": 39560,
+        "cache_escrita": 4625
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento",
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

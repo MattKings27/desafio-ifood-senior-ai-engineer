@@ -1,0 +1,150 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "Passei pela conferência. Boa notícia parcial: dos cinco itens, dois já estão na sua despensa.\n\nPela conta da sua planilha:\n- Peito de frango, 500 g: 500 g × R$ 14,00/kg = R$ 7,00\n- Cebola, 1 unidade: contada como 110 g (peso típico de uma unidade) × R$ 4,00/kg = R$ 0,44\n- Sal entra como \"a gosto\", não pesa na conta\n\nFaltam comprar duas coisas: a caixinha de creme de leite e o ketchup (a receita pede 2 colheres).\n\nAinda não vou falar de preço nem mandar a senhora comprar nada. Antes disso, três coisas precisam ficar resolvidas, e a primeira é a que mais pesa:\n\nA senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\n\nPergunto porque não adianta a conta fechar bonito num prato que a senhora não quer cozinhar todo dia. Quem vai ficar na panela é a senhora.",
+      "sessao": "20260924_180600_9e23ab",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 44185,
+      "uso": {
+        "entrada": 10,
+        "saida": 2306,
+        "cache_leitura": 83187,
+        "cache_escrita": 32722
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__consultar_gostos",
+              "mcp__mise__registrar_gosto"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: a avaliação pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}, \"mcp__mise__consultar_gostos\": {\"description\": \"O que ela já disse sobre gostar ou não de fazer cada prato.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_gostosArguments\", \"required\": []}}, \"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0,5 kg = 0,5 kg; R$ 23,67 ÷ 0,5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0,4 kg = 0,4 kg; R$ 15,18 ÷ 0,4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 30,99 ÷ 0,5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 12,99 ÷ 0,5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0,1 L = 0,1 L; R$ 1,90 ÷ 0,1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ],\n    \"dois_maiores\": {\n      \"ingredientes\": [\n        \"Alcaparras\",\n        \"Cobertura de chocolate\"\n      ],\n      \"somam\": {\n        \"valor\": 161.9,\n        \"texto\": \"R$ 161,90\"\n      }\n    }\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "{\n  \"gostos\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Strogonoff de frango",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 25,
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "2 colheres de ketchup",
+                  "nome": "Ketchup",
+                  "quantidade": 2,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "Sal"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga tudo na panela por 25 minutos."
+              ],
+              "fonte": "Receita da própria Dona Maria"
+            }
+          },
+          "saida": "{\n  \"prato\": \"Strogonoff de frango\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Strogonoff de frango: antes de decidir, preciso saber 3 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"Creme de leite,Ketchup\",\n      \"texto\": \"Falta comprar: Creme de leite, Ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Strogonoff de frango leva cerca de 25 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de un) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"Creme de leite\",\n      \"quanto\": \"1 un de Creme de leite\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"Ketchup\",\n      \"quanto\": \"2 colher de sopa de Ketchup\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"Sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": true,\n  \"pergunta\": \"A senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n  \"tipo\": \"gosto\",\n  \"campo\": \"gosto\",\n  \"por_que_esta\": \"aparece em 1 prato(s) candidato(s)\",\n  \"pratos_afetados\": [\n    \"Strogonoff de frango\"\n  ],\n  \"seguintes\": [\n    \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n    \"Falta comprar: Creme de leite, Ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\"\n  ],\n  \"resumo\": \"0 prato(s) apto(s) · 1 aguardando resposta · 0 bloqueado(s) · 3 pergunta(s) em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Anotei as duas coisas: a senhora gosta de fazer, e o creme de leite é um problema real aí. Por enquanto o strogonoff fica parado — não pelo gosto, pelo creme de leite. E é assim que tem que ser: gostar de fazer e conseguir fazer todo dia não são a mesma coisa.\n\nNão vou falar de preço desse prato enquanto isso não se resolver. Seria vender um número que a sua cozinha não sustenta.\n\nMas quero entender o impedimento direito antes de riscar, porque tem duas coisas diferentes no que a senhora falou e elas se resolvem de jeitos diferentes:\n\nUma é o creme de leite estragar. A outra é a geladeira pequena e cheia.\n\nMe conta uma coisa: hoje, quando a senhora faz strogonoff em casa, como a senhora se vira com o creme de leite? Sobra aberto na geladeira, ou a senhora usa a caixinha inteira de uma vez?\n\nPergunto porque, se a caixinha inteira vai embora numa panelada, o que trava é só o espaço pra estocar antes de usar — e aí é uma conversa sobre comprar no dia. Se sobra aberto e azeda, é outro problema, e aí o prato pode mesmo não valer a pena.\n\nUma coisa que já quero deixar dita, porque vai voltar: essa geladeira pequena vai pesar em outros pratos também, não só nesse. Quando a gente chegar nas próximas receitas, vou querer saber quanto de espaço a senhora tem sobrando de verdade. Mas isso fica pra depois. Agora é o creme de leite.",
+      "sessao": "20260924_180600_9e23ab",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 33607,
+      "uso": {
+        "entrada": 4,
+        "saida": 1240,
+        "cache_leitura": 56976,
+        "cache_escrita": 3694
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "Creme de leite estraga rápido na casa dela; geladeira pequena e sempre cheia, sem espaço para guardar",
+            "prato": "Strogonoff de frango"
+          },
+          "saida": "{\n  \"registrado\": \"Strogonoff de frango: gosta — Creme de leite estraga rápido na casa dela; geladeira pequena e sempre cheia, sem espaço para guardar\",\n  \"efeito\": \"prato bloqueado no portão\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

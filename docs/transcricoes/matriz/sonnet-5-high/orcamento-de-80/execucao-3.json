@@ -1,0 +1,57 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros. Não foi registrada nenhuma compra até agora, então nada saiu desse valor.\n\nQuer que eu comece a ver a despensa e as receitas para descobrir o que vale a pena comprar com esse dinheiro?",
+      "sessao": "20260924_025251_fc33f6",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 13349,
+      "uso": {
+        "entrada": 8,
+        "saida": 594,
+        "cache_leitura": 54357,
+        "cache_escrita": 4947
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "consultar orçamento restante"
+            ]
+          },
+          "saida": "{\"queries\": [\"consultar orçamento restante\"], \"total_available\": 28, \"results\": [{\"query\": \"consultar orçamento restante\", \"matches\": [], \"available_sources\": [{\"name\": \"mise\", \"tool_count\": 26}, {\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

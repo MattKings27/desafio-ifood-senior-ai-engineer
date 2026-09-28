@@ -1,0 +1,756 @@
+{
+  "cartao_id": "k-1",
+  "tipo_cartao": "despensa_resumo",
+  "ref": {
+    "rota": "/api/visao-geral",
+    "parametros": {}
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "kpis": {
+      "despensa": {
+        "total": {
+          "valor": 663.39,
+          "texto": "R$ 663,39"
+        },
+        "itens": 37,
+        "texto": "37 ingredientes",
+        "rota": "/despensa"
+      },
+      "orcamento": {
+        "restante": {
+          "valor": 74.0,
+          "texto": "R$ 74,00"
+        },
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "gasto": {
+          "valor": 6.0,
+          "texto": "R$ 6,00"
+        },
+        "texto": "R$ 6,00 já gastos",
+        "rota": "/despensa#orcamento"
+      },
+      "receitas": {
+        "no_catalogo": 3,
+        "da_pra_fazer": 2,
+        "texto": "2 de 3 dão pra fazer",
+        "rota": "/receitas"
+      },
+      "cardapio": {
+        "pratos": 2,
+        "texto": "2 pratos no cardápio",
+        "rota": "/cardapio"
+      },
+      "cozinha": {
+        "respondidos": 3,
+        "supostos": 17,
+        "em_aberto": 43,
+        "fracao_respondida": 0.0476,
+        "texto": "3 de 63 respondidos pela senhora",
+        "rota": "/cozinha"
+      }
+    },
+    "proximo_passo": {
+      "texto": "Responda a pergunta sobre a cobertura de chocolate: sem isso, R$ 79,90 ficam parados.",
+      "acao": {
+        "tipo": "link",
+        "rota": "/#perguntas"
+      }
+    },
+    "pendencias": [
+      {
+        "id": "cobertura-de-chocolate",
+        "ingrediente": "Cobertura de chocolate",
+        "tipo": "conteudo_embalagem",
+        "pergunta": "Dona Maria, quanto vem na embalagem da cobertura de chocolate que a senhora comprou por R$ 79,90? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.",
+        "impacto": {
+          "valor": 79.9,
+          "texto": "R$ 79,90"
+        },
+        "impacto_texto": "R$ 79,90 parados até isso ser respondido",
+        "resposta_inline": {
+          "tipo": "conteudo_embalagem",
+          "rotulo": "Quanto vem na embalagem?",
+          "unidades": [
+            "g",
+            "kg",
+            "ml",
+            "L"
+          ]
+        },
+        "rascunho_chat": "A embalagem da cobertura de chocolate tem ",
+        "rota": "/despensa/cobertura-de-chocolate"
+      }
+    ],
+    "perguntas_da_cozinha": [
+      {
+        "id": "equipamento:forno",
+        "pergunta": {
+          "tipo": "equipamento",
+          "assunto": "equipamento",
+          "campo": "forno",
+          "texto": "A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.",
+          "motivo": "Isso segura 2 receitas: bolo de fubá e frango assado.",
+          "compras": [],
+          "opcoes": [
+            {
+              "rotulo": "Tenho",
+              "resposta": "sim"
+            },
+            {
+              "rotulo": "Não tenho",
+              "resposta": "nao"
+            },
+            {
+              "rotulo": "Não sei",
+              "resposta": "nao_sei"
+            }
+          ],
+          "entrada": null,
+          "passos": [
+            2
+          ]
+        },
+        "receita": {
+          "slug": "2bbb7aef61479a21",
+          "nome": "Bolo de fubá"
+        },
+        "receitas": [
+          {
+            "slug": "2bbb7aef61479a21",
+            "nome": "Bolo de fubá"
+          },
+          {
+            "slug": "frango-assado",
+            "nome": "Frango assado"
+          }
+        ],
+        "rascunho_chat": "Sobre a pergunta “A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.”: ",
+        "rota": "/receitas?aba=falta_resposta"
+      }
+    ],
+    "dinheiro_parado": {
+      "total_itens": 37,
+      "dois_maiores": {
+        "nomes": [
+          "Alcaparras",
+          "Cobertura de chocolate"
+        ],
+        "soma": {
+          "valor": 161.9,
+          "texto": "R$ 161,90"
+        },
+        "fracao": 0.244,
+        "texto": "Alcaparras e Cobertura de chocolate somam 24% de tudo o que a senhora pagou"
+      },
+      "itens": [
+        {
+          "id": "alcaparras",
+          "nome": "Alcaparras",
+          "pago": {
+            "valor": 82.0,
+            "texto": "R$ 82,00"
+          },
+          "fracao": 0.1236,
+          "fracao_texto": "12%",
+          "imagem": {
+            "url": "/motor/imagens/623c4d1cdf11ac4e5ebdd3d160fdd984",
+            "credito": "Foto: Danielle Keller, Public domain, Wikimedia Commons"
+          },
+          "sem_receita": true,
+          "rota": "/despensa/alcaparras"
+        },
+        {
+          "id": "cobertura-de-chocolate",
+          "nome": "Cobertura de chocolate",
+          "pago": {
+            "valor": 79.9,
+            "texto": "R$ 79,90"
+          },
+          "fracao": 0.1204,
+          "fracao_texto": "12%",
+          "imagem": {
+            "url": "/motor/imagens/c0baf8bc7d5213484580c5631b600384",
+            "credito": "Foto: SKopp, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "sem_receita": true,
+          "rota": "/despensa/cobertura-de-chocolate"
+        },
+        {
+          "id": "carne-moida-patinho",
+          "nome": "Carne moída (patinho)",
+          "pago": {
+            "valor": 42.0,
+            "texto": "R$ 42,00"
+          },
+          "fracao": 0.0633,
+          "fracao_texto": "6%",
+          "imagem": {
+            "url": "/motor/imagens/9ad9f94df574f92c2511e0f57680347f",
+            "credito": "Foto: Gajda-13 at Danish Wikipedia, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "sem_receita": true,
+          "rota": "/despensa/carne-moida-patinho"
+        },
+        {
+          "id": "miolo-de-alcatra",
+          "nome": "Miolo de alcatra",
+          "pago": {
+            "valor": 34.0,
+            "texto": "R$ 34,00"
+          },
+          "fracao": 0.0513,
+          "fracao_texto": "5%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/miolo-de-alcatra"
+        },
+        {
+          "id": "azeite-de-oliva-extra-virgem",
+          "nome": "Azeite de oliva extra virgem",
+          "pago": {
+            "valor": 30.99,
+            "texto": "R$ 30,99"
+          },
+          "fracao": 0.0467,
+          "fracao_texto": "5%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/azeite-de-oliva-extra-virgem"
+        },
+        {
+          "id": "peito-de-frango",
+          "nome": "Peito de frango",
+          "pago": {
+            "valor": 28.0,
+            "texto": "R$ 28,00"
+          },
+          "fracao": 0.0422,
+          "fracao_texto": "4%",
+          "imagem": null,
+          "sem_receita": false,
+          "rota": "/despensa/peito-de-frango"
+        },
+        {
+          "id": "feijao-carioquinha",
+          "nome": "Feijão carioquinha",
+          "pago": {
+            "valor": 27.0,
+            "texto": "R$ 27,00"
+          },
+          "fracao": 0.0407,
+          "fracao_texto": "4%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/feijao-carioquinha"
+        },
+        {
+          "id": "arroz-branco-tipo-1",
+          "nome": "Arroz branco tipo 1",
+          "pago": {
+            "valor": 24.9,
+            "texto": "R$ 24,90"
+          },
+          "fracao": 0.0375,
+          "fracao_texto": "4%",
+          "imagem": null,
+          "sem_receita": false,
+          "rota": "/despensa/arroz-branco-tipo-1"
+        },
+        {
+          "id": "ovos",
+          "nome": "Ovos",
+          "pago": {
+            "valor": 24.0,
+            "texto": "R$ 24,00"
+          },
+          "fracao": 0.0362,
+          "fracao_texto": "4%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/ovos"
+        },
+        {
+          "id": "chantilly",
+          "nome": "Chantilly",
+          "pago": {
+            "valor": 23.67,
+            "texto": "R$ 23,67"
+          },
+          "fracao": 0.0357,
+          "fracao_texto": "4%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/chantilly"
+        },
+        {
+          "id": "carne-de-panela-acem",
+          "nome": "Carne de panela (acém)",
+          "pago": {
+            "valor": 23.2,
+            "texto": "R$ 23,20"
+          },
+          "fracao": 0.035,
+          "fracao_texto": "3%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/carne-de-panela-acem"
+        },
+        {
+          "id": "queijo-mussarela",
+          "nome": "Queijo mussarela",
+          "pago": {
+            "valor": 20.0,
+            "texto": "R$ 20,00"
+          },
+          "fracao": 0.0301,
+          "fracao_texto": "3%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/queijo-mussarela"
+        },
+        {
+          "id": "manteiga",
+          "nome": "Manteiga",
+          "pago": {
+            "valor": 20.0,
+            "texto": "R$ 20,00"
+          },
+          "fracao": 0.0301,
+          "fracao_texto": "3%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/manteiga"
+        },
+        {
+          "id": "batata",
+          "nome": "Batata",
+          "pago": {
+            "valor": 18.0,
+            "texto": "R$ 18,00"
+          },
+          "fracao": 0.0271,
+          "fracao_texto": "3%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/batata"
+        },
+        {
+          "id": "amendoa-fatiada",
+          "nome": "Amêndoa fatiada",
+          "pago": {
+            "valor": 18.0,
+            "texto": "R$ 18,00"
+          },
+          "fracao": 0.0271,
+          "fracao_texto": "3%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/amendoa-fatiada"
+        },
+        {
+          "id": "tomate",
+          "nome": "Tomate",
+          "pago": {
+            "valor": 16.0,
+            "texto": "R$ 16,00"
+          },
+          "fracao": 0.0241,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/tomate"
+        },
+        {
+          "id": "leite-ninho-em-po",
+          "nome": "Leite ninho em pó",
+          "pago": {
+            "valor": 15.18,
+            "texto": "R$ 15,18"
+          },
+          "fracao": 0.0229,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/leite-ninho-em-po"
+        },
+        {
+          "id": "macarrao-espaguete",
+          "nome": "Macarrão espaguete",
+          "pago": {
+            "valor": 13.99,
+            "texto": "R$ 13,99"
+          },
+          "fracao": 0.0211,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/macarrao-espaguete"
+        },
+        {
+          "id": "aceto-balsamico",
+          "nome": "Aceto balsâmico",
+          "pago": {
+            "valor": 12.99,
+            "texto": "R$ 12,99"
+          },
+          "fracao": 0.0196,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/aceto-balsamico"
+        },
+        {
+          "id": "bacon",
+          "nome": "Bacon",
+          "pago": {
+            "valor": 11.95,
+            "texto": "R$ 11,95"
+          },
+          "fracao": 0.018,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/bacon"
+        },
+        {
+          "id": "farinha-de-trigo",
+          "nome": "Farinha de trigo",
+          "pago": {
+            "valor": 10.3,
+            "texto": "R$ 10,30"
+          },
+          "fracao": 0.0155,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/farinha-de-trigo"
+        },
+        {
+          "id": "polenta-fuba",
+          "nome": "Polenta (fubá)",
+          "pago": {
+            "valor": 10.0,
+            "texto": "R$ 10,00"
+          },
+          "fracao": 0.0151,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": false,
+          "rota": "/despensa/polenta-fuba"
+        },
+        {
+          "id": "leite-integral",
+          "nome": "Leite integral",
+          "pago": {
+            "valor": 10.0,
+            "texto": "R$ 10,00"
+          },
+          "fracao": 0.0151,
+          "fracao_texto": "2%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/leite-integral"
+        },
+        {
+          "id": "feijao-preto",
+          "nome": "Feijão preto",
+          "pago": {
+            "valor": 9.6,
+            "texto": "R$ 9,60"
+          },
+          "fracao": 0.0145,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/feijao-preto"
+        },
+        {
+          "id": "oleo-de-soja",
+          "nome": "Óleo de soja",
+          "pago": {
+            "valor": 9.0,
+            "texto": "R$ 9,00"
+          },
+          "fracao": 0.0136,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/oleo-de-soja"
+        },
+        {
+          "id": "farinha-de-mandioca",
+          "nome": "Farinha de mandioca",
+          "pago": {
+            "valor": 8.6,
+            "texto": "R$ 8,60"
+          },
+          "fracao": 0.013,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/farinha-de-mandioca"
+        },
+        {
+          "id": "queijo-parmesao-ralado",
+          "nome": "Queijo parmesão ralado",
+          "pago": {
+            "valor": 8.58,
+            "texto": "R$ 8,58"
+          },
+          "fracao": 0.0129,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/queijo-parmesao-ralado"
+        },
+        {
+          "id": "alho",
+          "nome": "Alho",
+          "pago": {
+            "valor": 6.0,
+            "texto": "R$ 6,00"
+          },
+          "fracao": 0.009,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/alho"
+        },
+        {
+          "id": "couve",
+          "nome": "Couve",
+          "pago": {
+            "valor": 6.0,
+            "texto": "R$ 6,00"
+          },
+          "fracao": 0.009,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/couve"
+        },
+        {
+          "id": "acucar",
+          "nome": "Açúcar",
+          "pago": {
+            "valor": 4.28,
+            "texto": "R$ 4,28"
+          },
+          "fracao": 0.0065,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/acucar"
+        },
+        {
+          "id": "cebola",
+          "nome": "Cebola",
+          "pago": {
+            "valor": 4.0,
+            "texto": "R$ 4,00"
+          },
+          "fracao": 0.006,
+          "fracao_texto": "1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/cebola"
+        },
+        {
+          "id": "acafrao-em-po-curcuma",
+          "nome": "Açafrão em pó (cúrcuma)",
+          "pago": {
+            "valor": 2.16,
+            "texto": "R$ 2,16"
+          },
+          "fracao": 0.0033,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/acafrao-em-po-curcuma"
+        },
+        {
+          "id": "salsinha-cheiro-verde",
+          "nome": "Salsinha (cheiro-verde)",
+          "pago": {
+            "valor": 2.1,
+            "texto": "R$ 2,10"
+          },
+          "fracao": 0.0032,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/salsinha-cheiro-verde"
+        },
+        {
+          "id": "adocante-liquido",
+          "nome": "Adoçante líquido",
+          "pago": {
+            "valor": 1.9,
+            "texto": "R$ 1,90"
+          },
+          "fracao": 0.0029,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/adocante-liquido"
+        },
+        {
+          "id": "sal",
+          "nome": "Sal",
+          "pago": {
+            "valor": 1.85,
+            "texto": "R$ 1,85"
+          },
+          "fracao": 0.0028,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": false,
+          "rota": "/despensa/sal"
+        },
+        {
+          "id": "canela-em-po",
+          "nome": "Canela em pó",
+          "pago": {
+            "valor": 1.83,
+            "texto": "R$ 1,83"
+          },
+          "fracao": 0.0028,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/canela-em-po"
+        },
+        {
+          "id": "caldo-de-carne-tempero",
+          "nome": "Caldo de carne (tempero)",
+          "pago": {
+            "valor": 1.42,
+            "texto": "R$ 1,42"
+          },
+          "fracao": 0.0021,
+          "fracao_texto": "menos de 1%",
+          "imagem": null,
+          "sem_receita": true,
+          "rota": "/despensa/caldo-de-carne-tempero"
+        }
+      ]
+    },
+    "receitas_recomendadas": [
+      {
+        "slug": "arroz-com-frango",
+        "nome": "Arroz com frango",
+        "imagem": null,
+        "site": null,
+        "tempo_texto": "40 min",
+        "selo": {
+          "codigo": "com_o_que_tem",
+          "texto": "Com o que a senhora tem"
+        },
+        "usa_texto": "usa 3 de 3 ingredientes que a senhora tem",
+        "falta_texto": "nada a comprar",
+        "nota_da_cozinha": "Confirme a cozinha",
+        "pontuacao": {
+          "valor": 86.9,
+          "texto": "86,9"
+        },
+        "gosta": true,
+        "pergunta": null,
+        "referencias": [],
+        "rota": "/receitas/arroz-com-frango"
+      },
+      {
+        "slug": "8747bf504b200286",
+        "nome": "Frango com milho verde",
+        "imagem": {
+          "url": "/motor/imagens/608ebcc7f9f62dac0c9c45b370443eac",
+          "credito": "Foto: TudoGostoso"
+        },
+        "site": "TudoGostoso",
+        "tempo_texto": "35 min",
+        "selo": {
+          "codigo": "comprando",
+          "texto": "Comprando R$ 6,00, cabe nos R$ 80,00"
+        },
+        "usa_texto": "usa 3 de 4 ingredientes que a senhora tem",
+        "falta_texto": "falta comprar milho verde",
+        "nota_da_cozinha": null,
+        "pontuacao": {
+          "valor": 88.8,
+          "texto": "88,8"
+        },
+        "gosta": true,
+        "pergunta": null,
+        "referencias": [],
+        "rota": "/receitas/8747bf504b200286"
+      }
+    ],
+    "cardapio_previa": [
+      {
+        "slug": "arroz-com-frango",
+        "prato": "Arroz com frango",
+        "imagem": null,
+        "preco": {
+          "valor": 18.0,
+          "texto": "R$ 18,00"
+        },
+        "recebe": {
+          "valor": 16.2,
+          "texto": "R$ 16,20"
+        },
+        "custo_porcao": {
+          "valor": 3.0,
+          "texto": "R$ 3,00"
+        },
+        "lucro_porcao": {
+          "valor": 13.2,
+          "texto": "R$ 13,20"
+        },
+        "derivacao": "Vendendo a R$ 18,00: o iFood fica com R$ 1,80 (10%), então chegam R$ 16,20 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 13,20 limpos por porção. Isso é 73% do que o cliente paga.",
+        "da_prejuizo": false,
+        "aviso": null,
+        "nota": {
+          "valor": 86.9,
+          "texto": "86,9"
+        },
+        "decidido_texto": "hoje, 14:02",
+        "notas": "Sai bem no almoço de sábado.",
+        "rota": "/receitas/arroz-com-frango"
+      },
+      {
+        "slug": "8747bf504b200286",
+        "prato": "Frango com milho verde",
+        "imagem": {
+          "url": "/motor/imagens/608ebcc7f9f62dac0c9c45b370443eac",
+          "credito": "Foto: TudoGostoso"
+        },
+        "preco": {
+          "valor": 22.0,
+          "texto": "R$ 22,00"
+        },
+        "recebe": {
+          "valor": 19.8,
+          "texto": "R$ 19,80"
+        },
+        "custo_porcao": {
+          "valor": 4.1,
+          "texto": "R$ 4,10"
+        },
+        "lucro_porcao": {
+          "valor": 15.7,
+          "texto": "R$ 15,70"
+        },
+        "derivacao": "Vendendo a R$ 22,00: o iFood fica com R$ 2,20 (10%), então chegam R$ 19,80 pra senhora. Tirando R$ 4,10 de ingrediente, sobram R$ 15,70 limpos por porção. Isso é 71% do que o cliente paga.",
+        "da_prejuizo": false,
+        "aviso": "O custo da porção mudou desde que a senhora aceitou: era R$ 3,95, agora é R$ 4,10.",
+        "nota": null,
+        "decidido_texto": "hoje, 15:10",
+        "notas": null,
+        "rota": "/receitas/8747bf504b200286"
+      }
+    ]
+  }
+}

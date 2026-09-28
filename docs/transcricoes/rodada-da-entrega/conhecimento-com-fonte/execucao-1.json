@@ -1,0 +1,39 @@
+{
+  "cenario": "conhecimento-com-fonte",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Como faço um molho béchamel?",
+      "resposta": "O béchamel é o molho branco, Dona Maria. Pelo que a base de cozinha traz, a ideia é esta:\n\n1. Derreter a manteiga e cozinhar a farinha de trigo nela, até formar um creme espesso e homogêneo. Essa mistura é o que os franceses chamam de roux (fonte: Wikipédia, Roux, conferida em 26/09/2026).\n\n2. Diluir essa mistura com leite, aos poucos, até virar um creme.\n\n3. O ponto certo: cor de marfim, aparência de creme e sem gosto de farinha crua (fonte: Wikipédia, Molho bechamel, conferida em 26/09/2026). A fonte também diz que dá para usar amido de milho no lugar da farinha de trigo.\n\nO que a base não traz são as quantidades de manteiga, farinha e leite, nem o tempo no fogo. Se a senhora quiser, eu procuro uma receita completa na internet e trago com o site de onde veio, e aí já confiro o que a senhora tem na despensa para ela. Quer que eu procure?",
+      "sessao": "20260927_175903_834fe4",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 11601,
+      "uso": {
+        "entrada": 6,
+        "saida": 561,
+        "cache_leitura": 59300,
+        "cache_escrita": 3687
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "pergunta": "como fazer molho béchamel (molho branco)",
+            "tipos": [
+              "conhecimento",
+              "receita"
+            ]
+          },
+          "saida": "{\n  \"trechos\": [\n    {\n      \"id\": \"conhecimento:molho-bechamel-base\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"Wikipédia, Molho bechamel\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, O que é o molho bechamel: O molho bechamel é feito cozinhando farinha de trigo (ou amido de milho) na manteiga e depois diluindo essa mistura com leite. Deve ficar cor de marfim, com aparência de creme e sem gosto de farinha crua. Na fonte (pt.wikipedia.org, conferida em 26/09/2026): “é um molho que se obtém cozinhando farinha de trigo (ou amido de milho) em manteiga e depois diluindo essa mistura com leite. Deve ter coloração marfim, aparência de creme e sabor sem gosto de farinha crua.”\",\n      \"pontuacao\": 1.0\n    },\n    {\n      \"id\": \"conhecimento:feijao-de-molho-8-a-12-horas\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"FoRC/USP, Alimentos Sem Mitos: feijão de molho\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, Quanto tempo deixar o feijão de molho: Para o feijão, a maior parte dos estudos indica de 8 a 12 horas de molho, ou seja, deixar de molho na noite anterior e cozinhar no dia seguinte. Na fonte (alimentossemmitos.com.br, conferida em 26/09/2026): “A maior parte dos estudos indica um tempo entre 8 e 12 horas, ou seja, exatamente aquilo que nossas avós faziam: colocar o feijão de molho na noite anterior para cozer no dia seguinte.”\",\n      \"pontuacao\": 0.98\n    },\n    {\n      \"id\": \"conhecimento:roux-o-que-e\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"Wikipédia, Roux\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, O que é roux: Roux é uma preparação de origem francesa usada para engrossar molhos, sopas e guisados: farinha de trigo cozida na manteiga derretida até formar um creme espesso e homogêneo. Na fonte (pt.wikipedia.org, conferida em 26/09/2026): “é uma preparação originária da culinária da França utilizada como espessante de molhos, sopas ou guisados; consiste em cozinhar farinha de trigo em manteiga derretida, até formar um creme espesso e homogéneo.”\",\n      \"pontuacao\": 0.95\n    }\n  ],\n  \"nada_relevante\": false,\n  \"texto\": \"Achei 3 trechos com fonte sobre a pergunta.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

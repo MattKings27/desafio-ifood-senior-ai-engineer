@@ -1,0 +1,300 @@
+{
+  "cenario": "falta-ingrediente-pergunta-preco",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango com creme de milho: 500 g de peito de frango, 1 lata de milho verde, 1 caixinha de creme de leite, 1 cebola, sal a gosto. Refoga o frango e junta o resto na panela, 30 minutos. Rende 4 porções. Gosto de fazer, sem impedimento, e fico até 2 horas cozinhando de boa.",
+      "resposta": "Ótimo, já anotei que a senhora gosta de fazer esse prato e não vê impedimento.\n\nAgora só falta uma coisa: o preço do que falta comprar. A senhora tem o peito de frango e a cebola na despensa, mas falta a lata de milho verde e a caixinha de creme de leite.\n\nQuanto custa aí na sua região a lata de milho verde, e a caixinha de creme de leite?",
+      "sessao": "20260924_023936_06a4e7",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 30157,
+      "uso": {
+        "entrada": 18,
+        "saida": 2295,
+        "cache_leitura": 179027,
+        "cache_escrita": 23858
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Frango com creme de milho",
+                    "ingredientes": [
+                      {
+                        "texto": "500 g de peito de frango",
+                        "nome": "peito de frango",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "1 lata de milho verde",
+                        "nome": "milho verde",
+                        "quantidade": 1,
+                        "medida": "lata"
+                      },
+                      {
+                        "texto": "1 caixinha de creme de leite",
+                        "nome": "creme de leite",
+                        "quantidade": 1,
+                        "medida": "caixinha"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": "unidade"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal",
+                        "medida": ""
+                      }
+                    ],
+                    "rendimento_porcoes": 4,
+                    "modo_preparo": [
+                      "Refogar o frango",
+                      "Juntar o restante dos ingredientes na panela",
+                      "Cozinhar por 30 minutos"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "milho verde",
+                  "quantidade": 1,
+                  "texto": "1 lata de milho verde"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar o frango",
+                "Juntar o restante dos ingredientes na panela",
+                "Cozinhar por 30 minutos"
+              ],
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "registrar gosto prato",
+              "registrar preco mercado"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Frango com creme de milho",
+            "gosta": true,
+            "impedimento": ""
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "No mercado aqui a lata de milho sai 6 reais e o creme de leite 4 e 50.",
+      "resposta": "O prato está liberado, Dona Maria. Apto comprando os dois itens que faltavam.\n\nFica assim:\n- Peito de frango: já está na despensa, R$ 7,00\n- Cebola: já está na despensa, R$ 0,44\n- Milho verde: precisa comprar, R$ 6,00 a lata\n- Creme de leite: precisa comprar, R$ 4,50 a caixinha\n\nA compra dos dois itens soma R$ 10,50, e cabe tranquilo nos R$ 80,00 que a senhora tem pra complementar.\n\nQuer que eu já registre essa compra do milho e do creme de leite, ou prefere ver primeiro a conta do custo por porção e o preço antes de decidir a compra?",
+      "sessao": "20260924_023936_06a4e7",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 16864,
+      "uso": {
+        "entrada": 10,
+        "saida": 1079,
+        "cache_leitura": 155345,
+        "cache_escrita": 4229
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "milho verde",
+            "valor": 6.0,
+            "unidade": "lata",
+            "quantidade": 1,
+            "origem": "ela_informou"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "milho verde",
+            "origem": "informado_por_ela",
+            "quantidade": 1,
+            "unidade": "lata",
+            "valor": 6.0
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "creme de leite",
+            "origem": "informado_por_ela",
+            "quantidade": 1,
+            "unidade": "caixinha",
+            "valor": 4.5
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "milho verde",
+                  "quantidade": 1,
+                  "texto": "1 lata de milho verde"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar o frango",
+                "Juntar o restante dos ingredientes na panela",
+                "Cozinhar por 30 minutos"
+              ],
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

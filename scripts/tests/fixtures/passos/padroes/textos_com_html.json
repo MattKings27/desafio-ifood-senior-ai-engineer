@@ -1,0 +1,43 @@
+{
+ "padrao": "Textos com <br>, <p>, <li>, entidade escapada duas vezes e etiqueta escapada: sai a etiqueta, fica o texto, e a etiqueta de bloco separa os passos",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Peixe",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   "Tempere com o lim&amp;atilde;o.<br>Deixe descansar.",
+   "<p>Aqueça o &lt;b&gt;óleo&lt;/b&gt;.</p><p>Frite o alho.</p>",
+   "<ol><li>Misture tudo.</li><li>Asse por 20&nbsp;minutos.</li></ol>"
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Tempere com o limão.",
+   "secao": null
+  },
+  {
+   "texto": "Deixe descansar.",
+   "secao": null
+  },
+  {
+   "texto": "Aqueça o óleo.",
+   "secao": null
+  },
+  {
+   "texto": "Frite o alho.",
+   "secao": null
+  },
+  {
+   "texto": "Misture tudo.",
+   "secao": null
+  },
+  {
+   "texto": "Asse por 20 minutos.",
+   "secao": null
+  }
+ ]
+}

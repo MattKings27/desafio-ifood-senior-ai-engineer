@@ -1,0 +1,467 @@
+@import "tailwindcss";
+
+/*
+  Tokens do DESIGN.md, nos dois temas.
+
+  Os valores de cor, radius, sombra e duração foram **medidos** no site do iFood
+  com Playwright (`make medir`), não copiados de guia de marca. A diferença não
+  é acadêmica: todo guia público diz que o vermelho é #EA1D2C, e o site usa
+  #EB0033. O primeiro reprova no WCAG AA para texto pequeno (4,46:1); o
+  segundo passa (4,58:1).
+
+  A marca se divide em duas cores, porque texto e preenchimento pedem coisas
+  diferentes:
+  - `marca-fundo` é o #EB0033 medido, cheio, nos dois temas: botão principal,
+    a entrada do Conversar. Branco sobre ele dá 4,58:1.
+  - `marca` é a cor de texto, ícone e foco. No claro ela é um pouco mais funda
+    (#D1002D) para passar também sobre o fundo cinza e o creme, onde o #EB0033
+    cai para 4,28:1 e 4,13:1. No escuro, o #EB0033 como texto dá 3,7:1 e
+    reprova; o rosa #FF5A76 dá 5,65:1 sobre a superfície.
+
+  Cada par de texto e fundo que a interface usa é conferido em
+  `src/lib/contraste.test.ts`, que lê este arquivo nos dois temas, inclusive
+  as tintas a 10% compostas sobre a superfície (os chips).
+*/
+
+/* `dark:` segue a escolha dela (data-tema), não só o sistema. */
+@custom-variant dark (&:where([data-tema="escuro"], [data-tema="escuro"] *));
+
+/* `minimalista:` vale com o modo minimalista ligado nas Preferências (o
+   script do <head> marca data-minimalista antes da primeira pintura). As
+   listas usam para esconder as contas e o texto de apoio; o detalhe de cada
+   item não usa, e continua com tudo. */
+@custom-variant minimalista (&:where([data-minimalista="ligado"], [data-minimalista="ligado"] *));
+
+@theme {
+  /* --- marca ---------------------------------------------------------- */
+  --color-marca: #d1002d;
+  --color-marca-fundo: #eb0033;
+  --color-marca-fundo-escura: #890019;
+  /* Variante de alto contraste da marca, para texto sobre a tinta da marca. */
+  --color-marca-escura: #890019;
+  --color-sobre-marca: #ffffff;
+  --color-rosa: #f7acb7;
+
+  /* --- neutros: medidos no site --------------------------------------- */
+  --color-tinta: #1a1a1a;
+  --color-texto: #333333;
+  --color-apagado: #666666;
+  --color-superficie: #ffffff;
+  --color-superficie-2: #f7f7f7;
+  --color-fundo: #f7f7f7;
+  --color-creme: #f9f2e8;
+  --color-borda: #ebebeb;
+  /* Borda de campo de formulário: 3:1 contra a superfície (WCAG 1.4.11). */
+  --color-borda-campo: #858585;
+
+  /* --- neutros: só na superfície do lojista, que é a nossa ------------ */
+  --color-secao: #f2f2f2;
+  --color-tinta-clara: #fcebea;
+  --color-texto-secundario: #3e3e3e;
+  --color-tinta-forte: #151515;
+
+  /* --- semânticas: passam AA também sobre a própria tinta a 10% -------- */
+  --color-sucesso: #087437;
+  --color-atencao: #9a4f05;
+  --color-perigo: #bf0f1c;
+  --color-info: #155fb5;
+
+  /* --- radius: 8px é o dominante no portal do lojista (19×) ------------
+     O institucional usa 5px e 14px; o portal de quem vende usa 8px. Como a
+     Dona Maria é lojista, é o 8px que vale aqui. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+
+  /* --- tipografia ------------------------------------------------------
+     `iFood RC Títulos` e `iFood RC Textos` são os nomes reais, medidos no
+     portal do lojista (9 e 48 ocorrências). São proprietárias e **nenhum
+     arquivo delas é versionado**: quem as tiver instaladas as vê, quem não
+     tiver cai em Sora/Inter, que são a aproximação livre declarada. */
+  --font-titulo: "iFood RC Títulos", var(--fonte-titulo), ui-sans-serif, system-ui, sans-serif;
+  --font-corpo: "iFood RC Textos", var(--fonte-corpo), Helvetica, Arial, sans-serif;
+
+  /* --- movimento: 0.3s ease é o dominante (306 ocorrências) ------------ */
+  --ease-padrao: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Gera `duration-rapida`, `duration-padrao`, `duration-lenta`. */
+  --transition-duration-rapida: 150ms;
+  --transition-duration-padrao: 300ms;
+  --transition-duration-lenta: 400ms;
+
+  /* Gera `shadow-cartao`, `shadow-flutuante`.
+     A sombra do portal do lojista **tem** deslocamento: `2px 2px 20px`. No
+     escuro, sombra some no fundo; ela vira uma borda de 1px (ver abaixo). */
+  --shadow-cartao: 1px 1px 10px rgb(0 0 0 / 0.06);
+  --shadow-flutuante: 2px 2px 20px rgb(0 0 0 / 0.2);
+
+  /* Brilho dos esqueletos, enquanto a tela carrega. */
+  --animate-brilho: brilho 1.6s ease-in-out infinite;
+
+  @keyframes brilho {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  /* Os três pontos de "escrevendo", no instante em que ela manda. */
+  --animate-escrevendo: escrevendo 1.2s ease-in-out infinite;
+
+  @keyframes escrevendo {
+    0%,
+    60%,
+    100% {
+      opacity: 0.35;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+
+  /* O valor conferido entrando no lugar do "R$ ···", sem mexer no resto. */
+  --animate-valor-conferido: valor-conferido 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @keyframes valor-conferido {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  --animate-cursor: cursor 1s steps(1, end) infinite;
+
+  @keyframes cursor {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.01%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  --sombra-baixa: 1px 1px 10px rgb(0 0 0 / 0.1);
+  --sombra-media: 2px 2px 20px rgb(0 0 0 / 0.2);
+  --sombra-alta: 4px 4px 28px rgb(0 0 0 / 0.24);
+
+  --duracao-rapida: 150ms;
+  --duracao-padrao: 300ms;
+  --duracao-lenta: 400ms;
+
+  /* Altura da barra inferior do celular, para o conteúdo não ficar embaixo. */
+  --altura-barra-inferior: 4.25rem;
+
+  /* O painel da conversa ao lado da tela, a partir de 1024 px. */
+  --largura-do-painel: 420px;
+
+  color-scheme: light;
+}
+
+/*
+  Tema escuro. O script do <head> (ScriptDoTema) marca `data-tema` antes da
+  primeira pintura, então este é o bloco que vale. O de baixo, pela media
+  query, é o plano B de quem está sem JavaScript: os dois têm os mesmos
+  valores, e o teste de contraste confere que continuam iguais.
+*/
+:root[data-tema="escuro"] {
+  --color-marca: #ff5a76;
+  --color-marca-fundo: #eb0033;
+  --color-marca-fundo-escura: #c4002a;
+  --color-marca-escura: #ff9db0;
+  --color-sobre-marca: #ffffff;
+  --color-rosa: #5c2530;
+
+  --color-tinta: #f5f5f7;
+  --color-texto: #e8e8ea;
+  --color-apagado: #a1a1a8;
+  --color-superficie: #1c1c1e;
+  --color-superficie-2: #26262a;
+  --color-fundo: #121214;
+  --color-creme: #23201c;
+  --color-borda: #2e2e32;
+  --color-borda-campo: #74747c;
+
+  --color-secao: #161618;
+  --color-tinta-clara: #3a1c21;
+  --color-texto-secundario: #c7c7cc;
+  --color-tinta-forte: #fafafa;
+
+  --color-sucesso: #4cc38a;
+  --color-atencao: #f0a04b;
+  --color-perigo: #ff8266;
+  --color-info: #6aa8ff;
+
+  --shadow-cartao: 0 0 0 0 transparent;
+  --shadow-flutuante: 0 0 0 1px var(--color-borda), 0 12px 32px rgb(0 0 0 / 0.55);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --color-marca: #ff5a76;
+    --color-marca-fundo: #eb0033;
+    --color-marca-fundo-escura: #c4002a;
+    --color-marca-escura: #ff9db0;
+    --color-sobre-marca: #ffffff;
+    --color-rosa: #5c2530;
+
+    --color-tinta: #f5f5f7;
+    --color-texto: #e8e8ea;
+    --color-apagado: #a1a1a8;
+    --color-superficie: #1c1c1e;
+    --color-superficie-2: #26262a;
+    --color-fundo: #121214;
+    --color-creme: #23201c;
+    --color-borda: #2e2e32;
+    --color-borda-campo: #74747c;
+
+    --color-secao: #161618;
+    --color-tinta-clara: #3a1c21;
+    --color-texto-secundario: #c7c7cc;
+    --color-tinta-forte: #fafafa;
+
+    --color-sucesso: #4cc38a;
+    --color-atencao: #f0a04b;
+    --color-perigo: #ff8266;
+    --color-info: #6aa8ff;
+
+    --shadow-cartao: 0 0 0 0 transparent;
+    --shadow-flutuante: 0 0 0 1px var(--color-borda), 0 12px 32px rgb(0 0 0 / 0.55);
+
+    color-scheme: dark;
+  }
+}
+
+/*
+  Compatibilidade: um fundo sólido da marca (`bg-marca`, sem opacidade) é o
+  preenchimento, nos dois temas. No escuro, `--color-marca` é o rosa de texto
+  (#FF5A76), e branco sobre ele dá 3:1; as telas antigas usam `bg-marca` como
+  fundo de botão. A exceção é o preenchimento da Barra (dentro de um
+  `role="meter"`), que fica na cor de texto: contra o trilho ela passa 3:1
+  também no escuro, e o preenchimento não passaria. As tintas (`bg-marca/10`)
+  continuam sobre a cor de texto, que é o que o contraste dos chips confere.
+  Código novo usa `bg-marca-fundo` direto.
+*/
+@layer utilities {
+  .bg-marca:not([role="meter"] > *) {
+    background-color: var(--color-marca-fundo);
+  }
+
+  /*
+    O mesmo para o ponteiro em cima: `hover:bg-marca-escura` sob texto branco
+    é o fundo escuro da marca. No escuro, `--color-marca-escura` é o rosa claro
+    de texto (#FF9DB0), e branco sobre ele dava cerca de 2:1. Como fundo, vale
+    o `marca-fundo-escura` dos dois temas (10,10:1 no claro, 6,21:1 no escuro).
+  */
+  .hover\:bg-marca-escura:hover {
+    background-color: var(--color-marca-fundo-escura);
+  }
+}
+
+/*
+  Estilos de elemento na camada `base`, e classes auxiliares em `utilities`.
+  Fora de camada, uma regra vence qualquer utilitária do Tailwind (que mora em
+  camada), e foi assim que `* { border-color }` apagava toda cor de borda
+  (`border-marca`, os tons dos chips) e `h1, h2, h3 { color }` apagava o
+  `text-*` dos títulos.
+*/
+@layer base {
+  /* A cor de borda padrão, como o guia de migração do Tailwind 4 recomenda. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-borda, currentColor);
+  }
+
+  html {
+    /* Âncora (#orcamento) não fica escondida atrás do cabeçalho fixo. */
+    scroll-padding-top: 7.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-fundo);
+    color: var(--color-texto);
+    /* Só o token: ele já contém a pilha inteira, com `iFood RC Textos` na
+       frente e a fonte do Next (`--fonte-corpo`) logo atrás. */
+    font-family: var(--font-corpo);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-titulo);
+    color: var(--color-tinta);
+    letter-spacing: -0.01em;
+  }
+
+  /* A mãozinha em tudo o que se clica: botão, chip, opção, seletor, "Chat",
+     "Responder", "Tenho". O preflight do Tailwind 4 deixa o botão com a seta
+     comum, e o botão parecia texto. O que está desligado mostra que não dá.
+     Sem especificidade (`:where`): a classe de um componente continua valendo,
+     e a regra do desligado vem depois para ganhar da primeira. */
+  :where(
+      button,
+      [role="button"],
+      [role="tab"],
+      [role="switch"],
+      [role="radio"],
+      [role="checkbox"],
+      [role="option"],
+      [role="menuitem"],
+      [role="menuitemradio"],
+      [role="menuitemcheckbox"],
+      summary,
+      select,
+      input[type="checkbox"],
+      input[type="radio"],
+      input[type="range"],
+      input[type="file"],
+      input[type="submit"],
+      input[type="button"],
+      input[type="reset"],
+      label:has(> input[type="radio"]),
+      label:has(> input[type="checkbox"])
+    ) {
+    cursor: pointer;
+  }
+
+  :where(
+      button:disabled,
+      select:disabled,
+      input:disabled,
+      [aria-disabled="true"],
+      label:has(> input:disabled)
+    ) {
+    cursor: not-allowed;
+  }
+
+  /* O anel de foco usa a cor da marca, nos dois temas. O contorno acompanha o
+     arredondamento de cada elemento (a pílula continua pílula). */
+  :where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-marca);
+    outline-offset: 2px;
+  }
+
+  /* Cartão clicável inteiro (CardLink): o link do título cobre o cartão, e o
+     anel de foco vai no cartão, para ficar claro o que o Enter abre. */
+  [data-link-esticado]:focus-visible {
+    outline: none;
+  }
+
+  [data-cartao-link]:has([data-link-esticado]:focus-visible) {
+    outline: 2px solid var(--color-marca);
+    outline-offset: 2px;
+  }
+
+  /* O fundo atrás de um diálogo nativo. */
+  dialog::backdrop {
+    background: rgb(0 0 0 / 0.5);
+  }
+}
+
+@layer utilities {
+  /*
+    Números em tabela alinham na vírgula. Num sistema em que a pessoa compara
+    preços linha a linha, dígito de largura variável atrapalha de verdade.
+  */
+  .numero {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* Brilho do esqueleto enquanto a tela carrega (a animação vem de `animate-brilho`). */
+  .esqueleto {
+    background-color: var(--color-borda);
+    background-image: linear-gradient(
+      90deg,
+      var(--color-borda) 25%,
+      var(--color-superficie-2) 50%,
+      var(--color-borda) 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  /*
+    O cursor no fim do texto que o agente está escrevendo: depois do último
+    parágrafo, ou do último item da lista. Ocupa espaço dentro da linha, então
+    o texto não pula quando ele some.
+  */
+  .cursor-de-escrita > p:last-child::after,
+  .cursor-de-escrita > ul:last-child > li:last-child::after {
+    content: "";
+    display: inline-block;
+    width: 0.5em;
+    height: 1.1em;
+    margin-left: 0.125em;
+    vertical-align: -0.2em;
+    border-radius: 2px;
+    background-color: var(--color-marca);
+    animation: var(--animate-cursor);
+  }
+
+  /* Barra de rolagem discreta, para o painel de derivação não ficar pesado. */
+  .rolagem-fina {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-borda) transparent;
+  }
+}
+
+/*
+  Preferências dela (a engrenagem do cabeçalho), marcadas no <html> pelo
+  script do <head> antes da primeira pintura.
+
+  Texto grande: a raiz passa de 16 para 18 px, e tudo que é medido em rem
+  cresce junto (letra, espaço, alvo de toque), sem nada sair do lugar.
+*/
+:root[data-texto="grande"] {
+  font-size: 112.5%;
+}
+
+/*
+  O painel da conversa preso à direita, a partir de 1024 px: a tela anda para
+  o lado, em vez de ficar escondida atrás dele.
+*/
+@media (min-width: 1024px) {
+  :root[data-painel="aberto"] body {
+    padding-right: var(--largura-do-painel);
+  }
+}
+
+/* Fora de camada de propósito: "reduzir movimento" vence tudo, venha do
+   aparelho ou da escolha dela nas Preferências. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root[data-movimento="reduzir"] *,
+:root[data-movimento="reduzir"] *::before,
+:root[data-movimento="reduzir"] *::after {
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 1ms !important;
+  scroll-behavior: auto !important;
+}

@@ -1,0 +1,39 @@
+nome: caminho-completo-ate-a-decisao
+secao: "2.4"
+descricao: >
+  Do prato à decisão dela. Um prato de fogão feito só com o que ela tem; ela
+  responde o que o portão precisa; o agente calcula o custo, mostra os cenários
+  de preço já com os 10% da plataforma, e ela escolhe. O agente registra a
+  escolha dela e não decide por ela. Se ela já deu tudo no primeiro turno, o
+  agente pode adiantar a conta: por isso a ordem vale na conversa inteira.
+  Antes do aceite, ela confirma numa pergunta só o que toda cozinha tem e a
+  receita usa (o fogão, refogar): o agente pergunta, grava o sim e registra.
+
+# A confirmação da cozinha pode vir antes do preço (é até melhor) ou na hora do
+# aceite; o motor recusa registrar_decisao enquanto ela não confirmou, então o
+# aceite registrado já prova a confirmação (casos dourados do aceite).
+chama_na_conversa: [avaliar_receita, calcular_cmv, cenarios_preco, registrar_decisao]
+
+turnos:
+  - diz: >
+      Quero vender arroz com frango. Receita: 500 g de peito de frango, 2
+      xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a
+      gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e
+      cozinho 20 minutos. Rende 4 porções. Gosto de fazer, não vejo
+      impedimento, e aguento até 1 hora cozinhando de uma vez.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      nao_chama: [registrar_decisao]
+  - diz: Beleza. Então quanto eu cobro por porção?
+    espera:
+      responde_com: ['lucro|sobra|ganha']
+      nao_responde_com: ['\bCMV\b', 'food ?cost']
+      nao_chama: [registrar_decisao]
+  - diz: Vou cobrar 18 reais a porção.
+    espera:
+      # O motor não sabe o que a vizinhança cobra: comparar com "o que se
+      # costuma ver" é palpite apresentado como fato.
+      nao_responde_com: ['(acima|abaixo) do que (se )?(costuma|cobra|v[eê])', 'padr[aã]o (do|de) mercado']
+  - diz: Confirmo, tenho tudo isso e sei fazer.
+    espera:
+      nao_responde_com: ['\bCMV\b']

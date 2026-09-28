@@ -1,0 +1,305 @@
+{
+  "cenario": "sem-forno-pergunta-air-fryer",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango assado pra vender. Achei essa receita: 1 kg de coxa e sobrecoxa, 2 dentes de alho, suco de 1 limão, sal a gosto. Tempera e leva ao forno a 200 graus por 50 minutos. Rende 4 porções.",
+      "resposta": "Antes de falar de preço, o motor travou a conversa em quatro coisas. Vou uma de cada vez.\n\nA primeira, e é a que mais decide: a senhora gosta de fazer frango assado? E vê algum impedimento aí na sua cozinha pra esse prato?\n\nPergunto porque não adianta a conta fechar se o prato não é do agrado da senhora fazer todo dia.\n\nDuas coisas que já apareceram e a senhora precisa saber:\n\nO alho a senhora já tem em casa. Dois dentes saem por R$ 0,12 — a conta é 2 × 3 g = 6 g, a R$ 20,00/kg. Coxa e sobrecoxa e limão a senhora ainda não tem, então entram como compra, e compra sai dos R$ 80,00 que ainda estão inteiros.\n\nE tem isto: a senhora já tem R$ 28,00 de peito de frango parado na despensa, a R$ 14,00/kg. A receita que a senhora trouxe pede coxa e sobrecoxa, que é outra peça. Não é problema nenhum — só não quero que a senhora compre frango tendo frango. Se a senhora quiser, depois eu passo essa mesma receita com peito, e a gente compara as duas contas.",
+      "sessao": "20260923_212715_880c6c",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 46622,
+      "uso": {
+        "entrada": 10,
+        "saida": 2952,
+        "cache_leitura": 135736,
+        "cache_escrita": 34125
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"default\": 1, \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção, e esquecer isso multiplica o CMV.\", \"minimum\": 1, \"title\": \"Rendimento Porcoes\", \"type\": \"integer\"}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu sobre equipamento, técnica ou rotina.\\n\\n        `tipo`: equipamento | tecnica | operacional\\n        `campo`: o id devolvido por `avaliar_receita` ou `proxima_pergunta`\\n        `resposta`: \\\"tem\\\" | \\\"nao_tem\\\" para equipamento/técnica; um número para operacional\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__calcular_cmv",
+              "mcp__mise__cenarios_preco",
+              "mcp__mise__registrar_decisao",
+              "mcp__mise__consultar_orcamento",
+              "mcp__mise__consultar_gostos"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__calcular_cmv\": {\"description\": \"Custo de ingrediente de UMA porção, linha a linha.\\n\\n        Recusa receita cuja viabilidade não foi confirmada — chame\\n        `avaliar_receita` antes. Também recusa quando algum custo é\\n        desconhecido, em vez de devolver um total parcial.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"default\": 1, \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção, e esquecer isso multiplica o CMV.\", \"minimum\": 1, \"title\": \"Rendimento Porcoes\", \"type\": \"integer\"}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"calcular_cmvArguments\"}}, \"mcp__mise__cenarios_preco\": {\"description\": \"Três cenários de preço a partir do CMV, com a taxa de 10% aberta.\\n\\n        Apresente os três e deixe a Dona Maria escolher. Não recomende um:\\n        o posicionamento do negócio é decisão dela.\\n        \", \"parameters\": {\"properties\": {\"cmv_por_porcao\": {\"title\": \"Cmv Por Porcao\", \"type\": \"number\"}, \"prato\": {\"default\": \"\", \"title\": \"Prato\", \"type\": \"string\"}}, \"required\": [\"cmv_por_porcao\"], \"type\": \"object\", \"title\": \"cenarios_precoArguments\"}}, \"mcp__mise__registrar_decisao\": {\"description\": \"Grava a decisão DELA sobre um prato: aceito, recusado ou adiado.\", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"decisao\": {\"title\": \"Decisao\", \"type\": \"string\"}, \"motivo\": {\"default\": \"\", \"title\": \"Motivo\", \"type\": \"string\"}}, \"required\": [\"prato\", \"decisao\"], \"type\": \"object\", \"title\": \"registrar_decisaoArguments\"}}, \"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}, \"mcp__mise__consultar_gostos\": {\"description\": \"O que ela já disse sobre gostar ou não de fazer cada prato.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_gostosArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0.5 kg = 0.5 kg; R$ 23,67 ÷ 0.5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0.4 kg = 0.4 kg; R$ 15,18 ÷ 0.4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 30,99 ÷ 0.5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 12,99 ÷ 0.5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0.1 L = 0.1 L; R$ 1,90 ÷ 0.1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"perfil 21% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\",\n  \"tem\": [\n    \"Batedor de arame (fouet)\",\n    \"Faca\",\n    \"Fogão\",\n    \"Frigideira\",\n    \"Geladeira\",\n    \"Panela funda\",\n    \"Peneira\",\n    \"Ralador\",\n    \"Tábua de corte\"\n  ],\n  \"nao_tem\": [],\n  \"domina\": [\n    \"Assar\",\n    \"Bolo caseiro\",\n    \"Brigadeiro / doce de panela\",\n    \"Cozinhar arroz\",\n    \"Cozinhar feijão\",\n    \"Fritar\",\n    \"Molho de tomate caseiro\",\n    \"Refogar\"\n  ],\n  \"nao_domina\": [],\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango assado (coxa e sobrecoxa)",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de coxa e sobrecoxa",
+                  "nome": "coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "suco de 1 limão",
+                  "nome": "limão",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "rendimento_porcoes": 4,
+              "modo_preparo": [
+                "Tempere a coxa e sobrecoxa com o alho amassado, o suco do limão e sal a gosto",
+                "Leve ao forno a 200 graus por 50 minutos"
+              ],
+              "tempo_preparo_min": 50,
+              "fonte": "receita trazida pela Dona Maria"
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango assado (coxa e sobrecoxa)\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango assado (coxa e sobrecoxa): FALTA INFO — 4 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"coxa e sobrecoxa de frango,limão\",\n      \"texto\": \"Falta comprar: coxa e sobrecoxa de frango, limão. A senhora sabe quanto custa aí na sua região?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"equipamento\",\n      \"campo\": \"forno\",\n      \"texto\": \"A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) precisa de forno\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) leva cerca de 50 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango assado (coxa e sobrecoxa)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.006 kg\",\n      \"custo\": {\n        \"valor\": 0.12,\n        \"texto\": \"R$ 0,12\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"coxa e sobrecoxa de frango\",\n      \"quanto\": \"1 kg de coxa e sobrecoxa de frango\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"limão\",\n      \"quanto\": \"1 un de limão\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Forno\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": true,\n  \"pergunta\": \"A senhora gosta de fazer frango assado (coxa e sobrecoxa)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n  \"tipo\": \"gosto\",\n  \"campo\": \"gosto\",\n  \"por_que_esta\": \"aparece em 1 prato(s) candidato(s)\",\n  \"pratos_afetados\": [\n    \"Frango assado (coxa e sobrecoxa)\"\n  ],\n  \"seguintes\": [\n    \"A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.\",\n    \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\"\n  ],\n  \"resumo\": \"0 prato(s) apto(s) · 1 aguardando resposta · 0 bloqueado(s) · 4 pergunta(s) em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Não tenho forno.",
+      "resposta": "Entendi. Anotei: a senhora não tem forno.\n\nO motor não descartou o prato ainda. Ele quer saber de mais uma coisa antes: forno de fogão não é a única saída. Air fryer e forno elétrico servem no lugar, e enquanto eu não souber disso, o frango assado fica parado — nem aprovado, nem descartado.\n\nEntão a pergunta é essa: a senhora tem air fryer ou forno elétrico aí em casa?\n\nSe tiver um dos dois, eu sigo com a receita e a gente vê a conta. Se não tiver nenhum, essa receita assada sai da mesa como está escrita, e aí eu não vou deixar a senhora gastar dinheiro comprando frango para ela.\n\nUma coisa a mais, que é a que me interessa mais: a senhora tem fogão, frigideira e panela funda, e já disse que domina fritar e refogar. Frango em pedaço dá muito bem na panela e na frigideira. Se o assado não for possível, me diz como a senhora faz frango no fogão — do seu jeito — que eu monto a conta em cima do seu jeito, não em cima do que o site mandou.",
+      "sessao": "20260923_212715_880c6c",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 87787,
+      "uso": {
+        "entrada": 16,
+        "saida": 5392,
+        "cache_leitura": 346832,
+        "cache_escrita": 34532
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "forno",
+            "resposta": "nao_tem",
+            "tipo": "equipamento"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"perfil\": \"perfil 23% levantado · 9 equipamentos · 8 técnicas · 45 em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "receita trazida pela Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "kg",
+                  "nome": "coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "texto": "1 kg de coxa e sobrecoxa"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "un",
+                  "nome": "limão",
+                  "quantidade": 1,
+                  "texto": "suco de 1 limão"
+                },
+                {
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Tempere a coxa e sobrecoxa com o alho amassado, o suco do limão e sal a gosto",
+                "Leve ao forno a 200 graus por 50 minutos"
+              ],
+              "nome": "Frango assado (coxa e sobrecoxa)",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 50
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango assado (coxa e sobrecoxa)\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango assado (coxa e sobrecoxa): FALTA INFO — 4 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"coxa e sobrecoxa de frango,limão\",\n      \"texto\": \"Falta comprar: coxa e sobrecoxa de frango, limão. A senhora sabe quanto custa aí na sua região?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"equipamento\",\n      \"campo\": \"forno\",\n      \"texto\": \"A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) precisa de forno\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) leva cerca de 50 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango assado (coxa e sobrecoxa)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.006 kg\",\n      \"custo\": {\n        \"valor\": 0.12,\n        \"texto\": \"R$ 0,12\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"coxa e sobrecoxa de frango\",\n      \"quanto\": \"1 kg de coxa e sobrecoxa de frango\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"limão\",\n      \"quanto\": \"1 un de limão\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Forno\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"23%\",\n  \"resumo\": \"perfil 23% levantado · 9 equipamentos · 8 técnicas · 45 em aberto\",\n  \"tem\": [\n    \"Batedor de arame (fouet)\",\n    \"Faca\",\n    \"Fogão\",\n    \"Frigideira\",\n    \"Geladeira\",\n    \"Panela funda\",\n    \"Peneira\",\n    \"Ralador\",\n    \"Tábua de corte\"\n  ],\n  \"nao_tem\": [\n    \"Forno\"\n  ],\n  \"domina\": [\n    \"Assar\",\n    \"Bolo caseiro\",\n    \"Brigadeiro / doce de panela\",\n    \"Cozinhar arroz\",\n    \"Cozinhar feijão\",\n    \"Fritar\",\n    \"Molho de tomate caseiro\",\n    \"Refogar\"\n  ],\n  \"nao_domina\": [],\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null\n  },\n  \"ainda_em_aberto\": 45\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "receita trazida pela Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "kg",
+                  "nome": "coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "texto": "1 kg de coxa e sobrecoxa"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "un",
+                  "nome": "limão",
+                  "quantidade": 1,
+                  "texto": "suco de 1 limão"
+                },
+                {
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Tempere a coxa e sobrecoxa com o alho amassado, o suco do limão e sal a gosto",
+                "Leve ao forno a 200 graus por 50 minutos"
+              ],
+              "nome": "Frango assado (coxa e sobrecoxa)",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 50
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango assado (coxa e sobrecoxa)\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango assado (coxa e sobrecoxa): FALTA INFO — 4 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"coxa e sobrecoxa de frango,limão\",\n      \"texto\": \"Falta comprar: coxa e sobrecoxa de frango, limão. A senhora sabe quanto custa aí na sua região?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"equipamento\",\n      \"campo\": \"forno\",\n      \"texto\": \"A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) precisa de forno\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Frango assado (coxa e sobrecoxa) leva cerca de 50 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango assado (coxa e sobrecoxa)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.006 kg\",\n      \"custo\": {\n        \"valor\": 0.12,\n        \"texto\": \"R$ 0,12\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"coxa e sobrecoxa de frango\",\n      \"quanto\": \"1 kg de coxa e sobrecoxa de frango\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"limão\",\n      \"quanto\": \"1 un de limão\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Forno\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "search_files",
+          "entrada": {
+            "pattern": "nao_tem|BLOQUEADO",
+            "path": "<repo>",
+            "output_mode": "content",
+            "file_glob": "*.py",
+            "limit": 40
+          },
+          "saida": "{\"total_count\": 40, \"matches_format\": \"path-grouped: each file path on its own line, followed by indented '<line>: <content>' rows for matches in that file\", \"matches_text\": \"<repo>/auditor/tests/test_auditor.py\\n  190: def test_o_cartao_declara_o_que_nao_tem() -> None:\\n<repo>/evals/tests/test_evals.py\\n  45:     caso[\\\"espera\\\"][\\\"veredito\\\"] = \\\"BLOQUEADO\\\"  # o certo é APTO\\n  52:     assert \\\"esperava BLOQUEADO\\\" in resultados[0].motivo\\n  84:     assert vereditos == {\\\"APTO\\\", \\\"APTO COM COMPRA\\\", \\\"FALTA INFO\\\", \\\"BLOQUEADO\\\"}\\n<repo>/scripts/tests/test_cobertura_do_diff.py\\n  167: def test_reprova_quando_linha_nova_nao_tem_teste(tmp_path, monkeypatch, capsys) -> None:\\n<repo>/mise/tests/unit/test_viabilidade.py\\n  68:     assert Veredito.APTO < Veredito.APTO_COM_COMPRA < Veredito.FALTA_INFO < Veredito.BLOQUEADO\\n  75:     assert not Veredito.BLOQUEADO.permite_precificar\\n  102:     assert c.veredito is Veredito.BLOQUEADO\\n  156:     assert c.veredito is Veredito.BLOQUEADO\\n  177:     assert c.veredito is Veredito.BLOQUEADO\\n  201:     assert c.veredito is Veredito.BLOQUEADO\\n  299:     assert a.veredito is Veredito.BLOQUEADO\\n  320:     assert \\\"BLOQUEADO\\\" in avaliar(prato_no_forno, perfil, despensa, gosto=Gosto.GOSTA).resumo()\\n<repo>/mise/tests/unit/test_unidades.py\\n  161: def test_massa_direta_nao_tem_incerteza(medida: str, gramas: str) -> None:\\n<repo>/mise/tests/unit/test_restricoes_operacionais.py\\n  65:     assert c.veredito is Veredito.BLOQUEADO\\n  111:     assert c.veredito is Veredito.BLOQUEADO\\n  147:     assert c.veredito is Veredito.BLOQUEADO\\n  184:     assert a.veredito is Veredito.BLOQUEADO\\n<repo>/mise/tests/unit/test_preco_do_que_falta.py\\n  121:     assert checagem.veredito is Veredito.BLOQUEADO\\n  182:     assert depois.veredito is Veredito.BLOQUEADO\\n<repo>/mise/tests/unit/test_cmv_receita.py\\n  147:     assert exc.value.veredito == \\\"BLOQUEADO\\\"\\n<repo>/mise/tests/unit/test_mcp_server.py\\n  192:             servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=campo, resposta=\\\"nao_tem\\\"\\n  195:     assert avaliacao[\\\"veredito\\\"] == \\\"BLOQUEADO\\\"\\n  203:         servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=\\\"forno\\\", resposta=\\\"nao_tem\\\"\\n  209:     assert d[\\\"veredito\\\"] != \\\"BLOQUEADO\\\"\\n  279:     assert d[\\\"veredito\\\"] == \\\"BLOQUEADO\\\"\\n  295:     assert d[\\\"veredito\\\"] == \\\"BLOQUEADO\\\"\\n  338:         servidor, \\\"registrar_resposta\\\", tipo=\\\"tecnica\\\", campo=\\\"temperagem\\\", resposta=\\\"nao_tem\\\"\\n<repo>/mise/tests/unit/test_casamento.py\\n  51: def test_recusa_o_que_nao_tem(despensa: Despensa, texto: str) -> None:\\n<repo>/mise/src/mise/mcp_server.py\\n  435:                 \\\"nao_tem\\\": sorted(EQUIPAMENTOS_POR_ID[i].nome for i in p.equipamentos_ausentes),\\n  454:         `resposta`: \\\"tem\\\" | \\\"nao_tem\\\" para equipamento/técnica; um número para operacional\\n  528:         APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n<repo>/mise/src/mise/viabilidade.py\\n  21:     BLOQUEADO        não consegue, e nenhuma informação nova muda isso\\n  23: A combinação é **monótona**: `BLOQUEADO` vence `FALTA_INFO`, porque quando já\\n  25: E informação nova nunca converte `BLOQUEADO` em `APTO` sem mudança de perfil.\\n  67:     BLOQUEADO = 3\\n  80:             Veredito.BLOQUEADO: \\\"BLOQUEADO\\\",\\n  154:         self.veredito = max(self.veredito, Veredito.BLOQUEADO)\\n  198:         if self.veredito is Veredito.BLOQUEADO:\\n  200:             return f\\\"{self.receita_nome}: BLOQUEADO — {motivos}\\\"\"}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": true,\n  \"pergunta\": \"A senhora gosta de fazer frango assado (coxa e sobrecoxa)? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n  \"tipo\": \"gosto\",\n  \"campo\": \"gosto\",\n  \"por_que_esta\": \"aparece em 1 prato(s) candidato(s)\",\n  \"pratos_afetados\": [\n    \"Frango assado (coxa e sobrecoxa)\"\n  ],\n  \"seguintes\": [\n    \"A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.\",\n    \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\"\n  ],\n  \"resumo\": \"0 prato(s) apto(s) · 1 aguardando resposta · 0 bloqueado(s) · 4 pergunta(s) em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "read_file",
+          "entrada": {
+            "path": "<repo>/mise/src/mise/mcp_server.py",
+            "offset": 440,
+            "limit": 130
+          },
+          "saida": "{\"content\": \"440|                    \\\"tempo_max_por_fornada_min\\\": p.restricoes.tempo_max_por_fornada_min,\\n441|                    \\\"porcoes_por_fornada\\\": p.restricoes.porcoes_por_fornada,\\n442|                },\\n443|                \\\"ainda_em_aberto\\\": len(p.equipamentos_em_aberto) + len(p.tecnicas_em_aberto),\\n444|            }\\n445|        )\\n446|\\n447|    @servidor.tool()\\n448|    @protegido\\n449|    async def registrar_resposta(tipo: str, campo: str, resposta: str) -> str:\\n450|        \\\"\\\"\\\"Grava o que a Dona Maria respondeu sobre equipamento, técnica ou rotina.\\n451|\\n452|        `tipo`: equipamento | tecnica | operacional\\n453|        `campo`: o id devolvido por `avaliar_receita` ou `proxima_pergunta`\\n454|        `resposta`: \\\"tem\\\" | \\\"nao_tem\\\" para equipamento/técnica; um número para operacional\\n455|        \\\"\\\"\\\"\\n456|        perfil = sessao.perfil\\n457|        tipo = tipo.strip().lower()\\n458|\\n459|        if tipo in (\\\"equipamento\\\", \\\"tecnica\\\"):\\n460|            posse = (\\n461|                Posse.TEM if resposta.strip().lower() in (\\\"tem\\\", \\\"sim\\\", \\\"true\\\") else Posse.NAO_TEM\\n462|            )\\n463|            perfil = (\\n464|                perfil.com_equipamento(campo, posse)\\n465|                if tipo == \\\"equipamento\\\"\\n466|                else perfil.com_tecnica(campo, posse)\\n467|            )\\n468|        elif tipo == \\\"operacional\\\":\\n469|            if campo not in PERGUNTAS_OPERACIONAIS:\\n470|                raise ErroDeUso(f\\\"restrição operacional {campo!r} desconhecida\\\", campo=campo)\\n471|            perfil = perfil.com_restricao(campo, int(float(resposta)))\\n472|        else:\\n473|            raise ErroDeUso(\\\"tipo deve ser 'equipamento', 'tecnica' ou 'operacional'\\\", tipo=tipo)\\n474|\\n475|        sessao.dossie.salvar_perfil(perfil)\\n476|        return _resposta({\\\"registrado\\\": True, \\\"perfil\\\": perfil.resumo()})\\n477|\\n478|    @servidor.tool()\\n479|    @protegido\\n480|    async def proxima_pergunta() -> str:\\n481|        \\\"\\\"\\\"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n482|\\n483|        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n484|        \\\"\\\"\\\"\\n485|        plano = montar_plano(\\n486|            list(sessao.candidatas.values()),\\n487|            sessao.perfil,\\n488|            sessao.despensa,\\n489|            gostos={o.prato: o.gosto for o in sessao.dossie.gostos()},\\n490|            precos=sessao.dossie.precos_conhecidos(),\\n491|        )\\n492|        if not plano:\\n493|            return _resposta(\\n494|                {\\n495|                    \\\"ha_pergunta\\\": False,\\n496|                    \\\"resumo\\\": plano.resumo(),\\n497|                    \\\"aptas\\\": list(plano.aptas),\\n498|                    \\\"bloqueadas\\\": list(plano.bloqueadas),\\n499|                }\\n500|            )\\n501|        melhor = plano.proxima\\n502|        assert melhor is not None\\n503|        return _resposta(\\n504|            {\\n505|                \\\"ha_pergunta\\\": True,\\n506|                \\\"pergunta\\\": melhor.texto,\\n507|                \\\"tipo\\\": melhor.pergunta.tipo.name.lower(),\\n508|                \\\"campo\\\": melhor.campo,\\n509|                \\\"por_que_esta\\\": melhor.justificativa(),\\n510|                \\\"pratos_afetados\\\": list(melhor.receitas_afetadas),\\n511|                \\\"seguintes\\\": [p.texto for p in plano.proximas(3)[1:]],\\n512|                \\\"resumo\\\": plano.resumo(),\\n513|            }\\n514|        )\\n515|\\n516|\\n517|def _registrar_portao(servidor: MCPServer, sessao: Sessao) -> None:\\n518|    \\\"\\\"\\\"O portão de viabilidade e o cálculo de CMV.\\\"\\\"\\\"\\n519|\\n520|    # --- receitas e portão ------------------------------------------------- #\\n521|\\n522|    @servidor.tool()\\n523|    @protegido\\n524|    async def avaliar_receita(receita: ReceitaEntrada) -> str:\\n525|        \\\"\\\"\\\"O PORTÃO: ela consegue produzir este prato?\\n526|\\n527|        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n528|        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n529|        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n530|        \\\"\\\"\\\"\\n531|        dominio = receita.para_dominio()\\n532|        sessao.candidatas[dominio.nome] = dominio\\n533|        avaliacao = sessao.avaliar(dominio)\\n534|        resultado = _avaliacao_json(avaliacao)\\n535|        resultado[\\\"exige\\\"] = {\\n536|            \\\"equipamentos\\\": sorted(EQUIPAMENTOS_POR_ID[i].nome for i in dominio.equipamentos),\\n537|            \\\"tecnicas\\\": sorted(TECNICAS_POR_ID[i].nome for i in dominio.tecnicas),\\n538|        }\\n539|        if not avaliacao.permite_precificar:\\n540|            resultado[\\\"orientacao\\\"] = (\\n541|                \\\"NÃO calcule preço nem sugira que ela compre ingrediente para este prato \\\"\\n542|                \\\"enquanto a viabilidade não for confirmada.\\\"\\n543|            )\\n544|        return _resposta(resultado)\\n545|\\n546|    @servidor.tool()\\n547|    @protegido\\n548|    async def calcular_cmv(receita: ReceitaEntrada) -> str:\\n549|        \\\"\\\"\\\"Custo de ingrediente de UMA porção, linha a linha.\\n550|\\n551|        Recusa receita cuja viabilidade não foi confirmada — chame\\n552|        `avaliar_receita` antes. Também recusa quando algum custo é\\n553|        desconhecido, em vez de devolver um total parcial.\\n554|        \\\"\\\"\\\"\\n555|        dominio = receita.para_dominio()\\n556|        sessao.candidatas[dominio.nome] = dominio\\n557|        avaliacao = sessao.avaliar(dominio)\\n558|        cmv = calcular(dominio, avaliacao)\\n559|\\n560|        return _resposta(\\n561|            {\\n562|                \\\"prato\\\": cmv.receita,\\n563|                \\\"cmv_por_porcao\\\": _reais(cmv.para_precificar),\\n564|                \\\"e_faixa\\\": cmv.e_faixa,\\n565|                \\\"faixa\\\": (\\n566|                    {\\\"minimo\\\": _reais(cmv.minimo), \\\"maximo\\\": _reais(cmv.maximo)}\\n567|                    if cmv.e_faixa\\n568|                    else None\\n569|                ),\", \"total_lines\": 987, \"file_size\": 38960, \"truncated\": true, \"hint\": \"Use offset=570 to continue reading (showing 440-569 of 987 lines)\", \"is_binary\": false, \"is_image\": false}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "read_file",
+          "entrada": {
+            "path": "<repo>/mise/tests/unit/test_mcp_server.py",
+            "offset": 170,
+            "limit": 50
+          },
+          "saida": "{\"content\": \"170|    assert {p[\\\"campo\\\"] for p in d[\\\"perguntas\\\"]} >= {\\\"forno\\\", \\\"empanar\\\"}\\n171|    assert \\\"NÃO calcule preço\\\" in d[\\\"orientacao\\\"]\\n172|\\n173|\\n174|async def test_portao_detecta_exigencias_do_modo_de_preparo(servidor: Any) -> None:\\n175|    d = await chamar(servidor, \\\"avaliar_receita\\\", receita=RECEITA_FORNO)\\n176|    assert \\\"Forno\\\" in d[\\\"exige\\\"][\\\"equipamentos\\\"]\\n177|    assert \\\"Empanar\\\" in d[\\\"exige\\\"][\\\"tecnicas\\\"]\\n178|\\n179|\\n180|async def test_cmv_recusa_sem_viabilidade(servidor: Any) -> None:\\n181|    \\\"\\\"\\\"A garantia central. Se este teste cair, o sistema perdeu o sentido.\\\"\\\"\\\"\\n182|    d = await chamar(servidor, \\\"calcular_cmv\\\", receita=RECEITA_FORNO)\\n183|    assert d[\\\"categoria\\\"] == \\\"regra\\\"\\n184|    assert d[\\\"tipo\\\"] == \\\"ViabilidadeNaoConfirmada\\\"\\n185|    assert \\\"não contorne\\\" in d[\\\"orientacao\\\"].lower()\\n186|    assert \\\"cmv_por_porcao\\\" not in d\\n187|\\n188|\\n189|async def test_cmv_recusa_quando_bloqueado(servidor: Any) -> None:\\n190|    for campo in (\\\"forno\\\", \\\"air_fryer\\\", \\\"forno_eletrico\\\"):\\n191|        await chamar(\\n192|            servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=campo, resposta=\\\"nao_tem\\\"\\n193|        )\\n194|    avaliacao = await chamar(servidor, \\\"avaliar_receita\\\", receita=RECEITA_FORNO)\\n195|    assert avaliacao[\\\"veredito\\\"] == \\\"BLOQUEADO\\\"\\n196|\\n197|    cmv = await chamar(servidor, \\\"calcular_cmv\\\", receita=RECEITA_FORNO)\\n198|    assert cmv[\\\"tipo\\\"] == \\\"ViabilidadeNaoConfirmada\\\"\\n199|\\n200|\\n201|async def test_substituto_destrava_sem_bloquear(servidor: Any) -> None:\\n202|    await chamar(\\n203|        servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=\\\"forno\\\", resposta=\\\"nao_tem\\\"\\n204|    )\\n205|    await chamar(\\n206|        servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=\\\"air_fryer\\\", resposta=\\\"tem\\\"\\n207|    )\\n208|    d = await chamar(servidor, \\\"avaliar_receita\\\", receita=RECEITA_FORNO)\\n209|    assert d[\\\"veredito\\\"] != \\\"BLOQUEADO\\\"\\n210|\\n211|\\n212|# --------------------------------------------------------------------------- #\\n213|# Fluxo completo\\n214|# --------------------------------------------------------------------------- #\\n215|\\n216|\\n217|async def _liberar(servidor: Any) -> None:\\n218|    \\\"\\\"\\\"Ela respondeu tudo: equipamento, técnica, tempo — e que gosta do prato.\\\"\\\"\\\"\\n219|    await chamar(servidor, \\\"registrar_resposta\\\", tipo=\\\"equipamento\\\", campo=\\\"forno\\\", resposta=\\\"tem\\\")\", \"total_lines\": 612, \"file_size\": 23070, \"truncated\": true, \"hint\": \"Use offset=220 to continue reading (showing 170-219 of 612 lines)\", \"is_binary\": false, \"is_image\": false}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "search_files",
+          "entrada": {
+            "limit": 30,
+            "output_mode": "content",
+            "path": "<repo>/mise/src",
+            "pattern": "substitut|air_fryer"
+          },
+          "saida": "{\"total_count\": 24, \"matches_format\": \"path-grouped: each file path on its own line, followed by indented '<line>: <content>' rows for matches in that file\", \"matches_text\": \"<repo>/mise/src/mise/viabilidade.py\\n  225:         posse, substituto = perfil.tem_equipamento_ou_substituto(id_)\\n  230:             alternativas = \\\", \\\".join(equipamento(s).nome for s in equip.substitutos)\\n  248:         del substituto\\n  292:         \\\"air_fryer\\\",\\n<repo>/mise/src/mise/perfil.py\\n  195:     def tem_equipamento_ou_substituto(self, id_: str) -> tuple[Posse, str | None]:\\n  196:         \\\"\\\"\\\"Resolve o equipamento considerando substitutos aceitáveis.\\n  199:         bloquear um prato — e devolvemos qual substituto salvou, para o agente\\n  206:         for substituto in equipamento(id_).substitutos:\\n  207:             if self.tem_equipamento(substituto) is Posse.TEM:\\n  208:                 return Posse.TEM, substituto\\n  211:             # Só é bloqueio definitivo se todos os substitutos também foram negados.\\n  214:                 for s in equipamento(id_).substitutos\\n<repo>/mise/src/mise/taxonomia.py\\n  62:     substitutos: tuple[str, ...] = ()\\n  119:         substitutos=(\\\"air_fryer\\\", \\\"forno_eletrico\\\"),\\n  127:         substitutos=(\\\"forno\\\", \\\"air_fryer\\\"),\\n  130:         \\\"air_fryer\\\",\\n  134:         substitutos=(\\\"forno\\\",),\\n  161:         substitutos=(\\\"frigideira\\\",),\\n  206:         substitutos=(\\\"mixer\\\", \\\"processador\\\"),\\n  213:         substitutos=(\\\"mixer\\\",),\\n  221:         substitutos=(\\\"liquidificador\\\", \\\"processador\\\"),\\n  228:         substitutos=(\\\"liquidificador\\\",),\\n  255:         substitutos=(\\\"rolo_massa\\\",),\\n  262:         substitutos=(\\\"batedeira\\\", \\\"mixer\\\"),\"}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

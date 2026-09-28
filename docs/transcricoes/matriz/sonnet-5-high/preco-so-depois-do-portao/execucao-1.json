@@ -1,0 +1,264 @@
+{
+  "cenario": "preco-so-depois-do-portao",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: chegou a ela com 1 valor(es) apagado(s)"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu devo cobrar por um strogonoff de frango?",
+      "resposta": "Achei uma receita tradicional de strogonoff de frango (do site Receiteria, autor Carlos Lopes) que usa bem o peito de frango que a senhora já tem. Ela já rendeu de graça da despensa: frango, cebola, alho e óleo — uns [valor retirado] só nisso.\n\nMas o portão ainda não libera preço nenhum. Faltam quatro coisas antes:\n\nPrimeiro, a mais importante: a senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra fazer ele aí na sua cozinha?\n\n---\nTirei 1 valor(es) desta resposta que eu não consegui conferir na conta do sistema. Me peça de novo que eu trago cada um com a conta aberta.",
+      "sessao": "20260924_030157_65eb06",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 81183,
+      "uso": {
+        "entrada": 20,
+        "saida": 5223,
+        "cache_leitura": 222513,
+        "cache_escrita": 52440
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "consultar perfil cozinha",
+              "consultar cardapio pratos aceitos",
+              "consultar gostos",
+              "avaliar receita portao"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_cardapio",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_gostos",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_cardapio",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita strogonoff de frango tradicional"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "buscar receita na web extrair receita",
+              "avaliar receita portão mise"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.receiteria.com.br/receita/strogonoff-de-frango-tradicional/"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Strogonoff de frango tradicional",
+              "rendimento_porcoes": 6,
+              "rendimento_informado": true,
+              "tempo_preparo_min": 40,
+              "origem": "web",
+              "url": "https://www.receiteria.com.br/receita/strogonoff-de-frango-tradicional/",
+              "fonte": "receiteria.com.br",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 1.0,
+                  "medida": "kg",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 cebola grande",
+                  "nome": "cebola grande",
+                  "quantidade": 1.0,
+                  "medida": "cebola",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "dentes de alho",
+                  "quantidade": 2.0,
+                  "medida": "dente de alho",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 colheres de sopa de molho inglês",
+                  "nome": "molho inglês",
+                  "quantidade": 2.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "4 colheres de sopa de ketchup",
+                  "nome": "ketchup",
+                  "quantidade": 4.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 colheres de sopa de mostarda",
+                  "nome": "mostarda",
+                  "quantidade": 2.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "100 gramas de champignon",
+                  "nome": "champignon",
+                  "quantidade": 100.0,
+                  "medida": "gramas",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher de chá de páprica defumada",
+                  "nome": "páprica defumada",
+                  "quantidade": 1.0,
+                  "medida": "colher de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher de chá de colorau",
+                  "nome": "colorau",
+                  "quantidade": 1.0,
+                  "medida": "colher de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher de sopa de óleo",
+                  "nome": "óleo",
+                  "quantidade": 1.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 caixas de creme de leite",
+                  "nome": "creme de leite",
+                  "quantidade": 2.0,
+                  "medida": "caixa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1/2 colher de chá de pimenta-do-reino",
+                  "nome": "pimenta-do-reino",
+                  "quantidade": 0.5,
+                  "medida": "colher de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "Azeite a gosto",
+                  "nome": "Azeite",
+                  "quantidade": null,
+                  "medida": "",
+                  "a_gosto": true
+                }
+              ],
+              "modo_preparo": [
+                "Junte os ingredientes para o strogonoff de frango tradicional. Com uma faca afiada, corte o peito de frango em cubos similares de cerca de 2 cm e coloque em uma tigela. Aproveite e descasque e pique fino a cebola e o alho;",
+                "Tempere os cubos de frango com a páprica, o colorau, o sal e a pimenta-do-reino. Com as mãos limpas, mexa para envolver os temperos nos pedaços de frango;",
+                "Leve uma frigideira grande e com borda ao fogo alto. Quando aquecer, regue com o azeite e adicione alguns pedaços de frango, sem sobrepor um ao outro. Deixe fritar até dourar, retire os pedaços para uma travessa e repita com o restante. Reserve;",
+                "Regue novamente a frigideira com o azeite, adicione a cebola picada e refogue por cerca de 2 minutos ou até que fique transparente. Em seguida, acrescente o alho e refogue por mais 30 segundos. Volte o frango para a frigideira e mexa para incorporar;",
+                "Coloque o molho inglês, o ketchup e a mostarda na panela. Misture bem para envolver o frango nesses temperos, realçando o sabor. Adicione o champignon e misture;",
+                "Abaixe o fogo, deixe cozinhar por cerca de 3 minutos e acrescente o creme de leite. Cozinhe por mais 5 minutos, sem deixar ferver, para que o creme de leite não talhe. Prove e ajuste o sal, se necessário;",
+                "E está pronto! Sirva acompanhado de arroz branco e batata palha."
+              ],
+              "equipamentos": [
+                "faca",
+                "fogao",
+                "frigideira"
+              ],
+              "tecnicas": [
+                "fritar",
+                "refogar"
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

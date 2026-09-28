@@ -1,0 +1,209 @@
+{
+  "cenario": "sem-forno-pergunta-air-fryer",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango assado pra vender. Achei essa receita: 1 kg de coxa e sobrecoxa, 2 dentes de alho, suco de 1 limão, sal a gosto. Tempera e leva ao forno a 200 graus por 50 minutos. Rende 4 porções.",
+      "resposta": "Já olhei a receita da senhora e a despensa. O alho a senhora já tem em casa (uns 12 centavos de uso). Frango e limão vão precisar ser comprados.\n\nAntes de falar de preço, preciso resolver algumas coisas com a senhora. Primeira: a senhora gosta de fazer esse frango assado? E vê algum problema para preparar ele na sua cozinha?",
+      "sessao": "20260924_032617_b78c18",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 31570,
+      "uso": {
+        "entrada": 18,
+        "saida": 1742,
+        "cache_leitura": 155485,
+        "cache_escrita": 31334
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "avaliar receita portão",
+              "consultar perfil despensa"
+            ]
+          },
+          "saida": "{\"queries\": [\"avaliar receita portão\", \"consultar perfil despensa\"], \"total_available\": 28, \"results\": [{\"query\": \"avaliar receita portão\", \"matches\": [\"mcp__mise__avaliar_receita\", \"mcp__mise__registrar_resposta\", \"mcp__mise__calcular_cmv\"]}, {\"query\": \"consultar perfil despensa\", \"matches\": [\"mcp__mise__consultar_perfil\"]}], \"tools\": {\"mcp__mise__avaliar_receita\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"required\": [\"receita\"]}, \"mcp__mise__registrar_resposta\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em…\", \"required\": [\"tipo\", \"campo\", \"resposta\"]}, \"mcp__mise__calcular_cmv\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Custo de ingrediente de UMA porção, linha a linha.\\n\\n        Recusa receita cuja viabilidade não foi confirmada — chame\\n        `avaliar_receita` antes. Também recusa quando algum custo é\\n        desconhecido, em vez de devolver um total parcial.\\n        \", \"required\": [\"receita\"]}, \"mcp__mise__consultar_perfil\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"required\": []}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango assado (coxa e sobrecoxa)",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de coxa e sobrecoxa",
+                  "nome": "Coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "Alho",
+                  "quantidade": 2,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "suco de 1 limão",
+                  "nome": "Limão",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "Sal",
+                  "medida": ""
+                }
+              ],
+              "rendimento_porcoes": 4,
+              "modo_preparo": [
+                "Temperar a coxa e sobrecoxa com alho, suco de limão e sal",
+                "Levar ao forno a 200 graus por 50 minutos"
+              ],
+              "tempo_preparo_min": 50,
+              "fonte": "Receita trazida pela Dona Maria"
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Não tenho forno.",
+      "resposta": "Sem forno, dá pra fazer numa air fryer. A senhora tem uma?",
+      "sessao": "20260924_032617_b78c18",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 15889,
+      "uso": {
+        "entrada": 6,
+        "saida": 809,
+        "cache_leitura": 87226,
+        "cache_escrita": 5142
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "forno",
+            "resposta": "nao_tem",
+            "tipo": "equipamento"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita trazida pela Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "kg",
+                  "nome": "Coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "texto": "1 kg de coxa e sobrecoxa"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "Alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "un",
+                  "nome": "Limão",
+                  "quantidade": 1,
+                  "texto": "suco de 1 limão"
+                },
+                {
+                  "medida": "",
+                  "nome": "Sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Temperar a coxa e sobrecoxa com alho, suco de limão e sal",
+                "Levar ao forno a 200 graus por 50 minutos"
+              ],
+              "nome": "Frango assado (coxa e sobrecoxa)",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 50
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

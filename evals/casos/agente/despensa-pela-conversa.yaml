@@ -1,0 +1,16 @@
+nome: despensa-pela-conversa
+secao: "2.3"
+descricao: >
+  Ela conta de passagem que um item acabou. O agente anota na despensa na
+  hora, pela ferramenta da despensa, e o item continua lá com o estoque zerado:
+  acabar não é tirar da despensa, nem é compra, nem é resposta sobre a cozinha.
+
+nunca_chama: [registrar_compra, registrar_decisao, registrar_resposta]
+
+turnos:
+  - diz: Ah, antes que eu esqueça, acabou o leite.
+    espera:
+      chama_em_ordem: [atualizar_despensa]
+      nao_chama_com:
+        - { ferramenta: atualizar_despensa, entrada: { acao: remover } }
+      responde_com: ['leite']

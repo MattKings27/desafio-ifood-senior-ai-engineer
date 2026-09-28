@@ -1,0 +1,409 @@
+{
+  "cenario": "preco-abaixo-do-minimo",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero vender arroz com frango. Receita: 500 g de peito de frango, 2 xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e cozinho 20 minutos. Rende 4 porções. Gosto de fazer, não vejo impedimento, e aguento até 1 hora cozinhando de uma vez.",
+      "resposta": "Dona Maria, o arroz com frango está liberado. A senhora já tem tudo na despensa, não precisa comprar nada.\n\nO custo de ingrediente por porção fica assim:\n\nfrango: R$ 1,75\narroz: R$ 0,51\ncebola: R$ 0,11\nalho: R$ 0,03\nóleo: R$ 0,07\ntotal: R$ 2,47 de ingrediente por porção\n\nAgora a conta do preço. O iFood fica com 10% de tudo que o cliente paga. Se a senhora vendesse pelos R$ 2,47 do ingrediente, receberia só R$ 2,22 e já sairia perdendo. Pra empatar sem lucro nenhum, o preço mínimo é R$ 2,75. Abaixo disso, a senhora paga pra trabalhar.\n\nAgora os três jeitos de precificar, pra senhora escolher:\n\nConservador: R$ 6,18. O iFood tira R$ 0,62, chegam R$ 5,56 pra senhora. Tirando o ingrediente, sobram R$ 3,09 de lucro por porção.\n\nEquilibrado: R$ 7,06. O iFood tira R$ 0,71, chegam R$ 6,35. Sobram R$ 3,88 de lucro por porção.\n\nPremium: R$ 8,23. O iFood tira R$ 0,82, chegam R$ 7,41. Sobram R$ 4,94 de lucro por porção.\n\nQual desses valores fica melhor pra senhora, ou quer que eu veja outro preço?",
+      "sessao": "20260924_025644_c434f2",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 54626,
+      "uso": {
+        "entrada": 30,
+        "saida": 4770,
+        "cache_leitura": 370947,
+        "cache_escrita": 40027
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "avaliar receita parametros",
+              "diagnostico despensa",
+              "consultar perfil cozinha"
+            ]
+          },
+          "saida": "{\"queries\": [\"avaliar receita parametros\", \"diagnostico despensa\", \"consultar perfil cozinha\"], \"total_available\": 28, \"results\": [{\"query\": \"avaliar receita parametros\", \"matches\": [], \"available_sources\": [{\"name\": \"mise\", \"tool_count\": 26}, {\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"diagnostico despensa\", \"matches\": [\"mcp__mise__diagnostico_despensa\"]}, {\"query\": \"consultar perfil cozinha\", \"matches\": [\"mcp__mise__consultar_perfil\"]}], \"tools\": {\"mcp__mise__diagnostico_despensa\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"required\": []}, \"mcp__mise__consultar_perfil\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"required\": []}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__proxima_pergunta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Arroz com Frango",
+                    "ingredientes": [
+                      {
+                        "texto": "500 g de peito de frango",
+                        "nome": "peito de frango",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "2 xícaras de arroz",
+                        "nome": "arroz",
+                        "quantidade": 2,
+                        "medida": "xicara"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": ""
+                      },
+                      {
+                        "texto": "2 dentes de alho",
+                        "nome": "alho",
+                        "quantidade": 2,
+                        "medida": "dente de alho"
+                      },
+                      {
+                        "texto": "2 colheres de óleo",
+                        "nome": "óleo",
+                        "quantidade": 2,
+                        "medida": "colher de sopa"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal",
+                        "opcional": true
+                      }
+                    ],
+                    "rendimento_porcoes": 4,
+                    "modo_preparo": [
+                      "Refogar cebola e alho",
+                      "Dourar o frango",
+                      "Juntar o arroz e a água",
+                      "Cozinhar por 20 minutos"
+                    ],
+                    "tempo_preparo_min": 30
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "nome": "sal",
+                  "opcional": true,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar cebola e alho",
+                "Dourar o frango",
+                "Juntar o arroz e a água",
+                "Cozinhar por 20 minutos"
+              ],
+              "nome": "Arroz com Frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "",
+            "prato": "Arroz com Frango"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "60",
+            "tipo": "operacional"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "nome": "sal",
+                  "opcional": true,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar cebola e alho",
+                "Dourar o frango",
+                "Juntar o arroz e a água",
+                "Cozinhar por 20 minutos"
+              ],
+              "nome": "Arroz com Frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__calcular_cmv",
+              "mcp__mise__cenarios_preco"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__calcular_cmv",
+          "entrada": {
+            "receita": {
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "nome": "sal",
+                  "opcional": true,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar cebola e alho",
+                "Dourar o frango",
+                "Juntar o arroz e a água",
+                "Cozinhar por 20 minutos"
+              ],
+              "nome": "Arroz com Frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__cenarios_preco",
+          "entrada": {
+            "prato": "Arroz com Frango"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Quero cobrar só 2 reais e 50 a porção pra vender bastante. Pode ser?",
+      "resposta": "A R$ 2,50 a senhora dá prejuízo. Deixa eu mostrar a conta:\n\nO iFood tira R$ 0,25, então chegam R$ 2,25 pra senhora. Mas o ingrediente sozinho já custa R$ 2,47. Ou seja, em cada porção vendida a R$ 2,50, a senhora perde R$ 0,22 — quanto mais vender, mais perde.\n\nO preço mínimo pra não ter prejuízo nenhum é R$ 2,75. Abaixo disso não dá, nem pra empatar.\n\nSe a ideia é vender bastante e cobrar barato mesmo assim, o cenário Conservador que te mostrei — R$ 6,18 — já é o mais baixo dos três que sobra lucro, e ainda deixa R$ 3,09 por porção pra senhora.\n\nQuer que eu veja algum preço entre R$ 2,75 e R$ 6,18, ou fica com um dos três cenários?",
+      "sessao": "20260924_025644_c434f2",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 21795,
+      "uso": {
+        "entrada": 6,
+        "saida": 572,
+        "cache_leitura": 131065,
+        "cache_escrita": 2495
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__testar_sensibilidade"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__testar_sensibilidade",
+          "entrada": {
+            "prato": "Arroz com Frango",
+            "preco": 2.5
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

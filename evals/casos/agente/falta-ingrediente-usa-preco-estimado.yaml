@@ -1,0 +1,46 @@
+nome: falta-ingrediente-usa-preco-estimado
+secao: "2.3"
+descricao: >
+  O prato precisa de algo que ela não tem. O agente diz o que falta com o preço
+  que a plataforma já estimou, dito como estimativa e com a fonte, e confronta
+  com os R$ 80 que ela tem para gastar, sem perguntar quanto custa no mercado
+  dela. Ela já disse que gosta de fazer, e isso fica gravado. Quando ela
+  pergunta de onde saiu um preço, o agente diz que é estimado, de onde veio e
+  que ela pode corrigir; o preço que ela dá depois vale mais e é gravado.
+
+nunca_chama: [registrar_decisao]
+# Ela disse que gosta de fazer: o gosto fica gravado na tabela que a tela lê.
+chama_na_conversa: [registrar_gosto|registrar_avaliacao_da_receita]
+
+turnos:
+  - diz: >
+      Quero fazer frango com creme de milho: 500 g de peito de frango, 1 lata
+      de milho verde, 1 caixinha de creme de leite, 1 cebola, sal a gosto.
+      Refoga o frango e junta o resto na panela, 30 minutos. Rende 4 porções.
+      Gosto de fazer, sem impedimento, e fico até 2 horas cozinhando de boa.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      # Ela não disse preço nenhum: gravar um seria inventar o dela.
+      nao_chama: [registrar_preco_mercado]
+      responde_com: ['milho', 'creme de leite', 'refer[eê]ncia|estimad|m[eé]dia', '80']
+      # Preço, peso e quantidade vêm pré-determinados: nenhum vira pergunta.
+      nao_responde_com:
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'
+        - '(qual|me diz|me diga)[^.?\n]{0,12}o pre[çc]o[^.?\n]{0,40}\?'
+        - 'quanto pesa[^.?\n]{0,60}\?'
+        - 'quanto vai de [^.?\n]{0,40}\?'
+  - diz: E esse preço do creme de leite, você tirou de onde?
+    espera:
+      nao_chama: [registrar_preco_mercado]
+      responde_com: ['refer[eê]ncia|estimad|m[eé]dia|pesquis|supermercado', 'corrig|mud|troc|anot|outro valor|seu pre[cç]o']
+      nao_responde_com:
+        # Ela perguntou de onde veio: dizer a fonte e oferecer anotar o preço dela vale;
+        # perguntar o preço, não.
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)[^.!\n]*\?'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'
+        - '(qual|me diz|me diga)[^.?\n]{0,12}o pre[çc]o[^.?\n]{0,40}\?'
+  - diz: Aqui no mercado da esquina o creme de leite sai 4 e 50 a caixinha.
+    espera:
+      chama_em_ordem: [registrar_preco_mercado]
+      responde_com: ['80']

@@ -1,0 +1,116 @@
+# Preço e custo: markup e margem, custos fixos e variáveis, ponto de equilíbrio.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: markup-e-margem-sao-diferentes
+  titulo: Markup não é margem de lucro
+  categoria: preco
+  texto: Markup é o índice multiplicador aplicado ao custo para chegar ao preço de venda. Margem de
+    lucro é a porcentagem do preço de venda que é lucro depois de cobrir todos os custos e despesas.
+  trecho: 'Markup: Refere-se ao índice multiplicador aplicado ao custo para determinar o preço de
+    venda. Margem de lucro: Representa a porcentagem do preço de venda que é lucro, após cobrir todos
+    os custos e despesas.'
+  fonte_titulo: 'Sebrae RN, Markup: o que é, pra que serve e como calcular'
+  fonte_url: https://blog.rn.sebrae.com.br/markup/
+  verificado_em: 2026-09-26
+  palavras: [markup, margem de lucro, preço de venda, custo, lucro]
+
+- id: formula-do-markup
+  titulo: Fórmula do markup
+  categoria: preco
+  texto: Uma fórmula de markup usada pelo Sebrae é Markup = 100 ÷ [100 menos (despesas variáveis %
+    + despesas fixas % + margem de lucro %)]. O resultado é multiplicado pelo custo de produção para
+    chegar ao preço final.
+  trecho: 'Fórmula do Markup: Markup (M) = 100/[100-(DV+DF+ML)] Sendo que: DF = despesas fixas DV
+    = despesas variáveis ML = margem de lucro Após chegar nesse resultado, multiplique o valor obtido
+    pelo custo de produção para determinar o preço final do produto.'
+  fonte_titulo: 'Sebrae RN, Markup: o que é, pra que serve e como calcular'
+  fonte_url: https://blog.rn.sebrae.com.br/markup/
+  verificado_em: 2026-09-26
+  palavras: [markup, fórmula, preço de venda, despesas, margem]
+
+- id: markup-sobre-custo-margem-sobre-preco
+  titulo: Markup sobre o custo, margem sobre o preço
+  categoria: preco
+  texto: O markup é calculado em função do custo; a margem de lucro, em função do preço de venda.
+  trecho: A diferença entre os conceitos é que o markup é uma função do custo, enquanto a margem de
+    lucro é uma função do preço de venda.
+  fonte_titulo: 'CNI, Núcleo de Acesso ao Crédito: margem de lucro e markup'
+  fonte_url: https://nac.cni.com.br/blog/margem-de-lucro-markup/
+  verificado_em: 2026-09-26
+  palavras: [markup, margem de lucro, custo, preço de venda, diferença]
+
+- id: custos-fixos-e-variaveis
+  titulo: Custos fixos e custos variáveis
+  categoria: preco
+  texto: Custos variáveis dependem do volume de vendas; custos fixos precisam ser pagos seja qual
+    for o faturamento, como a folha de pagamento.
+  trecho: 'Custos variáveis: são esporádicos e dependem do volume de venda. Exemplo: gastos com emissão
+    de um boleto Custos fixos: devem ser pagos, não importando o valor do seu faturamento. Exemplo:
+    folha de pagamento.'
+  fonte_titulo: Sebrae SC, 5 passos para precificar corretamente um produto
+  fonte_url: https://www.sebrae-sc.com.br/blog/passos-para-precificar-um-produto
+  verificado_em: 2026-09-26
+  palavras: [custo fixo, custo variável, despesas, faturamento, aluguel]
+
+- id: ponto-de-equilibrio
+  titulo: Ponto de equilíbrio
+  categoria: preco
+  texto: Ponto de equilíbrio é o volume mínimo de vendas necessário para cobrir todos os custos e
+    despesas, fixos e variáveis. A partir dele, dá para ver se o negócio está no caminho do lucro
+    ou do prejuízo.
+  trecho: Esse conceito representa o volume mínimo de vendas necessário para que a empresa consiga
+    cobrir todos os custos e despesas, tanto fixos quanto variáveis. A partir dele, é possível identificar
+    se o negócio está no caminho do lucro ou do prejuízo
+  fonte_titulo: Sebrae Play (Sebrae Minas), Ponto de equilíbrio
+  fonte_url: https://www.sebraeplay.com.br/content/ponto-de-equilibrio
+  verificado_em: 2026-09-26
+  palavras: [ponto de equilíbrio, vendas mínimas, custos, lucro, prejuízo]
+
+- id: preco-no-delivery-inclui-taxas
+  titulo: O que entra no preço do delivery
+  categoria: preco
+  texto: 'Precificar para delivery não é só somar ingredientes e lucro: entram custos que não existem
+    no salão, como embalagem, comissão da plataforma e taxa de pagamento online.'
+  trecho: 'Não é apenas somar ingredientes e adicionar lucro: precificar para delivery exige incluir
+    custos que não existem no salão, como embalagem, comissão da plataforma e taxa de processamento
+    de pagamento online.'
+  fonte_titulo: iFood para Parceiros, Aprenda como precificar o cardápio do seu delivery
+  fonte_url: https://blog-parceiros.ifood.com.br/cardapio/
+  verificado_em: 2026-09-26
+  palavras: [preço, delivery, embalagem, comissão, taxa]
+
+- id: rateio-dos-custos-fixos-no-prato
+  titulo: Ratear os custos fixos no prato
+  categoria: preco
+  texto: Para ratear os custos fixos, some aluguel, salários, energia, água, gás, internet e impostos
+    e divida pelo faturamento mensal. Esse percentual, geralmente de 15% a 25% segundo o iFood, precisa
+    entrar no cálculo de cada prato.
+  trecho: 'Calcule o rateio de custos fixos: some aluguel, salários, energia, água, gás, internet,
+    impostos e divida pelo faturamento mensal. Esse percentual (geralmente 15-25%) precisa entrar
+    no cálculo de cada prato.'
+  fonte_titulo: iFood para Parceiros, Aprenda como precificar o cardápio do seu delivery
+  fonte_url: https://blog-parceiros.ifood.com.br/cardapio/
+  verificado_em: 2026-09-26
+  palavras: [custo fixo, rateio, aluguel, gás, preço do prato]
+
+- id: comissao-entra-no-markup-de-venda
+  titulo: Comissão entra no markup de venda
+  categoria: preco
+  texto: 'No markup de venda somam-se os percentuais que incidem sobre o preço: no exemplo, impostos
+    de 18%, comissão de 10%, encargos financeiros de 4,5% e lucro de 12%, que dão 44,5% do preço de
+    venda.'
+  trecho: Com impostos sobre a venda representando 18%, comissão 10%, encargos financeiros 4,5% e
+    o lucro 12%. A soma destes percentuais representa o valor do markup de venda. Aqui, o markup de
+    venda é 44,5% do preço de venda.
+  fonte_titulo: Wikipédia, Markup
+  fonte_url: https://pt.wikipedia.org/wiki/Markup
+  verificado_em: 2026-09-26
+  palavras: [markup, comissão, impostos, preço de venda, percentual]

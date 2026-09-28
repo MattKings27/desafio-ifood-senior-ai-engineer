@@ -1,0 +1,38 @@
+# O que não pode entrar na imagem, em ordem de gravidade.
+
+# Segredo. Nunca.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Estado: o dossiê da máquina de quem construiu não é o do container.
+.estado/
+*.db
+*.db-wal
+*.db-shm
+
+# Peso morto.
+.git/
+.venv/
+**/.venv/
+node_modules/
+**/node_modules/
+webapp/
+.next/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+coverage.xml
+.coverage
+
+# Não influenciam a execução.
+docs/
+*.md
+!README.md
+tests/
+**/tests/

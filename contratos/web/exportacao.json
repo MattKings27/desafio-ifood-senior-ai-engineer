@@ -1,0 +1,675 @@
+{
+  "arquivo": "sabor-da-maria-dados",
+  "versao": 1,
+  "gerado_em": "2026-09-26T17:32:00+00:00",
+  "despensa": {
+    "itens": [
+      {
+        "id": "alcaparras",
+        "nome": "Alcaparras",
+        "categoria": "conservas",
+        "categoria_rotulo": "Conservas e molhos",
+        "estoque": 2.0,
+        "unidade": "kg",
+        "estoque_texto": "2 kg (1 balde de 2 kg)",
+        "pago": {
+          "valor": 82.0,
+          "texto": "R$ 82,00"
+        },
+        "custo_unitario": {
+          "valor": 41.0,
+          "texto": "R$ 41,00/kg"
+        },
+        "derivacao": "1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg",
+        "confianca": "media",
+        "confianca_rotulo": "conta com conversão de embalagem",
+        "fracao_do_total": 0.1236,
+        "fracao_texto": "12% do que a senhora pagou",
+        "origem": "planilha",
+        "origem_rotulo": "da planilha",
+        "imagem": {
+          "url": "/motor/imagens/623c4d1cdf11ac4e5ebdd3d160fdd984",
+          "credito": "Foto: Danielle Keller, Public domain, Wikimedia Commons"
+        },
+        "receitas_que_usam": 0,
+        "receitas_que_usam_texto": "ainda sem receita",
+        "pendente": false,
+        "rota": "/despensa/alcaparras",
+        "custo_texto": "R$ 41,00/kg",
+        "normalizacao_importou": true,
+        "custo_ingenuo": {
+          "valor": 82.0,
+          "texto": "R$ 82,00"
+        },
+        "rotulo_original": "balde 2kg"
+      },
+      {
+        "id": "cobertura-de-chocolate",
+        "nome": "Cobertura de chocolate",
+        "categoria": "confeitaria",
+        "categoria_rotulo": "Confeitaria",
+        "estoque": 1.0,
+        "unidade": "kg",
+        "estoque_texto": "1 kg (1 embalagem de 1 kg)",
+        "pago": {
+          "valor": 79.9,
+          "texto": "R$ 79,90"
+        },
+        "custo_unitario": {
+          "valor": 79.9,
+          "texto": "R$ 79,90/kg"
+        },
+        "derivacao": "1 × 1 kg = 1 kg; R$ 79,90 ÷ 1 kg = R$ 79,90/kg (o peso da embalagem foi a senhora que informou)",
+        "confianca": "media",
+        "confianca_rotulo": "conta com o peso que a senhora informou",
+        "fracao_do_total": 0.1204,
+        "fracao_texto": "12% do que a senhora pagou",
+        "origem": "planilha",
+        "origem_rotulo": "da planilha",
+        "imagem": {
+          "url": "/motor/imagens/c0baf8bc7d5213484580c5631b600384",
+          "credito": "Foto: SKopp, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "receitas_que_usam": 0,
+        "receitas_que_usam_texto": "ainda sem receita",
+        "pendente": false,
+        "rota": "/despensa/cobertura-de-chocolate",
+        "custo_texto": "R$ 79,90/kg",
+        "normalizacao_importou": false,
+        "custo_ingenuo": {
+          "valor": 79.9,
+          "texto": "R$ 79,90"
+        },
+        "rotulo_original": "un 1kg"
+      }
+    ],
+    "total_investido": {
+      "valor": 663.39,
+      "texto": "R$ 663,39"
+    },
+    "total_itens": 37,
+    "encontrados": 37,
+    "categorias": [
+      {
+        "id": "proteinas",
+        "rotulo": "Carnes e ovos",
+        "quantidade": 6
+      },
+      {
+        "id": "graos",
+        "rotulo": "Grãos, farinhas e massas",
+        "quantidade": 7
+      }
+    ],
+    "categorias_para_escolher": [
+      {
+        "id": "proteinas",
+        "rotulo": "Carnes e ovos"
+      },
+      {
+        "id": "graos",
+        "rotulo": "Grãos, farinhas e massas"
+      }
+    ],
+    "pendencias": [],
+    "orcamento": {
+      "inicial": {
+        "valor": 80.0,
+        "texto": "R$ 80,00"
+      },
+      "restante": {
+        "valor": 74.5,
+        "texto": "R$ 74,50"
+      },
+      "gasto": {
+        "valor": 5.5,
+        "texto": "R$ 5,50"
+      },
+      "fracao_gasta": 0.0688,
+      "texto": "Saíram R$ 5,50 dos complementos; restam R$ 74,50.",
+      "compras": [
+        {
+          "id": 1,
+          "descricao": "coco ralado: 100.0 g",
+          "ingrediente": "coco ralado",
+          "item_id": null,
+          "valor": {
+            "valor": 5.5,
+            "texto": "R$ 5,50"
+          },
+          "quando_texto": "hoje, 14:20",
+          "canal": "tela",
+          "estornada": false,
+          "estorno": false,
+          "pode_estornar": true,
+          "rota_estorno": "/api/compras/1/estorno"
+        }
+      ]
+    }
+  },
+  "despensa_eventos": [
+    {
+      "id": "ev-0001",
+      "tipo": "corrigir",
+      "acao": "informar_embalagem",
+      "texto": "Embalagem de 1 kg informada.",
+      "quando_texto": "hoje, 14:20",
+      "canal": "tela",
+      "pode_desfazer": true,
+      "desfaz": null,
+      "item_id": "cobertura-de-chocolate",
+      "item_nome": "Cobertura de chocolate",
+      "motivo": null,
+      "rota": "/despensa/cobertura-de-chocolate"
+    }
+  ],
+  "cozinha": {
+    "completude": 0.942,
+    "respondidos": 1,
+    "supostos": 62,
+    "em_aberto": 0,
+    "fracao_respondida": 0.0159,
+    "resumo": "1 respondido pela senhora · 62 supostos · 0 ainda não perguntei",
+    "progresso_texto": "1 de 63 respondidos pela senhora",
+    "equipamentos": [
+      {
+        "id": "fogao",
+        "nome": "Fogão",
+        "categoria": "cocção",
+        "estado": "tem",
+        "pressuposto": true,
+        "suposto": true,
+        "pergunta": "A senhora tem fogão aí na cozinha?",
+        "receitas_afetadas": 1,
+        "receitas_afetadas_texto": "1 receita",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      {
+        "id": "forno",
+        "nome": "Forno",
+        "categoria": "cocção",
+        "estado": "tem",
+        "pressuposto": false,
+        "suposto": false,
+        "pergunta": "A senhora tem forno? Pode ser o do fogão mesmo, ou elétrico.",
+        "receitas_afetadas": 1,
+        "receitas_afetadas_texto": "1 receita",
+        "atualizado_por": "tela",
+        "atualizado_texto": "hoje, 14:20",
+        "nao_sei": false
+      }
+    ],
+    "tecnicas": [
+      {
+        "id": "refogar",
+        "nome": "Refogar",
+        "categoria": "básica",
+        "dificuldade": 1,
+        "estado": "tem",
+        "pressuposta": true,
+        "suposto": true,
+        "pergunta": "A senhora tem prática com refogar?",
+        "receitas_afetadas": 1,
+        "receitas_afetadas_texto": "1 receita",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      }
+    ],
+    "restricoes": {
+      "bocas_fogao": {
+        "valor": 4,
+        "tipo": "inteiro",
+        "unidade": "bocas",
+        "min": 1,
+        "max": 8,
+        "pergunta": "Seu fogão tem quantas bocas? Isso limita quantas panelas andam juntas.",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      "tempo_max_por_fornada_min": {
+        "tipo": "horas",
+        "unidade": "horas",
+        "min": 0.5,
+        "max": 12,
+        "passo": 0.5,
+        "casas": 2,
+        "valor": 2,
+        "valor_texto": "2 horas",
+        "pergunta": "Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      "porcoes_por_fornada": {
+        "valor": null,
+        "tipo": "inteiro",
+        "unidade": "porções",
+        "min": 1,
+        "max": 500,
+        "pergunta": "Quantas marmitas a senhora consegue montar numa leva só?",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      "espaco_geladeira_litros": {
+        "valor": null,
+        "tipo": "inteiro",
+        "unidade": "litros",
+        "min": 0,
+        "max": 1000,
+        "pergunta": "Como está o espaço na geladeira? Cabe guardar preparo pronto, em litros mais ou menos? Pode chutar.",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      "energia_aparelhos_simultaneos": {
+        "valor": null,
+        "tipo": "inteiro",
+        "unidade": "aparelhos",
+        "min": 0,
+        "max": 10,
+        "pergunta": "Quantos aparelhos de alta potência a senhora consegue ligar ao mesmo tempo sem cair o disjuntor? Forno elétrico, air fryer, batedeira.",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      },
+      "tem_gas_sobrando": {
+        "valor": null,
+        "tipo": "sim_nao",
+        "pergunta": "Como está o botijão de gás? Tem reserva?",
+        "atualizado_por": null,
+        "atualizado_texto": null,
+        "nao_sei": false
+      }
+    },
+    "toda_cozinha": {
+      "titulo": "O que toda cozinha tem",
+      "texto": "Eu supus que a senhora tem estas coisas e faz estes pratos do dia a dia. Confirme para eu ter certeza antes de qualquer compra.",
+      "a_confirmar": 17,
+      "a_confirmar_texto": "17 para confirmar",
+      "tudo_confirmado": false,
+      "itens": [
+        {
+          "tipo": "equipamento",
+          "id": "fogao",
+          "nome": "Fogão",
+          "imagem": {
+            "url": "/motor/imagens/b25cf8e6f91b9fc0bbf9eea2f3f78828",
+            "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "frigideira",
+          "nome": "Frigideira",
+          "imagem": {
+            "url": "/motor/imagens/1825a02ae45373f2d3db34a7d36c1efe",
+            "credito": "Foto: F ASTILY, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "panela_funda",
+          "nome": "Panela funda",
+          "imagem": {
+            "url": "/motor/imagens/ad0b64a12505facd57d2d287112a68c9",
+            "credito": "Foto: Photograph: Frank C. Müller , Baden-Baden, CC BY-SA 2.5, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "ralador",
+          "nome": "Ralador",
+          "imagem": {
+            "url": "/motor/imagens/009c30d46a60155236d080e34b684daa",
+            "credito": "Foto: Superbass, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "peneira",
+          "nome": "Peneira",
+          "imagem": {
+            "url": "/motor/imagens/7b0a83e110c43b5019477e9f2be5968d",
+            "credito": "Foto: Nuoska, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "fouet",
+          "nome": "Batedor de arame (fouet)",
+          "imagem": {
+            "url": "/motor/imagens/1963b6682bba9057cbcde9df16bad110",
+            "credito": "Foto: Matti Blume, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "geladeira",
+          "nome": "Geladeira",
+          "imagem": {
+            "url": "/motor/imagens/44665e291daad75465c5fa73ae4471bc",
+            "credito": "Foto: Infrogmation of New Orleans, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "faca",
+          "nome": "Faca",
+          "imagem": {
+            "url": "/motor/imagens/4d71eb8468c6db520678837f347eecb8",
+            "credito": "Foto: ProjectManhattan, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "equipamento",
+          "id": "tabua",
+          "nome": "Tábua de corte",
+          "imagem": {
+            "url": "/motor/imagens/4a67360b125224713a0d25434851afa2",
+            "credito": "Foto: Sarah5252, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "refogar",
+          "nome": "Refogar",
+          "imagem": {
+            "url": "/motor/imagens/5c8df82cf8fa6e9b14e7f0789852d532",
+            "credito": "Foto: Rootology, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "cozinhar_arroz",
+          "nome": "Cozinhar arroz",
+          "imagem": {
+            "url": "/motor/imagens/3c55f0d77a742283a3c20a925530a48c",
+            "credito": "Foto: mario, CC BY 2.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "cozinhar_feijao",
+          "nome": "Cozinhar feijão",
+          "imagem": {
+            "url": "/motor/imagens/a5765644bf2031217ed010907bc3ce0a",
+            "credito": "Foto: Hedestad, CC BY-SA 4.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "fritar",
+          "nome": "Fritar",
+          "imagem": {
+            "url": "/motor/imagens/e269126d9a68207baaaf79dd2f8f169f",
+            "credito": "Foto: Takeaway, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "assar",
+          "nome": "Assar",
+          "imagem": {
+            "url": "/motor/imagens/b7e2c3b337b27791c1ca35788965d839",
+            "credito": "Foto: Phoebe, CC BY-SA 3.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "molho_tomate",
+          "nome": "Molho de tomate caseiro",
+          "imagem": {
+            "url": "/motor/imagens/3560957f53cff846f2ad5ae0c4b7ce0a",
+            "credito": "Foto: Dennis Klein klein2, CC0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "brigadeiro",
+          "nome": "Brigadeiro / doce de panela",
+          "imagem": {
+            "url": "/motor/imagens/164482dd42549fe73f507a13efccb2e5",
+            "credito": "Foto: User Mayra (Maych) on Flickr, CC BY-SA 2.0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        },
+        {
+          "tipo": "tecnica",
+          "id": "bolo_simples",
+          "nome": "Bolo caseiro",
+          "imagem": {
+            "url": "/motor/imagens/43676b8f799b6b9fa860ea0224fdaf1b",
+            "credito": "Foto: Wilfredor, CC0, Wikimedia Commons"
+          },
+          "estado": "tem",
+          "status": "suposto",
+          "status_texto": "suposto: confirme"
+        }
+      ]
+    }
+  },
+  "cozinha_eventos": [
+    {
+      "tipo": "equipamento",
+      "campo": "forno",
+      "antes": {
+        "estado": "tem",
+        "suposto": true
+      },
+      "depois": {
+        "estado": "tem",
+        "suposto": false
+      },
+      "nao_sei": false,
+      "canal": "tela",
+      "quando": "2026-09-26T17:20:28+00:00",
+      "texto": "a senhora disse que tem forno"
+    }
+  ],
+  "orcamento": {
+    "inicial": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "restante": {
+      "valor": 74.5,
+      "texto": "R$ 74,50"
+    },
+    "gasto": {
+      "valor": 5.5,
+      "texto": "R$ 5,50"
+    },
+    "fracao_gasta": 0.0688,
+    "texto": "Saíram R$ 5,50 dos complementos; restam R$ 74,50.",
+    "compras": [
+      {
+        "id": 1,
+        "descricao": "coco ralado: 100.0 g",
+        "ingrediente": "coco ralado",
+        "item_id": null,
+        "valor": {
+          "valor": 5.5,
+          "texto": "R$ 5,50"
+        },
+        "quando_texto": "hoje, 14:20",
+        "canal": "tela",
+        "estornada": false,
+        "estorno": false,
+        "pode_estornar": true,
+        "rota_estorno": "/api/compras/1/estorno"
+      }
+    ]
+  },
+  "compras": [
+    {
+      "id": 1,
+      "descricao": "coco ralado: 100.0 g",
+      "ingrediente": "coco ralado",
+      "item_id": null,
+      "valor": {
+        "valor": 5.5,
+        "texto": "R$ 5,50"
+      },
+      "quando_texto": "hoje, 14:20",
+      "canal": "tela",
+      "estornada": false,
+      "estorno": false,
+      "pode_estornar": true,
+      "rota_estorno": "/api/compras/1/estorno"
+    }
+  ],
+  "decisoes": [
+    {
+      "prato": "Arroz com frango",
+      "decisao": "aceito",
+      "motivo": "",
+      "detalhes": {
+        "preco": "R$ 12,00",
+        "cmv_por_porcao": "R$ 3,00",
+        "lucro_por_porcao": "R$ 7,80",
+        "preco_minimo": "R$ 3,34",
+        "da_prejuizo": false,
+        "taxa_ifood": "R$ 1,20",
+        "ela_recebe": "R$ 10,80",
+        "auditoria_independente": {
+          "confere": true,
+          "observacao": "2 linhas somam 3.00; mínimo R$ 3.34, lucro R$ 7.80 a R$ 12.00",
+          "divergencias": [],
+          "da_prejuizo": false,
+          "aviso": "",
+          "por": "auditor independente, em processo"
+        }
+      },
+      "canal": "tela",
+      "quando": "2026-09-26T17:20:28+00:00"
+    }
+  ],
+  "cardapio": [
+    "Arroz com frango"
+  ],
+  "gostos": [
+    {
+      "prato": "Arroz com frango",
+      "gosto": "gosta",
+      "impedimento": "",
+      "quando": "2026-09-26T17:20:28+00:00"
+    },
+    {
+      "prato": "Bolo de fubá",
+      "gosto": "gosta",
+      "impedimento": "",
+      "quando": "2026-09-26T17:20:28+00:00"
+    }
+  ],
+  "precos_de_mercado": [
+    {
+      "ingrediente": "coco ralado",
+      "valor": {
+        "valor": 5.5,
+        "texto": "R$ 5,50"
+      },
+      "por": "0,1 kg",
+      "origem": "informado_por_ela",
+      "quando": "2026-09-26T17:20:28+00:00"
+    }
+  ],
+  "receitas_em_avaliacao": [
+    {
+      "receita_id": "arroz-com-frango",
+      "nome": "Arroz com frango",
+      "rendimento_porcoes": 4,
+      "rendimento_informado": true,
+      "tempo_preparo_min": null,
+      "tempo_cozimento_min": 40,
+      "tempo_total_min": null,
+      "origem": "informada_por_ela",
+      "url": null,
+      "fonte": null,
+      "ingredientes": [
+        {
+          "texto": "500 g de frango",
+          "nome": "peito de frango",
+          "quantidade": 500.0,
+          "medida": "g",
+          "a_gosto": false
+        },
+        {
+          "texto": "1 kg de arroz",
+          "nome": "arroz",
+          "quantidade": 1.0,
+          "medida": "kg",
+          "a_gosto": false
+        },
+        {
+          "texto": "sal a gosto",
+          "nome": "sal",
+          "quantidade": null,
+          "medida": "",
+          "a_gosto": true
+        }
+      ],
+      "modo_preparo": [
+        "Refogue a cebola.",
+        "Junte o frango e o arroz e cozinhe na panela."
+      ],
+      "equipamentos": [
+        "fogao"
+      ],
+      "tecnicas": [
+        "refogar"
+      ]
+    }
+  ]
+}

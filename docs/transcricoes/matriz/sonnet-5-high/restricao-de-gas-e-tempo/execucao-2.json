@@ -1,0 +1,143 @@
+{
+  "cenario": "restricao-de-gas-e-tempo",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado. E eu só consigo cozinhar à tarde, umas 2 horas no máximo.",
+      "resposta": "A senhora tem 37 itens na despensa, com R$ 663,39 já investidos. Isso é dinheiro parado até a gente decidir os pratos — ainda não tem nenhuma receita avaliada usando esse estoque.\n\nOs maiores investimentos são:\n- Alcaparras: R$ 82,00 (R$ 41,00/kg)\n- Cobertura de chocolate: R$ 79,90\n- Carne moída (patinho): R$ 42,00 (R$ 28,00/kg)\n- Miolo de alcatra: R$ 34,00 (R$ 42,50/kg)\n- Azeite de oliva extra virgem: R$ 30,99 (R$ 61,98/L)\n- Peito de frango: R$ 28,00 (R$ 14,00/kg)\n- Feijão carioquinha: R$ 27,00 (R$ 9,00/kg)\n- Arroz branco tipo 1: R$ 24,90 (R$ 4,98/kg)\n\nDo orçamento de complemento, ainda não usamos nada: restam os R$ 80,00 inteiros.\n\nAntes de eu procurar receitas, uma coisa que preciso saber: a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Pergunto porque sem o peso não consigo calcular quanto ela custa por porção em nenhum prato que use isso, e é o segundo maior valor parado na despensa.",
+      "sessao": "20260924_032332_5ec879",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 44046,
+      "uso": {
+        "entrada": 22,
+        "saida": 2860,
+        "cache_leitura": 203196,
+        "cache_escrita": 24929
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "elicitacao-restricoes"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico despensa",
+              "consultar perfil cozinha",
+              "registrar resposta operacional"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "despensa panorama investimento",
+              "buscar receita na web",
+              "avaliar receita portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico_despensa",
+              "panorama da despensa o que ela tem"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__registrar_resposta",
+                "arguments": {
+                  "tipo": "operacional",
+                  "campo": "tem_gas_sobrando",
+                  "resposta": "nao"
+                }
+              },
+              {
+                "name": "mcp__mise__registrar_resposta",
+                "arguments": {
+                  "tipo": "operacional",
+                  "campo": "tempo_max_por_fornada_min",
+                  "resposta": 120
+                }
+              },
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tem_gas_sobrando",
+            "resposta": "nao"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "120",
+            "tipo": "operacional"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

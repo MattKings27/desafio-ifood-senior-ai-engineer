@@ -1,0 +1,737 @@
+{
+  "cartao_id": "k-3",
+  "tipo_cartao": "receita",
+  "ref": {
+    "rota": "/api/receitas/f8fc24c7f065125e",
+    "parametros": {
+      "slug": "f8fc24c7f065125e",
+      "prato": "Carne moída com arroz na panela de pressão"
+    }
+  },
+  "gerado_texto": "hoje, 14:32",
+  "dados": {
+    "slug": "f8fc24c7f065125e",
+    "nome": "Carne moída com arroz na panela de pressão",
+    "imagem": {
+      "url": "/motor/imagens/e9e1224b484905ab25a8696d50f561ed",
+      "credito": "Foto: TudoGostoso"
+    },
+    "fonte": {
+      "site": "TudoGostoso",
+      "url": "https://www.tudogostoso.com.br/receita/22090-carne-moida-com-arroz.html",
+      "autor": "Leuda M. V. Xavier"
+    },
+    "origem": "descoberta",
+    "tempos": {
+      "preparo_min": 15,
+      "cozimento_min": 30,
+      "total_min": 45,
+      "ativo_min": 40
+    },
+    "tempo_texto": "45 min",
+    "rendimento_texto": "4 porções",
+    "rendimento": {
+      "porcoes": 4,
+      "estimado": false,
+      "texto": "4 porções",
+      "derivacao": "",
+      "pergunta": null
+    },
+    "veredito": "FALTA INFO",
+    "veredito_rotulo": "Falta saber",
+    "veredito_da_cozinha": {
+      "codigo": "falta_resposta",
+      "rotulo": "Falta uma resposta da senhora",
+      "motivo": "Não consegui ler quanto vai em uma linha dos ingredientes: “temperos de sua preferência”."
+    },
+    "resumo": "Carne moída com arroz na panela de pressão: antes de decidir, preciso saber 1 coisa",
+    "ingredientes": [
+      {
+        "nome": "Carne moída (patinho)",
+        "item_id": "carne-moida-patinho",
+        "precisa": {
+          "texto": "500 g"
+        },
+        "tem": {
+          "texto": "1,5 kg"
+        },
+        "sobra": {
+          "texto": "1 kg"
+        },
+        "situacao": "tem",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Arroz branco tipo 1",
+        "item_id": "arroz-branco-tipo-1",
+        "precisa": {
+          "texto": "2 xícaras (cerca de 408 g)"
+        },
+        "tem": {
+          "texto": "5 kg"
+        },
+        "sobra": {
+          "texto": "4,59 kg"
+        },
+        "situacao": "tem",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Cebola",
+        "item_id": "cebola",
+        "precisa": {
+          "texto": "1 cebola (cerca de 110 g)"
+        },
+        "tem": {
+          "texto": "1 kg"
+        },
+        "sobra": {
+          "texto": "890 g"
+        },
+        "situacao": "tem",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Alho",
+        "item_id": "alho",
+        "precisa": {
+          "texto": "2 dentes de alho (cerca de 6 g)"
+        },
+        "tem": {
+          "texto": "300 g"
+        },
+        "sobra": {
+          "texto": "294 g"
+        },
+        "situacao": "tem",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Óleo de soja",
+        "item_id": "oleo-de-soja",
+        "precisa": {
+          "texto": "2 colheres de sopa (30 ml)"
+        },
+        "tem": {
+          "texto": "1 L"
+        },
+        "sobra": {
+          "texto": "970 ml"
+        },
+        "situacao": "tem",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "milho verde",
+        "item_id": null,
+        "precisa": {
+          "texto": "1 lata"
+        },
+        "tem": null,
+        "sobra": null,
+        "situacao": "falta",
+        "compra": {
+          "texto": "1 lata, R$ 6,00",
+          "cabe": true
+        },
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Sal",
+        "item_id": "sal",
+        "precisa": {
+          "texto": "a gosto"
+        },
+        "tem": {
+          "texto": "1 kg"
+        },
+        "sobra": null,
+        "situacao": "a_gosto",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "Salsinha (cheiro-verde)",
+        "item_id": "salsinha-cheiro-verde",
+        "precisa": {
+          "texto": "a gosto"
+        },
+        "tem": {
+          "texto": "100 g"
+        },
+        "sobra": null,
+        "situacao": "opcional",
+        "compra": null,
+        "medida_de_referencia": null
+      },
+      {
+        "nome": "temperos de sua preferência",
+        "item_id": null,
+        "precisa": {
+          "texto": "não consegui ler quanto"
+        },
+        "tem": null,
+        "sobra": null,
+        "situacao": "nao_entendi",
+        "compra": null,
+        "medida_de_referencia": null
+      }
+    ],
+    "linhas_nao_entendidas": [
+      {
+        "texto": "temperos de sua preferência",
+        "pergunta": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?"
+      }
+    ],
+    "opcionais": [
+      {
+        "nome": "Salsinha (cheiro-verde)",
+        "texto": "cheiro-verde a gosto (opcional)"
+      }
+    ],
+    "avisos": [
+      {
+        "tipo": "bocas",
+        "texto": "O passo 4 pede outra panela no fogo ao mesmo tempo. Com uma boca, a senhora faz uma parte depois da outra e leva mais tempo."
+      }
+    ],
+    "falta_comprar": {
+      "itens": [
+        {
+          "nome": "milho verde",
+          "quantidade_texto": "1 lata",
+          "preco_conhecido": true,
+          "custo_compra": {
+            "valor": 6.0,
+            "texto": "R$ 6,00"
+          },
+          "custo_no_prato": {
+            "valor": 6.0,
+            "texto": "R$ 6,00"
+          },
+          "derivacao": "1 lata × R$ 6,00 por 1 lata = R$ 6,00; na compra, 1 × R$ 6,00 = R$ 6,00",
+          "origem_preco": "informado pela senhora",
+          "cabe_no_orcamento": true,
+          "referencia": null
+        }
+      ],
+      "custo": {
+        "valor": 6.0,
+        "texto": "R$ 6,00"
+      },
+      "cabe_no_orcamento": true,
+      "texto": "falta comprar milho verde, R$ 6,00; cabe nos R$ 80,00 que restam"
+    },
+    "custo_porcao": null,
+    "pode_precificar": false,
+    "passos": [
+      {
+        "ordem": 1,
+        "texto": "Refogue a cebola e o alho no óleo por 5 minutos.",
+        "requisitos": [
+          {
+            "tipo": "equipamento",
+            "id": "fogao",
+            "nome": "Fogão",
+            "estado": "tem",
+            "suposto": true,
+            "evidencia": "refogue a cebola e o alho no ole...",
+            "trecho": "Refogue",
+            "rotulo_estado": "suposto",
+            "substituto": null,
+            "conferido": true
+          },
+          {
+            "tipo": "tecnica",
+            "id": "refogar",
+            "nome": "Refogar",
+            "estado": "tem",
+            "suposto": true,
+            "evidencia": "refogue a cebola e o alho no ole...",
+            "trecho": "Refogue",
+            "rotulo_estado": "suposto",
+            "substituto": null,
+            "conferido": true
+          }
+        ],
+        "limites": [
+          {
+            "tipo": "tempo",
+            "minutos": 5,
+            "graus": null,
+            "texto": "5 min no fogo",
+            "trecho": "5 minutos",
+            "equipamento": "fogao"
+          }
+        ]
+      },
+      {
+        "ordem": 2,
+        "texto": "Junte a carne moída e deixe dourar bem por 10 minutos.",
+        "requisitos": [],
+        "limites": [
+          {
+            "tipo": "tempo",
+            "minutos": 10,
+            "graus": null,
+            "texto": "10 min no fogo",
+            "trecho": "10 minutos",
+            "equipamento": "fogao"
+          }
+        ]
+      },
+      {
+        "ordem": 3,
+        "texto": "Acrescente o arroz e a água e cozinhe por 20 minutos.",
+        "requisitos": [
+          {
+            "tipo": "equipamento",
+            "id": "fogao",
+            "nome": "Fogão",
+            "estado": "tem",
+            "suposto": true,
+            "evidencia": "...cente o arroz e a agua e cozinhe por 20 minutos...",
+            "trecho": "cozinhe",
+            "rotulo_estado": "suposto",
+            "substituto": null,
+            "conferido": true
+          }
+        ],
+        "limites": [
+          {
+            "tipo": "tempo",
+            "minutos": 20,
+            "graus": null,
+            "texto": "20 min no fogo",
+            "trecho": "20 minutos",
+            "equipamento": "fogao"
+          }
+        ]
+      },
+      {
+        "ordem": 4,
+        "texto": "Em outra panela, aqueça o milho por 5 minutos e junte ao arroz no final.",
+        "requisitos": [
+          {
+            "tipo": "equipamento",
+            "id": "fogao",
+            "nome": "Fogão",
+            "estado": "tem",
+            "suposto": true,
+            "evidencia": "em outra panela, aqueca o milho por 5 mi...",
+            "trecho": "panela",
+            "rotulo_estado": "suposto",
+            "substituto": null,
+            "conferido": true
+          }
+        ],
+        "limites": [
+          {
+            "tipo": "outra_panela",
+            "minutos": null,
+            "graus": null,
+            "texto": "mais uma boca do fogão ao mesmo tempo",
+            "trecho": "Em outra panela",
+            "equipamento": "fogao"
+          },
+          {
+            "tipo": "tempo",
+            "minutos": 5,
+            "graus": null,
+            "texto": "5 min no fogo",
+            "trecho": "5 minutos",
+            "equipamento": "fogao"
+          }
+        ]
+      }
+    ],
+    "requisitos_da_receita": [
+      {
+        "tipo": "equipamento",
+        "id": "panela_pressao",
+        "nome": "Panela de pressão",
+        "estado": "tem",
+        "suposto": true,
+        "evidencia": "carne moida com arroz na panela de pressao...",
+        "trecho": "panela de pressão",
+        "rotulo_estado": "suposto",
+        "substituto": null,
+        "conferido": true,
+        "origem": "nome"
+      }
+    ],
+    "perguntas": [
+      {
+        "tipo": "ingrediente",
+        "assunto": "linha_nao_lida",
+        "campo": "temperos de sua preferência",
+        "texto": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+        "motivo": "sem saber quanto vai, não dá para conferir se a despensa dá conta nem fechar o custo do prato",
+        "compras": [],
+        "opcoes": [],
+        "entrada": {
+          "tipo": "texto"
+        },
+        "passos": []
+      }
+    ],
+    "avaliacao": {
+      "gosta": true,
+      "estrelas": {
+        "sabor": 4,
+        "facilidade": 5,
+        "tempo": 4,
+        "entrega": 5,
+        "apelo": 4
+      },
+      "notas": "Servir com farofa? Testar com açafrão.",
+      "pontuacao": {
+        "valor": 87.8,
+        "texto": "87,8",
+        "derivacao": "Estrelas: sabor 4 (peso 0,30), apelo de venda 4 (0,25), aguenta a entrega 5 (0,20), facilidade 5 (0,15), tempo 4 (0,10), dão 0,8375 de 1; a senhora gosta de fazer, que vale 1; pontuação = 100 × (0,75 × 0,8375 + 0,25 × 1) = 87,8"
+      }
+    },
+    "posicao_no_ranking": null,
+    "respostas": [
+      {
+        "campo": "rendimento_porcoes",
+        "texto": "A senhora disse que rende 4 porções.",
+        "quando_texto": "hoje, 14:30"
+      }
+    ],
+    "rascunho_chat": "O que falta para eu poder fazer carne moída com arroz na panela de pressão?",
+    "checklist": {
+      "titulo": "Checklist de produção",
+      "pode_aceitar": false,
+      "resumo": "Antes de aceitar, faltam 2 coisas.",
+      "falta_para_aceitar": [
+        "Responder: Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+        "Confirmar que a senhora tem fogão e que sabe refogar."
+      ],
+      "confirmar_a_cozinha": {
+        "pergunta": "Antes de aceitar, a senhora confirma que tem fogão e que sabe refogar?",
+        "itens": [
+          {
+            "tipo": "equipamento",
+            "id": "fogao",
+            "nome": "Fogão"
+          },
+          {
+            "tipo": "tecnica",
+            "id": "refogar",
+            "nome": "Refogar"
+          }
+        ]
+      },
+      "grupos": [
+        {
+          "id": "equipamentos",
+          "titulo": "Equipamentos",
+          "status": "suposto",
+          "itens": [
+            {
+              "id": "fogao",
+              "tipo": "equipamento",
+              "nome": "Fogão",
+              "detalhe": "Toda cozinha tem, e a senhora ainda não confirmou.",
+              "status": "suposto",
+              "status_texto": "suposto: confirme",
+              "origem": "suposto",
+              "origem_texto": "suposto",
+              "pergunta": {
+                "tipo": "equipamento",
+                "assunto": "equipamento",
+                "campo": "fogao",
+                "texto": "A senhora tem fogão aí na cozinha?",
+                "motivo": "Carne moída com arroz na panela de pressão usa fogão",
+                "compras": [],
+                "opcoes": [
+                  {
+                    "rotulo": "Tenho",
+                    "resposta": "sim"
+                  },
+                  {
+                    "rotulo": "Não tenho",
+                    "resposta": "nao"
+                  },
+                  {
+                    "rotulo": "Não sei",
+                    "resposta": "nao_sei"
+                  }
+                ],
+                "entrada": null,
+                "passos": [
+                  1,
+                  3,
+                  4
+                ]
+              },
+              "editar": null
+            },
+            {
+              "id": "panela_pressao",
+              "tipo": "equipamento",
+              "nome": "Panela de pressão",
+              "detalhe": null,
+              "status": "confirmado",
+              "status_texto": "confirmado pela senhora",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            }
+          ],
+          "vazio_texto": "Esta receita não pede equipamento."
+        },
+        {
+          "id": "tecnicas",
+          "titulo": "Técnicas",
+          "status": "suposto",
+          "itens": [
+            {
+              "id": "refogar",
+              "tipo": "tecnica",
+              "nome": "Refogar",
+              "detalhe": "Toda cozinheira faz, e a senhora ainda não confirmou.",
+              "status": "suposto",
+              "status_texto": "suposto: confirme",
+              "origem": "suposto",
+              "origem_texto": "suposto",
+              "pergunta": {
+                "tipo": "tecnica",
+                "assunto": "tecnica",
+                "campo": "refogar",
+                "texto": "A senhora tem prática com refogar?",
+                "motivo": "Carne moída com arroz na panela de pressão pede refogar",
+                "compras": [],
+                "opcoes": [
+                  {
+                    "rotulo": "Faço",
+                    "resposta": "sim"
+                  },
+                  {
+                    "rotulo": "Não faço",
+                    "resposta": "nao"
+                  },
+                  {
+                    "rotulo": "Não sei",
+                    "resposta": "nao_sei"
+                  }
+                ],
+                "entrada": null,
+                "passos": [
+                  1
+                ]
+              },
+              "editar": null
+            }
+          ],
+          "vazio_texto": "Esta receita não pede técnica especial."
+        },
+        {
+          "id": "rotina",
+          "titulo": "Rotina",
+          "status": "confirmado",
+          "itens": [
+            {
+              "id": "tempo_max_por_fornada_min",
+              "tipo": "rotina",
+              "nome": "Tempo por cozinhada",
+              "detalhe": "A receita fica 40 minutos no fogo; a senhora tem 1,5 hora por cozinhada.",
+              "status": "confirmado",
+              "status_texto": "confirmado pela senhora",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "tem_gas_sobrando",
+              "tipo": "rotina",
+              "nome": "Gás",
+              "detalhe": "A receita fica menos de 1 hora no fogo.",
+              "status": "confirmado",
+              "status_texto": "não precisa",
+              "origem": "receita",
+              "origem_texto": "receita",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "espaco_geladeira_litros",
+              "tipo": "rotina",
+              "nome": "Espaço na geladeira",
+              "detalhe": "A receita não vai à geladeira.",
+              "status": "confirmado",
+              "status_texto": "não precisa",
+              "origem": "receita",
+              "origem_texto": "receita",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "energia_aparelhos_simultaneos",
+              "tipo": "rotina",
+              "nome": "Energia",
+              "detalhe": "A receita não liga dois aparelhos fortes ao mesmo tempo.",
+              "status": "confirmado",
+              "status_texto": "não precisa",
+              "origem": "receita",
+              "origem_texto": "receita",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "bocas_fogao",
+              "tipo": "rotina",
+              "nome": "Bocas do fogão",
+              "detalhe": "O passo 4 pede outra panela no fogo ao mesmo tempo. Com uma boca, a senhora faz uma parte depois da outra e leva mais tempo.",
+              "status": "confirmado",
+              "status_texto": "confirmado pela senhora",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            }
+          ],
+          "vazio_texto": ""
+        },
+        {
+          "id": "ingredientes",
+          "titulo": "Ingredientes",
+          "status": "falta_saber",
+          "itens": [
+            {
+              "id": "na_despensa",
+              "tipo": "ingrediente",
+              "nome": "Tem na despensa",
+              "detalhe": "Carne moída (patinho), arroz branco tipo 1, cebola, alho e óleo de soja.",
+              "status": "confirmado",
+              "status_texto": "tem",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "compra:milho verde",
+              "tipo": "compra",
+              "nome": "Milho verde",
+              "detalhe": "Comprar 1 lata, R$ 6,00.",
+              "status": "confirmado",
+              "status_texto": "vai comprar",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "orcamento",
+              "tipo": "orcamento",
+              "nome": "Cabe nos R$ 80,00",
+              "detalhe": "A compra dá R$ 6,00; restam R$ 80,00.",
+              "status": "confirmado",
+              "status_texto": "cabe",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": null
+            },
+            {
+              "id": "pergunta:temperos de sua preferência",
+              "tipo": "ingrediente",
+              "nome": "Temperos de sua preferência",
+              "detalhe": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+              "status": "falta_saber",
+              "status_texto": "falta saber",
+              "origem": "receita",
+              "origem_texto": "receita",
+              "pergunta": {
+                "tipo": "ingrediente",
+                "assunto": "linha_nao_lida",
+                "campo": "temperos de sua preferência",
+                "texto": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+                "motivo": "sem saber quanto vai, não dá para conferir se a despensa dá conta nem fechar o custo do prato",
+                "compras": [],
+                "opcoes": [],
+                "entrada": {
+                  "tipo": "texto"
+                },
+                "passos": []
+              },
+              "editar": null
+            }
+          ],
+          "vazio_texto": ""
+        },
+        {
+          "id": "pre_determinados",
+          "titulo": "Pré-determinados",
+          "status": "pre_determinado",
+          "itens": [
+            {
+              "id": "porcoes",
+              "tipo": "porcoes",
+              "nome": "Porções",
+              "detalhe": "Rende 4 porções.",
+              "status": "confirmado",
+              "status_texto": "confirmado pela senhora",
+              "origem": "a_senhora_disse",
+              "origem_texto": "a senhora disse",
+              "pergunta": null,
+              "editar": {
+                "tipo": "operacional",
+                "assunto": "rendimento",
+                "campo": "rendimento_porcoes",
+                "texto": "Quantas porções a receita de carne moída com arroz na panela de pressão rende na sua cozinha?",
+                "motivo": "o custo de cada porção é o custo da receita dividido por elas",
+                "compras": [],
+                "opcoes": [],
+                "entrada": {
+                  "tipo": "inteiro",
+                  "unidade": "porções",
+                  "min": 1,
+                  "max": 500
+                },
+                "passos": []
+              }
+            },
+            {
+              "id": "peso:1 cebola picada",
+              "tipo": "peso",
+              "nome": "Cebola",
+              "detalhe": "Uma cebola pesa cerca de 110 g.",
+              "status": "pre_determinado",
+              "status_texto": "pré-determinado",
+              "origem": "referencia",
+              "origem_texto": "referência de medidas do IBGE",
+              "pergunta": null,
+              "editar": {
+                "tipo": "ingrediente",
+                "assunto": "medida",
+                "campo": "1 cebola picada",
+                "texto": "Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.",
+                "motivo": "o peso da sua cozinha vale mais que a média da tabela",
+                "compras": [],
+                "opcoes": [],
+                "entrada": {
+                  "tipo": "peso",
+                  "unidade": "g",
+                  "peso_de": null
+                },
+                "passos": []
+              }
+            }
+          ],
+          "vazio_texto": ""
+        }
+      ]
+    },
+    "rota": "/receitas/f8fc24c7f065125e"
+  }
+}

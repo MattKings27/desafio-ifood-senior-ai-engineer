@@ -1,0 +1,68 @@
+{
+  "cenario": "restricao-de-gas-e-tempo",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado. E eu só consigo cozinhar à tarde, umas 2 horas no máximo.",
+      "resposta": "Anotei: duas horas por tarde, e gás de botijão que não dá pra ficar torrando. Isso já corta uma família inteira de receita — as de fogo lento, tipo carne de panela de três horas. Melhor saber agora do que descobrir com a panela no fogo.\n\nO perfil da sua cozinha está em 23% levantado. Já tenho fogão, frigideira, panela funda, geladeira, peneira, ralador, fouet, faca e tábua.\n\nUma coisa que preciso saber pra continuar: quantas bocas do fogão a senhora consegue usar ao mesmo tempo?\n\nPergunto porque dentro dessas duas horas o que manda é quanta coisa anda junto. Com três bocas a senhora toca o arroz, o feijão e o molho na mesma tarde. Com uma, é um prato de cada vez, e aí o cardápio tem que ser outro.",
+      "sessao": "20260923_212215_b9c109",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 297383,
+      "uso": {
+        "entrada": 10,
+        "saida": 2854,
+        "cache_leitura": 124597,
+        "cache_escrita": 12608
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_resposta",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu sobre equipamento, técnica ou rotina.\\n\\n        `tipo`: equipamento | tecnica | operacional\\n        `campo`: o id devolvido por `avaliar_receita` ou `proxima_pergunta`\\n        `resposta`: \\\"tem\\\" | \\\"nao_tem\\\" para equipamento/técnica; um número para operacional\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"perfil 21% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\",\n  \"tem\": [\n    \"Batedor de arame (fouet)\",\n    \"Faca\",\n    \"Fogão\",\n    \"Frigideira\",\n    \"Geladeira\",\n    \"Panela funda\",\n    \"Peneira\",\n    \"Ralador\",\n    \"Tábua de corte\"\n  ],\n  \"nao_tem\": [],\n  \"domina\": [\n    \"Assar\",\n    \"Bolo caseiro\",\n    \"Brigadeiro / doce de panela\",\n    \"Cozinhar arroz\",\n    \"Cozinhar feijão\",\n    \"Fritar\",\n    \"Molho de tomate caseiro\",\n    \"Refogar\"\n  ],\n  \"nao_domina\": [],\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "120"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"perfil\": \"perfil 23% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": false,\n  \"resumo\": \"0 prato(s) apto(s) · 0 aguardando resposta · 0 bloqueado(s) · 0 pergunta(s) em aberto\",\n  \"aptas\": [],\n  \"bloqueadas\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

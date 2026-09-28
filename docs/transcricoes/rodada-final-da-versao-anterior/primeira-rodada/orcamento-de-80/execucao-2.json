@@ -1,0 +1,45 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nPela conta da sua planilha: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra foi registrada ainda.\n\nOu seja: tudo que a senhora vai comprar de complemento ainda cabe, porque nada saiu do bolso por aqui até agora.\n\nAgora, pra esse dinheiro render, ele precisa ir pro lugar certo. Quer que eu olhe a sua despensa e veja o que a senhora já tem em casa? Aí eu consigo dizer quais pratos quase fecham e só precisam de uma ou duas coisinhas — em vez de a senhora gastar os R$ 80,00 em item que não vira prato.",
+      "sessao": "20260924_172900_17ff41",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 19952,
+      "uso": {
+        "entrada": 6,
+        "saida": 481,
+        "cache_leitura": 40484,
+        "cache_escrita": 4226
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

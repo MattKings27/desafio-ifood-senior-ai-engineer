@@ -1,0 +1,24 @@
+nome: gosto-e-impedimento-registrados
+secao: "2.1"
+descricao: >
+  Ela responde gosto e impedimento na mesma frase. O agente grava as duas coisas
+  com a ferramenta própria, e o impedimento dela vale mesmo ela gostando do prato.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola,
+      1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga
+      tudo na panela por 25 minutos. Rende 4 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      # Toda receita apresentada leva a pergunta do gosto.
+      responde_com: ['gost']
+      pergunta: true
+  - diz: >
+      Gosto muito de fazer strogonoff. O problema é que creme de leite estraga
+      rápido aqui, minha geladeira é pequena e vive cheia.
+    espera:
+      chama_em_ordem: [registrar_gosto]
+      pergunta: true

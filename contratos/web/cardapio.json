@@ -1,0 +1,146 @@
+{
+  "pratos": [
+    {
+      "slug": "arroz-com-frango",
+      "prato": "Arroz com frango",
+      "imagem": null,
+      "preco": {
+        "valor": 18.0,
+        "texto": "R$ 18,00"
+      },
+      "recebe": {
+        "valor": 16.2,
+        "texto": "R$ 16,20"
+      },
+      "custo_porcao": {
+        "valor": 3.0,
+        "texto": "R$ 3,00"
+      },
+      "lucro_porcao": {
+        "valor": 13.2,
+        "texto": "R$ 13,20"
+      },
+      "derivacao": "Vendendo a R$ 18,00: o iFood fica com R$ 1,80 (10%), então chegam R$ 16,20 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 13,20 limpos por porção. Isso é 73% do que o cliente paga.",
+      "da_prejuizo": false,
+      "aviso": null,
+      "nota": {
+        "valor": 86.9,
+        "texto": "86,9"
+      },
+      "decidido_texto": "hoje, 14:02",
+      "notas": "Sai bem no almoço de sábado.",
+      "rota": "/receitas/arroz-com-frango"
+    },
+    {
+      "slug": "8747bf504b200286",
+      "prato": "Frango com milho verde",
+      "imagem": {
+        "url": "/motor/imagens/608ebcc7f9f62dac0c9c45b370443eac",
+        "credito": "Foto: TudoGostoso"
+      },
+      "preco": {
+        "valor": 22.0,
+        "texto": "R$ 22,00"
+      },
+      "recebe": {
+        "valor": 19.8,
+        "texto": "R$ 19,80"
+      },
+      "custo_porcao": {
+        "valor": 4.1,
+        "texto": "R$ 4,10"
+      },
+      "lucro_porcao": {
+        "valor": 15.7,
+        "texto": "R$ 15,70"
+      },
+      "derivacao": "Vendendo a R$ 22,00: o iFood fica com R$ 2,20 (10%), então chegam R$ 19,80 pra senhora. Tirando R$ 4,10 de ingrediente, sobram R$ 15,70 limpos por porção. Isso é 71% do que o cliente paga.",
+      "da_prejuizo": false,
+      "aviso": "O custo da porção mudou desde que a senhora aceitou: era R$ 3,95, agora é R$ 4,10.",
+      "nota": null,
+      "decidido_texto": "hoje, 15:10",
+      "notas": null,
+      "rota": "/receitas/8747bf504b200286"
+    }
+  ],
+  "resumo": {
+    "pratos": 2,
+    "preco_medio": {
+      "valor": 20.0,
+      "texto": "R$ 20,00"
+    },
+    "margem_media_texto": "72% de sobra depois da taxa e do ingrediente",
+    "orcamento_usado": {
+      "valor": 6.0,
+      "texto": "R$ 6,00"
+    },
+    "orcamento_texto": "R$ 6,00 dos R$ 80,00 já foram para complementos; restam R$ 74,00.",
+    "orcamento_rota": "/despensa#orcamento",
+    "texto": "2 pratos no cardápio"
+  },
+  "nao_quer": [
+    {
+      "prato": "Frango assado",
+      "motivo_texto": "sem forno",
+      "decidido_texto": "ontem, 09:15",
+      "rota": "/cardapio"
+    }
+  ],
+  "historico": [
+    {
+      "id": 5,
+      "prato": "Frango com milho verde",
+      "tipo": "aceito",
+      "tipo_rotulo": "Aceitou",
+      "texto_humano": "A senhora aceitou o frango com milho verde a R$ 22,00.",
+      "quando_texto": "hoje, 15:10",
+      "canal": "conversa",
+      "pode_desfazer": true,
+      "rota": "/receitas/8747bf504b200286"
+    },
+    {
+      "id": 4,
+      "prato": "Arroz com frango",
+      "tipo": "desfeito",
+      "tipo_rotulo": "Voltou atrás",
+      "texto_humano": "A senhora voltou atrás: o arroz com frango está de novo no cardápio, a R$ 18,00.",
+      "quando_texto": "hoje, 14:02",
+      "canal": "tela",
+      "pode_desfazer": false,
+      "rota": "/receitas/arroz-com-frango"
+    },
+    {
+      "id": 3,
+      "prato": "Arroz com frango",
+      "tipo": "retirado",
+      "tipo_rotulo": "Tirou do cardápio",
+      "texto_humano": "A senhora tirou o arroz com frango do cardápio.",
+      "quando_texto": "hoje, 14:01",
+      "canal": "tela",
+      "pode_desfazer": false,
+      "rota": "/receitas/arroz-com-frango"
+    },
+    {
+      "id": 2,
+      "prato": "Frango assado",
+      "tipo": "recusado",
+      "tipo_rotulo": "Recusou",
+      "texto_humano": "A senhora disse que não quer o frango assado no cardápio. O motivo: sem forno.",
+      "quando_texto": "ontem, 09:15",
+      "canal": "conversa",
+      "pode_desfazer": true,
+      "rota": "/cardapio"
+    },
+    {
+      "id": 1,
+      "prato": "Arroz com frango",
+      "tipo": "aceito",
+      "tipo_rotulo": "Aceitou",
+      "texto_humano": "A senhora aceitou o arroz com frango a R$ 18,00.",
+      "quando_texto": "ontem, 18:40",
+      "canal": "tela",
+      "pode_desfazer": false,
+      "rota": "/receitas/arroz-com-frango"
+    }
+  ]
+}

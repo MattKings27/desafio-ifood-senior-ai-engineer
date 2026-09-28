@@ -1,0 +1,84 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "06c38abb854d52e3",
+ "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Carne moída fácil e rápida",
+  "recipeIngredient": [
+   "500 g de carne moída ",
+   "1 cebola em pedaços grandes",
+   "1 tomate em pedaços grandes",
+   "2 dentes de alho",
+   "cheiro verde ou salsinha a gosto",
+   "1/2 xícara de molho de tomate",
+   "4 colheres de ketchup",
+   "1/2 xícara de água",
+   "1 colher de óleo ou manteiga",
+   "sal a gosto",
+   "pimenta preta a gosto ",
+   "2 colheres de vinagre ou suco de limão"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Tempere a carne mo&amp;iacute;da com o vinagre ou lim&amp;atilde;o e reserve.",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "No liquidificador bata at&amp;eacute; virarem l&amp;iacute;quido a cebola, o tomate,  o alho, o cheiro verde, o molho de tomate, o ketchup e a &amp;aacute;gua. ",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em uma panela derreta a manteiga ou esquente o &amp;oacute;leo, junte o l&amp;iacute;quido do liquidificador e deixe ferver por uns 10 minutos.",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Junte a carne mo&amp;iacute;da e com uma colher mexa para n&amp;atilde;o criar bolas de carne.",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Acerte o sal e a pimenta. ",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Deixe cozinhar por mais 20 minutos ou at&amp;eacute; secar. ",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step6"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "&amp;Oacute;timo para crian&amp;ccedil;as que n&amp;atilde;o gostam de ver os peda&amp;ccedil;os de verduras.",
+    "url": "https://www.tudogostoso.com.br/receita/162947-carne-moida-facil-e-rapida.html#recipe-step7"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Tempere a carne moída com o vinagre ou limão e reserve."
+  },
+  {
+   "texto": "No liquidificador bata até virarem líquido a cebola, o tomate, o alho, o cheiro verde, o molho de tomate, o ketchup e a água."
+  },
+  {
+   "texto": "Em uma panela derreta a manteiga ou esquente o óleo, junte o líquido do liquidificador e deixe ferver por uns 10 minutos."
+  },
+  {
+   "texto": "Junte a carne moída e com uma colher mexa para não criar bolas de carne."
+  },
+  {
+   "texto": "Acerte o sal e a pimenta."
+  },
+  {
+   "texto": "Deixe cozinhar por mais 20 minutos ou até secar."
+  },
+  {
+   "texto": "Ótimo para crianças que não gostam de ver os pedaços de verduras."
+  }
+ ]
+}

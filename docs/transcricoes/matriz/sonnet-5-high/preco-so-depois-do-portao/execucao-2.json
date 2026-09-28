@@ -1,0 +1,87 @@
+{
+  "cenario": "preco-so-depois-do-portao",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu devo cobrar por um strogonoff de frango?",
+      "resposta": "Olha, a senhora tem peito de frango na despensa (R$ 14,00 o quilo) — isso já ajuda bastante pro strogonoff.\n\nMas antes de eu montar a conta de preço, esse prato ainda não passou pelo crivo aqui. Preciso entender como a senhora faz esse strogonoff: é a receita que a senhora já tem na cabeça, do jeito que sempre fez, ou a senhora quer que eu busque uma receita pronta na internet pra gente conferir com o que tem na despensa?",
+      "sessao": "20260924_030326_299d5b",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 22780,
+      "uso": {
+        "entrada": 14,
+        "saida": 1269,
+        "cache_leitura": 121401,
+        "cache_escrita": 14447
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "consultar cardapio",
+              "consultar gostos",
+              "avaliar receita"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_cardapio",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_gostos",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_cardapio",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

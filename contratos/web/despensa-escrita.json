@@ -1,0 +1,729 @@
+{
+  "adicionar": {
+    "pedido": {
+      "nome": "Creme de leite",
+      "estoque": 2,
+      "unidade": "un 200g",
+      "quantidade_comprada": 2,
+      "preco_pago": 9.0,
+      "origem": "orcamento",
+      "receita": "Arroz com frango",
+      "id_cliente": "c1f0e2d3"
+    },
+    "resposta": {
+      "item": {
+        "id": "item-4f7a1c2e",
+        "nome": "Creme de leite",
+        "categoria": "laticinios",
+        "categoria_rotulo": "Laticínios",
+        "estoque": 0.4,
+        "unidade": "kg",
+        "estoque_texto": "400 g (2 embalagens de 200 g)",
+        "pago": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "custo_unitario": {
+          "valor": 22.5,
+          "texto": "R$ 22,50/kg"
+        },
+        "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+        "confianca": "media",
+        "confianca_rotulo": "conta com conversão de embalagem",
+        "fracao_do_total": 0.0134,
+        "fracao_texto": "1% do que a senhora pagou",
+        "origem": "orcamento",
+        "origem_rotulo": "comprado com os complementos",
+        "imagem": null,
+        "receitas_que_usam": 1,
+        "receitas_que_usam_texto": "entra em 1 receita",
+        "pendente": false,
+        "rota": "/despensa/item-4f7a1c2e"
+      },
+      "id": "item-4f7a1c2e",
+      "ingrediente": "Creme de leite",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0001",
+      "antes": null,
+      "depois": {
+        "estoque": "400 g (2 embalagens de 200 g)",
+        "pago": "R$ 9,00",
+        "custo_unitario": "R$ 22,50/kg",
+        "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+        "confianca": "media"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "pendencias_resolvidas": [],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 1,
+            "descricao": "Creme de leite (despensa, para Arroz com frango)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/1/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": true,
+      "texto": "Anotei o creme de leite. Saíram R$ 9,00 dos complementos; restam R$ 71,00."
+    }
+  },
+  "adicionar_ja_tinha": {
+    "pedido": {
+      "nome": "Farinha de rosca",
+      "estoque": 0.5,
+      "unidade": "kg",
+      "origem": "ja_tinha",
+      "preco_pago": null,
+      "id_cliente": "c1f0e2d4"
+    },
+    "resposta": {
+      "item": {
+        "id": "item-7b2d9e10",
+        "nome": "Farinha de rosca",
+        "categoria": "graos",
+        "categoria_rotulo": "Grãos, farinhas e massas",
+        "estoque": 0.5,
+        "unidade": "kg",
+        "estoque_texto": "500 g",
+        "pago": null,
+        "custo_unitario": null,
+        "derivacao": "a senhora não disse quanto pagou; sem o preço, não dá para saber o custo",
+        "confianca": "desconhecida",
+        "confianca_rotulo": "falta o preço que a senhora pagou",
+        "fracao_do_total": 0.0,
+        "fracao_texto": "sem o preço, fica fora do total",
+        "origem": "ja_tinha",
+        "origem_rotulo": "a senhora já tinha",
+        "imagem": null,
+        "receitas_que_usam": 0,
+        "receitas_que_usam_texto": "ainda sem receita",
+        "pendente": true,
+        "rota": "/despensa/item-7b2d9e10"
+      },
+      "id": "item-7b2d9e10",
+      "ingrediente": "Farinha de rosca",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0002",
+      "antes": null,
+      "depois": {
+        "estoque": "500 g",
+        "pago": null,
+        "custo_unitario": "sem o preço, não dá para saber",
+        "derivacao": "a senhora não disse quanto pagou; sem o preço, não dá para saber o custo",
+        "confianca": "desconhecida"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": null,
+      "pendencias_resolvidas": [],
+      "pendencia": {
+        "id": "item-7b2d9e10",
+        "ingrediente": "Farinha de rosca",
+        "tipo": "preco_pago",
+        "pergunta": "Dona Maria, sobre a farinha de rosca: quanto a senhora pagou, e por qual quantidade? Se não lembrar, o preço de hoje no mercado serve.",
+        "impacto": {
+          "valor": 0.0,
+          "texto": "R$ 0,00"
+        },
+        "impacto_texto": "sem o preço, as receitas com farinha de rosca ficam sem custo",
+        "resposta_inline": {
+          "tipo": "preco_pago",
+          "rotulo": "Quanto a senhora pagou?",
+          "unidades": [],
+          "campos": [
+            "preco_pago",
+            "quantidade_comprada"
+          ]
+        },
+        "rascunho_chat": "Paguei por farinha de rosca ",
+        "rota": "/despensa/item-7b2d9e10"
+      },
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 1,
+            "descricao": "Creme de leite (despensa, para Arroz com frango)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/1/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": false,
+      "texto": "Anotei a farinha de rosca. Como a senhora já tinha, não mexi nos complementos."
+    }
+  },
+  "corrigir": {
+    "pedido": {
+      "conteudo_da_embalagem": "1 kg"
+    },
+    "resposta": {
+      "item": {
+        "id": "cobertura-de-chocolate",
+        "nome": "Cobertura de chocolate",
+        "categoria": "confeitaria",
+        "categoria_rotulo": "Confeitaria",
+        "estoque": 1.0,
+        "unidade": "kg",
+        "estoque_texto": "1 kg (1 embalagem de 1 kg)",
+        "pago": {
+          "valor": 79.9,
+          "texto": "R$ 79,90"
+        },
+        "custo_unitario": {
+          "valor": 79.9,
+          "texto": "R$ 79,90/kg"
+        },
+        "derivacao": "1 × 1 kg = 1 kg; R$ 79,90 ÷ 1 kg = R$ 79,90/kg (o peso da embalagem foi a senhora que informou)",
+        "confianca": "media",
+        "confianca_rotulo": "conta com o peso que a senhora informou",
+        "fracao_do_total": 0.1188,
+        "fracao_texto": "12% do que a senhora pagou",
+        "origem": "planilha",
+        "origem_rotulo": "da planilha",
+        "imagem": {
+          "url": "/motor/imagens/c0baf8bc7d5213484580c5631b600384",
+          "credito": "Foto: SKopp, CC BY-SA 3.0, Wikimedia Commons"
+        },
+        "receitas_que_usam": 0,
+        "receitas_que_usam_texto": "ainda sem receita",
+        "pendente": false,
+        "rota": "/despensa/cobertura-de-chocolate"
+      },
+      "id": "cobertura-de-chocolate",
+      "ingrediente": "Cobertura de chocolate",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0003",
+      "antes": {
+        "estoque": "1 embalagem (peso não informado)",
+        "pago": "R$ 79,90",
+        "custo_unitario": "sem o peso da embalagem, não dá para saber",
+        "derivacao": "R$ 79,90 ÷ 1 embalagem; sem o peso da embalagem, não dá para saber o custo por quilo",
+        "confianca": "desconhecida"
+      },
+      "depois": {
+        "estoque": "1 kg (1 embalagem de 1 kg)",
+        "pago": "R$ 79,90",
+        "custo_unitario": "R$ 79,90/kg",
+        "derivacao": "1 × 1 kg = 1 kg; R$ 79,90 ÷ 1 kg = R$ 79,90/kg (o peso da embalagem foi a senhora que informou)",
+        "confianca": "media"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": null,
+      "pendencias_resolvidas": [
+        "Cobertura de chocolate"
+      ],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 1,
+            "descricao": "Creme de leite (despensa, para Arroz com frango)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/1/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": false,
+      "texto": "Com 1 kg na embalagem, a cobertura de chocolate sai a R$ 79,90/kg."
+    }
+  },
+  "corrigir_preco": {
+    "pedido": {
+      "preco_pago": 6.5,
+      "quantidade_comprada": 0.5
+    },
+    "resposta": {
+      "item": {
+        "id": "item-7b2d9e10",
+        "nome": "Farinha de rosca",
+        "categoria": "graos",
+        "categoria_rotulo": "Grãos, farinhas e massas",
+        "estoque": 0.5,
+        "unidade": "kg",
+        "estoque_texto": "500 g",
+        "pago": {
+          "valor": 6.5,
+          "texto": "R$ 6,50"
+        },
+        "custo_unitario": {
+          "valor": 13.0,
+          "texto": "R$ 13,00/kg"
+        },
+        "derivacao": "R$ 6,50 ÷ 0,5 kg = R$ 13,00/kg",
+        "confianca": "alta",
+        "confianca_rotulo": "conta direta",
+        "fracao_do_total": 0.0096,
+        "fracao_texto": "1% do que a senhora pagou",
+        "origem": "ja_tinha",
+        "origem_rotulo": "a senhora já tinha",
+        "imagem": null,
+        "receitas_que_usam": 0,
+        "receitas_que_usam_texto": "ainda sem receita",
+        "pendente": false,
+        "rota": "/despensa/item-7b2d9e10"
+      },
+      "id": "item-7b2d9e10",
+      "ingrediente": "Farinha de rosca",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0004",
+      "antes": {
+        "estoque": "500 g",
+        "pago": null,
+        "custo_unitario": "sem o preço, não dá para saber",
+        "derivacao": "a senhora não disse quanto pagou; sem o preço, não dá para saber o custo",
+        "confianca": "desconhecida"
+      },
+      "depois": {
+        "estoque": "500 g",
+        "pago": "R$ 6,50",
+        "custo_unitario": "R$ 13,00/kg",
+        "derivacao": "R$ 6,50 ÷ 0,5 kg = R$ 13,00/kg",
+        "confianca": "alta"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": null,
+      "pendencias_resolvidas": [
+        "Farinha de rosca"
+      ],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 1,
+            "descricao": "Creme de leite (despensa, para Arroz com frango)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/1/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": false,
+      "texto": "Corrigi a farinha de rosca. Agora sai a R$ 13,00/kg."
+    }
+  },
+  "acabou": {
+    "pedido": {
+      "estoque": 0
+    },
+    "resposta": {
+      "item": {
+        "id": "arroz-branco-tipo-1",
+        "nome": "Arroz branco tipo 1",
+        "categoria": "graos",
+        "categoria_rotulo": "Grãos, farinhas e massas",
+        "estoque": 0.0,
+        "unidade": "kg",
+        "estoque_texto": "acabou",
+        "pago": {
+          "valor": 24.9,
+          "texto": "R$ 24,90"
+        },
+        "custo_unitario": {
+          "valor": 4.98,
+          "texto": "R$ 4,98/kg"
+        },
+        "derivacao": "R$ 24,90 ÷ 5 kg = R$ 4,98/kg",
+        "confianca": "alta",
+        "confianca_rotulo": "conta direta da planilha",
+        "fracao_do_total": 0.0367,
+        "fracao_texto": "4% do que a senhora pagou",
+        "origem": "planilha",
+        "origem_rotulo": "da planilha",
+        "imagem": {
+          "url": "/motor/imagens/1638933727f63f9a916806bce3652bd3",
+          "credito": "Foto: Takeaway, CC BY-SA 4.0, Wikimedia Commons"
+        },
+        "receitas_que_usam": 2,
+        "receitas_que_usam_texto": "entra em 2 receitas",
+        "pendente": false,
+        "rota": "/despensa/arroz-branco-tipo-1"
+      },
+      "id": "arroz-branco-tipo-1",
+      "ingrediente": "Arroz branco tipo 1",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0005",
+      "antes": {
+        "estoque": "5 kg",
+        "pago": "R$ 24,90",
+        "custo_unitario": "R$ 4,98/kg",
+        "derivacao": "R$ 24,90 ÷ 5 kg = R$ 4,98/kg",
+        "confianca": "alta"
+      },
+      "depois": {
+        "estoque": "acabou",
+        "pago": "R$ 24,90",
+        "custo_unitario": "R$ 4,98/kg",
+        "derivacao": "R$ 24,90 ÷ 5 kg = R$ 4,98/kg",
+        "confianca": "alta"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": null,
+      "pendencias_resolvidas": [],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [
+          {
+            "receita": "Arroz refogado",
+            "antes": "Dá pra fazer",
+            "depois": "Dá, comprando"
+          }
+        ],
+        "texto": "Arroz refogado passou para “Dá, comprando”."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 1,
+            "descricao": "Creme de leite (despensa, para Arroz com frango)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/1/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": false,
+      "texto": "Anotei que o arroz branco tipo 1 acabou."
+    }
+  },
+  "remover": {
+    "resposta": {
+      "item": null,
+      "id": "item-4f7a1c2e",
+      "ingrediente": "Creme de leite",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0006",
+      "antes": {
+        "estoque": "400 g (2 embalagens de 200 g)",
+        "pago": "R$ 9,00",
+        "custo_unitario": "R$ 22,50/kg",
+        "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+        "confianca": "media"
+      },
+      "depois": null,
+      "removido": "item-4f7a1c2e",
+      "estorno": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "compra": null,
+      "pendencias_resolvidas": [],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "gasto": {
+          "valor": 0.0,
+          "texto": "R$ 0,00"
+        },
+        "fracao_gasta": 0.0,
+        "texto": "Nada gasto ainda: restam R$ 80,00 para complementos.",
+        "compras": []
+      },
+      "orcamento_mudou": true,
+      "texto": "Tirei o creme de leite e devolvi R$ 9,00 aos complementos; restam R$ 80,00."
+    }
+  },
+  "desfazer": {
+    "resposta": {
+      "item": {
+        "id": "item-4f7a1c2e",
+        "nome": "Creme de leite",
+        "categoria": "laticinios",
+        "categoria_rotulo": "Laticínios",
+        "estoque": 0.4,
+        "unidade": "kg",
+        "estoque_texto": "400 g (2 embalagens de 200 g)",
+        "pago": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "custo_unitario": {
+          "valor": 22.5,
+          "texto": "R$ 22,50/kg"
+        },
+        "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+        "confianca": "media",
+        "confianca_rotulo": "conta com conversão de embalagem",
+        "fracao_do_total": 0.0133,
+        "fracao_texto": "1% do que a senhora pagou",
+        "origem": "orcamento",
+        "origem_rotulo": "comprado com os complementos",
+        "imagem": null,
+        "receitas_que_usam": 1,
+        "receitas_que_usam_texto": "entra em 1 receita",
+        "pendente": false,
+        "rota": "/despensa/item-4f7a1c2e"
+      },
+      "id": "item-4f7a1c2e",
+      "ingrediente": "Creme de leite",
+      "mudou": true,
+      "repetida": false,
+      "evento": "ev-0007",
+      "antes": null,
+      "depois": {
+        "estoque": "400 g (2 embalagens de 200 g)",
+        "pago": "R$ 9,00",
+        "custo_unitario": "R$ 22,50/kg",
+        "derivacao": "2 × 0,2 kg = 0,4 kg; R$ 9,00 ÷ 0,4 kg = R$ 22,50/kg",
+        "confianca": "media"
+      },
+      "removido": null,
+      "estorno": null,
+      "compra": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "pendencias_resolvidas": [],
+      "pendencia": null,
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 71.0,
+          "texto": "R$ 71,00"
+        },
+        "gasto": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "fracao_gasta": 0.1125,
+        "texto": "Saíram R$ 9,00 dos complementos; restam R$ 71,00.",
+        "compras": [
+          {
+            "id": 3,
+            "descricao": "Creme de leite (despensa, de volta)",
+            "ingrediente": null,
+            "item_id": "item-4f7a1c2e",
+            "valor": {
+              "valor": 9.0,
+              "texto": "R$ 9,00"
+            },
+            "quando_texto": "hoje, 10:02",
+            "canal": "tela",
+            "estornada": false,
+            "estorno": false,
+            "pode_estornar": true,
+            "rota_estorno": "/api/compras/3/estorno"
+          }
+        ]
+      },
+      "orcamento_mudou": true,
+      "texto": "Voltei o creme de leite para a despensa. Saíram de novo R$ 9,00 dos complementos; restam R$ 71,00."
+    }
+  },
+  "estorno": {
+    "resposta": {
+      "compra_id": 3,
+      "estorno_id": 4,
+      "estorno": {
+        "valor": 9.0,
+        "texto": "R$ 9,00"
+      },
+      "removido": "item-4f7a1c2e",
+      "receitas_afetadas": {
+        "liberadas": [],
+        "bloqueadas": [],
+        "mudaram": [],
+        "texto": "Nenhuma receita em avaliação mudou."
+      },
+      "orcamento": {
+        "inicial": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "restante": {
+          "valor": 80.0,
+          "texto": "R$ 80,00"
+        },
+        "gasto": {
+          "valor": 0.0,
+          "texto": "R$ 0,00"
+        },
+        "fracao_gasta": 0.0,
+        "texto": "Nada gasto ainda: restam R$ 80,00 para complementos.",
+        "compras": []
+      },
+      "texto": "Devolvi R$ 9,00 aos complementos; restam R$ 80,00. O creme de leite saiu da despensa."
+    }
+  }
+}

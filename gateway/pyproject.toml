@@ -1,0 +1,62 @@
+[project]
+name = "gateway"
+version = "0.1.0"
+description = "MCP Gateway do Sabor da Maria: autenticação, escopos, rate limit, quota, breaker e auditoria"
+requires-python = ">=3.11"
+# O gateway é a raiz de composição: sobe o servidor MCP do motor, cujas
+# ferramentas de pesquisa vêm de `retrieval`, e instrumenta tudo com `telemetria`.
+# `httpx` é o cliente do servidor de API do Hermes (hermes_cliente.py). Já vinha
+# de carona com o `mcp`, e dependência de carona some sem aviso numa atualização.
+dependencies = ["mise", "retrieval", "telemetria", "auditor", "mcp>=2.2.0", "ruamel.yaml>=0.19.1", "fastapi>=0.141.1", "uvicorn[standard]>=0.32", "httpx>=0.28"]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.1.1", "pytest-cov>=6.0", "pytest-asyncio>=0.24", "hypothesis>=6.112", "mypy>=1.13", "ruff>=0.16.8"]
+
+[project.scripts]
+mise-gateway = "gateway.principal:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gateway"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers -q"
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["src/gateway"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "if __name__ == .__main__.:"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+# O extra `retrieval[semantico]` (busca semântica) instala o NumPy, que os stubs do
+# `rapidfuzz` citam. Os stubs do NumPy usam sintaxe do Python 3.12 e o mypy aqui
+# verifica para 3.11: sem esta linha, instalar o extra quebrava a verificação de
+# tipos inteira. Nenhum código deste pacote usa o NumPy.
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
+follow_imports_for_stubs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+allowed-confusables = ["×", "÷", "—", "–", "≥", "≤", "−"]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RUF", "ANN", "PL"]
+ignore = ["ANN401", "PLR0913", "N818"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN", "PLR2004", "S101", "SIM300", "E501", "PLC0415"]

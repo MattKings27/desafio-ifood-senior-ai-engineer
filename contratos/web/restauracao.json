@@ -1,0 +1,53 @@
+{
+  "texto": "Pronto, tudo voltou a ser como na planilha: 37 ingredientes, R$ 663,39 pagos, e os complementos têm R$ 80,00. As 2 receitas que eu já li continuam na grade.",
+  "mudou": true,
+  "conciliacao": {
+    "ingredientes": 37,
+    "total_pago": {
+      "valor": 663.39,
+      "texto": "R$ 663,39"
+    },
+    "orcamento_inicial": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "orcamento_restante": {
+      "valor": 80.0,
+      "texto": "R$ 80,00"
+    },
+    "cozinha_texto": "0 respondidos pela senhora · 17 supostos · 46 ainda não perguntei",
+    "texto": "37 ingredientes, R$ 663,39 pagos, restam R$ 80,00"
+  },
+  "apagado": {
+    "mudanças na despensa": 3,
+    "compras com os complementos": 1,
+    "respostas sobre a cozinha": 1,
+    "histórico da cozinha": 1,
+    "gostos": 2,
+    "estrelas e notas": 1,
+    "decisões do cardápio": 1,
+    "preços que ela informou": 1,
+    "receitas em avaliação": 2,
+    "conversas": 1,
+    "receitas ditas": 1,
+    "respostas sobre as receitas": 1
+  },
+  "mantido": {
+    "receitas": 2,
+    "texto": "as receitas das páginas lidas e as fotos continuam"
+  },
+  "copia": "20260926-143200",
+  "recursos": [
+    "despensa",
+    "orcamento",
+    "receitas",
+    "perfil",
+    "cardapio",
+    "atividades",
+    "conversas",
+    "visao-geral",
+    "precos",
+    "avaliacoes"
+  ],
+  "repetida": false
+}

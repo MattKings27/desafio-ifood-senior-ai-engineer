@@ -1,0 +1,82 @@
+{
+  "cartao_id": "k-13",
+  "tipo_cartao": "decisao",
+  "ref": {
+    "rota": "/api/cardapio?prato=Arroz%20com%20frango",
+    "parametros": {
+      "prato": "Arroz com frango"
+    }
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "pratos": [
+      {
+        "slug": "arroz-com-frango",
+        "prato": "Arroz com frango",
+        "imagem": null,
+        "preco": {
+          "valor": 18.0,
+          "texto": "R$ 18,00"
+        },
+        "recebe": {
+          "valor": 16.2,
+          "texto": "R$ 16,20"
+        },
+        "custo_porcao": {
+          "valor": 2.47,
+          "texto": "R$ 2,47"
+        },
+        "lucro_porcao": {
+          "valor": 13.73,
+          "texto": "R$ 13,73"
+        },
+        "derivacao": "Vendendo a R$ 18,00: o iFood fica com R$ 1,80 (10%), então chegam R$ 16,20 pra senhora. Tirando R$ 2,47 de ingrediente, sobram R$ 13,73 limpos por porção. Isso é 76% do que o cliente paga.",
+        "da_prejuizo": false,
+        "aviso": null,
+        "nota": {
+          "valor": 82.2,
+          "texto": "82,2"
+        },
+        "decidido_texto": "hoje, 15:02",
+        "notas": null,
+        "rota": "/receitas/arroz-com-frango"
+      }
+    ],
+    "resumo": {
+      "pratos": 1,
+      "preco_medio": {
+        "valor": 18.0,
+        "texto": "R$ 18,00"
+      },
+      "margem_media_texto": "76% de sobra depois da taxa e do ingrediente",
+      "orcamento_usado": {
+        "valor": 0.0,
+        "texto": "R$ 0,00"
+      },
+      "texto": "1 prato no cardápio",
+      "orcamento_texto": "Nada gasto dos R$ 80,00 dos complementos ainda.",
+      "orcamento_rota": "/despensa#orcamento"
+    },
+    "nao_quer": [
+      {
+        "prato": "Frango assado",
+        "motivo_texto": "sem forno",
+        "decidido_texto": "hoje, 09:15",
+        "rota": "/cardapio"
+      }
+    ],
+    "historico": [
+      {
+        "id": 3,
+        "prato": "Arroz com frango",
+        "tipo": "aceito",
+        "texto_humano": "A senhora aceitou o arroz com frango a R$ 18,00.",
+        "quando_texto": "hoje, 15:02",
+        "canal": "conversa",
+        "pode_desfazer": true,
+        "tipo_rotulo": "Aceitou",
+        "rota": "/receitas/arroz-com-frango"
+      }
+    ]
+  }
+}

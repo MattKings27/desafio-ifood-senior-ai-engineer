@@ -1,0 +1,214 @@
+# Conservação e segurança dos alimentos: boas práticas da Anvisa e das vigilâncias sanitárias.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: coccao-no-minimo-70-graus
+  titulo: Cozinhar até pelo menos 70 °C
+  categoria: seguranca
+  texto: Pela regra da Anvisa, o cozimento deve fazer todas as partes do alimento chegarem a no mínimo
+    70 °C.
+  trecho: O tratamento térmico deve garantir que todas as partes do alimento atinjam a temperatura
+    de, no mínimo, 70ºC (setenta graus Celsius).
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [temperatura segura, cozimento, 70 graus, cozinhar, carne]
+
+- id: oleo-de-fritura-ate-180-graus
+  titulo: 'Óleo de fritura: até 180 °C e troca imediata'
+  categoria: seguranca
+  texto: Óleo e gordura de fritura não devem ser aquecidos acima de 180 °C e precisam ser trocados
+    imediatamente quando houver alteração evidente, como mudança de cheiro e sabor ou muita espuma
+    e fumaça.
+  trecho: Os óleos e gorduras utilizados devem ser aquecidos a temperaturas não superiores a 180ºC
+    (cento e oitenta graus Celsius), sendo substituídos imediatamente sempre que houver alteração
+    evidente das características físico-químicas ou sensoriais, tais como aroma e sabor, e formação
+    intensa de espuma e fumaça.
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [óleo, fritura, trocar o óleo, reutilizar óleo, reaproveitar o óleo, 180 graus]
+
+- id: descongelar-na-geladeira-e-nao-recongelar
+  titulo: Como descongelar com segurança
+  categoria: conservacao
+  texto: Descongele na geladeira, abaixo de 5 °C, ou no micro-ondas quando o alimento vai direto para
+    o cozimento. Se não for usado logo, o alimento descongelado fica na geladeira e não pode ser congelado
+    de novo.
+  trecho: O descongelamento deve ser efetuado em condições de refrigeração à temperatura inferior
+    a 5ºC (cinco graus Celsius) ou em forno de microondas quando o alimento for submetido imediatamente
+    à cocção. 4.8.14 Os alimentos submetidos ao descongelamento devem ser mantidos sob refrigeração
+    se não forem imediatamente utilizados, não devendo ser recongelados.
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [descongelar, geladeira, micro-ondas, recongelar, congelado]
+
+- id: manter-quente-acima-de-60-graus
+  titulo: Manter a comida quente
+  categoria: conservacao
+  texto: Para manter a comida pronta quente, ela deve ficar acima de 60 °C por no máximo 6 horas.
+  trecho: Para conservação a quente, os alimentos devem ser submetidos à temperatura superior a 60ºC
+    (sessenta graus Celsius) por, no máximo, 6 (seis) horas.
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [manter quente, 60 graus, banho-maria, estufa, comida pronta]
+
+- id: resfriar-de-60-a-10-graus-em-2-horas
+  titulo: Resfriar comida pronta rápido
+  categoria: conservacao
+  texto: Comida pronta que vai para a geladeira ou o freezer deve baixar de 60 °C para 10 °C em até
+    duas horas. Depois fica abaixo de 5 °C na geladeira ou a -18 °C ou menos no congelador.
+  trecho: A temperatura do alimento preparado deve ser reduzida de 60ºC (sessenta graus Celsius) a
+    10ºC (dez graus Celsius) em até duas horas. Em seguida, o mesmo deve ser conservado sob refrigeração
+    a temperaturas inferiores a 5ºC (cinco graus Celsius), ou congelado à temperatura igual ou inferior
+    a -18ºC (dezoito graus Celsius negativos).
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [resfriar, esfriar, geladeira, freezer, congelar, temperatura]
+
+- id: comida-pronta-dura-5-dias-a-4-graus
+  titulo: Prazo da comida pronta na geladeira (Anvisa)
+  categoria: conservacao
+  texto: Pela regra da Anvisa, comida pronta conservada na geladeira a 4 °C ou menos pode ser consumida
+    em até 5 dias.
+  trecho: O prazo máximo de consumo do alimento preparado e conservado sob refrigeração a temperatura
+    de 4ºC (quatro graus Celsius), ou inferior, deve ser de 5 (cinco) dias.
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [validade, geladeira, quanto tempo dura, comida pronta, prazo]
+
+- id: etiqueta-na-comida-guardada
+  titulo: Etiqueta na comida guardada
+  categoria: conservacao
+  texto: Comida pronta guardada na geladeira ou no freezer precisa de etiqueta no pote com, no mínimo,
+    o nome da preparação, a data de preparo e o prazo de validade.
+  trecho: 'Caso o alimento preparado seja armazenado sob refrigeração ou congelamento deve-se apor
+    no invólucro do mesmo, no mínimo, as seguintes informações: designação, data de preparo e prazo
+    de validade.'
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [etiqueta, rotular, data, validade, geladeira]
+
+- id: abaixo-de-60-graus-consumir-em-1-hora
+  titulo: 'Comida abaixo de 60 °C: até 60 minutos'
+  categoria: conservacao
+  texto: Alimento preparado que, depois de cozido, fica abaixo de 60 °C deve ser consumido em até
+    60 minutos.
+  trecho: Alimentos preparados, após cocção, mantidos abaixo de 60°C, devem ser consumidos em até
+    60 minutos;
+  fonte_titulo: Ministério da Saúde, Doenças de Transmissão Hídrica e Alimentar (DTHA)
+  fonte_url: https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/dtha
+  verificado_em: 2026-09-26
+  palavras: [temperatura, comida pronta, 60 graus, tempo, esfriar]
+
+- id: lavar-as-maos-antes-de-preparar
+  titulo: Quando lavar as mãos
+  categoria: seguranca
+  texto: Lave as mãos com água limpa e sabão, principalmente antes de preparar ou comer alimentos,
+    depois de mexer em carne crua ou terra e depois de ir ao banheiro.
+  trecho: 'Lavar as mãos com água limpa e sabão, principalmente: Antes de preparar ou ingerir alimentos;
+    Após o manuseio de carnes cruas ou terra; Após ir ao banheiro;'
+  fonte_titulo: Ministério da Saúde, Doenças de Transmissão Hídrica e Alimentar (DTHA)
+  fonte_url: https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/dtha
+  verificado_em: 2026-09-26
+  palavras: [lavar as mãos, higiene, sabão, carne crua, manipulação]
+
+- id: prontos-separados-dos-crus
+  titulo: Prontos separados dos crus
+  categoria: seguranca
+  texto: Alimentos prontos devem ser guardados separados dos semiprontos e dos crus.
+  trecho: Alimentos prontos devem ser armazenados separadamente dos alimentos semiprontos e crus;
+  fonte_titulo: Ministério da Saúde, Doenças de Transmissão Hídrica e Alimentar (DTHA)
+  fonte_url: https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/dtha
+  verificado_em: 2026-09-26
+  palavras: [contaminação cruzada, cru, cozido, separar, geladeira]
+
+- id: desinfetar-hortalicas-com-hipoclorito
+  titulo: Desinfetar verduras e legumes
+  categoria: seguranca
+  texto: Para desinfetar hortaliças, o Ministério da Saúde orienta mergulhá-las numa solução de 10
+    mL (cerca de 1 colher de sopa) de hipoclorito de sódio a 2,5% para cada litro de água tratada.
+  trecho: 'Desinfetar as hortaliças antes do consumo: Imergir os alimentos em solução preparada com
+    10 mL (aproximadamente 1 colher de sopa) de hipoclorito de sódio a 2,5% para cada litro de água
+    tratada;'
+  fonte_titulo: Ministério da Saúde, Doenças de Transmissão Hídrica e Alimentar (DTHA)
+  fonte_url: https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/dtha
+  verificado_em: 2026-09-26
+  palavras: [higienizar, hortaliças, salada, hipoclorito, água sanitária]
+
+- id: reaquecer-a-74-graus-em-sao-paulo
+  titulo: Reaquecer até 74 °C (São Paulo)
+  categoria: conservacao
+  texto: Na cidade de São Paulo, a portaria municipal exige que, no reaquecimento, todas as partes
+    do alimento cheguem a no mínimo 74 °C.
+  trecho: Na etapa de reaquecimento todas as partes dos alimentos devem atingir, no mínimo, a temperatura
+    de 74ºC.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [reaquecer, esquentar, 74 graus, temperatura, sobra]
+
+- id: geladeira-prontos-em-cima-crus-embaixo
+  titulo: Ordem das prateleiras na geladeira
+  categoria: seguranca
+  texto: 'Quando tudo divide a mesma geladeira, a regra paulistana é: prontos para consumo nas prateleiras
+    de cima, semiprontos e pré-preparados no meio, e crus ou não higienizados embaixo, separados entre
+    si.'
+  trecho: Quando houver necessidade de armazenar diferentes gêneros alimentícios em um mesmo equipamento,
+    os alimentos prontos para o consumo devem estar dispostos nas prateleiras superiores; os semiprontos
+    e pré-preparados nas prateleiras do meio; e os produtos crus ou não higienizados nas prateleiras
+    inferiores, separados entre si e dos demais produtos.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [geladeira, prateleira, contaminação cruzada, cru, organizar]
+
+- id: alimento-cozido-3-dias-em-sao-paulo
+  titulo: Prazo do alimento cozido em São Paulo
+  categoria: conservacao
+  texto: Pela tabela da portaria paulistana, alimentos pós-cocção, exceto pescados, ficam no máximo
+    3 dias a até 4 °C; pescados cozidos, no máximo 1 dia a até 2 °C.
+  trecho: 'VIII. Alimentos pós-cocção, exceto pescados: no máximo a 4ºC por 3 dias; IX. Pescados pós-cocção:
+    no máximo a 2°C por 1 dia;'
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [validade, geladeira, quanto tempo dura, cozido, peixe]
+
+- id: ovo-cru-proibido-usar-pasteurizado
+  titulo: Ovo cru ou mal cozido (São Paulo)
+  categoria: seguranca
+  texto: 'Na cidade de São Paulo, são proibidas preparações com ovo cru ou mal cozido: ovo cozido
+    deve ferver 7 minutos, ovo frito deve ter gema dura e preparações sem cozimento devem usar ovo
+    pasteurizado, cozido ou desidratado.'
+  trecho: São proibidas preparações em que os ovos permaneçam crus ou mal cozidos. Os ovos cozidos
+    devem ser fervidos por 7 minutos e os ovos fritos devem apresentar a gema dura. Nas preparações
+    sem cocção devem ser utilizados ovos pasteurizados, cozidos ou desidratados.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [ovo cru, maionese caseira, ovo pasteurizado, gema, salmonela]
+
+- id: esfriar-panela-em-agua-com-gelo
+  titulo: Esfriar a panela em água com gelo
+  categoria: conservacao
+  texto: Para esfriar mais rápido, a orientação publicada pela Unicamp é tirar o alimento do forno
+    ou do fogão, pôr a panela tampada numa vasilha com água e gelo e, depois de frio, levar à geladeira.
+  trecho: Nilo aconselha retirar o alimento do forno ou fogão e colocar a panela tampada num recipiente
+    com água e gelo. Daí é só esperar esfriar e colocar na geladeira.
+  fonte_titulo: Jornal da Unicamp, Para deixar a carne no ponto (2013)
+  fonte_url: https://www2.unicamp.br/unicamp/ju/564/para-deixar-carne-no-ponto
+  verificado_em: 2026-09-26
+  palavras: [esfriar, resfriar, gelo, banho de gelo, geladeira]

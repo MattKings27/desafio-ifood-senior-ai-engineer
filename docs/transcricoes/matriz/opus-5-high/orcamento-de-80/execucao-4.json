@@ -1,0 +1,45 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nO motor mostra assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra registrada até agora.\n\nEntão o dinheiro de complemento está todo na mão, sem nada comprometido.\n\nAntes de a senhora gastar qualquer parte disso, eu queria ver o que a despensa já tem e quais pratos saem sem precisar comprar quase nada. Aí a gente decide onde esses R$ 80,00 rendem mais.\n\nPosso dar uma olhada na despensa agora?",
+      "sessao": "20260924_025731_c99467",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 14397,
+      "uso": {
+        "entrada": 6,
+        "saida": 410,
+        "cache_leitura": 39556,
+        "cache_escrita": 4193
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

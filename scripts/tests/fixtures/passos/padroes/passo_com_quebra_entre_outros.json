@@ -1,0 +1,32 @@
+{
+ "padrao": "Um HowToStep entre outros com quebra de linha dentro: continua um passo só",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Arroz",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Cozinhe o arroz.<br>Deixe descansar 5 minutos."
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Sirva."
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Cozinhe o arroz. Deixe descansar 5 minutos.",
+   "secao": null
+  },
+  {
+   "texto": "Sirva.",
+   "secao": null
+  }
+ ]
+}

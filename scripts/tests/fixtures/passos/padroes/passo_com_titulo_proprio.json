@@ -1,0 +1,34 @@
+{
+ "padrao": "Cada passo com um título próprio em name, diferente do texto: a página mostra o título em cima de cada um",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Pão",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "name": "Prepare a massa",
+    "text": "Misture a farinha, o sal e o fermento."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Asse",
+    "text": "Leve ao forno por 30 minutos."
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Misture a farinha, o sal e o fermento.",
+   "secao": "Prepare a massa"
+  },
+  {
+   "texto": "Leve ao forno por 30 minutos.",
+   "secao": "Asse"
+  }
+ ]
+}

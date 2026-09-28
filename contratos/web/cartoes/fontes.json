@@ -1,0 +1,24 @@
+{
+  "cartao_id": "k-15",
+  "tipo_cartao": "fontes",
+  "ref": {
+    "rota": null,
+    "parametros": {
+      "pergunta": "Até que temperatura posso esquentar o óleo de soja para fritar?"
+    }
+  },
+  "gerado_texto": "hoje, 14:32",
+  "dados": {
+    "texto": "De onde eu tirei isso",
+    "chips": [
+      {
+        "rotulo": "Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)",
+        "rota": null
+      },
+      {
+        "rotulo": "Óleo de soja, na sua despensa",
+        "rota": "/despensa/oleo-de-soja"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+ "padrao": "Uma HowToSection só, chamada Modo de Preparo: os passos saem todos, e o nome não vira título (antes a receita ficava com um passo, o nome da seção)",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Feijão carioca",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToSection",
+    "name": "Modo de Preparo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Escorra o feijão e cozinhe na pressão por 25 minutos."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Refogue a cebola no óleo."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Junte o feijão e cozinhe por mais 10 minutos."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Escorra o feijão e cozinhe na pressão por 25 minutos.",
+   "secao": null
+  },
+  {
+   "texto": "Refogue a cebola no óleo.",
+   "secao": null
+  },
+  {
+   "texto": "Junte o feijão e cozinhe por mais 10 minutos.",
+   "secao": null
+  }
+ ]
+}

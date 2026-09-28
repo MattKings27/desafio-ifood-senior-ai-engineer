@@ -1,0 +1,16 @@
+nome: cumprimento-sem-despejar
+secao: conversa
+descricao: >
+  Ela só cumprimenta, com a tela de Receitas aberta. Um cumprimento pede
+  cumprimento: o agente responde curto e caloroso e pergunta como ajudar, sem
+  chamar ferramenta, sem número e sem lista. A tela aberta é contexto, não pedido.
+
+turnos:
+  - diz: |
+      Oi
+
+      [a senhora está vendo a tela Receitas]
+    espera:
+      nao_chama: [comparar_candidatas, consultar_planilha, avaliar_receita, consultar_orcamento, consultar_cardapio, buscar_receita_na_web, web_search]
+      nao_responde_com: ['R\$ ?\d', '\b\d+ receitas?\b']
+      pergunta: true

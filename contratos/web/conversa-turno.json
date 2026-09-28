@@ -1,0 +1,30 @@
+{
+  "pedido": {
+    "texto": "Tenho forno.",
+    "contexto": {
+      "tela": "receitas",
+      "tipo": "receita",
+      "id": "arroz-com-frango",
+      "rotulo": "Arroz com frango"
+    },
+    "acao": {
+      "tipo": "responder",
+      "tipo_pergunta": "equipamento",
+      "campo": "forno",
+      "resposta": "sim"
+    },
+    "id_cliente": "u-5e1d"
+  },
+  "resposta_202": {
+    "turno_id": "t-88c1"
+  },
+  "resposta_409": {
+    "turno_id": "t-88c0"
+  },
+  "estado": {
+    "turno_id": "t-88c1",
+    "estado": "em_andamento",
+    "ultimo_seq": 7,
+    "iniciado_texto": "hoje, 15:10"
+  }
+}

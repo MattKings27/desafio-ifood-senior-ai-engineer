@@ -1,0 +1,18 @@
+nome: abertura-com-a-despensa
+secao: "2.1"
+descricao: >
+  A primeira conversa. Antes de sugerir qualquer prato, o agente olha o que ela
+  já tem: o enunciado pede receitas que aproveitem a despensa, e isso começa
+  pelo diagnóstico, não por uma ideia genérica. Nenhum preço aparece aqui.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de
+      prato pra vender no iFood. Por onde a gente começa?
+    espera:
+      chama_em_ordem: [diagnostico_despensa]
+      # Ela não sabe o que é CMV nem food cost, e não precisa saber.
+      nao_responde_com: ['\bCMV\b', 'food ?cost']
+      pergunta: true

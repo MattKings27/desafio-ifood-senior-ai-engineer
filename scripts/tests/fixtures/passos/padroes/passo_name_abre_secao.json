@@ -1,0 +1,68 @@
+{
+ "padrao": "O jeito do TudoGostoso: o primeiro passo de cada parte traz o nome dela em name, e a página mostra o título em cima dele e dos seguintes; a receita mora num @graph",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@graph": [
+   {
+    "@type": "WebSite",
+    "name": "Site de receitas",
+    "url": "https://exemplo.com.br/"
+   },
+   {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Bolo de cenoura",
+    "recipeIngredient": [
+     "2 xícaras de arroz",
+     "1 cebola picada"
+    ],
+    "recipeInstructions": [
+     {
+      "@type": "HowToStep",
+      "name": "Massa",
+      "text": "Em um liquidificador, bata a cenoura, os ovos e o &amp;oacute;leo."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Acrescente o açúcar e bata por 5 minutos."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Asse em forno preaquecido a 180&amp;deg; C por 40 minutos."
+     },
+     {
+      "@type": "HowToStep",
+      "name": "Cobertura:",
+      "text": "Misture a manteiga, o chocolate e o açúcar."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Leve ao fogo até engrossar e despeje sobre o bolo."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Em um liquidificador, bata a cenoura, os ovos e o óleo.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Acrescente o açúcar e bata por 5 minutos.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Asse em forno preaquecido a 180° C por 40 minutos.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Misture a manteiga, o chocolate e o açúcar.",
+   "secao": "Cobertura:"
+  },
+  {
+   "texto": "Leve ao fogo até engrossar e despeje sobre o bolo.",
+   "secao": "Cobertura:"
+  }
+ ]
+}

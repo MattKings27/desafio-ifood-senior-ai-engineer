@@ -1,0 +1,115 @@
+{
+  "cartao_id": "k-5",
+  "tipo_cartao": "comparacao",
+  "ref": {
+    "rota": "/api/receitas?aba=pode_fazer",
+    "parametros": {
+      "aba": "pode_fazer"
+    }
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "aba": "pode_fazer",
+    "contagens": {
+      "pode_fazer": 2,
+      "falta_resposta": 1,
+      "ranking": 2,
+      "nao_quer": 0
+    },
+    "itens": [
+      {
+        "slug": "arroz-com-frango",
+        "nome": "Arroz com frango",
+        "imagem": null,
+        "site": null,
+        "tempo_texto": "40 min",
+        "selo": {
+          "codigo": "com_o_que_tem",
+          "texto": "Com o que a senhora tem"
+        },
+        "usa_texto": "usa 3 de 3 ingredientes que a senhora tem",
+        "falta_texto": "nada a comprar",
+        "nota_da_cozinha": "Confirme a cozinha",
+        "pontuacao": {
+          "valor": 86.9,
+          "texto": "86,9"
+        },
+        "gosta": true,
+        "pergunta": null,
+        "referencias": [],
+        "rota": "/receitas/arroz-com-frango"
+      },
+      {
+        "slug": "8747bf504b200286",
+        "nome": "Frango com milho verde",
+        "imagem": {
+          "url": "/motor/imagens/608ebcc7f9f62dac0c9c45b370443eac",
+          "credito": "Foto: TudoGostoso"
+        },
+        "site": "TudoGostoso",
+        "tempo_texto": "35 min",
+        "selo": {
+          "codigo": "comprando",
+          "texto": "Comprando R$ 6,00, cabe nos R$ 80,00"
+        },
+        "usa_texto": "usa 3 de 4 ingredientes que a senhora tem",
+        "falta_texto": "falta comprar milho verde",
+        "nota_da_cozinha": null,
+        "pontuacao": {
+          "valor": 88.8,
+          "texto": "88,8"
+        },
+        "gosta": true,
+        "pergunta": null,
+        "referencias": [],
+        "rota": "/receitas/8747bf504b200286"
+      }
+    ],
+    "descoberta": {
+      "estado": "parada",
+      "lidas": 2,
+      "encontradas": 2,
+      "texto": "Trouxe 2 receitas da internet que usam a despensa da senhora."
+    },
+    "perguntas_que_liberam": [
+      {
+        "pergunta": {
+          "tipo": "ingrediente",
+          "assunto": "linha_nao_lida",
+          "campo": "temperos de sua preferência",
+          "texto": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+          "motivo": "sem saber quanto vai, não dá para conferir se a despensa dá conta nem fechar o custo do prato",
+          "compras": [],
+          "opcoes": [],
+          "entrada": {
+            "tipo": "texto"
+          },
+          "passos": []
+        },
+        "receitas": 1,
+        "liberadas": 1,
+        "sem_compra": 0,
+        "sem_compra_texto": null,
+        "nomes": [
+          "Carne moída com arroz na panela de pressão"
+        ],
+        "slugs": [
+          "f8fc24c7f065125e"
+        ],
+        "rota": "/receitas/f8fc24c7f065125e",
+        "texto": "libera 1 receita"
+      }
+    ],
+    "esperando_resposta": {
+      "receitas": 1,
+      "so_com_o_que_tem": 0,
+      "precisa_comprar": 0,
+      "linha_sem_leitura": 1,
+      "nomes": [],
+      "slugs": [],
+      "falta_dizer": [],
+      "texto": "Nenhuma receita que espera resposta usa só o que a senhora tem ainda: 1 receita tem uma linha que eu não consegui ler."
+    },
+    "sem_preco_na_internet": null
+  }
+}

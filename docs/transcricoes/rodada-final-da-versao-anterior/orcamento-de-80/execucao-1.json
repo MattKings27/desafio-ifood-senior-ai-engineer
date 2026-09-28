@@ -1,0 +1,47 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros. Nada foi gasto até agora — a planilha não tem nenhuma compra registrada.\n\nEntão é isso: R$ 80,00 de complemento, tudo disponível.\n\nUma coisa: esse valor só vira decisão depois que a gente souber o que falta de verdade. Enquanto não tivermos pratos escolhidos, não dá pra dizer se os R$ 80,00 sobram ou apertam.\n\nQuer que eu comece olhando a despensa, pra ver o que a senhora já tem e o que realmente faria falta?",
+      "sessao": "20260924_181123_b9c46c",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 21875,
+      "uso": {
+        "entrada": 6,
+        "saida": 595,
+        "cache_leitura": 40570,
+        "cache_escrita": 4886
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento",
+              "mcp__mise__consultar_precos_de_mercado",
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}, \"mcp__mise__consultar_precos_de_mercado\": {\"description\": \"As cotações já registradas para o que falta comprar.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_precos_de_mercadoArguments\", \"required\": []}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "cenario": "nao-sei-sem-fonte",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: a resposta não contém /n[aã]o sei/",
+    "turno 1: a resposta contém /paris/, que não podia"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Qual a capital da França?",
+      "resposta": "Paris.\n\nSe a senhora quiser, posso voltar para a despensa e ver o que dá para fazer com o que já tem.",
+      "sessao": "20260927_061330_c8ad15",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 8793,
+      "uso": {
+        "entrada": 4,
+        "saida": 45,
+        "cache_leitura": 12393,
+        "cache_escrita": 1140
+      },
+      "chamadas": []
+    }
+  ]
+}

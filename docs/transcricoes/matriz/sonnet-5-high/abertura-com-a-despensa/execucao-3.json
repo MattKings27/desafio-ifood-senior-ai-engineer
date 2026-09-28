@@ -1,0 +1,78 @@
+{
+  "cenario": "abertura-com-a-despensa",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de prato pra vender no iFood. Por onde a gente começa?",
+      "resposta": "Oi, Dona Maria! Que bom começar essa aventura com a senhora. Dei uma olhada na despensa e vou contar o que vi, rapidinho.\n\nA senhora já investiu R$ 663,39 em ingredientes, e tem R$ 80,00 guardados para completar o que faltar. Isso é o capital, já gasto, e nosso trabalho é achar os pratos que fazem esse dinheiro voltar.\n\nTrês coisas que chamam atenção:\n\nPrimeiro: as alcaparras. Foram R$ 82,00, quase 1 em cada 8 reais que a senhora gastou. É um vidro de 2 quilos, e alcaparra costuma entrar de colher em colher — então esse dinheiro demora a voltar, a não ser que a gente ache um prato que use bastante.\n\nSegundo: a cobertura de chocolate, R$ 79,90. Essa eu nem consigo calcular direito ainda, porque a embalagem não diz o peso. Preciso saber: quanto vem escrito no rótulo dela, em gramas?\n\nTerceiro: a senhora tem carne moída, miolo de alcatra, peito de frango, feijão, arroz — uma base boa de prato de almoço, coisa de dar comida de verdade.\n\nPra eu começar a procurar receita que aproveite o que a senhora já tem, me conta: que tipo de prato a senhora gosta de fazer? Um prato de panela, tipo almoço completo, ou prefere algo mais rápido, tipo lanche?",
+      "sessao": "20260924_022413_0d9bfe",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 19048,
+      "uso": {
+        "entrada": 10,
+        "saida": 1110,
+        "cache_leitura": 72411,
+        "cache_escrita": 17579
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "consultoria-gastronomica"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "diagnostico-despensa"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico da despensa",
+              "consultar perfil da cozinha"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico_despensa panorama despensa"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

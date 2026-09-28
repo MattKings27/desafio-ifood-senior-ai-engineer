@@ -1,0 +1,28 @@
+nome: so-apresenta-o-que-da
+secao: "2.2"
+descricao: >
+  Ela já contou que não tem forno nem nada que faça o papel dele, e traz uma
+  receita de forno. A conferência bloqueia o prato, e o agente diz isso com
+  o motivo. Prato bloqueado nunca aparece como possível: nada de "dá pra fazer",
+  nem preço preliminar, nem compra.
+
+nunca_chama: [estimar_preco_preliminar, calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Antes de tudo: aqui não tem forno, nem air fryer, nem forno elétrico. Só o
+      fogão mesmo.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+  - diz: >
+      Mesmo assim eu queria vender frango assado. A receita: 1 kg de coxa e
+      sobrecoxa, 2 dentes de alho, suco de 1 limão, sal a gosto. Tempera e leva
+      ao forno a 200 graus por 50 minutos. Rende 4 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      responde_com: ['forno']
+      # "Dá pra fazer" só para o que a conferência liberou; "não dá pra fazer" é a
+      # verdade, e "o que dá para fazer é outra coisa" e "fechar se dá pra fazer"
+      # não dizem que este prato dá.
+      nao_responde_com: ['(?<!não )(?<!nao )(?<!que )(?<!se )\bd[aá] (pra|para) (a senhora )?fazer']
+      pergunta: true

@@ -1,0 +1,13 @@
+nome: conhecimento-com-fonte
+secao: "2.2"
+descricao: >
+  Ela pede uma técnica. O agente responde com o que a base de cozinha
+  conferida traz e cita a fonte que veio junto; não ensina de memória.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: Como faço um molho béchamel?
+    espera:
+      chama_em_ordem: [consultar_conhecimento]
+      responde_com: ['wikip[eé]dia']

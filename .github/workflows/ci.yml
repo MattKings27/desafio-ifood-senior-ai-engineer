@@ -1,0 +1,302 @@
+# Portão principal. Tudo que este workflow reprova não entra em `main`.
+#
+# As actions estão fixadas por SHA, não por tag. Tag é um ponteiro mutável: quem
+# controla o repositório da action pode reapontar `@v4` para outro commit e passar
+# a executar código novo dentro do nosso CI sem nenhum diff revisado. O comentário
+# ao lado registra qual versão aquele SHA era quando foi fixado.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, reopened, synchronize]
+  merge_group:
+
+# Uma execução por referência. Push novo no mesmo PR cancela a anterior, que já
+# está obsoleta. `main` nunca é cancelada: lá cada commit precisa do seu veredito.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  motor:
+    name: Seis pacotes (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+
+      # Os seis pacotes, não só os dois que este job testa: o gateway importa
+      # `telemetria` e `retrieval`, e instalar menos do que isso já escondeu
+      # uma vez que ele não subia fora da máquina de quem escreveu.
+      - name: Instalar os seis pacotes em modo editável
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e './mise[dev]' -e './gateway[dev]' -e './retrieval[dev]' \
+            -e './telemetria[dev]' -e './auditor[dev]' -e './evals[dev]'
+
+      # Lint e tipos antes dos testes: falham em segundos e dizem mais sobre a
+      # causa do que um teste vermelho lá na frente.
+      # Os mesmos alvos do Makefile, com o Python do runner: o que roda aqui é
+      # o que roda na máquina, pacote por pacote.
+      - name: Ruff (lint e formatação)
+        run: |
+          make lint PY=python
+          python -m ruff check scripts
+          python -m ruff format --check scripts
+
+      - name: Mypy estrito
+        run: |
+          make tipos PY=python
+          python -m mypy --strict scripts/cobertura_do_diff.py scripts/override_de_cobertura.py \
+            scripts/higiene.py
+
+      # O limiar vem do `fail_under` no pyproject de cada pacote, não daqui.
+      # Um só lugar define o número, e é o mesmo que roda na máquina.
+      - name: Testes dos seis pacotes com cobertura
+        run: |
+          for pacote in mise gateway retrieval telemetria auditor evals; do
+            echo "::group::$pacote"
+            (cd "$pacote" && python -m pytest -q --cov --cov-report=xml --cov-report=term-missing)
+            echo "::endgroup::"
+          done
+
+      - name: Testes do plugin de guard-rail
+        run: python -m pytest hermes/plugins/guardrail-numerico -q -p no:cacheprovider
+
+      # As instruções que o agente lê têm que citar ferramentas que existem, com
+      # o nome que o Hermes dá, e não carregar número inventado como exemplo.
+      - name: Instruções e configuração do agente
+        run: python -m pytest hermes/tests -q -p no:cacheprovider
+
+      # O portão de cobertura é código que decide se outro código entra. Sem
+      # teste próprio, ele é exatamente a coisa que existe para impedir.
+      - name: Testes dos próprios portões
+        run: python -m pytest scripts/tests -q -p no:cacheprovider
+
+      # O que nenhum linter confere: travessão separando ideias, caminho da
+      # máquina de quem escreveu e plural com "(s)" na tela.
+      - name: Higiene do texto versionado
+        run: python scripts/higiene.py
+
+      - name: Guardar os relatórios de cobertura
+        if: matrix.python == '3.12'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cobertura-python
+          path: |
+            */coverage.xml
+          retention-days: 7
+
+  # O repositório do jeito que quem o clona recebe: venv novo, só o que está
+  # declarado, todos os pacotes testados. Pega dependência esquecida, script sem
+  # bit de execução e arquivo que só existe na máquina de quem desenvolve.
+  clone-limpo:
+    name: Clone limpo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Clonar, instalar do zero e testar
+        run: bash scripts/clone_limpo.sh
+
+  # A imagem é outra porta de entrada. Construir não basta: ela tem que subir e
+  # responder com a planilha real carregada.
+  imagem:
+    name: Imagem Docker sobe e responde
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Construir
+        run: docker build -t sabor-da-maria:ci .
+      - name: Subir e consultar a despensa
+        run: |
+          docker run -d --name motor -p 8777:8777 sabor-da-maria:ci
+          for _ in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:8777/api/despensa -o despensa.json && break
+            sleep 1
+          done
+          python3 - <<'PY' || { docker logs motor; echo "::error::a imagem não devolveu a despensa real"; exit 1; }
+          import json
+          d = json.load(open("despensa.json"))["dados"]
+          assert len(d["itens"]) == 37, len(d["itens"])
+          assert d["total_investido"]["valor"] == 663.39, d["total_investido"]
+          print(f"37 itens, {d['total_investido']['texto']} investidos")
+          PY
+
+  interface:
+    name: Interface web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: webapp/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: webapp
+        run: npm ci
+
+      # `tsc --noEmit` isolado, com `strict: true`. O `next build` sozinho não
+      # basta: ele checa tipos, mas não reprova o que o modo estrito pegaria.
+      - name: Tipos
+        working-directory: webapp
+        run: npm run typecheck
+
+      - name: ESLint sem tolerar aviso
+        working-directory: webapp
+        run: npx eslint . --max-warnings=0
+
+      - name: Testes de componente e acessibilidade
+        working-directory: webapp
+        run: npm run test -- --coverage
+
+      - name: Build de produção
+        working-directory: webapp
+        run: npm run build
+
+  # A interface no Chromium de verdade, contra o motor falso que serve as
+  # fixtures de `contratos/web/`: toda rota nos dois temas, a 390 e a 1280 px,
+  # com axe (WCAG 2.2 AA), sem rolagem para os lados e sem jargão. As capturas
+  # de página inteira ficam como artefato, para revisar a olho em cada PR.
+  interface-ponta-a-ponta:
+    name: Interface ponta a ponta
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: webapp/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: webapp
+        run: npm ci
+
+      # A versão do navegador vem da versão fixada do @playwright/test.
+      - name: Instalar o Chromium do Playwright
+        working-directory: webapp
+        run: npx playwright install --with-deps chromium
+
+      # O próprio Playwright sobe o motor falso e o `next build && next start`.
+      - name: Fumaça de todas as rotas
+        working-directory: webapp
+        run: npx playwright test
+
+      - name: Guardar as capturas e os rastros
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: capturas-da-interface
+          path: webapp/e2e/resultados
+          retention-days: 14
+          if-no-files-found: warn
+
+  design:
+    name: Tokens e contraste
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+
+      # Valida a estrutura do DESIGN.md e o contraste WCAG de cada par de cores.
+      # Foi este lint que pegou o verde de sucesso a 3,25:1 antes de ir para a tela.
+      - name: Lint do DESIGN.md
+        run: npx -y @google/design.md@0.4.0 lint DESIGN.md
+
+      # Os tokens versionados têm que bater com o que o DESIGN.md gera agora.
+      # Se alguém editar um sem regenerar o outro, os dois divergem em silêncio.
+      - name: Tokens exportados estão atualizados
+        run: |
+          npx -y @google/design.md@0.4.0 export DESIGN.md --format tailwind > /tmp/tokens.json
+          if ! diff -q /tmp/tokens.json webapp/tokens.tailwind.json > /dev/null 2>&1; then
+            echo "::error::webapp/tokens.tailwind.json divergiu do DESIGN.md. Rode 'make design' e commite o resultado."
+            diff -u webapp/tokens.tailwind.json /tmp/tokens.json || true
+            exit 1
+          fi
+          echo "tokens em dia"
+
+  cobertura-do-diff:
+    name: Cobertura das linhas alteradas
+    runs-on: ubuntu-latest
+    # Só faz sentido num PR: em `main` não há "linhas alteradas por este PR".
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # O script compara `base...HEAD`. Com clone raso o merge-base não existe
+          # e ele sai com código 2, que é vermelho, de propósito, mas evitável.
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      # O gateway depende de `auditor`, `retrieval` e `telemetria`, que não
+      # estão no PyPI: instalar só dois pacotes faz o pip procurá-los lá e falhar.
+      - name: Instalar os seis pacotes
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e './mise[dev]' -e './gateway[dev]' -e './retrieval[dev]' \
+            -e './telemetria[dev]' -e './auditor[dev]' -e './evals[dev]'
+
+      # Linha alterada em qualquer pacote conta, não só no motor e no gateway.
+      - name: Gerar os relatórios
+        run: |
+          for pacote in mise gateway retrieval telemetria auditor evals; do
+            (cd "$pacote" && python -m pytest -q --cov --cov-report=xml)
+          done
+
+      # O piso global responde "o projeto está coberto?". Este responde "o que
+      # você acabou de escrever está coberto?". São perguntas diferentes: num
+      # repositório com 98% de base dá para somar um arquivo inteiro sem teste
+      # e continuar acima do piso. Provado neste repositório: código sem teste
+      # manteve o global em 97,83% e este portão o pegou em 25%.
+      - name: Portão de 80% nas linhas alteradas
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # A válvula de escape primeiro. Ela só dispensa a cobertura quando a
+          # label vem acompanhada de justificativa escrita; label sozinha é erro,
+          # não dispensa, senão a exigência vira decorativa.
+          set +e
+          python scripts/override_de_cobertura.py --evento "$GITHUB_EVENT_PATH"
+          override=$?
+          set -e
+          if [ "$override" -eq 0 ]; then
+            echo "::warning::cobertura do diff dispensada por override justificado neste PR"
+            exit 0
+          fi
+          if [ "$override" -eq 1 ]; then
+            exit 1
+          fi
+
+          set +e
+          python scripts/cobertura_do_diff.py --base "$BASE" --alvo HEAD \
+            mise/coverage.xml gateway/coverage.xml retrieval/coverage.xml \
+            telemetria/coverage.xml auditor/coverage.xml evals/coverage.xml
+          status=$?
+          set -e
+          if [ "$status" -eq 2 ]; then
+            echo "::error::o portão não conseguiu decidir. Sem veredito é vermelho: verde aqui seria mentira."
+            exit 2
+          fi
+          exit "$status"

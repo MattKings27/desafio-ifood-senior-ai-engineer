@@ -1,0 +1,126 @@
+{
+  "cartao_id": "k-10",
+  "tipo_cartao": "cenarios",
+  "ref": {
+    "rota": "/api/precos?prato=Arroz%20com%20frango",
+    "parametros": {
+      "prato": "Arroz com frango"
+    }
+  },
+  "gerado_texto": "conta de hoje, 14:32",
+  "dados": {
+    "prato": "Arroz com frango",
+    "cmv": {
+      "valor": 3.0,
+      "texto": "R$ 3,00"
+    },
+    "preco_minimo": {
+      "valor": 3.34,
+      "texto": "R$ 3,34"
+    },
+    "explicacao_da_taxa": "O custo de ingrediente é R$ 3,00. Mas não dá pra vender por R$ 3,00: o iFood fica com 10% de tudo que o cliente paga, então a senhora receberia só R$ 2,70 e sairia no prejuízo. Pra empatar exatamente, o preço tem que ser R$ 3,00 ÷ 0,90 = R$ 3,34. Abaixo disso a senhora paga pra trabalhar.",
+    "cenarios": [
+      {
+        "nome": "Conservador",
+        "descricao": "preço mais baixo, ganha menos por prato mas atrai mais pedido",
+        "preco": {
+          "valor": 7.5,
+          "texto": "R$ 7,50"
+        },
+        "taxa": {
+          "valor": 0.75,
+          "texto": "R$ 0,75"
+        },
+        "recebe": {
+          "valor": 6.75,
+          "texto": "R$ 6,75"
+        },
+        "lucro": {
+          "valor": 3.75,
+          "texto": "R$ 3,75"
+        },
+        "food_cost": 0.4,
+        "margem": 0.5,
+        "explicacao": "Vendendo a R$ 7,50: o iFood fica com R$ 0,75 (10%), então chegam R$ 6,75 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 3,75 limpos por porção. Isso é 50% do que o cliente paga."
+      },
+      {
+        "nome": "Equilibrado",
+        "descricao": "o meio-termo: o ingrediente fica em cerca de um terço do preço",
+        "preco": {
+          "valor": 8.57,
+          "texto": "R$ 8,57"
+        },
+        "taxa": {
+          "valor": 0.86,
+          "texto": "R$ 0,86"
+        },
+        "recebe": {
+          "valor": 7.71,
+          "texto": "R$ 7,71"
+        },
+        "lucro": {
+          "valor": 4.71,
+          "texto": "R$ 4,71"
+        },
+        "food_cost": 0.3500583430571762,
+        "margem": 0.5499416569428238,
+        "explicacao": "Vendendo a R$ 8,57: o iFood fica com R$ 0,86 (10%), então chegam R$ 7,71 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 4,71 limpos por porção. Isso é 55% do que o cliente paga."
+      },
+      {
+        "nome": "Premium",
+        "descricao": "preço mais alto, ganha mais por prato mas vende para menos gente",
+        "preco": {
+          "valor": 10.0,
+          "texto": "R$ 10,00"
+        },
+        "taxa": {
+          "valor": 1.0,
+          "texto": "R$ 1,00"
+        },
+        "recebe": {
+          "valor": 9.0,
+          "texto": "R$ 9,00"
+        },
+        "lucro": {
+          "valor": 6.0,
+          "texto": "R$ 6,00"
+        },
+        "food_cost": 0.3,
+        "margem": 0.6,
+        "explicacao": "Vendendo a R$ 10,00: o iFood fica com R$ 1,00 (10%), então chegam R$ 9,00 pra senhora. Tirando R$ 3,00 de ingrediente, sobram R$ 6,00 limpos por porção. Isso é 60% do que o cliente paga."
+      }
+    ],
+    "sensibilidade": {
+      "variacao_testada": 0.2,
+      "cmv_original": {
+        "valor": 3.0,
+        "texto": "R$ 3,00"
+      },
+      "cmv_com_alta": {
+        "valor": 3.6,
+        "texto": "R$ 3,60"
+      },
+      "lucro_original": {
+        "valor": 4.71,
+        "texto": "R$ 4,71"
+      },
+      "lucro_com_alta": {
+        "valor": 4.11,
+        "texto": "R$ 4,11"
+      },
+      "ainda_lucrativo": true,
+      "folga_ate_zerar": 1.571
+    },
+    "controle": {
+      "min": {
+        "valor": 3.34,
+        "texto": "R$ 3,34"
+      },
+      "max": {
+        "valor": 18.0,
+        "texto": "R$ 18,00"
+      },
+      "passo": 0.5
+    }
+  }
+}

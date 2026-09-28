@@ -1,0 +1,105 @@
+# Operação da cozinha: ficha técnica, porção padrão, mise en place, fator de correção e de cocção.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: ficha-tecnica-de-preparo
+  titulo: O que é ficha técnica
+  categoria: operacao
+  texto: Ficha técnica é o documento que registra cada ingrediente do prato, com a quantidade exata
+    e o custo unitário. Sem ela, qualquer preço é só estimativa.
+  trecho: A ficha técnica é o documento que registra cada ingrediente de um prato, com quantidade
+    exata e custo unitário. Sem ficha técnica, qualquer precificação é estimativa.
+  fonte_titulo: iFood para Parceiros, Aprenda como precificar o cardápio do seu delivery
+  fonte_url: https://blog-parceiros.ifood.com.br/cardapio/
+  verificado_em: 2026-09-26
+  palavras: [ficha técnica, receita padrão, ingredientes, custo, prato]
+
+- id: padronizar-a-porcao
+  titulo: Padronizar a porção
+  categoria: operacao
+  texto: 'Padronize: se o prato leva 180 g de carne, devem sair sempre 180 g da cozinha. Controle
+    de porção é controle de custo.'
+  trecho: 'Padronize: se o prato leva 180g de carne, SEMPRE devem sair 180g da cozinha. Controle de
+    porção é controle de custo.'
+  fonte_titulo: iFood para Parceiros, Aprenda como precificar o cardápio do seu delivery
+  fonte_url: https://blog-parceiros.ifood.com.br/cardapio/
+  verificado_em: 2026-09-26
+  palavras: [porção, gramatura, padronizar, custo, prato]
+
+- id: mise-en-place
+  titulo: Mise en place
+  categoria: operacao
+  texto: 'Mise en place é a etapa inicial do preparo: separar utensílios e ingredientes, medir os
+    ingredientes e deixar verduras, legumes e carnes já descascados e cortados, com os utensílios
+    dispostos para uso.'
+  trecho: Consiste em uma etapa inicial para o preparo de qualquer prato, na qual separam-se todos
+    os utensílios e ingredientes necessários para executá-lo. Os ingredientes devem ser então medidos,
+    e, se necessário, as verduras, legumes e carnes descascados e cortados, assim como os utensílios
+    devidamente dispostos para manuseio.
+  fonte_titulo: Wikipédia, Mise en place
+  fonte_url: https://pt.wikipedia.org/wiki/Mise_en_place
+  verificado_em: 2026-09-26
+  palavras: [mise en place, organização, pré-preparo, cozinha, ingredientes]
+
+- id: fator-de-correcao-peso-bruto-liquido
+  titulo: Fator de correção
+  categoria: operacao
+  texto: O fator de correção mede as perdas no pré-preparo e é a razão entre o peso bruto e o peso
+    líquido do alimento. Ele varia com o transporte, o armazenamento, o estado de utensílios e equipamentos
+    e o treinamento de quem manipula.
+  trecho: O fator de correção é um índice que avalia as perdas obtidas no pré-preparo de alimentos,
+    representado pela razão entre o peso bruto e líquido destes. Tal medida é influenciada por fatores
+    como o transporte e o armazenamento dos gêneros, o estado dos utensílios e equipamentos e o nível
+    de treinamento dos manipuladores.
+  fonte_titulo: Revista Simbiologias (Unesp), Análise do fator de correção em UAN
+  fonte_url: https://simbiologias.ibb.unesp.br/index.php/1/article/view/219
+  verificado_em: 2026-09-26
+  palavras: [fator de correção, peso bruto, peso líquido, perda, pré-preparo]
+
+- id: fator-de-coccao-rendimento
+  titulo: Fator de cocção
+  categoria: operacao
+  texto: O fator de cocção é usado no cálculo de cardápios para informar o rendimento do alimento
+    depois de pronto; já o fator de correção é a perda de peso pela retirada das partes não comestíveis.
+  trecho: além do conhecimento do fator de cocção, que é utilizado para cálculos de cardápios a fim
+    de informar o rendimento do alimento quando pronto, também existe o controle de desperdício, o
+    fator de correção, que é a perda em relação ao peso inicial representada pela remoção de partes
+    não comestíveis do alimento.
+  fonte_titulo: Disciplinarum Scientia (UFN), Análise do fator de cocção e de correção
+  fonte_url: https://periodicos.ufn.edu.br/index.php/disciplinarumS/article/view/2911
+  verificado_em: 2026-09-26
+  palavras: [fator de cocção, rendimento, cozido, peso, cardápio]
+
+- id: carne-assada-perde-ate-40-por-cento
+  titulo: Perda de peso da carne assada
+  categoria: operacao
+  texto: 'A carne é o item de maior custo do cardápio e o preparo reduz muito o seu peso: no restaurante
+    universitário (RU) citado pelo Jornal da Unicamp, o lagarto assado perde perto de 40%.'
+  trecho: Uma dificuldade é que, no caso da carne, além de ser o item de maior custo do cardápio,
+    o seu processamento reduz muito o peso original, para desencanto do consumidor, que “come com
+    os olhos”. No RU, o lagarto assado apresenta uma perda perto de 40%.
+  fonte_titulo: Jornal da Unicamp, Para deixar a carne no ponto (2013)
+  fonte_url: https://www2.unicamp.br/unicamp/ju/564/para-deixar-carne-no-ponto
+  verificado_em: 2026-09-26
+  palavras: [rendimento, carne, perda, assar, custo, porção]
+
+- id: congelar-em-porcoes-e-usar-o-mais-antigo
+  titulo: Congelar em porções e usar o mais antigo primeiro
+  categoria: operacao
+  texto: Ao congelar, faça porções para consumir de uma vez, anote na embalagem a data de congelamento
+    e use primeiro o que tem a data mais antiga. Depois de descongelado, o alimento deve ser consumido
+    em até dois dias.
+  trecho: Faça porções que possam ser consumidas uma única vez; após descongelado, o alimento deve
+    ser consumido em até dois dias. Identifique na embalagem a data de congelamento. Na hora de consumir,
+    lembre-se de escolher o alimento com a data mais antiga.
+  fonte_titulo: Embrapa Hortaliças, Use o congelador para evitar o desperdício
+  fonte_url: https://www.embrapa.br/web/hortalicas/hortalica-nao-e-so-salada/secoes/congelador-e-desperdicio
+  verificado_em: 2026-09-26
+  palavras: [pvps, estoque, congelar, porções, data, validade]

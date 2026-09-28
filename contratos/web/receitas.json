@@ -1,0 +1,149 @@
+{
+  "aba": "pode_fazer",
+  "contagens": {
+    "pode_fazer": 2,
+    "falta_resposta": 2,
+    "ranking": 2,
+    "nao_quer": 0
+  },
+  "itens": [
+    {
+      "slug": "arroz-com-frango",
+      "nome": "Arroz com frango",
+      "imagem": null,
+      "site": null,
+      "tempo_texto": "40 min",
+      "selo": {
+        "codigo": "com_o_que_tem",
+        "texto": "Com o que a senhora tem"
+      },
+      "usa_texto": "usa 3 de 3 ingredientes que a senhora tem",
+      "falta_texto": "nada a comprar",
+      "nota_da_cozinha": "Confirme a cozinha",
+      "pontuacao": {
+        "valor": 86.9,
+        "texto": "86,9"
+      },
+      "gosta": true,
+      "pergunta": null,
+      "referencias": [],
+      "rota": "/receitas/arroz-com-frango"
+    },
+    {
+      "slug": "8747bf504b200286",
+      "nome": "Frango com milho verde",
+      "imagem": {
+        "url": "/motor/imagens/608ebcc7f9f62dac0c9c45b370443eac",
+        "credito": "Foto: TudoGostoso"
+      },
+      "site": "TudoGostoso",
+      "tempo_texto": "35 min",
+      "selo": {
+        "codigo": "comprando",
+        "texto": "Comprando R$ 6,00, cabe nos R$ 80,00"
+      },
+      "usa_texto": "usa 3 de 4 ingredientes que a senhora tem",
+      "falta_texto": "falta comprar milho verde",
+      "nota_da_cozinha": null,
+      "pontuacao": {
+        "valor": 88.8,
+        "texto": "88,8"
+      },
+      "gosta": true,
+      "pergunta": null,
+      "referencias": [],
+      "rota": "/receitas/8747bf504b200286"
+    }
+  ],
+  "descoberta": {
+    "estado": "parada",
+    "lidas": 2,
+    "encontradas": 2,
+    "texto": "Trouxe 2 receitas da internet que usam a despensa da senhora."
+  },
+  "perguntas_que_liberam": [
+    {
+      "pergunta": {
+        "tipo": "ingrediente",
+        "assunto": "linha_nao_lida",
+        "campo": "temperos de sua preferência",
+        "texto": "Não entendi quanto vai de temperos de sua preferência nessa receita, a senhora sabe?",
+        "motivo": "sem saber quanto vai, não dá para conferir se a despensa dá conta nem fechar o custo do prato",
+        "compras": [],
+        "opcoes": [],
+        "entrada": {
+          "tipo": "texto"
+        },
+        "passos": []
+      },
+      "receitas": 1,
+      "liberadas": 1,
+      "sem_compra": 0,
+      "sem_compra_texto": null,
+      "nomes": [
+        "Carne moída com arroz na panela de pressão"
+      ],
+      "slugs": [
+        "f8fc24c7f065125e"
+      ],
+      "rota": "/receitas/f8fc24c7f065125e",
+      "texto": "libera 1 receita"
+    },
+    {
+      "pergunta": {
+        "tipo": "ingrediente",
+        "assunto": "medida",
+        "campo": "2 colheres de sopa de alcaparras",
+        "texto": "Não sei quanto pesa uma colher de sopa de alcaparras. Se a senhora souber, em gramas, eu calculo.",
+        "motivo": "sem o peso, não dá para saber quanto sai da despensa nem quanto custa o prato",
+        "compras": [],
+        "opcoes": [],
+        "entrada": {
+          "tipo": "peso",
+          "unidade": "g",
+          "peso_de": {
+            "cada": "1 colher de sopa",
+            "tudo": "2 colheres de sopa"
+          }
+        },
+        "passos": []
+      },
+      "receitas": 1,
+      "liberadas": 0,
+      "sem_compra": 1,
+      "sem_compra_texto": "usa só o que a senhora tem",
+      "nomes": [
+        "Frango com alcaparras"
+      ],
+      "slugs": [
+        "3c1d9e0a7b2f4e61"
+      ],
+      "rota": "/receitas/3c1d9e0a7b2f4e61",
+      "texto": "ajuda a liberar 1 receita"
+    }
+  ],
+  "esperando_resposta": {
+    "receitas": 2,
+    "so_com_o_que_tem": 1,
+    "precisa_comprar": 0,
+    "linha_sem_leitura": 1,
+    "nomes": [
+      "Frango com alcaparras"
+    ],
+    "slugs": [
+      "3c1d9e0a7b2f4e61"
+    ],
+    "falta_dizer": [],
+    "texto": "1 receita usa só o que a senhora tem; falta só a senhora responder 1 pergunta sobre ela. 1 receita tem uma linha que eu não consegui ler."
+  },
+  "sem_preco_na_internet": {
+    "receitas": 1,
+    "nomes": [
+      "Risoto de trufa"
+    ],
+    "slugs": [
+      "9f2c41d7e0b35a86"
+    ],
+    "texto": "1 receita ficou de fora porque não achei em página de supermercado o preço de algum ingrediente; se a senhora souber o preço, eu confiro de novo."
+  }
+}

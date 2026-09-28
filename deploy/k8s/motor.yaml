@@ -1,0 +1,118 @@
+# Manifesto do motor.
+#
+# As três probes são **diferentes de propósito**, e essa é a decisão que mais
+# importa aqui. Apontar as três para o mesmo endpoint é o erro comum: quando a
+# planilha demora a carregar, o Kubernetes mata o pod que estava só subindo, e o
+# deploy entra em laço de reinício que parece falha de aplicação.
+#
+#   startup:   "já terminou de subir?"  Tolera partida lenta, e só ela.
+#   readiness: "pode receber tráfego?"  Falha tira do balanceador, não mata.
+#   liveness:  "está vivo?"             Falha **mata o pod**. A mais perigosa.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: motor
+  labels: { app: sabor-da-maria, componente: motor }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: sabor-da-maria, componente: motor }
+  template:
+    metadata:
+      labels: { app: sabor-da-maria, componente: motor }
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: motor
+          image: ghcr.io/mattkings27/sabor-da-maria/motor:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - { name: http, containerPort: 8777 }
+          envFrom:
+            - configMapRef: { name: motor-config }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+
+          # Partida lenta é esperada: a planilha é lida e normalizada no boot.
+          # 30 × 2s = até um minuto antes de desistir.
+          startupProbe:
+            httpGet: { path: /saude/vivo, port: http }
+            periodSeconds: 2
+            failureThreshold: 30
+
+          # Só tira do balanceador. É aqui que entra a checagem do dossiê: banco
+          # travado significa "não me mande requisição agora", não "me mate".
+          readinessProbe:
+            httpGet: { path: /saude/pronto, port: http }
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          # Mata o pod. Por isso aponta para o endpoint mais burro que existe:
+          # se ele responde, o processo está vivo. Qualquer verificação mais
+          # esperta aqui transforma indisponibilidade de dependência em laço de
+          # reinício.
+          livenessProbe:
+            httpGet: { path: /saude/vivo, port: http }
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          resources:
+            requests: { cpu: 100m, memory: 192Mi }
+            limits: { memory: 512Mi }
+            # Sem limite de CPU de propósito: limite de CPU vira throttling, e
+            # throttling num processo que responde requisição vira latência que
+            # ninguém consegue explicar. Memória tem limite porque vazamento de
+            # memória precisa de um teto.
+
+          volumeMounts:
+            - { name: dossie, mountPath: /dados }
+            - { name: temporario, mountPath: /tmp }
+
+      volumes:
+        # SQLite com WAL não tolera montagem compartilhada entre pods. Com mais de
+        # uma réplica, isto precisa virar PVC ReadWriteOnce com uma réplica só, ou
+        # o dossiê migra para Postgres. Está aqui como `emptyDir` porque a decisão
+        # honesta é: este manifesto demonstra a forma, não opera produção.
+        - { name: dossie, emptyDir: {} }
+        - { name: temporario, emptyDir: {} }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: motor
+spec:
+  selector: { app: sabor-da-maria, componente: motor }
+  ports:
+    - { name: http, port: 80, targetPort: http }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: motor-config
+data:
+  MISE_HTTP_HOST: "0.0.0.0"
+  MISE_HTTP_PORT: "8777"
+  MISE_LOG: "info"
+  MISE_DOSSIE: "/dados/dossie.db"
+  MISE_AUDITORIA: "/dados/auditoria.jsonl"
+  # Nenhum segredo aqui. Credencial entra por Secret, e este arquivo é versionado.
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: motor
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: motor }
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource: { name: cpu, target: { type: Utilization, averageUtilization: 70 } }

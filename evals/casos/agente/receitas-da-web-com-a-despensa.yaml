@@ -1,0 +1,20 @@
+nome: receitas-da-web-com-a-despensa
+secao: "2.1"
+descricao: >
+  Ela pede ideias. O enunciado quer receitas reais, pesquisadas na web, que
+  aproveitem o que ela já tem. O agente olha a despensa primeiro, pesquisa, traz
+  receitas com a fonte e pergunta se ela gosta e se vê impedimento.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Me acha umas receitas de verdade, da internet, que usem o que eu tenho
+      parado aqui. Quero coisa que eu consiga vender.
+    espera:
+      # A pauta de descoberta também parte da despensa dela (pratos com a base na
+      # despensa, itens com dinheiro parado): as duas aterram a busca.
+      chama_em_ordem: [diagnostico_despensa|pauta_de_descoberta]
+      # Receita real tem endereço. Sem fonte, é receita inventada.
+      responde_com: ['(https?://|www\.)?[a-z0-9-]+\.(com|com\.br|net|org)(\.br)?/\S+', 'gost']
+      pergunta: true

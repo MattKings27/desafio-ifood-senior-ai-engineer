@@ -1,0 +1,86 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "1fa59a3ad30e82b2",
+ "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Frango xadrez de Big Bang Theory",
+  "recipeIngredient": [
+   "1 peito de frango cortado em cubos",
+   "Alho amassado",
+   "Sal a gosto",
+   "Pimenta do reino a gosto",
+   "Suco de 1 limão",
+   "3 colheres de sopa de óleo",
+   "1 xícara de chá de pimentão vermelho cortado em cubos",
+   "1 xícara de chá de pimentão verde cortado em cubos",
+   "1 xícara de chá de pimentão amarelo cortado em cubos",
+   "1 xícara de chá de cebola cortada em cubos",
+   "1 colher de sopa de gengibre ralado",
+   "3 colheres de sopa de shoyo",
+   "1 colher de sopa de amido de milho dissolvido em 1/2 xícara de água",
+   "1 xícara de amendoim torrado quebrado"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Tempere o frango com o sal, a pimenta, o alho e o suco do lim&amp;atilde;o mais ou menos 1 hora e 30 minutos antes.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Corte a cebola, os piment&amp;otilde;es em cubos n&amp;atilde;o muito pequenos nem muito grandes.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em uma frigideira grande aque&amp;ccedil;a o &amp;oacute;leo, acrescente a cebola deixe at&amp;eacute; ela ficar mole. Acrescente o frango e v&amp;aacute; mexendo para fritar um pouco.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque o piment&amp;atilde;o verde mexa, o piment&amp;atilde;o amarelo e mexa, o piment&amp;atilde;o vermelho mexa, o gengibre e mexa, acrescente o shoyo e mexa.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque o amido de milho dissolvido na &amp;aacute;gua e deixe cozinhar mais ou menos uns 5 minutos.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Antes de servir coloque o amendoim torrado mexa e sirva.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step6"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Com arroz branco fica uma del&amp;iacute;cia.",
+    "url": "https://www.tudogostoso.com.br/receita/161430-frango-xadrez-de-big-bang-theory.html#recipe-step7"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Tempere o frango com o sal, a pimenta, o alho e o suco do limão mais ou menos 1 hora e 30 minutos antes."
+  },
+  {
+   "texto": "Corte a cebola, os pimentões em cubos não muito pequenos nem muito grandes."
+  },
+  {
+   "texto": "Em uma frigideira grande aqueça o óleo, acrescente a cebola deixe até ela ficar mole. Acrescente o frango e vá mexendo para fritar um pouco."
+  },
+  {
+   "texto": "Coloque o pimentão verde mexa, o pimentão amarelo e mexa, o pimentão vermelho mexa, o gengibre e mexa, acrescente o shoyo e mexa."
+  },
+  {
+   "texto": "Coloque o amido de milho dissolvido na água e deixe cozinhar mais ou menos uns 5 minutos."
+  },
+  {
+   "texto": "Antes de servir coloque o amendoim torrado mexa e sirva."
+  },
+  {
+   "texto": "Com arroz branco fica uma delícia."
+  }
+ ]
+}

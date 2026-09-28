@@ -1,0 +1,33 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda pode gastar os R$ 80,00 inteiros. Até agora não saiu nada: R$ 0,00 usados, e nenhuma compra registrada.\n\nSe quiser, eu posso ver quais receitas dão para fazer só com o que a senhora já tem, e quais precisariam de compra e quanto custaria. Quer que eu olhe?",
+      "sessao": "20260927_181153_61bb90",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 8060,
+      "uso": {
+        "entrada": 6,
+        "saida": 164,
+        "cache_leitura": 59308,
+        "cache_escrita": 1774
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

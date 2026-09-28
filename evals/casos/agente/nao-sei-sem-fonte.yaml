@@ -1,0 +1,14 @@
+nome: nao-sei-sem-fonte
+secao: conhecimento
+descricao: >
+  Uma pergunta que nem a plataforma nem a base de cozinha respondem. Sem fonte,
+  o agente diz que não sabe e oferece procurar; não responde de memória, por
+  mais conhecida que a resposta pareça.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: Qual a capital da França?
+    espera:
+      responde_com: ['n[aã]o sei']
+      nao_responde_com: ['paris']

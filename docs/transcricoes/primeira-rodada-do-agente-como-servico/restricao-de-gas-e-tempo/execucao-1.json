@@ -1,0 +1,70 @@
+{
+  "cenario": "restricao-de-gas-e-tempo",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado. E eu só consigo cozinhar à tarde, umas 2 horas no máximo.",
+      "resposta": "Anotado, Dona Maria. Obrigado por contar antes de escolher prato, isso muda bastante a busca.\n\nFicou gravado na tela da cozinha assim:\n\n  Gás: não sobra, o botijão acaba rápido. Então prato que fica horas no fogo, como feijoada ou carne de panela de cozimento longo, não vai entrar como opção.\n  Tempo: no máximo 2 horas por leva, à tarde. Toda receita vai ser conferida contra esse limite antes de eu apresentar.\n\nQuando eu for atrás de receitas, vou dar preferência ao que resolve em pouco fogo ou no forno, e ao que dá para adiantar sem gás ligado.\n\nUma coisa que ajuda a apertar ainda mais a conferência: quantas bocas tem o seu fogão? Pergunto porque, com 2 horas por tarde, saber se dá para ter duas ou três panelas ao mesmo tempo decide quantas porções cabem numa leva.",
+      "sessao": "20260927_062605_9c58d8",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 26308,
+      "uso": {
+        "entrada": 12,
+        "saida": 938,
+        "cache_leitura": 71565,
+        "cache_escrita": 6905
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_resposta",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, litros, porções, aparelhos), ou\\n          sim/não para `tem_gas_sobrando`; `tempo_max_por_fornada_min` vai em\\n          horas, como ela disse (\\\"2 horas\\\", \\\"1,5 hora\\\", \\\"1h30\\\"; um número\\n          sozinho é em horas), e o motor guarda em minutos\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        - cozinha: o sim dela à pergunta de confirmar o que toda cozinha tem\\n          (a que vem em `confirmar_a_cozinha` de `avaliar_receita`, ou na recusa\\n          do aceite e da compra); `campo` é o `receita_id`, ou \\\"toda_cozinha\\\"\\n          para confirmar tudo o que ainda é suposto; `resposta` é \\\"tem\\\". O item\\n          que ela não tiver vai sozinho, como equipamento ou técnica\\n        - em qualquer tipo, \\\"nao_sei\\\" quando ela diz que não sabe: apaga a\\n          resposta anterior e o item fica em aberto, e o portão pergunta de novo\\n          quando uma receita precisar. Vale também para o que toda cozinha tem\\n          (fogão, panela, geladeira): ele deixa de ser suposto. \\\"Não sei\\\" nunca\\n          vira \\\"não tem\\\"; já o \\\"não tem\\\" dela bloqueia as receitas que precisam\\n          do item, inclusive do que toda cozinha tem.\\n        A resposta traz `impacto`: as receitas em avaliação que passaram a dar,\\n        as que deixaram de dar e as que continuam dependendo de uma resposta.\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender (\\\"talvez\\\", \\\"mais ou menos\\\") é recusada,\\n        não adivinhada: pergunte de outro jeito.\\n        Para modo de preparo, rendimento e tempo de cozimento (`tempo_cozimento_min`),\\n        reenvie a receita em `avaliar_receita` com o campo preenchido.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        `ela_disse_que_nao_sabe` é o que ela respondeu \\\"não sei\\\": ela respondeu,\\n        e a resposta foi essa.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tem_gas_sobrando",
+            "resposta": "nao"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "2 horas",
+            "tipo": "operacional"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"28%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": 120,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": false\n  },\n  \"ainda_em_aberto\": 46,\n  \"ela_disse_que_nao_sabe\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "Passei a sua receita pelo portão, Dona Maria. Ele não bloqueou nada, mas ainda faltam três informações antes de eu poder falar em preço.\n\nO que a sua despensa já cobre:\n\n  Peito de frango, 500 g — R$ 7,00\n  (500 g × R$ 14,00/kg, que foi o que a senhora pagou)\n\n  Cebola, 1 unidade — R$ 0,44\n  (contada como 110 g, que é o peso típico de uma cebola; se as suas forem bem maiores ou menores, me diga)\n\nO que não está na despensa: creme de leite e ketchup.\n\nO sal entra como \"a gosto\", então não pesa na conta.\n\nUma coisa que já dá para ver: a receita rende 4 porções, e no delivery a senhora vende uma de cada vez. Quando chegar a hora da conta, é o custo de uma porção que vale.\n\nAntes de qualquer conta, a pergunta que decide o prato:\n\nA senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\n\nPergunto porque não adianta a conta fechar bonito se for um prato que a senhora não quer cozinhar todo dia.",
+      "sessao": "20260924_030454_aa55f1",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 39849,
+      "uso": {
+        "entrada": 10,
+        "saida": 2445,
+        "cache_leitura": 80411,
+        "cache_escrita": 31305
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__consultar_gostos"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}, \"mcp__mise__consultar_gostos\": {\"description\": \"O que ela já disse sobre gostar ou não de fazer cada prato.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_gostosArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0.5 kg = 0.5 kg; R$ 23,67 ÷ 0.5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0.4 kg = 0.4 kg; R$ 15,18 ÷ 0.4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 30,99 ÷ 0.5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 12,99 ÷ 0.5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0.1 L = 0.1 L; R$ 1,90 ÷ 0.1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ]\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"perfil 21% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "{\n  \"gostos\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Strogonoff de frango",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 25,
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "medida": "caixinha"
+                },
+                {
+                  "texto": "2 colheres de ketchup",
+                  "nome": "ketchup",
+                  "quantidade": 2,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal",
+                  "medida": ""
+                }
+              ],
+              "modo_preparo": [
+                "Refoga tudo na panela por 25 minutos."
+              ]
+            }
+          },
+          "saida": "{\n  \"prato\": \"Strogonoff de frango\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Strogonoff de frango: FALTA INFO — 3 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"creme de leite,ketchup\",\n      \"texto\": \"Falta comprar: creme de leite, ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Strogonoff de frango leva cerca de 25 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0.5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de unidade) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"creme de leite\",\n      \"quanto\": \"1 caixinha de creme de leite\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"ketchup\",\n      \"quanto\": \"2 colher de sopa de ketchup\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": true,\n  \"pergunta\": \"A senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n  \"tipo\": \"gosto\",\n  \"campo\": \"gosto\",\n  \"por_que_esta\": \"aparece em 1 prato(s) candidato(s)\",\n  \"pratos_afetados\": [\n    \"Strogonoff de frango\"\n  ],\n  \"seguintes\": [\n    \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n    \"Falta comprar: creme de leite, ketchup. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\"\n  ],\n  \"resumo\": \"0 prato(s) apto(s) · 1 aguardando resposta · 0 bloqueado(s) · 3 pergunta(s) em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Anotei: a senhora gosta de fazer, e o empecilho é o creme de leite. O portão bloqueou o prato — não por causa da conta, por causa do que a senhora falou. Isso é o sistema funcionando certo. Um prato que trava na sua geladeira não pode entrar no cardápio.\n\nAgora, uma coisa que talvez destrave. Existe uma troca conhecida para creme de leite em molho quente: 200 ml de creme de leite dão para ser substituídos por 150 ml de leite integral com 50 g de manteiga derretida. A fonte é o Harold McGee, no On Food and Cooking, capítulo 1. Ele avisa que só vale para molho quente — para bater chantilly não funciona.\n\nO que isso muda no seu caso: leite integral e manteiga a senhora já tem na despensa. Não precisa comprar nada dos dois, e some da lista o item que estraga rápido.\n\nMas quem conhece o seu strogonoff é a senhora, não eu. A pergunta é essa:\n\nNo seu strogonoff, o molho feito com leite e manteiga fica bom, ou a senhora acha que perde o ponto?\n\nSe a senhora disser que fica bom, eu mando a receita de volta pro portão com a troca e a gente vê no que dá. Se disser que não fica, o strogonoff sai da lista e a gente procura outro prato — não tem problema nenhum nisso.\n\nUma coisa que fica anotada de qualquer jeito: geladeira pequena e sempre cheia não é problema só deste prato. Isso vai pesar em tudo que a senhora produzir de véspera. Mais pra frente eu vou precisar saber mais ou menos quanto espaço frio sobra pra produção, porque isso limita quantas porções dá pra fazer de uma vez. Mas isso é assunto pra depois, não agora.",
+      "sessao": "20260924_030454_aa55f1",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 75842,
+      "uso": {
+        "entrada": 16,
+        "saida": 4927,
+        "cache_leitura": 245934,
+        "cache_escrita": 22246
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender é recusada, não adivinhada: \\\"não sei\\\"\\n        não é \\\"não tem\\\", e registrar como se fosse bloquearia o prato à toa.\\n        Para modo de preparo e rendimento, reenvie a receita em `avaliar_receita`.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "Creme de leite estraga rápido na casa dela; geladeira pequena e sempre cheia.",
+            "prato": "Strogonoff de frango"
+          },
+          "saida": "{\n  \"registrado\": \"Strogonoff de frango: gosta — Creme de leite estraga rápido na casa dela; geladeira pequena e sempre cheia.\",\n  \"efeito\": \"prato bloqueado no portão\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_conhecimento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_conhecimento\": {\"description\": \"Busca conhecimento culinário com fonte, em vez de deixar o modelo chutar.\\n\\n        Há perguntas da Dona Maria que **não podem** ser respondidas de memória\\n        porque a resposta mexe no dinheiro: trocar manteiga por óleo muda o CMV,\\n        o rendimento do feijão cru muda o custo por porção em quase três vezes, e\\n        quanto o preparo dura na geladeira muda quanto espaço frio a produção\\n        ocupa — que é uma das quatro restrições do §2.2.\\n\\n        A busca é híbrida: lexical para termo exato, vetorial para significado,\\n        fundidas por posição e reranqueadas. Cada braço sozinho erra num caso que\\n        o outro acerta, e isso está medido em `retrieval/tests/test_indice.py`.\\n\\n        Devolve vazio quando a pergunta não é sobre este assunto. Devolver o\\n        \\\"menos pior\\\" com fonte seria pior do que não responder.\\n        \", \"parameters\": {\"properties\": {\"pergunta\": {\"title\": \"Pergunta\", \"type\": \"string\"}, \"limite\": {\"default\": 3, \"title\": \"Limite\", \"type\": \"integer\"}}, \"required\": [\"pergunta\"], \"type\": \"object\", \"title\": \"consultar_conhecimentoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": false,\n  \"resumo\": \"0 prato(s) apto(s) · 0 aguardando resposta · 1 bloqueado(s) · 0 pergunta(s) em aberto\",\n  \"aptas\": [],\n  \"bloqueadas\": [\n    \"Strogonoff de frango\"\n  ]\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "limite": 4,
+            "pergunta": "creme de leite caixinha precisa de geladeira antes de abrir? quanto dura depois de aberto"
+          },
+          "saida": "{\n  \"achados\": [\n    {\n      \"titulo\": \"Creme de leite improvisado\",\n      \"categoria\": \"substituicao\",\n      \"texto\": \"200 ml de creme de leite podem ser aproximados por 150 ml de leite integral com 50 g de manteiga derretida. Funciona para molhos quentes, não funciona para chantilly — bater exige a gordura já emulsionada do creme.\",\n      \"fonte\": \"Harold McGee, On Food and Cooking, cap. 1\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    },\n    {\n      \"titulo\": \"Quanto tempo o preparo dura na geladeira\",\n      \"categoria\": \"conservacao\",\n      \"texto\": \"Preparo cozido e refrigerado a 4 °C ou menos dura de 3 a 4 dias com segurança. O resfriamento precisa ser rápido: do cozimento até 21 °C em até 2 horas, e até 4 °C em mais 4 horas. Preparo que fica mais de 2 horas entre 5 °C e 60 °C entra na zona de perigo e não deve ser vendido.\",\n      \"fonte\": \"ANVISA RDC 216/2004 e FDA Food Code\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    },\n    {\n      \"titulo\": \"Leite líquido a partir de leite em pó\",\n      \"categoria\": \"substituicao\",\n      \"texto\": \"1 litro de leite líquido equivale a aproximadamente 130 g de leite em pó integral dissolvidos em 900 ml de água morna. É uma troca relevante para custo: leite em pó costuma sair mais barato por litro reconstituído e dura muito mais na despensa.\",\n      \"fonte\": \"tabela de reconstituição da embalagem padrão\",\n      \"recuperado_por\": \"lexical+rerank\"\n    },\n    {\n      \"titulo\": \"Empanar à milanesa\",\n      \"categoria\": \"tecnica\",\n      \"texto\": \"A sequência é farinha, ovo batido, farinha de rosca. A farinha seca a superfície para o ovo aderir; sem ela a casca solta na fritura. Descansar o empanado 15 minutos na geladeira antes de fritar firma a casca — o que significa que a receita precisa de espaço frio mesmo sem parecer.\",\n      \"fonte\": \"Culinary Institute of America, The Professional Chef\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    }\n  ],\n  \"observacao\": \"cite a fonte ao repassar: ela cozinha há mais tempo que nós\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "limite": 4,
+            "pergunta": "creme de leite UHT caixinha fechada fora da geladeira conservação sobra depois de aberta"
+          },
+          "saida": "{\n  \"achados\": [\n    {\n      \"titulo\": \"Creme de leite improvisado\",\n      \"categoria\": \"substituicao\",\n      \"texto\": \"200 ml de creme de leite podem ser aproximados por 150 ml de leite integral com 50 g de manteiga derretida. Funciona para molhos quentes, não funciona para chantilly — bater exige a gordura já emulsionada do creme.\",\n      \"fonte\": \"Harold McGee, On Food and Cooking, cap. 1\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    },\n    {\n      \"titulo\": \"Leite líquido a partir de leite em pó\",\n      \"categoria\": \"substituicao\",\n      \"texto\": \"1 litro de leite líquido equivale a aproximadamente 130 g de leite em pó integral dissolvidos em 900 ml de água morna. É uma troca relevante para custo: leite em pó costuma sair mais barato por litro reconstituído e dura muito mais na despensa.\",\n      \"fonte\": \"tabela de reconstituição da embalagem padrão\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    },\n    {\n      \"titulo\": \"Espaço de geladeira por porção\",\n      \"categoria\": \"operacional\",\n      \"texto\": \"Uma porção individual embalada ocupa de 0,7 a 1 litro de espaço em geladeira. Vinte porções pedem em torno de 15 a 20 litros, o equivalente a uma prateleira inteira de geladeira doméstica. Produção por fornada maior que o espaço frio disponível obriga a vender no mesmo dia.\",\n      \"fonte\": \"estimativa operacional de cozinha de pequeno porte\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    },\n    {\n      \"titulo\": \"Quanto tempo o preparo dura na geladeira\",\n      \"categoria\": \"conservacao\",\n      \"texto\": \"Preparo cozido e refrigerado a 4 °C ou menos dura de 3 a 4 dias com segurança. O resfriamento precisa ser rápido: do cozimento até 21 °C em até 2 horas, e até 4 °C em mais 4 horas. Preparo que fica mais de 2 horas entre 5 °C e 60 °C entra na zona de perigo e não deve ser vendido.\",\n      \"fonte\": \"ANVISA RDC 216/2004 e FDA Food Code\",\n      \"recuperado_por\": \"hibrida+rerank\"\n    }\n  ],\n  \"observacao\": \"cite a fonte ao repassar: ela cozinha há mais tempo que nós\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__list_resources",
+          "entrada": {},
+          "saida": "{\"resources\": []}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__custo_unitario"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__custo_unitario\": {\"description\": \"Custo por quilo, litro ou unidade de um item da despensa, com a derivação.\", \"parameters\": {\"properties\": {\"ingrediente\": {\"title\": \"Ingrediente\", \"type\": \"string\"}}, \"required\": [\"ingrediente\"], \"type\": \"object\", \"title\": \"custo_unitarioArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__custo_unitario",
+          "entrada": {
+            "ingrediente": "Manteiga"
+          },
+          "saida": "{\n  \"encontrado\": true,\n  \"ingrediente\": \"Manteiga\",\n  \"como_encontrei\": \"'Manteiga' → 'Manteiga' (nome idêntico)\",\n  \"custo_unitario\": \"R$ 40,00/kg\",\n  \"derivacao\": \"R$ 20,00 ÷ 0.5 kg = R$ 40,00/kg\",\n  \"confianca\": \"alta\",\n  \"estoque\": \"0.5 kg\",\n  \"pago_na_compra\": {\n    \"valor\": 20.0,\n    \"texto\": \"R$ 20,00\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__custo_unitario",
+          "entrada": {
+            "ingrediente": "Leite integral"
+          },
+          "saida": "{\n  \"encontrado\": true,\n  \"ingrediente\": \"Leite integral\",\n  \"como_encontrei\": \"'Leite integral' → 'Leite integral' (nome idêntico)\",\n  \"custo_unitario\": \"R$ 5,00/L\",\n  \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n  \"confianca\": \"alta\",\n  \"estoque\": \"2 L\",\n  \"pago_na_compra\": {\n    \"valor\": 10.0,\n    \"texto\": \"R$ 10,00\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__custo_unitario",
+          "entrada": {
+            "ingrediente": "Leite ninho em pó"
+          },
+          "saida": "{\n  \"encontrado\": true,\n  \"ingrediente\": \"Leite ninho em pó\",\n  \"como_encontrei\": \"'Leite ninho em pó' → 'Leite ninho em pó' (nome idêntico)\",\n  \"custo_unitario\": \"R$ 37,95/kg\",\n  \"derivacao\": \"1 × 0.4 kg = 0.4 kg; R$ 15,18 ÷ 0.4 kg = R$ 37,95/kg\",\n  \"confianca\": \"media\",\n  \"estoque\": \"0.4 kg\",\n  \"pago_na_compra\": {\n    \"valor\": 15.18,\n    \"texto\": \"R$ 15,18\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

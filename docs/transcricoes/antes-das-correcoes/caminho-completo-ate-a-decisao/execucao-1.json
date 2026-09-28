@@ -1,0 +1,351 @@
+{
+  "cenario": "caminho-completo-ate-a-decisao",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 2: chegou a ela com 10 valor(es) apagado(s)"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero vender arroz com frango. Receita: 500 g de peito de frango, 2 xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e cozinho 20 minutos. Rende 4 porções. Gosto de fazer, não vejo impedimento, e aguento até 1 hora cozinhando de uma vez.",
+      "resposta": "O prato passou. APTO, dá pra fazer hoje, e não falta comprar nada — tudo já está na despensa da senhora.\n\nUma coisa antes dos números: a receita rende 4 porções, e o delivery vende uma. Então dividi tudo por quatro. O que vem abaixo é o custo de UM prato, não da panela inteira.\n\nO custo de ingrediente de uma porção\n\n    Frango, 125 g ............ R$ 1,75\n    Arroz, 102 g ............. R$ 0,51\n    Cebola, 27 g ............. R$ 0,11\n    Óleo, 7,5 ml ............. R$ 0,07\n    Alho, 1,5 g .............. R$ 0,03\n                              --------\n    Total .................... R$ 2,47\n\nO frango é quase tudo: R$ 1,75 dos R$ 2,47. O resto é centavo. A conta do frango é 500 g a R$ 14,00 o quilo, dá R$ 7,00 na panela, dividido por quatro porções.\n\nO sal entrou como \"a gosto\" — custo desprezível, mas foi contado, não esquecido.\n\nA incerteza é de 1,9%, quase nada. Vem da xícara: usei 240 ml a 0,85 g/ml, deu 408 g de arroz. Se a xícara da senhora for maior ou menor, muda uns centavos. Nada que atrapalhe.\n\nAgora a taxa, porque é aqui que a intuição engana\n\nO iFood fica com 10% de tudo que o cliente paga. Se a senhora vender a R$ 2,47 — exatamente o custo — chegam só R$ 2,22 na mão dela, e ela sai no prejuízo. Pra empatar exatamente, o preço tem que ser R$ 2,47 dividido por 0,90, que dá R$ 2,74. Abaixo de R$ 2,74 a senhora paga pra trabalhar.\n\nTrês caminhos\n\n                      Cliente paga   Ela recebe   Sobra limpo\n    Conservador         R$ 6,18       R$ 5,56      R$ 3,09\n    Equilibrado         R$ 7,06       R$ 6,35      R$ 3,88\n    Premium             R$ 8,23       R$ 7,41      R$ 4,94\n\nO conservador é o mais barato da prateleira: ganha R$ 3,09 por prato e atrai mais pedido. O premium ganha R$ 4,94 por prato, quase dois reais a mais, mas vende pra menos gente. O equilibrado fica no meio, é onde a maioria do delivery se posiciona.\n\nA diferença entre o mais barato e o mais caro é pouco mais de dois reais no preço. Quem conhece a vizinhança, a concorrência e a clientela é a senhora, não eu.\n\nQual desses faz mais sentido pra senhora?\n\nAh, e duas coisas que descobri no caminho e a senhora não perguntou:\n\nA marmita não está nessa conta. A embalagem não está na planilha, então ela não entra no custo de R$ 2,47. Ela existe e custa. Quando a senhora souber quanto paga por marmita, me diga que eu recalculo o que sobra de verdade.\n\nEsse prato é dos baratos de fazer. R$ 2,47 de custo é pouco — tem espaço de margem grande aqui. Vale lembrar disso quando montarmos o cardápio inteiro, porque um prato barato assim segura o preço médio e deixa outros mais caros entrarem.",
+      "sessao": "20260923_210440_159849",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 88238,
+      "uso": {
+        "entrada": 14,
+        "saida": 5908,
+        "cache_leitura": 224609,
+        "cache_escrita": 42057
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__calcular_cmv",
+              "mcp__mise__cenarios_preco",
+              "mcp__mise__registrar_decisao",
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__converter_medida_culinaria",
+              "mcp__mise__proxima_pergunta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"default\": 1, \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção, e esquecer isso multiplica o CMV.\", \"minimum\": 1, \"title\": \"Rendimento Porcoes\", \"type\": \"integer\"}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__calcular_cmv\": {\"description\": \"Custo de ingrediente de UMA porção, linha a linha.\\n\\n        Recusa receita cuja viabilidade não foi confirmada — chame\\n        `avaliar_receita` antes. Também recusa quando algum custo é\\n        desconhecido, em vez de devolver um total parcial.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"default\": 1, \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção, e esquecer isso multiplica o CMV.\", \"minimum\": 1, \"title\": \"Rendimento Porcoes\", \"type\": \"integer\"}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"calcular_cmvArguments\"}}, \"mcp__mise__cenarios_preco\": {\"description\": \"Três cenários de preço a partir do CMV, com a taxa de 10% aberta.\\n\\n        Apresente os três e deixe a Dona Maria escolher. Não recomende um:\\n        o posicionamento do negócio é decisão dela.\\n        \", \"parameters\": {\"properties\": {\"cmv_por_porcao\": {\"title\": \"Cmv Por Porcao\", \"type\": \"number\"}, \"prato\": {\"default\": \"\", \"title\": \"Prato\", \"type\": \"string\"}}, \"required\": [\"cmv_por_porcao\"], \"type\": \"object\", \"title\": \"cenarios_precoArguments\"}}, \"mcp__mise__registrar_decisao\": {\"description\": \"Grava a decisão DELA sobre um prato: aceito, recusado ou adiado.\", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"decisao\": {\"title\": \"Decisao\", \"type\": \"string\"}, \"motivo\": {\"default\": \"\", \"title\": \"Motivo\", \"type\": \"string\"}}, \"required\": [\"prato\", \"decisao\"], \"type\": \"object\", \"title\": \"registrar_decisaoArguments\"}}, \"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu sobre equipamento, técnica ou rotina.\\n\\n        `tipo`: equipamento | tecnica | operacional\\n        `campo`: o id devolvido por `avaliar_receita` ou `proxima_pergunta`\\n        `resposta`: \\\"tem\\\" | \\\"nao_tem\\\" para equipamento/técnica; um número para operacional\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__converter_medida_culinaria\": {\"description\": \"Converte medida de receita (\\\"1 xícara\\\") para quilo/litro, usando densidade.\\n\\n        Tratar mililitro como grama erra +89% em farinha de trigo. Use sempre\\n        esta ferramenta em vez de converter de cabeça.\\n        \", \"parameters\": {\"properties\": {\"quantidade\": {\"title\": \"Quantidade\", \"type\": \"number\"}, \"medida\": {\"title\": \"Medida\", \"type\": \"string\"}, \"ingrediente\": {\"title\": \"Ingrediente\", \"type\": \"string\"}}, \"required\": [\"quantidade\", \"medida\", \"ingrediente\"], \"type\": \"object\", \"title\": \"converter_medida_culinariaArguments\"}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "precificacao-delivery"
+          },
+          "saida": "{\"success\": true, \"name\": \"precificacao-delivery\", \"description\": \"Explicar CMV e preço de delivery de forma didática.\", \"tags\": [\"CMV\", \"Preço\", \"Margem\", \"Delivery\"], \"related_skills\": [\"elicitacao-restricoes\", \"fechamento-cardapio\"], \"content\": \"---\\nname: precificacao-delivery\\ndescription: \\\"Explicar CMV e preço de delivery de forma didática.\\\"\\nversion: 1.0.0\\nauthor: Sabor da Maria\\nlicense: MIT\\nplatforms: [linux, macos, windows]\\nmetadata:\\n  hermes:\\n    tags: [CMV, Preço, Margem, Delivery]\\n    related_skills: [elicitacao-restricoes, fechamento-cardapio]\\n---\\n\\n# Precificação Delivery Skill\\n\\nTransformar o custo de ingrediente em preço de venda, explicando a conta de um\\njeito que a Dona Maria consiga repetir sozinha depois — e deixando **ela**\\nescolher.\\n\\n## When to Use\\n\\n- Um prato passou pelo portão e ela quer saber quanto cobrar\\n- Ela perguntou se um preço \\\"está bom\\\"\\n- Ela quer entender por que o preço não é simplesmente o custo mais um tanto\\n\\nNão use antes de o portão aprovar. Falar de preço de prato que ela talvez não\\nconsiga fazer é o erro que todo o sistema existe para evitar.\\n\\n## Prerequisites\\n\\n`mcp_mise_avaliar_receita` retornou `APTO` ou `APTO COM COMPRA`.\\n\\n## How to Run\\n\\n1. `mcp_mise_calcular_cmv` — custo de ingrediente de **uma** porção\\n2. Abra a conta linha a linha\\n3. `mcp_mise_cenarios_preco` — três opções\\n4. Explique o que cada uma significa e **pergunte qual ela prefere**\\n5. `mcp_mise_registrar_decisao` com a escolha dela\\n\\n## Quick Reference\\n\\n| Conceito | Fórmula | Em palavras |\\n|---|---|---|\\n| CMV | Σ (quantidade × custo unitário) | o que sai da despensa por porção |\\n| Preço mínimo | `CMV ÷ 0,90` | abaixo disso ela paga para trabalhar |\\n| Lucro | `0,90 × P - CMV` | o que sobra por porção vendida |\\n| Food cost | `CMV ÷ P` | quanto do preço é ingrediente |\\n| Prejuízo | food cost > **90%** | o limiar não é 100% |\\n\\n## Procedure\\n\\n### 1. Calcule e abra a conta\\n\\n`mcp_mise_calcular_cmv` devolve as linhas com derivação. Mostre as principais.\\nNão despeje quinze linhas: as três que mais pesam contam a história.\\n\\n> \\\"O custo do prato é R$ 6,49. O que pesa é o queijo — R$ 2,00 — e o frango,\\n> R$ 1,75. O resto é centavo.\\\"\\n\\nSe vier `e_faixa: true`, diga a faixa e o motivo:\\n\\n> \\\"Fica entre R$ 6,10 e R$ 6,90. A variação é porque xícara muda de mão para\\n> mão. Vou usar R$ 6,90 pra não faltar.\\\"\\n\\nSe a receita rendia mais de uma porção, deixe claro que o número já é de uma só.\\n\\n### 2. Explique a taxa antes do preço\\n\\nEsta é a parte que ninguém explica direito, e é onde a intuição falha:\\n\\n> \\\"O iFood fica com 10% de tudo que o cliente paga. Se a senhora vender a\\n> R$ 10,00, chegam R$ 9,00. Então não adianta vender pelo custo: pra empatar\\n> exatamente, o preço tem que ser o custo dividido por 0,90.\\\"\\n\\nO campo `explicacao_da_taxa` já vem pronto com os números reais. Use.\\n\\n### 3. Apresente os três cenários — sem recomendar\\n\\n`mcp_mise_cenarios_preco` devolve conservador, equilibrado e premium. Mostre os\\ntrês com preço, quanto ela recebe e quanto sobra:\\n\\n| | Preço | Ela recebe | Sobra |\\n|---|---|---|---|\\n| Conservador | R$ 16,23 | R$ 14,61 | R$ 8,12 |\\n| Equilibrado | R$ 18,54 | R$ 16,69 | R$ 10,20 |\\n| Premium | R$ 21,63 | R$ 19,47 | R$ 12,98 |\\n\\nE o trade-off em uma frase: mais barato vende mais e ganha menos por prato;\\nmais caro ganha mais por prato e vende para menos gente.\\n\\n**Não diga qual é o melhor.** O posicionamento do negócio é decisão dela, e ela\\nconhece a vizinhança, a concorrência e a clientela — você não.\\n\\n### 4. Termine com a pergunta\\n\\n> \\\"Qual desses faz mais sentido pra senhora?\\\"\\n\\nQuando ela escolher, `mcp_mise_registrar_decisao` com o preço nos `detalhes`.\\n\\n### 5. Ofereça a sensibilidade quando for relevante\\n\\n`mcp_mise_testar_sensibilidade` responde \\\"e se o frango subir?\\\". Vale trazer\\nquando o prato depende muito de um insumo volátil (carne, queijo, ovo):\\n\\n> \\\"Se o frango subir 20%, esse preço ainda deixa R$ 8,90. Ele aguenta até uns\\n> 150% de alta antes de zerar.\\\"\\n\\n## Pitfalls\\n\\n- **Calcular de cabeça.** Todo número vem da ferramenta. Nem \\\"aproximadamente\\\",\\n  nem \\\"uns R$ 20\\\", nem arredondar por conta.\\n- **Recomendar um cenário.** Você apresenta; ela decide.\\n- **Esconder a incerteza.** `R$ 7,13` quando o motor devolveu faixa é precisão\\n  falsa.\\n- **Confundir o que ela recebe com o preço.** O cliente paga `P`; ela recebe\\n  `0,90 × P`. Sempre diga os dois.\\n- **Achar que vender acima do custo basta.** O limiar é food cost de 90%, não\\n  100%. Um prato de R$ 9,50 com CMV de R$ 9,00 dá prejuízo.\\n- **Esquecer a compra complementar.** Se o prato exigiu comprar algo, esse custo\\n  já entra no CMV — e sai do orçamento de R$ 80,00.\\n- **Ignorar a embalagem.** A marmita não está na planilha e não entra no CMV do\\n  desafio, mas existe e custa. Se ela perguntar do lucro real, mencione.\\n\\n## Verification\\n\\n- [ ] Nenhum número dito sem vir de ferramenta\\n- [ ] A taxa de 10% foi explicada antes do preço aparecer\\n- [ ] Os três cenários foram apresentados\\n- [ ] Nenhum cenário foi recomendado\\n- [ ] A conversa terminou com uma pergunta, não com uma conclusão\\n- [ ] A escolha dela foi registrada com `mcp_mise_registrar_decisao`\\n- [ ] Faixa foi apresentada como faixa, quando era faixa\\n\", \"path\": \"consultoria-gastronomica/precificacao-delivery/SKILL.md\", \"skill_dir\": \"<home>/.hermes/profiles/sabor-da-maria-avaliacao/skills/consultoria-gastronomica/precificacao-delivery\", \"org_provenance\": null, \"linked_files\": null, \"usage_hint\": null, \"required_environment_variables\": [], \"required_commands\": [], \"missing_required_environment_variables\": [], \"missing_credential_files\": [], \"missing_required_commands\": [], \"setup_needed\": false, \"setup_skipped\": false, \"readiness_status\": \"available\", \"_source_path\": \"<home>/.hermes/profiles/sabor-da-maria-avaliacao/skills/consultoria-gastronomica/precificacao-delivery/SKILL.md\", \"metadata\": {\"hermes\": {\"tags\": [\"CMV\", \"Preço\", \"Margem\", \"Delivery\"], \"related_skills\": [\"elicitacao-restricoes\", \"fechamento-cardapio\"]}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4,
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "2 xícaras de arroz",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "medida": "xicara"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "2 colheres de óleo",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal",
+                  "medida": ""
+                }
+              ],
+              "modo_preparo": [
+                "Refogo cebola e alho",
+                "Douro o frango",
+                "Junto o arroz e a água",
+                "Cozinho 20 minutos"
+              ]
+            }
+          },
+          "saida": "{\n  \"prato\": \"Arroz com frango\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Arroz com frango: FALTA INFO — 1 pergunta(s) antes de decidir\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer arroz com frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se ela não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0.5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"quantidade\": \"0.408 kg\",\n      \"custo\": {\n        \"valor\": 2.03,\n        \"texto\": \"R$ 2,03\"\n      },\n      \"derivacao\": \"2 xicara = 480 ml × 0.85 g/ml = 408 g × R$ 4,98/kg = R$ 2,03\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de unidade) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.006 kg\",\n      \"custo\": {\n        \"valor\": 0.12,\n        \"texto\": \"R$ 0,12\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    },\n    {\n      \"ingrediente\": \"Óleo de soja\",\n      \"quantidade\": \"0.03 L\",\n      \"custo\": {\n        \"valor\": 0.27,\n        \"texto\": \"R$ 0,27\"\n      },\n      \"derivacao\": \"2 colher de sopa = 30 ml × R$ 9,00/L = R$ 0,27\"\n    }\n  ],\n  \"falta_comprar\": [],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"perfil 21% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\",\n  \"tem\": [\n    \"Batedor de arame (fouet)\",\n    \"Faca\",\n    \"Fogão\",\n    \"Frigideira\",\n    \"Geladeira\",\n    \"Panela funda\",\n    \"Peneira\",\n    \"Ralador\",\n    \"Tábua de corte\"\n  ],\n  \"nao_tem\": [],\n  \"domina\": [\n    \"Assar\",\n    \"Bolo caseiro\",\n    \"Brigadeiro / doce de panela\",\n    \"Cozinhar arroz\",\n    \"Cozinhar feijão\",\n    \"Fritar\",\n    \"Molho de tomate caseiro\",\n    \"Refogar\"\n  ],\n  \"nao_domina\": [],\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Arroz com frango",
+            "gosta": true,
+            "impedimento": ""
+          },
+          "saida": "{\n  \"registrado\": \"Arroz com frango: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "60",
+            "tipo": "operacional"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"perfil\": \"perfil 23% levantado · 9 equipamentos · 8 técnicas · 46 em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogo cebola e alho",
+                "Douro o frango",
+                "Junto o arroz e a água",
+                "Cozinho 20 minutos"
+              ],
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 20
+            }
+          },
+          "saida": "{\n  \"prato\": \"Arroz com frango\",\n  \"veredito\": \"APTO\",\n  \"pode_precificar\": true,\n  \"resumo\": \"Arroz com frango: APTO — dá pra fazer hoje\",\n  \"impedimentos\": [],\n  \"perguntas\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0.5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"quantidade\": \"0.408 kg\",\n      \"custo\": {\n        \"valor\": 2.03,\n        \"texto\": \"R$ 2,03\"\n      },\n      \"derivacao\": \"2 xicara = 480 ml × 0.85 g/ml = 408 g × R$ 4,98/kg = R$ 2,03\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de unidade) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.006 kg\",\n      \"custo\": {\n        \"valor\": 0.12,\n        \"texto\": \"R$ 0,12\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    },\n    {\n      \"ingrediente\": \"Óleo de soja\",\n      \"quantidade\": \"0.03 L\",\n      \"custo\": {\n        \"valor\": 0.27,\n        \"texto\": \"R$ 0,27\"\n      },\n      \"derivacao\": \"2 colher de sopa = 30 ml × R$ 9,00/L = R$ 0,27\"\n    }\n  ],\n  \"falta_comprar\": [],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [],\n    \"tecnicas\": []\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__calcular_cmv",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogo cebola e alho",
+                "Douro o frango",
+                "Junto o arroz e a água",
+                "Cozinho 20 minutos"
+              ],
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 20
+            }
+          },
+          "saida": "{\n  \"prato\": \"Arroz com frango\",\n  \"cmv_por_porcao\": {\n    \"valor\": 2.47,\n    \"texto\": \"R$ 2,47\"\n  },\n  \"e_faixa\": false,\n  \"faixa\": null,\n  \"incerteza\": \"±1.9%\",\n  \"rendimento_original\": 4,\n  \"linhas\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0.125 kg\",\n      \"custo\": {\n        \"valor\": 1.75,\n        \"texto\": \"R$ 1,75\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"quantidade\": \"0.102 kg\",\n      \"custo\": {\n        \"valor\": 0.51,\n        \"texto\": \"R$ 0,51\"\n      },\n      \"derivacao\": \"2 xicara = 480 ml × 0.85 g/ml = 408 g × R$ 4,98/kg = R$ 2,03\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.0275 kg\",\n      \"custo\": {\n        \"valor\": 0.11,\n        \"texto\": \"R$ 0,11\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de unidade) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0.0015 kg\",\n      \"custo\": {\n        \"valor\": 0.03,\n        \"texto\": \"R$ 0,03\"\n      },\n      \"derivacao\": \"2 × 3 g (peso típico de dente de alho) = 6 g × R$ 20,00/kg = R$ 0,12\"\n    },\n    {\n      \"ingrediente\": \"Óleo de soja\",\n      \"quantidade\": \"0.0075 L\",\n      \"custo\": {\n        \"valor\": 0.07,\n        \"texto\": \"R$ 0,07\"\n      },\n      \"derivacao\": \"2 colher de sopa = 30 ml × R$ 9,00/L = R$ 0,27\"\n    }\n  ],\n  \"itens_a_gosto\": [\n    \"sal\"\n  ],\n  \"maiores_custos\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"custo\": {\n        \"valor\": 1.75,\n        \"texto\": \"R$ 1,75\"\n      }\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"custo\": {\n        \"valor\": 0.51,\n        \"texto\": \"R$ 0,51\"\n      }\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"custo\": {\n        \"valor\": 0.11,\n        \"texto\": \"R$ 0,11\"\n      }\n    }\n  ],\n  \"explicacao\": \"Custo de ingrediente de 1 porção de Arroz com frango:\\n  · Peito de frango: 0.125 kg = R$ 1,75\\n  · Arroz branco tipo 1: 0.102 kg = R$ 0,51\\n  · Cebola: 0.0275 kg = R$ 0,11\\n  · Alho: 0.0015 kg = R$ 0,03\\n  · Óleo de soja: 0.0075 L = R$ 0,07\\n  · sal: a gosto, custo desprezível (mas contado, não esquecido)\\n  Total: R$ 2,47\\n  (a receita original rende 4 porções; os valores acima já são de uma só)\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__cenarios_preco",
+          "entrada": {
+            "cmv_por_porcao": 2.47,
+            "prato": "Arroz com frango"
+          },
+          "saida": "{\n  \"prato\": \"Arroz com frango\",\n  \"cmv\": {\n    \"valor\": 2.47,\n    \"texto\": \"R$ 2,47\"\n  },\n  \"preco_minimo_sem_prejuizo\": {\n    \"valor\": 2.74,\n    \"texto\": \"R$ 2,74\"\n  },\n  \"explicacao_da_taxa\": \"O custo de ingrediente é R$ 2,47. Mas não dá pra vender por R$ 2,47: o iFood fica com 10% de tudo que o cliente paga, então a senhora receberia só R$ 2,22 e sairia no prejuízo. Pra empatar exatamente, o preço tem que ser R$ 2,47 ÷ 0,90 = R$ 2,74. Abaixo disso a senhora paga pra trabalhar.\",\n  \"cenarios\": [\n    {\n      \"nome\": \"Conservador\",\n      \"descricao\": \"preço mais baixo, ganha menos por prato mas atrai mais pedido\",\n      \"preco\": {\n        \"valor\": 6.18,\n        \"texto\": \"R$ 6,18\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 0.62,\n        \"texto\": \"R$ 0,62\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 5.56,\n        \"texto\": \"R$ 5,56\"\n      },\n      \"lucro\": {\n        \"valor\": 3.09,\n        \"texto\": \"R$ 3,09\"\n      },\n      \"food_cost\": \"40%\",\n      \"margem_sobre_preco\": \"50%\",\n      \"explicacao\": \"Vendendo a R$ 6,18: o iFood fica com R$ 0,62 (10%), então chegam R$ 5,56 pra senhora. Tirando R$ 2,47 de ingrediente, sobram R$ 3,09 limpos por porção. Isso é 50% do que o cliente paga.\"\n    },\n    {\n      \"nome\": \"Equilibrado\",\n      \"descricao\": \"o padrão do mercado de delivery — bom ponto de partida\",\n      \"preco\": {\n        \"valor\": 7.06,\n        \"texto\": \"R$ 7,06\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 0.71,\n        \"texto\": \"R$ 0,71\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 6.35,\n        \"texto\": \"R$ 6,35\"\n      },\n      \"lucro\": {\n        \"valor\": 3.88,\n        \"texto\": \"R$ 3,88\"\n      },\n      \"food_cost\": \"35%\",\n      \"margem_sobre_preco\": \"55%\",\n      \"explicacao\": \"Vendendo a R$ 7,06: o iFood fica com R$ 0,71 (10%), então chegam R$ 6,35 pra senhora. Tirando R$ 2,47 de ingrediente, sobram R$ 3,88 limpos por porção. Isso é 55% do que o cliente paga.\"\n    },\n    {\n      \"nome\": \"Premium\",\n      \"descricao\": \"preço mais alto, ganha mais por prato mas vende para menos gente\",\n      \"preco\": {\n        \"valor\": 8.23,\n        \"texto\": \"R$ 8,23\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 0.82,\n        \"texto\": \"R$ 0,82\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 7.41,\n        \"texto\": \"R$ 7,41\"\n      },\n      \"lucro\": {\n        \"valor\": 4.94,\n        \"texto\": \"R$ 4,94\"\n      },\n      \"food_cost\": \"30%\",\n      \"margem_sobre_preco\": \"60%\",\n      \"explicacao\": \"Vendendo a R$ 8,23: o iFood fica com R$ 0,82 (10%), então chegam R$ 7,41 pra senhora. Tirando R$ 2,47 de ingrediente, sobram R$ 4,94 limpos por porção. Isso é 60% do que o cliente paga.\"\n    }\n  ],\n  \"orientacao\": \"Mostre os três e pergunte qual ela prefere. A escolha é dela.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Beleza. Então quanto eu cobro por porção?",
+      "resposta": "Testei o pior caso, o mais barato dos três.\n\nSe o ingrediente subir 20% — e frango sobe, a senhora sabe melhor que eu — o custo vai de R$ 2,47 pra R$ 2,96, e ainda sobram R$ 2,60 limpos por porção. Esse preço aguenta uma alta de 125% antes de zerar o lucro.\n\nOu seja: nenhum dos três é arriscado. Até o mais baixo tem folga. A senhora não vai errar feio em nenhum caminho.\n\nO que muda de verdade entre eles\n\n    Conservador   [valor retirado]   sobra [valor retirado]\n    Equilibrado   [valor retirado]   sobra [valor retirado]\n    Premium       [valor retirado]   sobra [valor retirado]\n\nA pergunta não é qual é o mais seguro, é qual a senhora consegue vender na sua região. Um prato de arroz com frango a [valor retirado] concorre com restaurante; a [valor retirado] concorre com marmita de esquina.\n\nDuas perguntas que respondem isso melhor que qualquer conta minha:\n\nQuanto cobram por uma marmita de arroz com frango aí perto da senhora? Se a vizinhança cobra [valor retirado], o premium vai parecer caro. Se cobra [valor retirado], o conservador está deixando dinheiro na mesa.\n\nE a senhora prefere vender bastante prato ganhando menos em cada, ou menos prato ganhando mais? Tem gente que gosta de cozinha cheia, tem gente que prefere menos correria.\n\nMe diga isso e eu registro o preço. Ou, se a senhora já bateu o martelo, diga qual dos três e eu registro agora mesmo.\n\n---\nRetirei 10 valor(es) desta resposta porque não vieram da planilha da senhora — eram conta de cabeça, e conta de cabeça vira preço errado. Me peça de novo que eu consulto o motor e trago com a conta.",
+      "sessao": "20260923_210440_159849",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 39487,
+      "uso": {
+        "entrada": 6,
+        "saida": 1794,
+        "cache_leitura": 144332,
+        "cache_escrita": 3356
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__testar_sensibilidade"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__testar_sensibilidade\": {\"description\": \"E se o insumo subir? Quanto de alta o preço escolhido aguenta.\", \"parameters\": {\"properties\": {\"cmv_por_porcao\": {\"title\": \"Cmv Por Porcao\", \"type\": \"number\"}, \"preco\": {\"title\": \"Preco\", \"type\": \"number\"}}, \"required\": [\"cmv_por_porcao\", \"preco\"], \"type\": \"object\", \"title\": \"testar_sensibilidadeArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__testar_sensibilidade",
+          "entrada": {
+            "cmv_por_porcao": 2.47,
+            "preco": 6.18
+          },
+          "saida": "{\n  \"cmv_atual\": \"R$ 2,47\",\n  \"se_subir_20_porcento\": {\n    \"novo_cmv\": \"R$ 2,96\",\n    \"novo_lucro\": \"R$ 2,60\",\n    \"continua_lucrativo\": true\n  },\n  \"aguenta_alta_de\": \"125%\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Vou cobrar 18 reais a porção.",
+      "resposta": "Registrado. Arroz com frango a R$ 18,00 — primeiro prato do cardápio.\n\nDo lado do dinheiro, esse preço é sólido. Se o frango subir 20%, o custo vai pra R$ 2,96 e ainda sobram R$ 13,24 limpos por porção. Aguenta uma alta de 556% no insumo antes de zerar. A senhora não corre risco de prejuízo aqui, de jeito nenhum.\n\nDuas coisas que a senhora não perguntou mas precisa saber.\n\nA primeira: R$ 18,00 está bem acima dos três cenários. O mais caro que calculei foi R$ 8,23. A senhora está cobrando mais que o dobro. Isso não é erro — a senhora conhece a clientela e eu não. Mas o risco mudou de lugar: não é mais perder dinheiro por prato, é não vender. Um prato caro com margem alta que ninguém pede rende zero.\n\nA segunda, e essa me preocupa mais: a porção que eu calculei tem 125 g de frango e 102 g de arroz. É uma marmita pequena. Vem daí, de dividir 500 g de frango por quatro.\n\nA senhora vai vender essa porção ou uma maior? Porque se a marmita que a senhora tem na cabeça é de 250 g de frango, a receita rende 2 porções e não 4 — e aí o custo dobra, e a conta toda muda.\n\nMe diga quantas marmitas a senhora tira de verdade dessa panela. Se for 4, está tudo certo e o R$ 18,00 está registrado. Se for 2, eu refaço a conta agora.",
+      "sessao": "20260923_210440_159849",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 58785,
+      "uso": {
+        "entrada": 6,
+        "saida": 3147,
+        "cache_leitura": 149408,
+        "cache_escrita": 4667
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__testar_sensibilidade",
+          "entrada": {
+            "cmv_por_porcao": 2.47,
+            "preco": 18.0
+          },
+          "saida": "{\n  \"cmv_atual\": \"R$ 2,47\",\n  \"se_subir_20_porcento\": {\n    \"novo_cmv\": \"R$ 2,96\",\n    \"novo_lucro\": \"R$ 13,24\",\n    \"continua_lucrativo\": true\n  },\n  \"aguenta_alta_de\": \"556%\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_decisao",
+          "entrada": {
+            "decisao": "aceito",
+            "motivo": "Preço escolhido por ela: R$ 18,00 a porção. CMV de R$ 2,47. Acima dos três cenários calculados (conservador R$ 6,18 / equilibrado R$ 7,06 / premium R$ 8,23). Aguenta alta de 556% no insumo.",
+            "prato": "Arroz com frango"
+          },
+          "saida": "{\n  \"registrado\": \"[24/09 01:07] Arroz com frango: aceito — Preço escolhido por ela: R$ 18,00 a porção. CMV de R$ 2,47. Acima dos três cenários calculados (conservador R$ 6,18 / equilibrado R$ 7,06 / premium R$ 8,23). Aguenta alta de 556% no insumo.\",\n  \"cardapio_atual\": [\n    \"Arroz com frango\"\n  ]\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

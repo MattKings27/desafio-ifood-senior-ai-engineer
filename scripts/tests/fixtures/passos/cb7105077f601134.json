@@ -1,0 +1,57 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "cb7105077f601134",
+ "url": "https://www.tudogostoso.com.br/receita/49809-carne-moida-ao-molho.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Carne moída ao molho",
+  "recipeIngredient": [
+   "1 kg de carne moída ",
+   "2 colheres de azeite",
+   "1/2 cebola picada",
+   "1 tomate ",
+   "1/2 xícara de azeitonas",
+   "Salsinha a gosto",
+   "1 pitada de sal ",
+   "1 pitada de pimenta-do-reino com cominho",
+   "2 latas de extrato de tomate"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Doure a cebola no azeite ou &amp;oacute;leo.",
+    "url": "https://www.tudogostoso.com.br/receita/49809-carne-moida-ao-molho.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Acrescente a carne mo&amp;iacute;da e refogue.",
+    "url": "https://www.tudogostoso.com.br/receita/49809-carne-moida-ao-molho.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Acrescente o tomate, as azeitonas, salsinha, 1 pitada de sal, pimenta-do-reino com cominho, sempre mexendo.",
+    "url": "https://www.tudogostoso.com.br/receita/49809-carne-moida-ao-molho.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Por &amp;uacute;ltimo acrescente as 2 latas de extrato de tomate e deixe ferver, sempre mexendo.",
+    "url": "https://www.tudogostoso.com.br/receita/49809-carne-moida-ao-molho.html#recipe-step4"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Doure a cebola no azeite ou óleo."
+  },
+  {
+   "texto": "Acrescente a carne moída e refogue."
+  },
+  {
+   "texto": "Acrescente o tomate, as azeitonas, salsinha, 1 pitada de sal, pimenta-do-reino com cominho, sempre mexendo."
+  },
+  {
+   "texto": "Por último acrescente as 2 latas de extrato de tomate e deixe ferver, sempre mexendo."
+  }
+ ]
+}

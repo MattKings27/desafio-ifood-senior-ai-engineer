@@ -1,0 +1,86 @@
+{
+  "cenario": "abertura-com-a-despensa",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de prato pra vender no iFood. Por onde a gente começa?",
+      "resposta": "Prontinho, já vi sua despensa. A senhora tem 37 itens, um total de R$ 663,39 já investido — e por enquanto isso tudo está parado, porque ainda não avaliamos nenhum prato.\n\nOs itens onde mais dinheiro está parado são:\n\nAlcaparras — R$ 82,00 (isso é bastante: R$ 41,00 o quilo)\nCobertura de chocolate — R$ 79,90\nCarne moída (patinho) — R$ 42,00\nMiolo de alcatra — R$ 34,00\nAzeite de oliva extra virgem — R$ 30,99\nPeito de frango — R$ 28,00\nFeijão carioquinha — R$ 27,00\nArroz branco tipo 1 — R$ 24,90\n\nDá pra ver alguns caminhos diferentes aí: um prato de carne (moída ou alcatra), um de frango, uma coisa com feijão e arroz, ou até uma sobremesa com essa cobertura de chocolate, leite ninho e chantilly que também apareceram na despensa.\n\nPra eu não sair pesquisando receita aleatória: qual desses caminhos combina mais com o que a senhora pensou pra esse delivery — algo salgado com carne, com frango, ou já de cara também quer pensar numa sobremesa?",
+      "sessao": "20260924_022437_77dc6b",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 25017,
+      "uso": {
+        "entrada": 12,
+        "saida": 1351,
+        "cache_leitura": 85911,
+        "cache_escrita": 13729
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico despensa",
+              "consultar perfil cozinha"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa panorama",
+              "avaliar receita portao"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "cenario": "preco-so-depois-do-portao",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu devo cobrar por um strogonoff de frango?",
+      "resposta": "Dona Maria, vou ser direta com a senhora: hoje eu não consigo te dar esse preço.\n\nO motivo é que o sistema que lê a sua planilha de despensa não está respondendo nesta sessão. Eu tentei abrir e não abriu. Sem ele eu não vejo o que a senhora tem em casa, não vejo quanto custou, e não tenho como calcular o custo de ingrediente por porção do strogonoff.\n\nE eu não vou chutar um número. Preço chutado é o jeito mais rápido de a senhora trabalhar de graça, ou pior, pagar pra trabalhar. Qualquer valor que eu dissesse agora seria invenção minha, e a senhora está apostando o dinheiro dela nisso, não eu.\n\nO que eu já posso te dizer, porque não depende da planilha: o preço do strogonoff vai sair de duas coisas. A primeira é quanto custa o ingrediente de uma porção. A segunda é que o aplicativo fica com 10% de cada venda, então a senhora nunca recebe o que o cliente paga, recebe menos que isso. É por causa dessa mordida que vender acima do custo não basta. A conta exata eu faço quando o sistema voltar.\n\nEnquanto isso, tem uma coisa que a senhora pode adiantar pra mim, e que vai poupar tempo depois.\n\nMe conta como a senhora faz o seu strogonoff de frango. O que vai dentro? Quero a sua receita, do jeito que a senhora faz na sua panela, não a da internet. Porque o custo por porção sai do que vai dentro, e cada cozinheira faz diferente: tem quem use creme de leite, tem quem use leite com farinha, tem quem ponha champignon, tem quem não ponha.",
+      "sessao": "20260923_232522_421b0e",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 79423,
+      "uso": {
+        "entrada": 6,
+        "saida": 3087,
+        "cache_leitura": 31469,
+        "cache_escrita": 5287
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portao",
+              "cenarios de preco cmv",
+              "proxima pergunta perfil"
+            ]
+          },
+          "saida": "{\"queries\": [\"diagnostico despensa\", \"avaliar receita portao\", \"cenarios de preco cmv\", \"proxima pergunta perfil\"], \"total_available\": 2, \"results\": [{\"query\": \"diagnostico despensa\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"avaliar receita portao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"cenarios de preco cmv\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"proxima pergunta perfil\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__calcular_cmv",
+              "mcp__mise__cenarios_preco",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {}, \"not_found\": [\"mcp__mise__diagnostico_despensa\", \"mcp__mise__avaliar_receita\", \"mcp__mise__calcular_cmv\", \"mcp__mise__cenarios_preco\", \"mcp__mise__consultar_perfil\"], \"hint\": \"Names in not_found are not currently available. Re-run tool_search to refresh.\"}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

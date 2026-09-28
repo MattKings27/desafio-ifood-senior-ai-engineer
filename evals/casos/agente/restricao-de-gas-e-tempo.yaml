@@ -1,0 +1,18 @@
+nome: restricao-de-gas-e-tempo
+secao: "2.2"
+descricao: >
+  As restrições operacionais que o enunciado cita: gás, tempo, geladeira,
+  energia. Ela conta que o gás é contado e que só tem a tarde livre. O agente
+  grava as duas e não repete a pergunta que ela já respondeu.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é
+      de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado.
+      E eu só consigo cozinhar à tarde, umas 2 horas no máximo.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+      # Ela disse "2 horas" e "gás acaba rápido": perguntar de novo é não ter ouvido.
+      nao_responde_com: ['quanto tempo a senhora (consegue|tem)', 'a senhora tem g[aá]s']

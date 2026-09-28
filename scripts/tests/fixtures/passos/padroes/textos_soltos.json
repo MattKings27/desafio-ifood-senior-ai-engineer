@@ -1,0 +1,35 @@
+{
+ "padrao": "Lista de textos: cada texto é um passo, e o texto com quebra de linha junta vários, um por linha",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Carne moída",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   "Refogue a cebola.",
+   "Junte a carne.\nDeixe dourar.",
+   "  Sirva   quente.  "
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Refogue a cebola.",
+   "secao": null
+  },
+  {
+   "texto": "Junte a carne.",
+   "secao": null
+  },
+  {
+   "texto": "Deixe dourar.",
+   "secao": null
+  },
+  {
+   "texto": "Sirva quente.",
+   "secao": null
+  }
+ ]
+}

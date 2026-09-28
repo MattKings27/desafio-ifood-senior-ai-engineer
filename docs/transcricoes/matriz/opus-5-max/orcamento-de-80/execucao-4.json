@@ -1,0 +1,103 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda pode gastar os R$ 80,00 inteiros. O motor mostra assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Não tem nenhuma compra registrada e nenhum preço de mercado anotado ainda.\n\nE tem uma coisa que a senhora não perguntou, mas eu prefiro falar agora: esses R$ 80,00 estão todos livres porque a gente ainda não escolheu prato nenhum. A despensa tem 37 itens e R$ 663,39 investidos, e por enquanto nenhum desses itens está dentro de uma receita avaliada. Ou seja, o dinheiro grande já foi gasto e ainda não está rendendo. Os R$ 80,00 são o troco, não o começo.\n\nEntão a lista de compras só vai aparecer depois que a gente souber quais pratos a senhora vai fazer. Aí eu digo exatamente o que falta para cada prato, a senhora me fala o preço no mercado da sua região, e eu confronto com os R$ 80,00 antes de a senhora sair de casa.\n\nPara eu começar a procurar receitas de verdade que aproveitem o que a senhora já tem: o que a senhora estava pensando em vender nesse delivery? Marmita de comida caseira, lanche, doce, ou ainda está em aberto?\n\n(Depois eu vou precisar perguntar uma coisa sobre a cobertura de chocolate, que é o segundo maior valor da despensa e está sem o peso da embalagem na planilha. Mas isso só importa se entrar doce no cardápio.)",
+      "sessao": "20260924_032351_ccfe90",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 65487,
+      "uso": {
+        "entrada": 18,
+        "saida": 3962,
+        "cache_leitura": 140996,
+        "cache_escrita": 21998
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento",
+              "mcp__mise__consultar_precos_de_mercado",
+              "mcp__mise__consultar_cardapio"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}, \"mcp__mise__consultar_precos_de_mercado\": {\"description\": \"As cotações já registradas para o que falta comprar.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_precos_de_mercadoArguments\", \"required\": []}}, \"mcp__mise__consultar_cardapio\": {\"description\": \"Os pratos que ela aceitou, com o preço e o lucro gravados, e a trilha inteira.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_cardapioArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_precos_de_mercado",
+          "entrada": {},
+          "saida": "{\n  \"precos\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_cardapio",
+          "entrada": {},
+          "saida": "{\n  \"cardapio\": [],\n  \"aceitos\": [],\n  \"historico\": [],\n  \"candidatas_em_avaliacao\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0.5 kg = 0.5 kg; R$ 23,67 ÷ 0.5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0.4 kg = 0.4 kg; R$ 15,18 ÷ 0.4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 30,99 ÷ 0.5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0.5 L = 0.5 L; R$ 12,99 ÷ 0.5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0.1 L = 0.1 L; R$ 1,90 ÷ 0.1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ]\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__proxima_pergunta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "{\n  \"ha_pergunta\": false,\n  \"resumo\": \"0 prato(s) apto(s) · 0 aguardando resposta · 0 bloqueado(s) · 0 pergunta(s) em aberto\",\n  \"aptas\": [],\n  \"bloqueadas\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

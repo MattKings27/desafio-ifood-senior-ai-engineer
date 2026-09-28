@@ -1,0 +1,37 @@
+{
+  "cenario": "despensa-pela-conversa",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Ah, antes que eu esqueça, acabou o leite.",
+      "resposta": "Anotado: o leite integral acabou. Na despensa ele estava com 2 litros, e agora aparece como \"acabou\". Ainda não tem nenhuma receita em avaliação, então nada mudou de custo por causa disso.\n\nQuer que eu já siga procurando receitas com o que a senhora tem, ou prefere ver outra coisa primeiro?",
+      "sessao": "20260927_180004_9fe7c4",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 21768,
+      "uso": {
+        "entrada": 6,
+        "saida": 244,
+        "cache_leitura": 59307,
+        "cache_escrita": 4395
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__atualizar_despensa",
+          "entrada": {
+            "acao": "acabou",
+            "ingrediente": "leite",
+            "motivo": "ela contou na conversa que acabou"
+          },
+          "saida": "{\n  \"item\": {\n    \"id\": \"leite-integral\",\n    \"nome\": \"Leite integral\",\n    \"categoria\": \"laticinios\",\n    \"categoria_rotulo\": \"Laticínios\",\n    \"estoque\": 0.0,\n    \"unidade\": \"L\",\n    \"estoque_texto\": \"acabou\",\n    \"pago\": {\n      \"valor\": 10.0,\n      \"texto\": \"R$ 10,00\"\n    },\n    \"custo_unitario\": {\n      \"valor\": 5.0,\n      \"texto\": \"R$ 5,00/L\"\n    },\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\",\n    \"confianca_rotulo\": \"conta direta da planilha\",\n    \"fracao_do_total\": 0.0151,\n    \"fracao_texto\": \"2% do que a senhora pagou\",\n    \"origem\": \"planilha\",\n    \"origem_rotulo\": \"da planilha\",\n    \"imagem\": {\n      \"url\": \"/motor/imagens/ef77af57351a9ae33df6661795da0123\",\n      \"credito\": \"Foto: Santeri Viinamäki, CC BY-SA 4.0, Wikimedia Commons\"\n    },\n    \"receitas_que_usam\": 0,\n    \"receitas_que_usam_texto\": \"ainda sem receita\",\n    \"pendente\": false,\n    \"rota\": \"/despensa/leite-integral\",\n    \"custo_texto\": \"R$ 5,00/L\",\n    \"normalizacao_importou\": false,\n    \"custo_ingenuo\": {\n      \"valor\": 5.0,\n      \"texto\": \"R$ 5,00\"\n    },\n    \"rotulo_original\": \"L\"\n  },\n  \"id\": \"leite-integral\",\n  \"ingrediente\": \"Leite integral\",\n  \"mudou\": true,\n  \"repetida\": false,\n  \"evento\": \"ev-0001\",\n  \"antes\": {\n    \"estoque\": \"2 L\",\n    \"pago\": \"R$ 10,00\",\n    \"custo_unitario\": \"R$ 5,00/L\",\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\"\n  },\n  \"depois\": {\n    \"estoque\": \"acabou\",\n    \"pago\": \"R$ 10,00\",\n    \"custo_unitario\": \"R$ 5,00/L\",\n    \"derivacao\": \"R$ 10,00 ÷ 2 L = R$ 5,00/L\",\n    \"confianca\": \"alta\"\n  },\n  \"removido\": null,\n  \"estorno\": null,\n  \"compra\": null,\n  \"pendencias_resolvidas\": [],\n  \"pendencia\": null,\n  \"receitas_afetadas\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"mudaram\": [],\n    \"texto\": \"Ainda não há receita em avaliação.\"\n  },\n  \"orcamento\": {\n    \"inicial\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    },\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    },\n    \"gasto\": {\n      \"valor\": 0.0,\n      \"texto\": \"R$ 0,00\"\n    },\n    \"fracao_gasta\": 0.0,\n    \"texto\": \"Nada gasto ainda: restam R$ 80,00 para complementos.\",\n    \"compras\": []\n  },\n  \"orcamento_mudou\": false,\n  \"texto\": \"Anotei que o leite integral acabou.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

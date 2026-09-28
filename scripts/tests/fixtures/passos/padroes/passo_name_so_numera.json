@@ -1,0 +1,43 @@
+{
+ "padrao": "O name que só numera o passo (Passo 1, Passo 2) não é título",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Arroz",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "name": "Passo 1",
+    "text": "Lave o arroz."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Passo 2",
+    "text": "Refogue a cebola."
+   },
+   {
+    "@type": "HowToStep",
+    "name": "Passo 3",
+    "text": "Cozinhe por 20 minutos."
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Lave o arroz.",
+   "secao": null
+  },
+  {
+   "texto": "Refogue a cebola.",
+   "secao": null
+  },
+  {
+   "texto": "Cozinhe por 20 minutos.",
+   "secao": null
+  }
+ ]
+}

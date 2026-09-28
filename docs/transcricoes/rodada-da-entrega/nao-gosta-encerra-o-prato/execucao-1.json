@@ -1,0 +1,108 @@
+{
+  "cenario": "nao-gosta-encerra-o-prato",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola, 4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.",
+      "resposta": "Boa ideia, e a despensa ajuda: a senhora já tem tudo o que essa feijoada pede, sem nada a comprar.\n\nFeijão preto: precisa de 1 kg, a senhora tem 1 kg (não sobra).\nBacon: precisa de 500 g, a senhora tem 500 g (não sobra).\nCebola: 1 unidade, que considerei em cerca de 70 g pela tabela de medidas do IBGE; a senhora tem 1 kg.\nAlho: 4 dentes, cerca de 18 g pela mesma tabela; a senhora tem 300 g.\nSal: a gosto, e a senhora tem.\n\nAntes de seguir para o custo por porção e o preço, preciso saber três coisas, uma de cada vez. Começo pela mais importante: a senhora gosta de fazer feijoada? E vê algum impedimento para preparar esse prato na sua cozinha? Pergunto porque não adianta a conta fechar se a senhora não quer cozinhar o prato todo dia.",
+      "sessao": "20260927_180942_95dd42",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 19502,
+      "uso": {
+        "entrada": 6,
+        "saida": 896,
+        "cache_leitura": 59373,
+        "cache_escrita": 11798
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Feijoada",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de feijão preto",
+                  "nome": "feijão preto",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "500 g de bacon",
+                  "nome": "bacon",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "4 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 4,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "modo_preparo": [
+                "Cozinhar tudo na panela por 2 horas."
+              ],
+              "rendimento_porcoes": 8,
+              "tempo_cozimento_min": 120
+            }
+          },
+          "saida": "{\n  \"receita_id\": \"feijoada\",\n  \"prato\": \"Feijoada\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Feijoada: antes de decidir, preciso saber 3 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n      \"motivo\": \"Feijoada fica 120 minutos no fogo\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": {\n        \"tipo\": \"horas\",\n        \"unidade\": \"horas\",\n        \"min\": 0.5,\n        \"max\": 12.0,\n        \"passo\": 0.5,\n        \"casas\": 2\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tem_gas_sobrando\",\n      \"texto\": \"Como está o botijão de gás? Tem reserva?\",\n      \"motivo\": \"Feijoada fica 120 minutos no fogo, e ficar sem gás no meio estraga o pedido\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Sim\",\n          \"resposta\": \"sim\"\n        },\n        {\n          \"rotulo\": \"Não\",\n          \"resposta\": \"nao\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"assunto\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer feijoada? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Gosto de fazer\",\n          \"resposta\": \"gosta\"\n        },\n        {\n          \"rotulo\": \"Não gosto\",\n          \"resposta\": \"nao_gosta\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    }\n  ],\n  \"rendimento\": \"8 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Feijão preto\",\n      \"quantidade\": \"1 kg\",\n      \"custo\": {\n        \"valor\": 9.6,\n        \"texto\": \"R$ 9,60\"\n      },\n      \"derivacao\": \"1 kg = 1000 g × R$ 9,60/kg = R$ 9,60\"\n    },\n    {\n      \"ingrediente\": \"Bacon\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 11.95,\n        \"texto\": \"R$ 11,95\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 23,90/kg = R$ 11,95\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,07 kg\",\n      \"custo\": {\n        \"valor\": 0.28,\n        \"texto\": \"R$ 0,28\"\n      },\n      \"derivacao\": \"1 × 70 g (cebola média, pela referência de medidas do IBGE) = 70 g × R$ 4,00/kg = R$ 0,28\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0,0176 kg\",\n      \"custo\": {\n        \"valor\": 0.35,\n        \"texto\": \"R$ 0,35\"\n      },\n      \"derivacao\": \"4 × 4,4 g (dente de alho, pela referência de medidas do IBGE) = 17,6 g × R$ 20,00/kg = R$ 0,35\"\n    }\n  ],\n  \"falta_comprar\": [],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Cozinhar tudo na panela por 2 horas.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"cozinhar tudo na panela por 2 horas....\",\n            \"trecho\": \"na panela\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 120,\n            \"graus\": null,\n            \"texto\": \"2 h no fogo\",\n            \"trecho\": \"2 horas\",\n            \"equipamento\": \"fogao\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"Responder: Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n    \"Responder: Como está o botijão de gás? Tem reserva?\",\n    \"Dizer se a senhora gosta de fazer feijoada.\",\n    \"Confirmar que a senhora tem fogão.\"\n  ],\n  \"confirmar_a_cozinha\": {\n    \"pergunta\": \"Antes de aceitar, a senhora confirma que tem fogão?\",\n    \"itens\": [\n      {\n        \"tipo\": \"equipamento\",\n        \"id\": \"fogao\",\n        \"nome\": \"Fogão\"\n      }\n    ]\n  },\n  \"ingredientes\": [\n    {\n      \"nome\": \"Feijão preto\",\n      \"item_id\": \"feijao-preto\",\n      \"precisa\": {\n        \"texto\": \"1 kg\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"nada\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Bacon\",\n      \"item_id\": \"bacon\",\n      \"precisa\": {\n        \"texto\": \"500 g\"\n      },\n      \"tem\": {\n        \"texto\": \"500 g\"\n      },\n      \"sobra\": {\n        \"texto\": \"nada\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Cebola\",\n      \"item_id\": \"cebola\",\n      \"precisa\": {\n        \"texto\": \"1 unidade (cerca de 70 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"930 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Uma cebola pesa cerca de 70 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 70.0,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"1 cebola\",\n          \"texto\": \"Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": null\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Alho\",\n      \"item_id\": \"alho\",\n      \"precisa\": {\n        \"texto\": \"4 dentes de alho (cerca de 18 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"300 g\"\n      },\n      \"sobra\": {\n        \"texto\": \"282 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Um alho pesa cerca de 4,4 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 4.4,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"4 dentes de alho\",\n          \"texto\": \"Quanto pesa um alho na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": {\n              \"cada\": \"1 unidade\",\n              \"tudo\": \"4 unidades\"\n            }\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"nada a comprar\",\n  \"orcamento\": {\n    \"inicial\": \"R$ 80,00\",\n    \"gasto\": \"R$ 0,00\",\n    \"restante\": \"R$ 80,00\"\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "{\n  \"gostos\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.",
+      "resposta": "Entendido, e faz todo sentido: quem vai cozinhar todo dia é a senhora. Anotei que a feijoada fica de fora, e não preciso perguntar mais nada sobre ela.\n\nO feijão preto e o bacon continuam na despensa, e dá para achar outro prato que use os dois com menos trabalho. Quer que eu procure algumas receitas para a senhora ver?",
+      "sessao": "20260927_180942_95dd42",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 16244,
+      "uso": {
+        "entrada": 6,
+        "saida": 265,
+        "cache_leitura": 71385,
+        "cache_escrita": 11224
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Feijoada",
+            "gosta": false,
+            "impedimento": "Dá muito trabalho e ela não gosta de fazer."
+          },
+          "saida": "{\n  \"registrado\": \"Feijoada: nao gosta (Dá muito trabalho e ela não gosta de fazer.)\",\n  \"efeito\": \"prato bloqueado no portão\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

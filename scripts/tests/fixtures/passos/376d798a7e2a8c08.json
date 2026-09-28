@@ -1,0 +1,112 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "376d798a7e2a8c08",
+ "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Frango com batata e cenoura",
+  "recipeIngredient": [
+   "1 peito de frango",
+   "1 colher de chá de azeite",
+   "1 colher de chá de sal",
+   "1/2 pimentão",
+   "1/2 cebola",
+   "2 cenouras médias",
+   "3 batatas grandes",
+   "1 pacote de tempero para aves"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Corte a cenoura em rodelas e a batata em cubos.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque a cenoura e a batata para cozinhar por 12 a 15 minutos, escorra (reserve 1/2 x&amp;iacute;cara dessa &amp;aacute;gua) e reserve.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Corte o peito em cubinhos e reserve.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Pegue uma panela e coloque o azeite e a cebola e deixe dourar.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque o piment&amp;atilde;o e mexa at&amp;eacute; misturar.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque o peito de frango e mexa bem.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step6"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Deixe fritar um pouco, coloque o sal e o tempero para aves e mexa bem.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step7"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque a cenoura e a batata.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step8"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Coloque 1/2 x&amp;iacute;cara da &amp;aacute;gua em que foi cozida a cenoura e a batata e mexa at&amp;eacute; ficar tudo misturado.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step9"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "N&amp;atilde;o deixe muito no fogo para n&amp;atilde;o secar o caldo.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step10"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Depois &amp;eacute; s&amp;oacute; servir.",
+    "url": "https://www.tudogostoso.com.br/receita/160034-frango-com-batata-e-cenoura.html#recipe-step11"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Corte a cenoura em rodelas e a batata em cubos."
+  },
+  {
+   "texto": "Coloque a cenoura e a batata para cozinhar por 12 a 15 minutos, escorra (reserve 1/2 xícara dessa água) e reserve."
+  },
+  {
+   "texto": "Corte o peito em cubinhos e reserve."
+  },
+  {
+   "texto": "Pegue uma panela e coloque o azeite e a cebola e deixe dourar."
+  },
+  {
+   "texto": "Coloque o pimentão e mexa até misturar."
+  },
+  {
+   "texto": "Coloque o peito de frango e mexa bem."
+  },
+  {
+   "texto": "Deixe fritar um pouco, coloque o sal e o tempero para aves e mexa bem."
+  },
+  {
+   "texto": "Coloque a cenoura e a batata."
+  },
+  {
+   "texto": "Coloque 1/2 xícara da água em que foi cozida a cenoura e a batata e mexa até ficar tudo misturado."
+  },
+  {
+   "texto": "Não deixe muito no fogo para não secar o caldo."
+  },
+  {
+   "texto": "Depois é só servir."
+  }
+ ]
+}

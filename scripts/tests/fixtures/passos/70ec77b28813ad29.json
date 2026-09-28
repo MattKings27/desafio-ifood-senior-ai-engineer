@@ -1,0 +1,60 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "70ec77b28813ad29",
+ "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html",
+ "receita": {
+  "@context": "http://schema.org/",
+  "@type": "Recipe",
+  "name": "Cobertura de chocolate para bolo",
+  "recipeIngredient": [
+   "1 lata de leite condensado",
+   "1 copo de leite",
+   "1 colher de margarina",
+   "3 colheres de chocolate em pó"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Coloque em uma panela o leite, o chocolate em p&amp;oacute; e a margarina.",
+    "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html#recipe-step1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Leve ao fogo m&amp;eacute;dio at&amp;eacute; ferver.",
+    "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html#recipe-step2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Quando come&amp;ccedil;ar a ferver acrescente o leite condensado.",
+    "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html#recipe-step3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Mexa at&amp;eacute; ferver e ficar um pouco consistente.",
+    "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html#recipe-step4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Retire do fogo e est&amp;aacute; pronta.",
+    "url": "https://www.tudogostoso.com.br/receita/54592-cobertura-de-chocolate-para-bolo.html#recipe-step5"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Coloque em uma panela o leite, o chocolate em pó e a margarina."
+  },
+  {
+   "texto": "Leve ao fogo médio até ferver."
+  },
+  {
+   "texto": "Quando começar a ferver acrescente o leite condensado."
+  },
+  {
+   "texto": "Mexa até ferver e ficar um pouco consistente."
+  },
+  {
+   "texto": "Retire do fogo e está pronta."
+  }
+ ]
+}

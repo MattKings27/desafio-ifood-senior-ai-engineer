@@ -1,0 +1,208 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "A senhora já tem frango e cebola na despensa, isso ajuda:\n\npeito de frango, 500 g: R$ 7,00 (500 g × R$ 14,00/kg)\ncebola, 1 unidade: R$ 0,44\n\nO creme de leite e o ketchup ainda precisam ser comprados, então antes de falar de preço eu preciso resolver umas coisas com a senhora.\n\nPrimeira pergunta, a mais importante: a senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra fazer esse prato na sua cozinha?",
+      "sessao": "20260924_024300_220dce",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 43157,
+      "uso": {
+        "entrada": 14,
+        "saida": 2688,
+        "cache_leitura": 114236,
+        "cache_escrita": 20255
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita"
+            ]
+          },
+          "saida": "{\"queries\": [\"diagnostico despensa\", \"avaliar receita\"], \"total_available\": 28, \"results\": [{\"query\": \"diagnostico despensa\", \"matches\": [\"mcp__mise__diagnostico_despensa\"]}, {\"query\": \"avaliar receita\", \"matches\": [\"mcp__mise__calcular_cmv\", \"mcp__mise__avaliar_receita\", \"mcp__mise__registrar_resposta\"]}], \"tools\": {\"mcp__mise__diagnostico_despensa\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"required\": []}, \"mcp__mise__calcular_cmv\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Custo de ingrediente de UMA porção, linha a linha.\\n\\n        Recusa receita cuja viabilidade não foi confirmada — chame\\n        `avaliar_receita` antes. Também recusa quando algum custo é\\n        desconhecido, em vez de devolver um total parcial.\\n        \", \"required\": [\"receita\"]}, \"mcp__mise__avaliar_receita\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"required\": [\"receita\"]}, \"mcp__mise__registrar_resposta\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em…\", \"required\": [\"tipo\", \"campo\", \"resposta\"]}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Strogonoff de frango",
+                    "ingredientes": [
+                      {
+                        "texto": "500 g de peito de frango",
+                        "nome": "peito de frango",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": ""
+                      },
+                      {
+                        "texto": "1 caixinha de creme de leite",
+                        "nome": "creme de leite",
+                        "quantidade": 1,
+                        "medida": "caixinha"
+                      },
+                      {
+                        "texto": "2 colheres de ketchup",
+                        "nome": "ketchup",
+                        "quantidade": 2,
+                        "medida": "colher de sopa"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal"
+                      }
+                    ],
+                    "rendimento_porcoes": 4,
+                    "modo_preparo": [
+                      "Refoga tudo na panela por 25 minutos"
+                    ],
+                    "tempo_preparo_min": 25,
+                    "fonte": "Dona Maria"
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "ketchup",
+                  "quantidade": 2,
+                  "texto": "2 colheres de ketchup"
+                },
+                {
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga tudo na panela por 25 minutos"
+              ],
+              "nome": "Strogonoff de frango",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 25
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Entendi, Dona Maria. Isso é um impedimento real: o portão bloqueou o strogonoff de frango por causa disso, porque de nada adianta a conta fechar se a senhora não consegue manter esse ingrediente na rotina.\n\nAntes de eu descartar de vez: a senhora vê algum jeito de contornar isso — tipo comprar o creme de leite só no dia que for cozinhar, em vez de estocar? Ou prefere que a gente deixe esse prato de lado por enquanto e olhe outra receita que aproveite o frango e a cebola que já estão na despensa?",
+      "sessao": "20260924_024300_220dce",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 27062,
+      "uso": {
+        "entrada": 6,
+        "saida": 1072,
+        "cache_leitura": 77264,
+        "cache_escrita": 9459
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "Creme de leite estraga rápido, e a geladeira dela é pequena e vive cheia — comprar creme de leite para o strogonoff pode não ser prático.",
+            "prato": "Strogonoff de frango"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

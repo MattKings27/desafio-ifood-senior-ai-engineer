@@ -1,0 +1,80 @@
+[project]
+name = "evals"
+version = "0.1.0"
+description = "Avaliação do sistema contra casos dourados e adversariais"
+requires-python = ">=3.11"
+dependencies = ["mise", "retrieval", "telemetria", "pyyaml>=6.0"]
+
+[project.optional-dependencies]
+# `gateway` só nos testes: é de lá que vem a lista de ferramentas que existem,
+# e um cenário que cita ferramenta inexistente passaria sem testar nada.
+dev = ["pytest>=9.1.1", "pytest-cov>=6.0", "mypy>=1.13", "ruff>=0.16.8", "types-PyYAML>=6.0", "gateway"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evals"]
+
+[tool.coverage.run]
+source = ["evals"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+omit = ["*/__main__.py"]
+exclude_lines = ["pragma: sem cobertura", "if TYPE_CHECKING:"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers -q"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src/evals"]
+
+# O PyYAML não publica tipos no próprio pacote; os stubs vêm de `types-PyYAML`,
+# que está nas dependências de desenvolvimento. Quem rodar `mypy` sem instalar o
+# extra `dev` veria um erro sobre stub ausente que não tem nada a ver com o
+# código. A anotação abaixo faz o import ser tratado como `Any` nesse caso, e só
+# nesse: nada mais no pacote perde verificação.
+[[tool.mypy.overrides]]
+module = ["yaml", "yaml.*"]
+ignore_missing_imports = true
+
+# O SDK da Anthropic é opcional: o juiz por modelo só roda com credencial, e o
+# portão do CI nunca depende dele. Exigir o pacote instalado para verificar tipos
+# tornaria a checagem refém de uma dependência que o portão não usa.
+[[tool.mypy.overrides]]
+module = ["anthropic", "anthropic.*"]
+ignore_missing_imports = true
+
+# O extra `retrieval[semantico]` (busca semântica) instala o NumPy, que os stubs do
+# `rapidfuzz` citam. Os stubs do NumPy usam sintaxe do Python 3.12 e o mypy aqui
+# verifica para 3.11: sem esta linha, instalar o extra quebrava a verificação de
+# tipos inteira. Nenhum código deste pacote usa o NumPy.
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
+follow_imports_for_stubs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "PL", "RUF", "SIM", "TID", "PT", "ARG"]
+# N818 pede sufixo `Error`; as exceções daqui são nomeadas pelo que aconteceu,
+# em português (`CenarioInvalido`), como no motor e no gateway.
+ignore = ["N818"]
+
+[tool.ruff.lint.per-file-ignores]
+# RUF001/RUF003: `×` e `÷` são intencionais neste arquivo. São os sinais que o
+# próprio motor escreve nas derivações ("500 g × R$ 14,00/kg = R$ 7,00"), e o
+# juiz precisa reconhecê-los para premiar a resposta que mostra a conta. Trocar
+# por `x` e `/` quebraria exatamente o que ele existe para medir.
+"src/evals/juiz.py" = ["RUF001", "RUF003"]
+"tests/**" = ["ANN", "PLR2004", "S101", "SIM300", "E501", "PLC0415"]

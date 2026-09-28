@@ -1,0 +1,323 @@
+{
+  "cenario": "falta-ingrediente-pergunta-preco",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango com creme de milho: 500 g de peito de frango, 1 lata de milho verde, 1 caixinha de creme de leite, 1 cebola, sal a gosto. Refoga o frango e junta o resto na panela, 30 minutos. Rende 4 porções. Gosto de fazer, sem impedimento, e fico até 2 horas cozinhando de boa.",
+      "resposta": "Dona Maria, boa notícia: das três coisas que faltavam saber, a senhora já me respondeu duas. Anotei que gosta de fazer o prato e sem impedimento, e que fica até duas horas cozinhando de boa — os 30 minutos da sua receita cabem folgado.\n\nDa sua despensa, o prato aproveita duas coisas, e a conta da sua planilha deu assim:\n\n    Peito de frango, 500 g\n      500 g × R$ 14,00/kg = R$ 7,00\n\n    Cebola, 1 unidade\n      1 × 110 g × R$ 4,00/kg = R$ 0,44\n\nUma ressalva nessa cebola: a planilha não sabe o tamanho da que a senhora usa, então ela foi contada como uma cebola de 110 gramas, que é o peso comum. Se a sua for bem maior, depois me diz que eu refaço.\n\nO sal ficou como \"a gosto\", não entra na conta.\n\nAgora falta uma coisa só, e é a que trava tudo: milho verde em conserva e creme de leite não estão na despensa. A senhora precisa comprar os dois.\n\nQuanto custam aí na sua região — e por qual quantidade? Ou seja: a lata de milho sai por quanto, e a caixinha de creme de leite sai por quanto? Preciso do preço da sua região, não posso chutar: sem ele não dá pra saber quanto sai cada porção nem quanto a senhora tem que cobrar pra sobrar dinheiro depois da taxa do aplicativo.\n\nEnquanto isso não entra, não falo de preço de venda — seria conta em cima de número inventado.\n\nUma coisa que a senhora não perguntou mas é bom saber desde já: a despensa tem R$ 663,39 investidos, e por enquanto nenhum prato avaliado usa isso. Os dois maiores são alcaparras e cobertura de chocolate, que juntos somam R$ 161,90 parados. Depois a gente olha isso. Agora vamos fechar o frango com creme de milho.",
+      "sessao": "20260924_180234_707c1b",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 50275,
+      "uso": {
+        "entrada": 14,
+        "saida": 2420,
+        "cache_leitura": 143563,
+        "cache_escrita": 33758
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: a avaliação pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/un\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0,5 kg = 0,5 kg; R$ 23,67 ÷ 0,5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0,4 kg = 0,4 kg; R$ 15,18 ÷ 0,4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 30,99 ÷ 0,5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 12,99 ÷ 0,5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0,1 L = 0,1 L; R$ 1,90 ÷ 0,1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"motivo\": \"embalagem única sem peso declarado — custo por quilo indedutível\",\n      \"pergunta\": \"Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.\",\n      \"dinheiro_envolvido\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      }\n    }\n  ],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ],\n    \"dois_maiores\": {\n      \"ingredientes\": [\n        \"Alcaparras\",\n        \"Cobertura de chocolate\"\n      ],\n      \"somam\": {\n        \"valor\": 161.9,\n        \"texto\": \"R$ 161,90\"\n      }\n    }\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"21%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 30,
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 lata de milho verde",
+                  "nome": "Milho verde em conserva",
+                  "quantidade": 1,
+                  "medida": "lata"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "medida": "caixinha"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "Sal",
+                  "medida": ""
+                }
+              ],
+              "modo_preparo": [
+                "Refoga o frango na panela.",
+                "Junta o milho, o creme de leite e a cebola.",
+                "Cozinha por 30 minutos."
+              ]
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango com creme de milho\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango com creme de milho: antes de decidir, preciso saber 3 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"ingrediente\",\n      \"campo\": \"Milho verde em conserva,Creme de leite\",\n      \"texto\": \"Falta comprar: Milho verde em conserva, Creme de leite. Quanto custa aí na sua região, e por qual quantidade (o quilo, a lata, o pacote)?\",\n      \"motivo\": \"sem o preço não dá para saber se cabe no orçamento\"\n    },\n    {\n      \"tipo\": \"operacional\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar?\",\n      \"motivo\": \"Frango com creme de milho leva cerca de 30 min\"\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango com creme de milho? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\"\n    }\n  ],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de un) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"Milho verde em conserva\",\n      \"quanto\": \"1 lata de Milho verde em conserva\",\n      \"custo\": null\n    },\n    {\n      \"ingrediente\": \"Creme de leite\",\n      \"quanto\": \"1 caixinha de Creme de leite\",\n      \"custo\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"Sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta",
+              "mcp__mise__registrar_preco_mercado",
+              "mcp__mise__proxima_pergunta"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}, \"mcp__mise__registrar_resposta\": {\"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em\\n        `registrar_preco_mercado`, com a quantidade que o preço compra; peso de\\n        embalagem ou medida em gramas entra na receita, reenviada ao portão.\\n        Resposta que não dá para entender é recusada, não adivinhada: \\\"não sei\\\"\\n        não é \\\"não tem\\\", e registrar como se fosse bloquearia o prato à toa.\\n        Para modo de preparo e rendimento, reenvie a receita em `avaliar_receita`.\\n        \", \"parameters\": {\"properties\": {\"tipo\": {\"title\": \"Tipo\", \"type\": \"string\"}, \"campo\": {\"title\": \"Campo\", \"type\": \"string\"}, \"resposta\": {\"title\": \"Resposta\", \"type\": \"string\"}}, \"required\": [\"tipo\", \"campo\", \"resposta\"], \"type\": \"object\", \"title\": \"registrar_respostaArguments\"}}, \"mcp__mise__registrar_preco_mercado\": {\"description\": \"Guarda quanto custa comprar um ingrediente que falta na despensa.\\n\\n        Esta é a resposta à pergunta que a avaliação já fazia e não tinha como\\n        receber. Sem ela o custo do que falta comprar fica indefinido para\\n        sempre, o CMV sai sem a compra complementar e \\\"cabe no orçamento?\\\" nunca\\n        chega a ser respondido.\\n\\n        `origem` distingue o que ela mesma informou do que foi pesquisado ou\\n        estimado — confianças diferentes, e é ela quem decide se aceita as duas\\n        últimas.\\n\\n        Informe `quantidade` e `unidade` sempre que ela disser por quanto é o\\n        preço (\\\"R$ 6 a lata\\\": quantidade=1, unidade=\\\"lata\\\"; \\\"R$ 50 o quilo\\\":\\n        quantidade=1, unidade=\\\"kg\\\"). Sem isso a conta assume que o valor é o de\\n        comprar exatamente o que a receita pede, e a conta sai com essa premissa.\\n        \", \"parameters\": {\"properties\": {\"ingrediente\": {\"title\": \"Ingrediente\", \"type\": \"string\"}, \"valor\": {\"title\": \"Valor\", \"type\": \"number\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"default\": null}, \"unidade\": {\"default\": \"\", \"title\": \"Unidade\", \"type\": \"string\"}, \"origem\": {\"default\": \"informado_por_ela\", \"title\": \"Origem\", \"type\": \"string\"}}, \"required\": [\"ingrediente\", \"valor\"], \"type\": \"object\", \"title\": \"registrar_preco_mercadoArguments\"}}, \"mcp__mise__proxima_pergunta\": {\"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"proxima_perguntaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "",
+            "prato": "Frango com creme de milho"
+          },
+          "saida": "{\n  \"registrado\": \"Frango com creme de milho: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "120",
+            "tipo": "operacional"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "No mercado aqui a lata de milho sai 6 reais e o creme de leite 4 e 50.",
+      "resposta": "Pronto, Dona Maria. Esse prato dá pra fazer, comprando duas coisas.\n\nA compra são R$ 10,50 no total: a lata de milho por R$ 6,00 e a caixinha de creme de leite por R$ 4,50. Cabe nos R$ 80,00 que a senhora tem pra complementar.\n\nAgora, o que interessa. A sua receita rende 4 porções, mas no delivery a senhora vende uma de cada vez. Então dividi tudo por 4. O custo de ingrediente de UMA porção ficou assim:\n\n    Peito de frango, 125 g ....... R$ 1,75\n      (500 g × R$ 14,00/kg = R$ 7,00, dividido por 4)\n\n    Milho verde, a lata .......... R$ 1,50\n      (R$ 6,00 a lata, dividido por 4)\n\n    Creme de leite, a caixinha ... R$ 1,13\n      (R$ 4,50 a caixinha, dividido por 4)\n\n    Cebola ....................... R$ 0,11\n      (R$ 0,44 a cebola, dividido por 4)\n\n    Sal .......................... a gosto, contado como desprezível\n\n    TOTAL DA PORÇÃO .............. R$ 4,49\n\nDuas ressalvas de honestidade. A cebola foi contada como uma de 110 gramas, que é o peso comum — se a sua for bem maior, me diz que eu refaço. E os R$ 6,00 e R$ 4,50 foram tratados como o preço de comprar exatamente o que a receita pede: uma lata inteira e uma caixinha inteira, tudo indo pro prato. Se sobrar milho ou creme na embalagem, me avise, porque aí o custo real cai.\n\nAgora a taxa do aplicativo, que é onde muita gente se perde.\n\nO custo é R$ 4,49. Mas a senhora não pode vender por R$ 4,49. O iFood fica com 10% de tudo que o cliente paga. Se o cliente paga R$ 4,49, chegam só R$ 4,04 na sua mão — e a senhora pagou R$ 4,49 de ingrediente. Prejuízo.\n\nPra empatar exatinho, a conta é R$ 4,49 dividido por 0,90, que dá R$ 4,99. Abaixo disso a senhora está pagando pra trabalhar.\n\nEmpatar não serve. A senhora precisa que sobre. Três caminhos, e a escolha é sua:\n\n    CONSERVADOR — preço mais baixo, ganha menos por prato,\n    mas costuma atrair mais pedido\n      Cliente paga ......... R$ 11,23\n      iFood leva ........... R$ 1,12\n      Chega pra senhora .... R$ 10,11\n      Menos o ingrediente .. R$ 4,49\n      SOBRA LIMPA .......... R$ 5,62\n      O ingrediente é 40% do preço\n\n    EQUILIBRADO — o meio-termo\n      Cliente paga ......... R$ 12,83\n      iFood leva ........... R$ 1,28\n      Chega pra senhora .... R$ 11,55\n      Menos o ingrediente .. R$ 4,49\n      SOBRA LIMPA .......... R$ 7,06\n      O ingrediente é 35% do preço\n\n    PREMIUM — preço mais alto, ganha mais por prato,\n    mas vende pra menos gente\n      Cliente paga ......... R$ 14,97\n      iFood leva ........... R$ 1,50\n      Chega pra senhora .... R$ 13,47\n      Menos o ingrediente .. R$ 4,49\n      SOBRA LIMPA .......... R$ 8,98\n      O ingrediente é 30% do preço\n\nEu não escolho por a senhora, e não sei o que cobram na sua vizinhança — quem conhece a clientela é a senhora.\n\nDuas perguntas, e responda na ordem que quiser: algum desses três preços te parece certo pro seu bairro? Ou a senhora já tem outro valor na cabeça? Se tiver, me diz qual que eu faço a conta dele e mostro quanto sobra, antes de gravar qualquer coisa.",
+      "sessao": "20260924_180234_707c1b",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 48621,
+      "uso": {
+        "entrada": 14,
+        "saida": 3030,
+        "cache_leitura": 239887,
+        "cache_escrita": 15180
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "Milho verde em conserva",
+            "origem": "informado_por_ela",
+            "quantidade": 1,
+            "unidade": "lata",
+            "valor": 6.0
+          },
+          "saida": "{\n  \"registrado\": \"Milho verde em conserva: R$ 6,00 por 1 lata (informado por ela)\",\n  \"casou_com_o_que_falta\": true,\n  \"o_que_falta_nos_pratos\": [\n    \"Creme de leite\",\n    \"Milho verde em conserva\"\n  ],\n  \"orcamento_restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"observacao\": \"reavalie o prato: com o preço conhecido a avaliação já consegue dizer se a compra cabe no orçamento\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "Creme de leite",
+            "origem": "informado_por_ela",
+            "quantidade": 1,
+            "unidade": "caixinha",
+            "valor": 4.5
+          },
+          "saida": "{\n  \"registrado\": \"Creme de leite: R$ 4,50 por 1 caixinha (informado por ela)\",\n  \"casou_com_o_que_falta\": true,\n  \"o_que_falta_nos_pratos\": [\n    \"Creme de leite\"\n  ],\n  \"orcamento_restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"observacao\": \"reavalie o prato: com o preço conhecido a avaliação já consegue dizer se a compra cabe no orçamento\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "Milho verde em conserva",
+                  "quantidade": 1,
+                  "texto": "1 lata de milho verde"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "un",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "",
+                  "nome": "Sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga o frango na panela.",
+                "Junta o milho, o creme de leite e a cebola.",
+                "Cozinha por 30 minutos."
+              ],
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 30
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango com creme de milho\",\n  \"veredito\": \"APTO COM COMPRA\",\n  \"pode_precificar\": true,\n  \"resumo\": \"Frango com creme de milho: dá, comprando 2 itens, R$ 10,50 no total; cabe nos R$ 80,00 que restam do orçamento\",\n  \"impedimentos\": [],\n  \"perguntas\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,11 kg\",\n      \"custo\": {\n        \"valor\": 0.44,\n        \"texto\": \"R$ 0,44\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de un) = 110 g × R$ 4,00/kg = R$ 0,44\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"Milho verde em conserva\",\n      \"quanto\": \"1 lata de Milho verde em conserva\",\n      \"custo\": {\n        \"valor\": 6.0,\n        \"texto\": \"R$ 6,00\"\n      }\n    },\n    {\n      \"ingrediente\": \"Creme de leite\",\n      \"quanto\": \"1 caixinha de Creme de leite\",\n      \"custo\": {\n        \"valor\": 4.5,\n        \"texto\": \"R$ 4,50\"\n      }\n    }\n  ],\n  \"a_gosto\": [\n    \"Sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": []\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__calcular_cmv",
+              "mcp__mise__cenarios_preco"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__calcular_cmv\": {\"description\": \"Custo de ingrediente de UMA porção, linha a linha.\\n\\n        Recusa receita cuja viabilidade não foi confirmada — chame\\n        `avaliar_receita` antes. Também recusa quando algum custo é\\n        desconhecido, em vez de devolver um total parcial.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: a avaliação pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"calcular_cmvArguments\"}}, \"mcp__mise__cenarios_preco\": {\"description\": \"Três cenários de preço para um prato aprovado no portão, com a taxa de 10% aberta.\\n\\n        O custo é recalculado aqui a partir da receita avaliada; o número não vem\\n        de quem chama. Se `cmv_por_porcao` vier, tem que bater com o calculado.\\n        Apresente os três e deixe a Dona Maria escolher. Não recomende um:\\n        o posicionamento do negócio é decisão dela.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"cmv_por_porcao\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Cmv Por Porcao\", \"default\": null}}, \"required\": [\"prato\"], \"type\": \"object\", \"title\": \"cenarios_precoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__calcular_cmv",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "Milho verde em conserva",
+                  "quantidade": 1,
+                  "texto": "1 lata de milho verde"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "un",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "",
+                  "nome": "Sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga o frango na panela.",
+                "Junta o milho, o creme de leite e a cebola.",
+                "Cozinha por 30 minutos."
+              ],
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 30
+            }
+          },
+          "saida": "{\n  \"prato\": \"Frango com creme de milho\",\n  \"cmv_por_porcao\": {\n    \"valor\": 4.49,\n    \"texto\": \"R$ 4,49\"\n  },\n  \"auditoria_independente\": {\n    \"confere\": true,\n    \"observacao\": \"4 linha(s) somam 4.49\",\n    \"divergencias\": [],\n    \"por\": \"auditor independente, em processo\"\n  },\n  \"e_faixa\": false,\n  \"faixa\": null,\n  \"incerteza\": \"±0.4%\",\n  \"rendimento_original\": 4,\n  \"linhas\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0.125 kg\",\n      \"custo\": {\n        \"valor\": 1.75,\n        \"texto\": \"R$ 1,75\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00 ÷ 4 porções\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0.0275 kg\",\n      \"custo\": {\n        \"valor\": 0.11,\n        \"texto\": \"R$ 0,11\"\n      },\n      \"derivacao\": \"1 × 110 g (peso típico de un) = 110 g × R$ 4,00/kg = R$ 0,44 ÷ 4 porções\"\n    },\n    {\n      \"ingrediente\": \"Milho verde em conserva (comprar)\",\n      \"quantidade\": \"1 lata de Milho verde em conserva\",\n      \"custo\": {\n        \"valor\": 1.5,\n        \"texto\": \"R$ 1,50\"\n      },\n      \"derivacao\": \"1 lata × R$ 6,00 por 1 lata = R$ 6,00; na compra, 1 × R$ 6,00 = R$ 6,00 ÷ 4 porções\"\n    },\n    {\n      \"ingrediente\": \"Creme de leite (comprar)\",\n      \"quantidade\": \"1 caixinha de Creme de leite\",\n      \"custo\": {\n        \"valor\": 1.13,\n        \"texto\": \"R$ 1,13\"\n      },\n      \"derivacao\": \"1 caixinha × R$ 4,50 por 1 caixinha = R$ 4,50; na compra, 1 × R$ 4,50 = R$ 4,50 ÷ 4 porções\"\n    }\n  ],\n  \"itens_a_gosto\": [\n    \"Sal\"\n  ],\n  \"maiores_custos\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"custo\": {\n        \"valor\": 1.75,\n        \"texto\": \"R$ 1,75\"\n      }\n    },\n    {\n      \"ingrediente\": \"Milho verde em conserva (comprar)\",\n      \"custo\": {\n        \"valor\": 1.5,\n        \"texto\": \"R$ 1,50\"\n      }\n    },\n    {\n      \"ingrediente\": \"Creme de leite (comprar)\",\n      \"custo\": {\n        \"valor\": 1.13,\n        \"texto\": \"R$ 1,13\"\n      }\n    }\n  ],\n  \"explicacao\": \"Custo de ingrediente de 1 porção de Frango com creme de milho:\\n  · Peito de frango: 0.125 kg = R$ 1,75\\n  · Cebola: 0.0275 kg = R$ 0,11\\n  · Milho verde em conserva (comprar): 1 lata de Milho verde em conserva = R$ 1,50\\n  · Creme de leite (comprar): 1 caixinha de Creme de leite = R$ 1,13\\n  · Sal: a gosto, custo desprezível (mas contado, não esquecido)\\n  Total: R$ 4,49\\n  (a receita original rende 4 porções; os valores acima já são de uma só)\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__cenarios_preco",
+          "entrada": {
+            "prato": "Frango com creme de milho"
+          },
+          "saida": "{\n  \"prato\": \"Frango com creme de milho\",\n  \"cmv\": {\n    \"valor\": 4.49,\n    \"texto\": \"R$ 4,49\"\n  },\n  \"preco_minimo_sem_prejuizo\": {\n    \"valor\": 4.99,\n    \"texto\": \"R$ 4,99\"\n  },\n  \"explicacao_da_taxa\": \"O custo de ingrediente é R$ 4,49. Mas não dá pra vender por R$ 4,49: o iFood fica com 10% de tudo que o cliente paga, então a senhora receberia só R$ 4,04 e sairia no prejuízo. Pra empatar exatamente, o preço tem que ser R$ 4,49 ÷ 0,90 = R$ 4,99. Abaixo disso a senhora paga pra trabalhar.\",\n  \"cenarios\": [\n    {\n      \"nome\": \"Conservador\",\n      \"descricao\": \"preço mais baixo, ganha menos por prato mas atrai mais pedido\",\n      \"preco\": {\n        \"valor\": 11.23,\n        \"texto\": \"R$ 11,23\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 1.12,\n        \"texto\": \"R$ 1,12\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 10.11,\n        \"texto\": \"R$ 10,11\"\n      },\n      \"lucro\": {\n        \"valor\": 5.62,\n        \"texto\": \"R$ 5,62\"\n      },\n      \"food_cost\": \"40%\",\n      \"margem_sobre_preco\": \"50%\",\n      \"explicacao\": \"Vendendo a R$ 11,23: o iFood fica com R$ 1,12 (10%), então chegam R$ 10,11 pra senhora. Tirando R$ 4,49 de ingrediente, sobram R$ 5,62 limpos por porção. Isso é 50% do que o cliente paga.\"\n    },\n    {\n      \"nome\": \"Equilibrado\",\n      \"descricao\": \"o meio-termo: o ingrediente fica em cerca de um terço do preço\",\n      \"preco\": {\n        \"valor\": 12.83,\n        \"texto\": \"R$ 12,83\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 1.28,\n        \"texto\": \"R$ 1,28\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 11.55,\n        \"texto\": \"R$ 11,55\"\n      },\n      \"lucro\": {\n        \"valor\": 7.06,\n        \"texto\": \"R$ 7,06\"\n      },\n      \"food_cost\": \"35%\",\n      \"margem_sobre_preco\": \"55%\",\n      \"explicacao\": \"Vendendo a R$ 12,83: o iFood fica com R$ 1,28 (10%), então chegam R$ 11,55 pra senhora. Tirando R$ 4,49 de ingrediente, sobram R$ 7,06 limpos por porção. Isso é 55% do que o cliente paga.\"\n    },\n    {\n      \"nome\": \"Premium\",\n      \"descricao\": \"preço mais alto, ganha mais por prato mas vende para menos gente\",\n      \"preco\": {\n        \"valor\": 14.97,\n        \"texto\": \"R$ 14,97\"\n      },\n      \"taxa_ifood\": {\n        \"valor\": 1.5,\n        \"texto\": \"R$ 1,50\"\n      },\n      \"ela_recebe\": {\n        \"valor\": 13.47,\n        \"texto\": \"R$ 13,47\"\n      },\n      \"lucro\": {\n        \"valor\": 8.98,\n        \"texto\": \"R$ 8,98\"\n      },\n      \"food_cost\": \"30%\",\n      \"margem_sobre_preco\": \"60%\",\n      \"explicacao\": \"Vendendo a R$ 14,97: o iFood fica com R$ 1,50 (10%), então chegam R$ 13,47 pra senhora. Tirando R$ 4,49 de ingrediente, sobram R$ 8,98 limpos por porção. Isso é 60% do que o cliente paga.\"\n    }\n  ],\n  \"orientacao\": \"Mostre os três e pergunte qual ela prefere. A escolha é dela.\",\n  \"auditoria_independente\": {\n    \"confere\": true,\n    \"por\": \"auditor independente, em processo\",\n    \"observacao\": \"4 linha(s) somam 4.49; mínimo R$ 4.99, lucro R$ 5.62 a R$ 11.23; 4 linha(s) somam 4.49; mínimo R$ 4.99, lucro R$ 7.06 a R$ 12.83; 4 linha(s) somam 4.49; mínimo R$ 4.99, lucro R$ 8.98 a R$ 14.97\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "cenario": "contexto-da-tela",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu paguei nisso?\n\n[a senhora está vendo o ingrediente Alcaparras]",
+      "resposta": "A senhora pagou R$ 82,00 nas alcaparras: um balde de 2 kg, que está na linha 30 da sua planilha, na aba Precos.\n\nIsso dá R$ 41,00 por quilo (R$ 82,00 dividido por 2 kg). É o item que mais segura dinheiro na sua despensa hoje, 12% de tudo o que a senhora pagou.\n\nSe quiser, posso procurar receitas que usem alcaparras, pra esse dinheiro não ficar parado.",
+      "sessao": "20260927_175918_653d0e",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 20691,
+      "uso": {
+        "entrada": 6,
+        "saida": 526,
+        "cache_leitura": 59321,
+        "cache_escrita": 4395
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__custo_unitario",
+          "entrada": {
+            "ingrediente": "Alcaparras"
+          },
+          "saida": "{\n  \"encontrado\": true,\n  \"ingrediente\": \"Alcaparras\",\n  \"como_encontrei\": \"'Alcaparras' → 'Alcaparras' (nome idêntico)\",\n  \"custo_unitario\": \"R$ 41,00/kg\",\n  \"derivacao\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\",\n  \"confianca\": \"media\",\n  \"estoque\": \"2 kg\",\n  \"pago_na_compra\": {\n    \"valor\": 82.0,\n    \"texto\": \"R$ 82,00\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "pergunta": "quanto a Dona Maria pagou nas alcaparras",
+            "tipos": [
+              "despensa"
+            ],
+            "k": 3
+          },
+          "saida": "{\n  \"trechos\": [\n    {\n      \"id\": \"despensa:resumo\",\n      \"tipo\": \"despensa\",\n      \"rota\": \"/despensa\",\n      \"fonte\": \"a despensa da senhora\",\n      \"texto\": \"Despensa da senhora, o resumo: 37 itens, e a senhora pagou R$ 663,39 no total. Os que mais seguram dinheiro: Alcaparras (R$ 82,00, 12% do que a senhora pagou), Cobertura de chocolate (R$ 79,90, 12% do que a senhora pagou), Carne moída (patinho) (R$ 42,00, 6% do que a senhora pagou), Miolo de alcatra (R$ 34,00, 5% do que a senhora pagou) e Azeite de oliva extra virgem (R$ 30,99, 5% do que a senhora pagou).\",\n      \"pontuacao\": 1.0\n    },\n    {\n      \"id\": \"despensa:alcaparras\",\n      \"tipo\": \"despensa\",\n      \"rota\": \"/despensa/alcaparras\",\n      \"fonte\": \"a despensa da senhora\",\n      \"texto\": \"Alcaparras, na despensa da senhora: Tem 2 kg (1 balde de 2 kg). Comprou 1 balde de 2 kg por R$ 82,00. Custo de R$ 41,00/kg (1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg), conta com conversão de embalagem. Origem: da planilha. Na planilha dela: aba Despensa, linha 30 (Alcaparras | 1 | balde 2kg); aba Precos, linha 30 (Alcaparras | 1 | balde 2kg | R$ 82,00).\",\n      \"pontuacao\": 0.98\n    },\n    {\n      \"id\": \"despensa:batata\",\n      \"tipo\": \"despensa\",\n      \"rota\": \"/despensa/batata\",\n      \"fonte\": \"a despensa da senhora\",\n      \"texto\": \"Batata, na despensa da senhora: Tem 3 kg. Comprou 3 kg por R$ 18,00. Custo de R$ 6,00/kg (R$ 18,00 ÷ 3 kg = R$ 6,00/kg), conta direta da planilha. Origem: da planilha. Na planilha dela: aba Despensa, linha 15 (Batata | 3 | kg); aba Precos, linha 15 (Batata | 3 | kg | R$ 18,00).\",\n      \"pontuacao\": 0.95\n    }\n  ],\n  \"nada_relevante\": false,\n  \"texto\": \"Achei 3 trechos com fonte sobre a pergunta.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}
