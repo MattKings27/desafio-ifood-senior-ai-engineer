@@ -1,0 +1,152 @@
+# Configuração do agente no Hermes 0.21.4, versionada.
+#
+# O hermes/configurar_perfil.py, chamado pelo bootstrap.sh, funde este arquivo no
+# config.yaml do perfil chave por chave, preservando tudo que não está aqui,
+# inclusive as credenciais, que nunca entram neste arquivo. Lista é substituída
+# inteira, e rodar de novo dá o mesmo resultado.
+#
+# Só entra aqui chave que existe no esquema do Hermes, com o tipo certo. A
+# primeira versão deste arquivo trazia plugins.enabled como booleano, mas a chave
+# é uma lista de nomes: o booleano apagou a lista e desligou o guard-rail sem
+# aviso. O hermes/tests/test_overlay.py existe por causa disso.
+#
+# Não há temperature nem top_p, de propósito. Fable 5.1, Opus 5.5 e Opus 5
+# recusam parâmetro de amostragem com HTTP 400, e o próprio Hermes os remove
+# antes de chamar a API (agent/anthropic_adapter.py, _forbids_sampling_params
+# na linha 188 e a remoção na linha 660). O controle que sobra é o esforço. O
+# determinismo que importa para a Dona Maria vem da arquitetura, não do
+# sorteio: todo número sai do motor em Decimal com a conta, a conferência da
+# receita vem antes de qualquer compra ou preço, o guard-rail retira da resposta
+# o valor sem origem, o auditor refaz a conta por outro caminho, e a busca de
+# conhecimento é calibrada para responder "não sei" quando não acha fonte.
+
+model:
+  # Fable 5.1, o modelo mais capaz da Anthropic. O trabalho é conversa longa
+  # com ferramenta no meio, recusa disciplinada quando falta dado e um estilo
+  # de fala que o SOUL descreve em poucas linhas; é onde o Fable 5.1 segue
+  # instrução melhor, sem precisar de prompt gritado.
+  default: claude-fable-5-1
+  provider: anthropic
+
+# Reserva. Se a chamada ao Fable 5.1 falhar de um jeito que o Hermes trata como
+# motivo para trocar de modelo (provedor fora do ar depois das novas tentativas,
+# limite de taxa, modelo indisponível), o turno segue no Opus 5.5 com o mesmo
+# SOUL, as mesmas skills e o mesmo esforço. O formato é o do esquema: uma lista de pares provider e model
+# (hermes_cli/config_defaults.py, linha 24), lida em ordem por
+# hermes_cli/fallback_config.py (get_fallback_chain, linha 100) e por
+# agent/agent_init.py (_fallback_entries, linha 1027), que ignora entrada sem os
+# dois campos.
+fallback_providers:
+  - provider: anthropic
+    model: claude-opus-5-5
+
+agent:
+  # medium para começar. No Fable 5.1 o esforço médio fica perto do alto dos
+  # modelos anteriores, com menos espera e menos custo, e a sonda aprovou. Os
+  # cenários do agente medem medium contra high e confirmam ou trocam este
+  # valor. O Hermes aplica o mesmo esforço à reserva (hermes_constants.py,
+  # resolve_reasoning_config, linha 1364).
+  reasoning_effort: medium
+
+  # A entrevista da cozinha é longa: equipamentos, técnicas e as restrições de
+  # rotina, prato a prato. 150 turnos cabem numa sessão inteira sem cortar no
+  # meio de uma pergunta.
+  max_turns: 150
+
+  verbose: false
+
+  # Um agente de cardápio não tem por que ler arquivos, rodar comando ou
+  # mexer no computador de quem o hospeda. Na primeira medição com o agente
+  # real, ele usou search_files e read_file na pasta pessoal e no repositório
+  # para achar a planilha, porque o perfil herdava o pacote inteiro do Hermes.
+  # Ficam a web, as skills, a memória e o servidor do motor.
+  #
+  # O toolset skills fica ligado porque é por ele que o agente abre as cinco
+  # skills da consultoria (skill_view). A ferramenta que as reescreveria,
+  # skill_manage, mora no mesmo toolset e o Hermes não desliga ferramenta
+  # isolada; quem a barra é o plugin guardrail-numerico, no hook pre_tool_call.
+  #
+  # clarify fica de fora desta lista de propósito: no servidor de API, por onde o
+  # chat da web fala, ele não existe, e nenhum turno fica esperando resposta que
+  # não vem. A prova, arquivo e linha no Hermes: docs/runbooks/agente-na-web.md.
+  disabled_toolsets:
+    - file
+    - terminal
+    - code_execution
+    - computer_use
+    - browser
+    - delegation
+    - cronjob
+    - connections
+    - image_gen
+    - video
+    - tts
+
+tools:
+  tool_search:
+    # "off": as ferramentas do motor vão inteiras para o modelo desde a primeira
+    # chamada. No padrão ("auto"), o Hermes 0.21.4 esconde toda ferramenta de
+    # servidor MCP atrás de três pontes (tool_search, tool_describe, tool_call;
+    # tools/tool_search.py, is_deferrable_tool_name trata todo "mcp-" como
+    # adiável), e o modelo gasta uma ida e volta inteira só para ler o esquema
+    # antes de usar a ferramenta. Medido no "O que dá pra fazer com o que eu
+    # tenho?": 4 chamadas ao modelo (skills, tool_describe, a ferramenta, a
+    # resposta), e a do tool_describe custou de 1,7 a 3,5 s. As 32 ferramentas
+    # somam perto de 40 mil caracteres no começo do prompt, que é o mesmo em toda
+    # sessão e fica no cache (a primeira chamada de uma sessão nova já lê 100%
+    # do começo do cache). Entre aspas: sem elas o YAML lê um booleano.
+    enabled: "off"
+
+plugins:
+  # Lista de nomes, não booleano. O guard-rail confere todo valor em reais da
+  # resposta contra o que o motor devolveu e o que ela disse, e barra a
+  # ferramenta que reescreveria as skills.
+  enabled:
+    - guardrail-numerico
+  disabled: []
+
+skills:
+  # Zero desliga o lembrete de criar skill e a revisão de skills em segundo
+  # plano (agent/agent_init.py, linha 1334; agent/turn_iteration_prep.py, linha
+  # 121). As cinco skills são revisadas no repositório, com teste e cenário do
+  # agente; uma skill reescrita no meio de uma conversa com ela mudaria o
+  # comportamento sem ninguém conferir.
+  creation_nudge_interval: 0
+
+  # Segunda barreira, pelo mecanismo do próprio Hermes: se o plugin não
+  # carregar, uma escrita de skill fica pendente de aprovação em vez de valer.
+  write_approval: true
+
+  # skills.disabled não mora aqui. O configurar_perfil.py escreve nessa chave
+  # oficial (hermes_cli/skills_config.py, linhas 28 a 54) todas as skills do
+  # perfil menos as cinco da consultoria, calculadas da pasta a cada bootstrap:
+  # uma lista fixa aqui envelheceria a cada versão do Hermes. A skill
+  # hermes-agent o Hermes não deixa desligar (agent/skill_utils.py, linha 275).
+
+memory:
+  # O dossiê em SQLite é a única fonte da verdade sobre a despensa, a cozinha,
+  # as receitas e as decisões dela. O MEMORY.md do Hermes guardaria uma segunda
+  # cópia resumida desses fatos, que envelhece sem ninguém ver, então fica
+  # desligado.
+  memory_enabled: false
+  # O USER.md fica, só para preferência de conversa que ela disser, como o
+  # jeito que ela gosta de ser chamada. O SOUL diz o que entra ali.
+  user_profile_enabled: true
+  # Zero desliga a revisão periódica em segundo plano, que escreveria na
+  # memória o que ela contou da cozinha sem passar pelo motor
+  # (agent/agent_init.py, linha 1283). A preferência entra quando ela diz,
+  # no próprio turno.
+  nudge_interval: 0
+  # Os limites de caractere são os do Hermes e ficam aqui para deixar claro por
+  # que o dossiê existe: 1.375 caracteres não cabem equipamentos, técnicas,
+  # restrições, pratos e orçamento.
+  memory_char_limit: 2200
+  user_char_limit: 1375
+
+compression:
+  # Comprimir cedo demais perde o começo da conversa, que é onde ela contou o que
+  # tem na cozinha. Como o dossiê é durável, a compressão só precisa não estragar
+  # a sessão em curso.
+  enabled: true
+  protect_first_n: 3
+  protect_last_n: 20
