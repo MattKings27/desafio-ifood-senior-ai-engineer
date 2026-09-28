@@ -1,0 +1,60 @@
+{
+ "padrao": "HowToSection com os passos em itemListElement e seções com nome (Massa, Cobertura), como no Receitas Nestlé",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo de cenoura",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToSection",
+    "name": "Massa",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Bata a cenoura, o óleo e os ovos no liquidificador."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Asse em forno médio por 40 minutos."
+     }
+    ]
+   },
+   {
+    "@type": "HowToSection",
+    "name": "Cobertura",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Leve o leite condensado ao fogo baixo, mexendo sempre."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Espalhe sobre o bolo ainda morno."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Bata a cenoura, o óleo e os ovos no liquidificador.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Asse em forno médio por 40 minutos.",
+   "secao": "Massa"
+  },
+  {
+   "texto": "Leve o leite condensado ao fogo baixo, mexendo sempre.",
+   "secao": "Cobertura"
+  },
+  {
+   "texto": "Espalhe sobre o bolo ainda morno.",
+   "secao": "Cobertura"
+  }
+ ]
+}

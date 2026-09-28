@@ -1,0 +1,39 @@
+{
+  "cenarios": {
+    "descobrir-o-que-consigo-cozinhar": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 1,
+  "total_de_cenarios": 1,
+  "turnos": 2,
+  "latencia_por_turno_s": {
+    "p50": 28.7,
+    "p95": 28.7
+  },
+  "tokens": {
+    "entrada": 12,
+    "saida": 1574,
+    "cache_leitura": 114219,
+    "cache_escrita": 29521
+  },
+  "modelos": [
+    "claude-fable-5-1"
+  ],
+  "custo": {
+    "usd": 0.476387,
+    "partes_usd": {
+      "entrada": 0.00012,
+      "saida": 0.0787,
+      "leitura_de_cache": 0.028555,
+      "gravacao_de_cache": 0.369013
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 0.476387
+  },
+  "tokens_conferem_com_o_hermes": true
+}

@@ -1,0 +1,45 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 5,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nO motor mostra assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra foi registrada ainda.\n\nUma coisa importante: esse valor só desce quando a senhora comprar de verdade e a gente registrar aqui. Enquanto for só preço de mercado anotado, o dinheiro continua no bolso.\n\nSe quiser, eu já dou uma olhada na despensa pra ver o que a senhora tem e o que faria sentido completar com esses R$ 80,00. Posso puxar?",
+      "sessao": "20260924_025754_3749ff",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 15782,
+      "uso": {
+        "entrada": 6,
+        "saida": 448,
+        "cache_leitura": 39556,
+        "cache_escrita": 4229
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

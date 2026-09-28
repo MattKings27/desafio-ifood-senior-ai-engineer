@@ -1,0 +1,37 @@
+{
+ "padrao": "Objetos sem @type: com texto próprio é um passo (o que ele traz dentro não vira outro passo); sem texto e com itemListElement é uma seção",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo",
+  "recipeIngredient": [
+   "2 ovos"
+  ],
+  "recipeInstructions": [
+   {
+    "text": "Misture a massa.",
+    "itemListElement": [
+     {
+      "text": "Um detalhe do passo."
+     }
+    ]
+   },
+   {
+    "name": "Cobertura",
+    "itemListElement": [
+     "Derreta o chocolate."
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Misture a massa.",
+   "secao": null
+  },
+  {
+   "texto": "Derreta o chocolate.",
+   "secao": "Cobertura"
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+  "cenarios": {
+    "sem-forno-pergunta-air-fryer": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 1,
+  "total_de_cenarios": 1,
+  "turnos": 2,
+  "latencia_por_turno_s": {
+    "p50": 48.2,
+    "p95": 49.2
+  },
+  "tokens": {
+    "entrada": 16,
+    "saida": 4527,
+    "cache_leitura": 230513,
+    "cache_escrita": 55396
+  },
+  "modelos": [
+    "claude-opus-5"
+  ]
+}

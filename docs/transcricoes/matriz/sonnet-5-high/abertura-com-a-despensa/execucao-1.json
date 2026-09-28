@@ -1,0 +1,55 @@
+{
+  "cenario": "abertura-com-a-despensa",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de prato pra vender no iFood. Por onde a gente começa?",
+      "resposta": "Oi, Dona Maria! Que bom começar essa parceria. Dei uma olhada na despensa da senhora e vi 37 itens, R$ 663,39 já investidos. Antes de pensar em prato, três coisas que valem a pena a senhora saber:\n\nPrimeiro, onde o dinheiro está concentrado: as alcaparras sozinhas são R$ 82,00, mais de um oitavo de tudo que a senhora comprou. Alcaparra entra de colher em colher numa receita, então esse dinheiro demora a voltar. A cobertura de chocolate também pesa: R$ 79,90.\n\nSegundo, e essa eu preciso da senhora: a cobertura de chocolate veio numa embalagem única, sem o peso escrito que eu conseguisse achar na planilha. Quanto vem na embalagem? Se tiver escrito no rótulo, em gramas ou ml, me diga que eu calculo o custo certinho por quilo.\n\nTerceiro: a senhora tem R$ 80,00 livres pra complementar o que faltar comprar, e por enquanto não usou nada disso.\n\nPra eu começar a procurar receita que aproveite o que já está na despensa, me conta: que tipo de prato a senhora gosta de fazer? Prefere algo salgado de prato principal, tipo carne com acompanhamento, ou está pensando em outra linha?",
+      "sessao": "20260924_022316_6eb6d1",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 25066,
+      "uso": {
+        "entrada": 8,
+        "saida": 793,
+        "cache_leitura": 45581,
+        "cache_escrita": 26882
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "consultoria-gastronomica:diagnostico-despensa"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

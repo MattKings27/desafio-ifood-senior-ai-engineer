@@ -1,0 +1,73 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "7396b66c3125cca5",
+ "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/",
+ "receita": {
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Cobertura de chocolate fácil e rápida",
+  "recipeIngredient": [
+   "200 gramas de açúcar",
+   "70 gramas de chocolate em pó 50%",
+   "300 ml de água"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Em uma bancada, junte os ingredientes para preparar essa deliciosa cobertura que pode ser utilizada nas mais diversas receitas;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-01-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Separe uma panela média e adicione o açúcar e o chocolate em pó. Ainda fora do fogo, mexa até ficar homogêneo;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-02-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em seguida, adicione água aos poucos e mexa até que tudo seja dissolvido;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-03-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Leve ao fogo médio e vá mexendo de vez em quando. Atente-se para que a mistura não suba demais e derrame da panela;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-04-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Quando começar a borbulhar, ferva por aproximadamente 9 minutos, ou até atingir o ponto desejado. Para verificar a textura, coloque um pouquinho em um recipiente e deixe esfriar;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-05-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Espere baixar a temperatura um pouquinho e transfira para o recipiente ou preparo em que será utilizada. Depois é só aproveitar!",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/cobertura-de-chocolate-facil-e-rapida-06-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/cobertura-de-chocolate-facil-e-rapida/#passo6"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Em uma bancada, junte os ingredientes para preparar essa deliciosa cobertura que pode ser utilizada nas mais diversas receitas;"
+  },
+  {
+   "texto": "Separe uma panela média e adicione o açúcar e o chocolate em pó. Ainda fora do fogo, mexa até ficar homogêneo;"
+  },
+  {
+   "texto": "Em seguida, adicione água aos poucos e mexa até que tudo seja dissolvido;"
+  },
+  {
+   "texto": "Leve ao fogo médio e vá mexendo de vez em quando. Atente-se para que a mistura não suba demais e derrame da panela;"
+  },
+  {
+   "texto": "Quando começar a borbulhar, ferva por aproximadamente 9 minutos, ou até atingir o ponto desejado. Para verificar a textura, coloque um pouquinho em um recipiente e deixe esfriar;"
+  },
+  {
+   "texto": "Espere baixar a temperatura um pouquinho e transfira para o recipiente ou preparo em que será utilizada. Depois é só aproveitar!"
+  }
+ ]
+}

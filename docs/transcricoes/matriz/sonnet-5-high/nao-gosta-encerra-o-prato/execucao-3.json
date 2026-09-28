@@ -1,0 +1,191 @@
+{
+  "cenario": "nao-gosta-encerra-o-prato",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola, 4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.",
+      "resposta": "Boa notícia, Dona Maria: a senhora já tem tudo na despensa pra essa feijoada — feijão preto, bacon, cebola e alho, sem precisar comprar nada.\n\nSó falta uma coisa antes de eu falar de preço: a senhora gosta de fazer feijoada? E vê algum problema pra preparar ela na sua cozinha — fogão com boca livre por duas horas, panela grande o suficiente pro 1 kg de feijão?",
+      "sessao": "20260924_024945_953345",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 28051,
+      "uso": {
+        "entrada": 12,
+        "saida": 1897,
+        "cache_leitura": 95604,
+        "cache_escrita": 17986
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Feijoada",
+                    "ingredientes": [
+                      {
+                        "texto": "1 kg de feijão preto",
+                        "nome": "feijão preto",
+                        "quantidade": 1,
+                        "medida": "kg"
+                      },
+                      {
+                        "texto": "500 g de bacon",
+                        "nome": "bacon",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": ""
+                      },
+                      {
+                        "texto": "4 dentes de alho",
+                        "nome": "alho",
+                        "quantidade": 4,
+                        "medida": "dente de alho"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal",
+                        "medida": ""
+                      }
+                    ],
+                    "rendimento_porcoes": 8,
+                    "modo_preparo": [
+                      "Cozinhar na panela por 2 horas"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Feijoada",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de feijão preto",
+                  "nome": "feijão preto",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "500 g de bacon",
+                  "nome": "bacon",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": ""
+                },
+                {
+                  "texto": "4 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 4,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "rendimento_porcoes": 8,
+              "modo_preparo": [
+                "Cozinhar na panela por 2 horas"
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.",
+      "resposta": "Entendido, Dona Maria. Registrei que a senhora não gosta de fazer feijoada — dá trabalho demais. A feijoada sai do cardápio, sem essa nem se a conta fechasse bonito, porque quem cozinha todo dia é a senhora.\n\nE o feijão preto, o bacon, a cebola e o alho continuam na despensa, prontos pra entrar em outro prato que a senhora goste mais de fazer.\n\nMe conta: tem algum prato que a senhora já faz bem e gosta de cozinhar, mesmo que não seja com esses ingredientes? Ou prefere que eu procure receitas prontas que aproveitem o que já está na despensa?",
+      "sessao": "20260924_024945_953345",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 12625,
+      "uso": {
+        "entrada": 6,
+        "saida": 526,
+        "cache_leitura": 76448,
+        "cache_escrita": 5306
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Feijoada",
+            "gosta": false,
+            "impedimento": "Dá muito trabalho, ela não gosta de fazer."
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+ "padrao": "O preparo num texto só e sem quebra de linha: é um passo só, mesmo com números no meio",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Arroz com alho",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": "1. Cozinhe o arroz. 2. Refogue o alho."
+ },
+ "esperado": [
+  {
+   "texto": "1. Cozinhe o arroz. 2. Refogue o alho.",
+   "secao": null
+  }
+ ]
+}

@@ -1,0 +1,131 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: esperava ['avaliar_receita'] nessa ordem; faltou ['avaliar_receita']; chamou ['tool_search', 'tool_search', 'tool_describe']",
+    "turno 2: esperava ['registrar_gosto'] nessa ordem; faltou ['registrar_gosto']; chamou ['tool_search', 'tool_describe', 'todo_list']"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "Anotei a receita, Dona Maria: peito de frango, cebola, creme de leite, ketchup e sal, tudo refogado numa panela só, 25 minutos, rendendo 4 porções.\n\nAgora preciso ser franca com a senhora antes de qualquer outra coisa.\n\nA planilha da sua despensa não está abrindo aqui nesta conversa. Tentei chamar as ferramentas que leem o que a senhora tem em casa e as que fazem a conta de custo e preço, e nenhuma respondeu. Sem elas eu não tenho custo por porção, não tenho preço, não tenho quanto sobra depois da taxa da plataforma. E número eu não chuto, nem de exemplo, nem \"mais ou menos\". Prefiro dizer que não sei a dar um valor que pode fazer a senhora vender no prejuízo.\n\nEntão preço do strogonoff eu não fecho hoje. Se for questão de reabrir o sistema aí do seu lado, me avise que eu tento de novo na hora.\n\nEnquanto isso, dá para adiantar a parte que não depende da planilha. E ela começa com a senhora.\n\nEsse strogonoff a senhora já faz em casa desse jeito, na panela, nesses 25 minutos? Pergunto porque só entra no cardápio prato que já é seu, que a senhora faz sem pensar num dia de correria. Se já é de casa, quando a planilha voltar eu já emendo direto na conta.",
+      "sessao": "20260923_231522_6c6959",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 93920,
+      "uso": {
+        "entrada": 6,
+        "saida": 3828,
+        "cache_leitura": 31617,
+        "cache_escrita": 6693
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "avaliar receita despensa",
+              "calcular cmv preço delivery",
+              "diagnostico despensa",
+              "registrar resposta perfil cozinha",
+              "buscar receita na web"
+            ]
+          },
+          "saida": "{\"queries\": [\"avaliar receita despensa\", \"calcular cmv preço delivery\", \"diagnostico despensa\", \"registrar resposta perfil cozinha\", \"buscar receita na web\"], \"total_available\": 2, \"results\": [{\"query\": \"avaliar receita despensa\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"calcular cmv preço delivery\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"diagnostico despensa\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"registrar resposta perfil cozinha\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"buscar receita na web\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "mise",
+              "mise avaliar receita portao",
+              "receita custo porcao"
+            ]
+          },
+          "saida": "{\"queries\": [\"mise\", \"mise avaliar receita portao\", \"receita custo porcao\"], \"total_available\": 2, \"results\": [{\"query\": \"mise\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"mise avaliar receita portao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"receita custo porcao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__proxima_pergunta",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {}, \"not_found\": [\"mcp__mise__avaliar_receita\", \"mcp__mise__diagnostico_despensa\", \"mcp__mise__proxima_pergunta\", \"mcp__mise__consultar_perfil\"], \"hint\": \"Names in not_found are not currently available. Re-run tool_search to refresh.\"}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Anotei as duas coisas, e as duas contam igual: a senhora gosta de fazer, e o creme de leite é um problema de verdade. Gostar resolve metade. A outra metade é a geladeira, e essa a senhora conhece melhor do que qualquer planilha.\n\nGuardei aqui para gravar no sistema assim que ele voltar: strogonoff é prato que a senhora gosta de fazer, e o impedimento é conservação do creme de leite, não a receita.\n\nSó me falta entender uma coisa antes de seguir.\n\nQuando a senhora fala em caixinha de creme de leite, é aquela de papelão que fica na prateleira do mercado, fechada, e só vai pra geladeira depois de aberta? Ou a senhora usa o de potinho, que já vem gelado?\n\nPergunto porque muda de figura. Se o que ocupa geladeira é só a caixinha já aberta, o aperto é a sobra de um dia pro outro. Se o estoque inteiro precisa ficar gelado, aí o problema é quanto a senhora consegue guardar por vez, e isso limita quantos strogonoffs saem num fim de semana. São dois problemas diferentes e cada um tem uma saída diferente.",
+      "sessao": "20260923_231522_6c6959",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 92051,
+      "uso": {
+        "entrada": 6,
+        "saida": 3967,
+        "cache_leitura": 38742,
+        "cache_escrita": 8446
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "registrar gosto prato",
+              "registrar resposta geladeira espaco"
+            ]
+          },
+          "saida": "{\"queries\": [\"registrar gosto prato\", \"registrar resposta geladeira espaco\"], \"total_available\": 2, \"results\": [{\"query\": \"registrar gosto prato\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"registrar resposta geladeira espaco\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_gosto",
+              "mcp__mise__registrar_resposta"
+            ]
+          },
+          "saida": "{\"tools\": {}, \"not_found\": [\"mcp__mise__registrar_gosto\", \"mcp__mise__registrar_resposta\"], \"hint\": \"Names in not_found are not currently available. Re-run tool_search to refresh.\"}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "todo_list",
+          "entrada": {
+            "action": "add",
+            "items": [
+              "Gravar com registrar_gosto quando o motor mise voltar: Dona Maria GOSTA MUITO de fazer strogonoff de frango (dito por ela)",
+              "Gravar com registrar_resposta (espaco na geladeira / conservacao) quando o motor voltar: geladeira PEQUENA e sempre CHEIA; creme de leite estraga rapido na casa dela (dito por ela)",
+              "Passar o strogonoff de frango pelo portao avaliar_receita quando o motor voltar (500g peito frango, 1 cebola, 1 caixinha creme de leite, 2 colheres ketchup, sal; 1 panela, 25 min, 4 porcoes)",
+              "NAO falar preco, custo nem compra do strogonoff antes do portao dizer APTO ou APTO COM COMPRA"
+            ]
+          },
+          "saida": "{\"todos\": [], \"revision\": 0, \"summary\": {\"total\": 0, \"pending\": 0, \"in_progress\": 0, \"completed\": 0, \"cancelled\": 0}}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+webapp/coverage/
+htmlcov/
+
+# Node
+# Sem barra no fim: um symlink para node_modules é arquivo, não diretório, e
+# com a barra ele escapava do ignore e entrava no commit.
+node_modules
+.next/
+out/
+*.tsbuildinfo
+
+# Dados locais e estado
+*.db
+*.db-wal
+*.db-shm
+.lancedb/
+cache/
+.modelos/
+
+# Segredos: nunca versionar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Sistema
+.DS_Store
+Thumbs.db
+.estado/
+
+# Configuração local do assistente de código de quem desenvolve
+.claude/
+
+# Next.js
+webapp/.next/
+webapp/out/
+webapp/next-env.d.ts

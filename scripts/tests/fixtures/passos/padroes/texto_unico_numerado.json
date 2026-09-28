@@ -1,0 +1,27 @@
+{
+ "padrao": "O preparo inteiro num texto só, com os passos numerados um por linha: cada linha é um passo, e o número escrito fica no texto",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Arroz com alho",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": "1. Cozinhe o arroz.\n2. Refogue o alho.\n3. Misture tudo."
+ },
+ "esperado": [
+  {
+   "texto": "1. Cozinhe o arroz.",
+   "secao": null
+  },
+  {
+   "texto": "2. Refogue o alho.",
+   "secao": null
+  },
+  {
+   "texto": "3. Misture tudo.",
+   "secao": null
+  }
+ ]
+}

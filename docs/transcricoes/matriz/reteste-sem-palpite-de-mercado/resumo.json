@@ -1,0 +1,45 @@
+{
+  "cenarios": {
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 3,
+      "passaram": 3,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-abaixo-do-minimo": {
+      "execucoes": 3,
+      "passaram": 3,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 2,
+  "total_de_cenarios": 2,
+  "turnos": 15,
+  "latencia_por_turno_s": {
+    "p50": 28.4,
+    "p95": 79.6
+  },
+  "tokens": {
+    "entrada": 178,
+    "saida": 33800,
+    "cache_leitura": 2608753,
+    "cache_escrita": 296475
+  },
+  "modelos": [
+    "claude-opus-5"
+  ],
+  "custo": {
+    "usd": 4.003235,
+    "partes_usd": {
+      "entrada": 0.00089,
+      "saida": 0.845,
+      "leitura_de_cache": 1.304377,
+      "gravacao_de_cache": 1.852969
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 0.667206
+  },
+  "tokens_conferem_com_o_hermes": true
+}

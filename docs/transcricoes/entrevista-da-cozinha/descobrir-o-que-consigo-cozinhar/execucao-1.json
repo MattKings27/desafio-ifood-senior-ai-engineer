@@ -1,0 +1,125 @@
+{
+  "cenario": "descobrir-o-que-consigo-cozinhar",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero descobrir o que eu consigo cozinhar com certeza.\n\n[a senhora está vendo a tela Início]",
+      "resposta": "A senhora ainda não me contou nada da cozinha nem do que gosta de fazer, e o catálogo de receitas está vazio. Então vou começar pelo começo.\n\nQue pratos a senhora gosta de fazer? Pode ser o que a senhora já faz em casa e sai bem, de salgado a doce. Pergunto isso primeiro porque só vale a pena conferir a cozinha para prato que a senhora tem prazer de cozinhar todo dia. Depois eu procuro receitas desses pratos que usem o que está na sua despensa.",
+      "sessao": "20260927_192041_2a680a",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 28705,
+      "uso": {
+        "entrada": 6,
+        "saida": 599,
+        "cache_leitura": 52967,
+        "cache_escrita": 10916
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_gostos",
+          "entrada": {},
+          "saida": "{\n  \"gostos\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"25%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46,\n  \"ela_disse_que_nao_sabe\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__comparar_candidatas",
+          "entrada": {},
+          "saida": "{\n  \"candidatas\": [],\n  \"catalogo\": {\n    \"da_para_fazer\": [],\n    \"usa_so_o_que_tem\": [],\n    \"precisa_comprar\": [],\n    \"linha_sem_leitura\": [],\n    \"texto\": null\n  },\n  \"orcamento_restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"orientacao\": \"Mostre as que mais aproveitam a despensa e pergunte do que ela gosta. A escolha é dela. Para dizer o que ela consegue fazer, use só o 'catalogo': 'da_para_fazer' é o que dá; 'usa_so_o_que_tem' usa só o que ela tem e falta ela responder; 'precisa_comprar' pede compra.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto de fazer comida de panela, feijão, carne moída e frango.",
+      "resposta": "Boa notícia: sua despensa casa bem com o que a senhora gosta. Pela planilha, a senhora tem feijão carioquinha, carne moída de patinho, peito de frango e miolo de alcatra, além de bacon, farinha de mandioca, batata, mussarela, cebola, alho, couve e ovos.\n\nSó que o catálogo de receitas ainda está vazio. Para eu dizer o que a senhora consegue fazer com certeza, preciso de receitas de verdade, com a fonte, para conferir ingrediente por ingrediente e o que a cozinha pede. Elas vêm da internet, e essa busca leva alguns minutos.\n\nPelo que a senhora tem e gosta, eu procuraria primeiro feijão tropeiro, escondidinho de carne moída e algum frango de panela, e depois receitas com a carne moída e a alcatra, que são dinheiro parado sem prato ainda.\n\nPosso começar essa busca agora? Enquanto ela roda, a senhora só precisa esperar; depois eu volto com as receitas encontradas e as poucas perguntas sobre a sua cozinha que cada uma pedir.",
+      "sessao": "20260927_192041_2a680a",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 28622,
+      "uso": {
+        "entrada": 6,
+        "saida": 975,
+        "cache_leitura": 61252,
+        "cache_escrita": 18605
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Feijão",
+            "gosta": true
+          },
+          "saida": "{\n  \"registrado\": \"Feijão: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Carne moída",
+            "gosta": true
+          },
+          "saida": "{\n  \"registrado\": \"Carne moída: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Frango",
+            "gosta": true
+          },
+          "saida": "{\n  \"registrado\": \"Frango: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Comida de panela",
+            "gosta": true
+          },
+          "saida": "{\n  \"registrado\": \"Comida de panela: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "{\n  \"itens\": 37,\n  \"total_investido\": {\n    \"valor\": 663.39,\n    \"texto\": \"R$ 663,39\"\n  },\n  \"maiores_investimentos\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"fracao_do_total\": 0.1236,\n      \"custo_unitario\": \"R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"fracao_do_total\": 0.1204,\n      \"custo_unitario\": \"R$ 79,90/kg\"\n    },\n    {\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"fracao_do_total\": 0.0633,\n      \"custo_unitario\": \"R$ 28,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"fracao_do_total\": 0.0513,\n      \"custo_unitario\": \"R$ 42,50/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"pago\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"fracao_do_total\": 0.0467,\n      \"custo_unitario\": \"R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"pago\": {\n        \"valor\": 28.0,\n        \"texto\": \"R$ 28,00\"\n      },\n      \"fracao_do_total\": 0.0422,\n      \"custo_unitario\": \"R$ 14,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Feijão carioquinha\",\n      \"pago\": {\n        \"valor\": 27.0,\n        \"texto\": \"R$ 27,00\"\n      },\n      \"fracao_do_total\": 0.0407,\n      \"custo_unitario\": \"R$ 9,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"pago\": {\n        \"valor\": 24.9,\n        \"texto\": \"R$ 24,90\"\n      },\n      \"fracao_do_total\": 0.0375,\n      \"custo_unitario\": \"R$ 4,98/kg\"\n    }\n  ],\n  \"itens_com_normalizacao_relevante\": [\n    {\n      \"ingrediente\": \"Alcaparras\",\n      \"conta_ingenua\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"conta_correta\": \"R$ 41,00/kg\",\n      \"porque\": \"1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg\"\n    },\n    {\n      \"ingrediente\": \"Chantilly\",\n      \"conta_ingenua\": {\n        \"valor\": 23.67,\n        \"texto\": \"R$ 23,67\"\n      },\n      \"conta_correta\": \"R$ 47,34/kg\",\n      \"porque\": \"1 × 0,5 kg = 0,5 kg; R$ 23,67 ÷ 0,5 kg = R$ 47,34/kg\"\n    },\n    {\n      \"ingrediente\": \"Leite ninho em pó\",\n      \"conta_ingenua\": {\n        \"valor\": 15.18,\n        \"texto\": \"R$ 15,18\"\n      },\n      \"conta_correta\": \"R$ 37,95/kg\",\n      \"porque\": \"1 × 0,4 kg = 0,4 kg; R$ 15,18 ÷ 0,4 kg = R$ 37,95/kg\"\n    },\n    {\n      \"ingrediente\": \"Azeite de oliva extra virgem\",\n      \"conta_ingenua\": {\n        \"valor\": 30.99,\n        \"texto\": \"R$ 30,99\"\n      },\n      \"conta_correta\": \"R$ 61,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 30,99 ÷ 0,5 L = R$ 61,98/L\"\n    },\n    {\n      \"ingrediente\": \"Aceto balsâmico\",\n      \"conta_ingenua\": {\n        \"valor\": 12.99,\n        \"texto\": \"R$ 12,99\"\n      },\n      \"conta_correta\": \"R$ 25,98/L\",\n      \"porque\": \"1 × 0,5 L = 0,5 L; R$ 12,99 ÷ 0,5 L = R$ 25,98/L\"\n    },\n    {\n      \"ingrediente\": \"Adoçante líquido\",\n      \"conta_ingenua\": {\n        \"valor\": 1.9,\n        \"texto\": \"R$ 1,90\"\n      },\n      \"conta_correta\": \"R$ 19,00/L\",\n      \"porque\": \"1 × 0,1 L = 0,1 L; R$ 1,90 ÷ 0,1 L = R$ 19,00/L\"\n    }\n  ],\n  \"pendencias\": [],\n  \"orcamento\": {\n    \"estado\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n    \"restante\": {\n      \"valor\": 80.0,\n      \"texto\": \"R$ 80,00\"\n    }\n  },\n  \"capital_sem_prato\": {\n    \"total\": {\n      \"valor\": 663.39,\n      \"texto\": \"R$ 663,39\"\n    },\n    \"fracao_da_despensa\": 1.0,\n    \"receitas_avaliadas\": 0,\n    \"maiores\": [\n      {\n        \"ingrediente\": \"Alcaparras\",\n        \"pago\": {\n          \"valor\": 82.0,\n          \"texto\": \"R$ 82,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Cobertura de chocolate\",\n        \"pago\": {\n          \"valor\": 79.9,\n          \"texto\": \"R$ 79,90\"\n        }\n      },\n      {\n        \"ingrediente\": \"Carne moída (patinho)\",\n        \"pago\": {\n          \"valor\": 42.0,\n          \"texto\": \"R$ 42,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Miolo de alcatra\",\n        \"pago\": {\n          \"valor\": 34.0,\n          \"texto\": \"R$ 34,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Azeite de oliva extra virgem\",\n        \"pago\": {\n          \"valor\": 30.99,\n          \"texto\": \"R$ 30,99\"\n        }\n      },\n      {\n        \"ingrediente\": \"Peito de frango\",\n        \"pago\": {\n          \"valor\": 28.0,\n          \"texto\": \"R$ 28,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Feijão carioquinha\",\n        \"pago\": {\n          \"valor\": 27.0,\n          \"texto\": \"R$ 27,00\"\n        }\n      },\n      {\n        \"ingrediente\": \"Arroz branco tipo 1\",\n        \"pago\": {\n          \"valor\": 24.9,\n          \"texto\": \"R$ 24,90\"\n        }\n      }\n    ],\n    \"dois_maiores\": {\n      \"ingredientes\": [\n        \"Alcaparras\",\n        \"Cobertura de chocolate\"\n      ],\n      \"somam\": {\n        \"valor\": 161.9,\n        \"texto\": \"R$ 161,90\"\n      },\n      \"parte_de_tudo\": {\n        \"fracao\": 0.244,\n        \"texto\": \"24,4% de tudo o que a senhora pagou\"\n      }\n    }\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__pauta_de_descoberta",
+          "entrada": {},
+          "saida": "{\n  \"disponivel\": true,\n  \"pratos_para_procurar\": [\n    {\n      \"prato\": \"feijão tropeiro\",\n      \"busca\": \"receita de feijão tropeiro\",\n      \"itens_da_despensa\": [\n        \"Feijão carioquinha\",\n        \"Bacon\",\n        \"Farinha de mandioca\",\n        \"Ovos\",\n        \"Couve\",\n        \"Cebola\",\n        \"Alho\"\n      ],\n      \"motivo_texto\": \"a despensa dela tem a base: feijão carioquinha, bacon, farinha de mandioca, ovos, couve, cebola e alho\"\n    },\n    {\n      \"prato\": \"escondidinho de carne moída\",\n      \"busca\": \"receita de escondidinho de carne moída\",\n      \"itens_da_despensa\": [\n        \"Carne moída (patinho)\",\n        \"Batata\",\n        \"Queijo mussarela\",\n        \"Leite integral\",\n        \"Manteiga\"\n      ],\n      \"motivo_texto\": \"a despensa dela tem a base: carne moída (patinho), batata, queijo mussarela, leite integral e manteiga\"\n    },\n    {\n      \"prato\": \"farofa de bacon\",\n      \"busca\": \"receita de farofa de bacon\",\n      \"itens_da_despensa\": [\n        \"Farinha de mandioca\",\n        \"Bacon\",\n        \"Cebola\"\n      ],\n      \"motivo_texto\": \"a despensa dela tem a base: farinha de mandioca, bacon e cebola\"\n    },\n    {\n      \"prato\": \"polenta com queijo\",\n      \"busca\": \"receita de polenta com queijo\",\n      \"itens_da_despensa\": [\n        \"Polenta (fubá)\",\n        \"Queijo parmesão ralado\",\n        \"Manteiga\"\n      ],\n      \"motivo_texto\": \"a despensa dela tem a base: polenta (fubá), queijo parmesão ralado e manteiga\"\n    }\n  ],\n  \"itens_para_procurar\": [\n    {\n      \"item_id\": \"alcaparras\",\n      \"ingrediente\": \"Alcaparras\",\n      \"termo\": \"alcaparras\",\n      \"pago\": {\n        \"valor\": 82.0,\n        \"texto\": \"R$ 82,00\"\n      },\n      \"receitas_que_usam\": 0,\n      \"motivo\": \"sem_receita\",\n      \"motivo_texto\": \"R$ 82,00 pagos, e nenhuma receita usa ainda\"\n    },\n    {\n      \"item_id\": \"cobertura-de-chocolate\",\n      \"ingrediente\": \"Cobertura de chocolate\",\n      \"termo\": \"cobertura de chocolate\",\n      \"pago\": {\n        \"valor\": 79.9,\n        \"texto\": \"R$ 79,90\"\n      },\n      \"receitas_que_usam\": 0,\n      \"motivo\": \"sem_receita\",\n      \"motivo_texto\": \"R$ 79,90 pagos, e nenhuma receita usa ainda\"\n    },\n    {\n      \"item_id\": \"carne-moida-patinho\",\n      \"ingrediente\": \"Carne moída (patinho)\",\n      \"termo\": \"carne moída\",\n      \"pago\": {\n        \"valor\": 42.0,\n        \"texto\": \"R$ 42,00\"\n      },\n      \"receitas_que_usam\": 0,\n      \"motivo\": \"sem_receita\",\n      \"motivo_texto\": \"R$ 42,00 pagos, e nenhuma receita usa ainda\"\n    },\n    {\n      \"item_id\": \"miolo-de-alcatra\",\n      \"ingrediente\": \"Miolo de alcatra\",\n      \"termo\": \"alcatra\",\n      \"pago\": {\n        \"valor\": 34.0,\n        \"texto\": \"R$ 34,00\"\n      },\n      \"receitas_que_usam\": 0,\n      \"motivo\": \"sem_receita\",\n      \"motivo_texto\": \"R$ 34,00 pagos, e nenhuma receita usa ainda\"\n    }\n  ],\n  \"buscas\": [\n    \"receita de feijão tropeiro\",\n    \"receita de escondidinho de carne moída\",\n    \"receita de farofa de bacon\",\n    \"receita de polenta com queijo\",\n    \"receita com alcaparras\",\n    \"receita com cobertura de chocolate\",\n    \"receita com carne moída\",\n    \"receita com alcatra\"\n  ],\n  \"urls_conhecidas\": [],\n  \"sites_que_ja_funcionaram\": [],\n  \"sites_populares\": [\n    \"tudogostoso.com.br\",\n    \"receitas.globo.com\",\n    \"receitasnestle.com.br\",\n    \"panelinha.com.br\",\n    \"guiadacozinha.com.br\",\n    \"receiteria.com.br\",\n    \"cybercook.com.br\",\n    \"tudoreceitas.com\"\n  ],\n  \"limites\": {\n    \"buscas\": 8,\n    \"paginas\": 20,\n    \"paginas_por_busca\": 3\n  },\n  \"texto\": \"Separei 8 buscas: 4 por pratos clássicos que a despensa dela já cobre e 4 pelo dinheiro parado sem receita.\",\n  \"orientacao\": \"Faça no máximo 8 pesquisas com web_search, uma para cada texto de 'buscas', na ordem, e traga no máximo 20 páginas de uma receita cada com buscar_receita_na_web, até 3 de cada pesquisa, pulando os endereços de 'urls_conhecidas'. Entre os resultados, prefira primeiro as páginas dos sites de 'sites_populares' e depois as dos sites de 'sites_que_ja_funcionaram'.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

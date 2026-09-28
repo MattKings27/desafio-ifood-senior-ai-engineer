@@ -1,0 +1,57 @@
+{
+  "cenario": "restricao-de-gas-e-tempo",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado. E eu só consigo cozinhar à tarde, umas 2 horas no máximo.",
+      "resposta": "Anotado, Dona Maria. Fez bem em me contar antes de escolher prato.\n\nGuardei duas coisas na tela da cozinha: o gás de botijão não tem sobra, e a senhora cozinha no máximo 2 horas por vez, à tarde. Daqui em diante, toda receita que eu conferir passa por esses dois limites. Prato que precisa de fogo ligado por horas, como feijoada ou carne de panela demorada, vai ficar de fora antes de eu sequer mostrar para a senhora.\n\nQuer que eu já comece a procurar receitas que usem o que está na sua despensa e caibam nessas 2 horas? Ou prefere me contar mais alguma coisa da cozinha primeiro?",
+      "sessao": "20260927_181717_dff05b",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 25106,
+      "uso": {
+        "entrada": 8,
+        "saida": 621,
+        "cache_leitura": 89683,
+        "cache_escrita": 5300
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"25%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46,\n  \"ela_disse_que_nao_sabe\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tem_gas_sobrando",
+            "resposta": "não"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "2 horas"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

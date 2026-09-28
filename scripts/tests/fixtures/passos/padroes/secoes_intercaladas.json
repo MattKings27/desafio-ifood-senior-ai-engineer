@@ -1,0 +1,94 @@
+{
+ "padrao": "Seções com nome intercaladas com seções Modo de Preparo, como no bolo com cobertura de brigadeiro do Receitas Nestlé: o título aparece só onde a página mostra",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo de cenoura com brigadeiro",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToSection",
+    "name": "Massa do Bolo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Bata as cenouras, os ovos e o óleo."
+     }
+    ]
+   },
+   {
+    "@type": "HowToSection",
+    "name": "Modo de Preparo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Misture o açúcar e a farinha."
+     }
+    ]
+   },
+   {
+    "@type": "HowToSection",
+    "name": "Modo de Preparo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Asse por 40 minutos."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Enquanto isso, prepare a cobertura."
+     }
+    ]
+   },
+   {
+    "@type": "HowToSection",
+    "name": "Cobertura de Brigadeiro",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Leve o leite condensado e o chocolate ao fogo baixo."
+     }
+    ]
+   },
+   {
+    "@type": "HowToSection",
+    "name": "Modo de Preparo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Despeje ainda quente sobre o bolo."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Bata as cenouras, os ovos e o óleo.",
+   "secao": "Massa do Bolo"
+  },
+  {
+   "texto": "Misture o açúcar e a farinha.",
+   "secao": null
+  },
+  {
+   "texto": "Asse por 40 minutos.",
+   "secao": null
+  },
+  {
+   "texto": "Enquanto isso, prepare a cobertura.",
+   "secao": null
+  },
+  {
+   "texto": "Leve o leite condensado e o chocolate ao fogo baixo.",
+   "secao": "Cobertura de Brigadeiro"
+  },
+  {
+   "texto": "Despeje ainda quente sobre o bolo.",
+   "secao": null
+  }
+ ]
+}

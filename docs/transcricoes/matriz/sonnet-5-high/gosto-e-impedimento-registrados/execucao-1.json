@@ -1,0 +1,275 @@
+{
+  "cenario": "gosto-e-impedimento-registrados",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Tô pensando num strogonoff de frango: 500 g de peito de frango, 1 cebola, 1 caixinha de creme de leite, 2 colheres de ketchup, sal a gosto. Refoga tudo na panela por 25 minutos. Rende 4 porções.",
+      "resposta": "A senhora já tem frango e cebola na despensa — isso já entra de graça na conta (R$ 7,00 de frango e R$ 0,44 de cebola, tirado do preço que a senhora pagou). Só falta o creme de leite e o ketchup pra fechar a lista de compra.\n\nAntes disso, duas coisas que o portão pede pra saber se o prato entra:\n\nA senhora gosta de fazer strogonoff de frango? E vê algum impedimento pra preparar ele na sua cozinha?",
+      "sessao": "20260924_024152_44e633",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 36605,
+      "uso": {
+        "entrada": 18,
+        "saida": 2620,
+        "cache_leitura": 151758,
+        "cache_escrita": 23954
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico da despensa",
+              "avaliar receita portão",
+              "próxima pergunta"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico_despensa panorama despensa",
+              "consultar perfil cozinha",
+              "consultar gostos pratos"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Strogonoff de frango",
+                    "ingredientes": [
+                      {
+                        "texto": "500 g de peito de frango",
+                        "nome": "peito de frango",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": "unidade"
+                      },
+                      {
+                        "texto": "1 caixinha de creme de leite",
+                        "nome": "creme de leite",
+                        "quantidade": 1,
+                        "medida": "caixinha"
+                      },
+                      {
+                        "texto": "2 colheres de ketchup",
+                        "nome": "ketchup",
+                        "quantidade": 2,
+                        "medida": "colher de sopa"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal",
+                        "quantidade": null,
+                        "medida": ""
+                      }
+                    ],
+                    "rendimento_porcoes": 4,
+                    "modo_preparo": [
+                      "Refogar tudo na panela por 25 minutos"
+                    ],
+                    "fonte": "receita da Dona Maria"
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "ketchup",
+                  "quantidade": 2,
+                  "texto": "2 colheres de ketchup"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "quantidade": null,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar tudo na panela por 25 minutos"
+              ],
+              "nome": "Strogonoff de frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Gosto muito de fazer strogonoff. O problema é que creme de leite estraga rápido aqui, minha geladeira é pequena e vive cheia.",
+      "resposta": "Por enquanto o strogonoff está bloqueado por causa disso.\n\nDeixa eu entender melhor pra ver se o impedimento se resolve: quando a senhora for fazer as porções do dia, dá pra comprar a caixinha de creme de leite certinha pro tanto que for usar naquele dia — sem sobrar nada na geladeira? Ou o problema é outro, tipo não ter como ir ao mercado com frequência?",
+      "sessao": "20260924_024152_44e633",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 22397,
+      "uso": {
+        "entrada": 10,
+        "saida": 1227,
+        "cache_leitura": 149541,
+        "cache_escrita": 5690
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "registrar gosto prato impedimento"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "gosta": true,
+            "impedimento": "Creme de leite estraga rápido; geladeira pequena e vive cheia, então guardar creme de leite é complicado.",
+            "prato": "Strogonoff de frango"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "unidade",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "ketchup",
+                  "quantidade": 2,
+                  "texto": "2 colheres de ketchup"
+                },
+                {
+                  "medida": "",
+                  "nome": "sal",
+                  "quantidade": null,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar tudo na panela por 25 minutos"
+              ],
+              "nome": "Strogonoff de frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

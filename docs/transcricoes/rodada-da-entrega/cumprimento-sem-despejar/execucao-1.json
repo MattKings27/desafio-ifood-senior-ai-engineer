@@ -1,0 +1,24 @@
+{
+  "cenario": "cumprimento-sem-despejar",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi\n\n[a senhora está vendo a tela Receitas]",
+      "resposta": "Oi, Dona Maria! Tudo bem com a senhora? Como posso ajudar hoje?",
+      "sessao": "20260927_175956_48295b",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 4976,
+      "uso": {
+        "entrada": 4,
+        "saida": 37,
+        "cache_leitura": 29079,
+        "cache_escrita": 1151
+      },
+      "chamadas": []
+    }
+  ]
+}

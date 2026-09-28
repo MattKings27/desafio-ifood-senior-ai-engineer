@@ -1,0 +1,35 @@
+# Para subir o conjunto na máquina de quem for avaliar, sem instalar Python.
+#
+# A interface fica fora do compose de propósito: Next.js em desenvolvimento quer
+# recarregar a quente, e empacotá-la aqui trocaria isso por um ciclo de rebuild a
+# cada CSS. Quem quiser a interface roda `make web`.
+
+services:
+  motor:
+    build:
+      context: .
+      target: producao
+    image: sabor-da-maria/motor:local
+    ports:
+      - "127.0.0.1:8777:8777"
+    environment:
+      # A origem do navegador. Sem isto o CORS recusa a interface local.
+      MISE_CORS: "http://localhost:3000,http://127.0.0.1:3000"
+      MISE_LOG: "info"
+    volumes:
+      # O dossiê sobrevive ao container: é o que a Dona Maria respondeu.
+      - dossie:/dados
+    # A porta é publicada só em 127.0.0.1. O motor não tem autenticação própria
+    # (quem autentica é a camada de política do gateway MCP), então expô-lo na
+    # rede seria dar acesso de escrita ao dossiê para qualquer um no mesmo Wi-Fi.
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8777/saude/pronto', timeout=3).status==200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  dossie:

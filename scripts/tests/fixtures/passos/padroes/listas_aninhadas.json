@@ -1,0 +1,86 @@
+{
+ "padrao": "Passos aninhados: HowToStep com o texto num HowToDirection (o Panelinha), a ordem da lista e não a de position, lista dentro de lista, ItemList e ListItem",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToSection",
+    "name": "Para o bolo",
+    "position": 0,
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "position": 3,
+      "itemListElement": {
+       "@type": "HowToDirection",
+       "text": "Preaqueça o forno."
+      }
+     },
+     {
+      "@type": "HowToStep",
+      "position": 1,
+      "itemListElement": [
+       {
+        "@type": "HowToDirection",
+        "text": "Misture a farinha."
+       },
+       {
+        "@type": "HowToTip",
+        "text": "Peneire antes."
+       }
+      ]
+     }
+    ]
+   },
+   [
+    "Solto numa lista dentro da lista."
+   ],
+   {
+    "@type": "ItemList",
+    "itemListElement": [
+     {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+       "@type": "HowToStep",
+       "text": "Passo embrulhado em ListItem."
+      }
+     },
+     {
+      "@type": "ListItem",
+      "position": 2,
+      "item": "Texto embrulhado em ListItem."
+     }
+    ]
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Preaqueça o forno.",
+   "secao": "Para o bolo"
+  },
+  {
+   "texto": "Misture a farinha. Peneire antes.",
+   "secao": "Para o bolo"
+  },
+  {
+   "texto": "Solto numa lista dentro da lista.",
+   "secao": null
+  },
+  {
+   "texto": "Passo embrulhado em ListItem.",
+   "secao": null
+  },
+  {
+   "texto": "Texto embrulhado em ListItem.",
+   "secao": null
+  }
+ ]
+}

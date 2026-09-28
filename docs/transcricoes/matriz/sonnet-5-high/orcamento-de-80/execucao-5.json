@@ -1,0 +1,71 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 5,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda não gastou nada. Dos R$ 80,00 pra complementar a despensa, restam os R$ 80,00 inteiros.\n\nQuer que eu comece olhando a despensa pra ver quais pratos dão pra fazer e o que falta comprar?",
+      "sessao": "20260924_025334_371548",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 22724,
+      "uso": {
+        "entrada": 12,
+        "saida": 502,
+        "cache_leitura": 86135,
+        "cache_escrita": 6672
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "consultar orçamento"
+            ]
+          },
+          "saida": "{\"queries\": [\"consultar orçamento\"], \"total_available\": 28, \"results\": [{\"query\": \"consultar orçamento\", \"matches\": [\"mcp__mise__registrar_compra\", \"mcp__mise__registrar_preco_mercado\"]}], \"tools\": {\"mcp__mise__registrar_compra\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Registra o que ela comprou para um prato: sai do orçamento e vira estoque.\\n\\n        Passa pelo portão: só depois que equipamento, técnica, rotina e gosto do\\n        prato estão confirmados, e só para um ingrediente que o prato precisa\\n        comprar. Recusa se estourar os R$ 80,00, que são o limite dela.\\n        Ex.: prato=\\\"Frango com milho\\\", ingrediente=\\\"milho verde\\\", quantidade=1,\\n        unidade=\\\"lata\\\", valor=6.\\n        \", \"required\": [\"prato\", \"ingrediente\", \"quantidade\", \"unidade\", \"valor\"]}, \"mcp__mise__registrar_preco_mercado\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Guarda quanto custa comprar um ingrediente que falta na despensa.\\n\\n        Esta é a resposta à pergunta que o motor já fazia e não tinha como\\n        receber. Sem ela o custo do que falta comprar fica indefinido para\\n        sempre, o CMV sai sem a compra complementar e \\\"cabe no orçamento?\\\" nunca\\n        chega a ser respondido.\\n\\n        `origem` distingue o que ela mesma informou do que foi pesquisado ou\\n        estimado — confianças diferentes, e é ela quem decide se aceita as duas\\n        últi…\", \"required\": [\"ingrediente\", \"valor\"]}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "orçamento restante R$ 80",
+              "quanto falta do orçamento de complementos"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "mise orcamento",
+              "mise budget"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

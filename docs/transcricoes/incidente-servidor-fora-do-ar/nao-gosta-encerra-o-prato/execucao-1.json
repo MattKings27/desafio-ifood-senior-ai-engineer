@@ -1,0 +1,76 @@
+{
+  "cenario": "nao-gosta-encerra-o-prato",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: esperava ['avaliar_receita'] nessa ordem; faltou ['avaliar_receita']; chamou ['tool_search', 'tool_search']",
+    "turno 1: chegou a ela com 1 valor(es) apagado(s)",
+    "turno 2: esperava ['registrar_gosto'] nessa ordem; faltou ['registrar_gosto']; chamou []"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola, 4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.",
+      "resposta": "Dona Maria, antes de falar da feijoada, uma coisa que a senhora precisa saber agora.\n\nHoje eu não consegui abrir a planilha da senhora. A ferramenta que lê a despensa e faz as contas de custo e de preço não respondeu nesta sessão. Procurei de duas formas diferentes e ela não apareceu. Então eu não vou falar de preço, nem de quanto custa a porção, nem de quanto sobra depois da taxa do aplicativo. Nem por alto, nem \"só para a senhora ter uma ideia\".\n\nNúmero chutado é o jeito mais rápido de trabalhar de graça no delivery. A senhora está botando o dinheiro que tem nisso. Prefiro dizer que hoje não sei a dizer um valor bonito que não veio de conta nenhuma.\n\nO que eu tenho da senhora, anotado aqui na nossa conversa:\n\n    Feijoada\n    1 kg de feijão preto\n    500 g de bacon\n    1 cebola\n    4 dentes de alho\n    sal a gosto\n    2 horas de panela\n    rende 8 porções\n\nNa planilha não ficou gravado nada, porque não cheguei nela. Quando a ferramenta voltar, eu passo essa receita pelo portão, comparo com o que a senhora já tem na despensa, vejo o que falta comprar dentro dos [valor retirado] e só então abro a conta do preço, com tudo à mostra. Se tiver alguém que ligou esse sistema para a senhora, vale avisar que a parte da planilha está fora do ar.\n\nEnquanto isso eu adianto o que não depende de conta. E começo por uma pergunta só.\n\nEssa feijoada é uma que a senhora já faz assim, do jeito que me passou, ou seria a primeira vez fazendo para vender? Pergunto porque isso é a primeira coisa que o portão quer saber, e porque prato que a senhora já faz de olho fechado se comporta diferente no dia de movimento.\n\n---\nTirei 1 valor(es) desta resposta que eu não consegui conferir na conta do sistema. Me peça de novo que eu trago cada um com a conta aberta.",
+      "sessao": "20260923_231837_d859ef",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 81962,
+      "uso": {
+        "entrada": 6,
+        "saida": 4254,
+        "cache_leitura": 31595,
+        "cache_escrita": 6791
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portao",
+              "buscar receita na web",
+              "calcular cmv preco",
+              "registrar resposta perfil"
+            ]
+          },
+          "saida": "{\"queries\": [\"diagnostico despensa\", \"avaliar receita portao\", \"buscar receita na web\", \"calcular cmv preco\", \"registrar resposta perfil\"], \"total_available\": 2, \"results\": [{\"query\": \"diagnostico despensa\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"avaliar receita portao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"buscar receita na web\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"calcular cmv preco\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"registrar resposta perfil\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "mise",
+              "mise avaliar_receita",
+              "cenarios_preco registrar_decisao",
+              "planilha cardapio ingrediente porcao"
+            ],
+            "limit": 10
+          },
+          "saida": "{\"queries\": [\"mise\", \"mise avaliar_receita\", \"cenarios_preco registrar_decisao\", \"planilha cardapio ingrediente porcao\"], \"total_available\": 2, \"results\": [{\"query\": \"mise\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"mise avaliar_receita\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"cenarios_preco registrar_decisao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"planilha cardapio ingrediente porcao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.",
+      "resposta": "Então a feijoada está fora. Riscada, sem discussão.\n\nPrato que a cozinheira detesta fazer não sobrevive ao terceiro sábado de movimento. A senhora vai fazer isso muitas vezes por semana, não uma vez. Não vou tentar te convencer com conta nenhuma, e nem existe conta que compense fazer o que a senhora não quer fazer.\n\nFica anotado aqui na conversa: feijoada, não. Quando a planilha voltar, eu gravo essa recusa lá também, para não aparecer de novo em lista nenhuma.\n\nAgora me conte o contrário. Qual prato a senhora gosta de fazer? Aquele que a senhora faz e já sai fazendo, que os outros pedem quando vão na sua casa. Pergunto isso primeiro porque é daí que sai o cardápio de verdade, e porque a despensa eu ainda não consegui ler: por enquanto quem me diz o que tem valor é a senhora.",
+      "sessao": "20260923_231837_d859ef",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 34834,
+      "uso": {
+        "entrada": 2,
+        "saida": 867,
+        "cache_leitura": 12473,
+        "cache_escrita": 3652
+      },
+      "chamadas": []
+    }
+  ]
+}

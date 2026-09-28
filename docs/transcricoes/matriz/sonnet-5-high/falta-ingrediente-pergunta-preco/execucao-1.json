@@ -1,0 +1,285 @@
+{
+  "cenario": "falta-ingrediente-pergunta-preco",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango com creme de milho: 500 g de peito de frango, 1 lata de milho verde, 1 caixinha de creme de leite, 1 cebola, sal a gosto. Refoga o frango e junta o resto na panela, 30 minutos. Rende 4 porções. Gosto de fazer, sem impedimento, e fico até 2 horas cozinhando de boa.",
+      "resposta": "Já anotei que a senhora gosta de fazer e não vê impedimento, e que consegue ficar até 2 horas cozinhando de boa.\n\nDa despensa, o frango e a cebola já estão cobertos: R$ 7,00 de frango e R$ 0,44 de cebola pras 4 porções. Só falta comprar duas coisas: a lata de milho verde e a caixinha de creme de leite.\n\nQuanto custa cada uma aí na sua região? Pode me dizer o preço da lata de milho e da caixinha de creme de leite.",
+      "sessao": "20260924_023531_5d52ee",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 32196,
+      "uso": {
+        "entrada": 20,
+        "saida": 1900,
+        "cache_leitura": 196388,
+        "cache_escrita": 25846
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "consultar perfil cozinha",
+              "avaliar receita portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__registrar_gosto"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango com creme de milho",
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 lata de milho verde",
+                  "nome": "Milho verde",
+                  "quantidade": 1,
+                  "medida": "lata"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "medida": "caixinha"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "medida": "un"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "Sal",
+                  "quantidade": null,
+                  "medida": ""
+                }
+              ],
+              "rendimento_porcoes": 4,
+              "modo_preparo": [
+                "Refoga o frango",
+                "Junta o resto na panela",
+                "Cozinha 30 minutos"
+              ],
+              "tempo_preparo_min": 30,
+              "fonte": "Dona Maria"
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Frango com creme de milho",
+            "gosta": true,
+            "impedimento": ""
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "120",
+            "tipo": "operacional"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "No mercado aqui a lata de milho sai 6 reais e o creme de leite 4 e 50.",
+      "resposta": "O portão liberou: APTO COM COMPRA.\n\nA compra é R$ 10,50 no total (lata de milho R$ 6,00 mais creme de leite R$ 4,50), e cabe tranquilo nos R$ 80,00 que a senhora tem de orçamento.\n\nQuer que eu registre essa compra agora, ou prefere ver primeiro a conta do custo e do preço do prato antes de decidir?",
+      "sessao": "20260924_023531_5d52ee",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 20179,
+      "uso": {
+        "entrada": 12,
+        "saida": 1000,
+        "cache_leitura": 188687,
+        "cache_escrita": 5547
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "registrar preco mercado"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__registrar_preco_mercado"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "Milho verde",
+            "quantidade": 1,
+            "unidade": "lata",
+            "valor": 6.0,
+            "origem": "informado_por_ela"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "Creme de leite",
+            "origem": "informado_por_ela",
+            "quantidade": 1,
+            "unidade": "caixinha",
+            "valor": 4.5
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "Peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "Milho verde",
+                  "quantidade": 1,
+                  "texto": "1 lata de milho verde"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "Creme de leite",
+                  "quantidade": 1,
+                  "texto": "1 caixinha de creme de leite"
+                },
+                {
+                  "medida": "un",
+                  "nome": "Cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "",
+                  "nome": "Sal",
+                  "quantidade": null,
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga o frango",
+                "Junta o resto na panela",
+                "Cozinha 30 minutos"
+              ],
+              "nome": "Frango com creme de milho",
+              "rendimento_porcoes": 4,
+              "tempo_preparo_min": 30
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

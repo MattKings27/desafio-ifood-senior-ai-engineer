@@ -1,0 +1,175 @@
+{
+  "cenario": "so-apresenta-o-que-da",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de tudo: aqui não tem forno, nem air fryer, nem forno elétrico. Só o fogão mesmo.",
+      "resposta": "Anotado, obrigado por avisar antes. Ficou registrado na cozinha da senhora: sem forno, sem air fryer, sem forno elétrico, e o fogão confirmado.\n\nIsso já muda a busca: qualquer receita que precise assar fica de fora, e eu só vou trazer prato de fogão.\n\nQuer que eu comece olhando a despensa da senhora para ver que pratos de panela saem do que já tem em casa?",
+      "sessao": "20260927_181857_e7fc8f",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 22024,
+      "uso": {
+        "entrada": 10,
+        "saida": 1091,
+        "cache_leitura": 123716,
+        "cache_escrita": 8412
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "{\n  \"completude\": \"25%\",\n  \"resumo\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"ela_confirmou\": {\n    \"tem\": [],\n    \"domina\": [],\n    \"nao_tem\": [],\n    \"nao_domina\": []\n  },\n  \"pressuposto\": {\n    \"tem\": [\n      \"Batedor de arame (fouet)\",\n      \"Faca\",\n      \"Fogão\",\n      \"Frigideira\",\n      \"Geladeira\",\n      \"Panela funda\",\n      \"Peneira\",\n      \"Ralador\",\n      \"Tábua de corte\"\n    ],\n    \"domina\": [\n      \"Assar\",\n      \"Bolo caseiro\",\n      \"Brigadeiro / doce de panela\",\n      \"Cozinhar arroz\",\n      \"Cozinhar feijão\",\n      \"Fritar\",\n      \"Molho de tomate caseiro\",\n      \"Refogar\"\n    ]\n  },\n  \"restricoes\": {\n    \"bocas_fogao\": null,\n    \"tempo_max_por_fornada_min\": null,\n    \"porcoes_por_fornada\": null,\n    \"espaco_geladeira_litros\": null,\n    \"energia_aparelhos_simultaneos\": null,\n    \"tem_gas_sobrando\": null\n  },\n  \"ainda_em_aberto\": 46,\n  \"ela_disse_que_nao_sabe\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "forno",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"1 respondido por ela · 17 supostos de qualquer cozinha · 45 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "air fryer",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"erro\": \"equipamento 'air fryer' não existe no vocabulário controlado (31 conhecidos)\",\n  \"categoria\": \"uso\",\n  \"tipo\": \"VocabularioDesconhecido\",\n  \"contexto\": {\n    \"especie\": \"equipamento\",\n    \"id\": \"air fryer\",\n    \"sugestoes\": \"()\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "forno elétrico",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"erro\": \"equipamento 'forno elétrico' não existe no vocabulário controlado (31 conhecidos); você quis dizer 'forno_eletrico' ou 'forno'?\",\n  \"categoria\": \"uso\",\n  \"tipo\": \"VocabularioDesconhecido\",\n  \"contexto\": {\n    \"especie\": \"equipamento\",\n    \"id\": \"forno elétrico\",\n    \"sugestoes\": \"('forno_eletrico', 'forno')\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "fogão",
+            "resposta": "tem"
+          },
+          "saida": "{\n  \"erro\": \"equipamento 'fogão' não existe no vocabulário controlado (31 conhecidos)\",\n  \"categoria\": \"uso\",\n  \"tipo\": \"VocabularioDesconhecido\",\n  \"contexto\": {\n    \"especie\": \"equipamento\",\n    \"id\": \"fogão\",\n    \"sugestoes\": \"()\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "forno_eletrico",
+            "resposta": "nao_tem",
+            "tipo": "equipamento"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"2 respondidos por ela · 17 supostos de qualquer cozinha · 44 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "air_fryer",
+            "resposta": "nao_tem",
+            "tipo": "equipamento"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"3 respondidos por ela · 17 supostos de qualquer cozinha · 43 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "fogao",
+            "resposta": "tem",
+            "tipo": "equipamento"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"4 respondidos por ela · 16 supostos de qualquer cozinha · 43 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Mesmo assim eu queria vender frango assado. A receita: 1 kg de coxa e sobrecoxa, 2 dentes de alho, suco de 1 limão, sal a gosto. Tempera e leva ao forno a 200 graus por 50 minutos. Rende 4 porções.",
+      "resposta": "Passei a receita da senhora pela conferência, e esse não dá. O passo \"levar ao forno a 200 graus por 50 minutos\" precisa de forno, e a senhora acabou de me dizer que não tem forno, nem air fryer, nem forno elétrico, que resolveriam. Por isso não sigo para preço nem para compra desse frango assado: a senhora compraria o frango e não teria como terminar o prato.\n\nOs ingredientes em si não eram o problema: alho e sal a senhora já tem, faltaria só o frango e o limão, e caberia nos R$ 80,00. O que segura é o equipamento.\n\nA senhora tem duas saídas, e quem escolhe é a senhora:\n\n  1. Uma receita de frango com coxa e sobrecoxa feita na panela ou na frigideira, só no fogão. Eu procuro na internet, com a fonte, e passo pela mesma conferência.\n  2. Deixar o frango assado guardado para quando tiver forno.\n\nQuer que eu procure uma receita de frango de fogão para a senhora avaliar?",
+      "sessao": "20260927_181857_e7fc8f",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 24009,
+      "uso": {
+        "entrada": 6,
+        "saida": 786,
+        "cache_leitura": 72297,
+        "cache_escrita": 9019
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango assado",
+              "rendimento_porcoes": 4,
+              "tempo_cozimento_min": 50,
+              "ingredientes": [
+                {
+                  "texto": "1 kg de coxa e sobrecoxa",
+                  "nome": "coxa e sobrecoxa de frango",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "suco de 1 limão",
+                  "nome": "limão",
+                  "quantidade": 1,
+                  "medida": "limão"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "modo_preparo": [
+                "Temperar a coxa e sobrecoxa com o alho, o suco de limão e o sal.",
+                "Levar ao forno a 200 graus por 50 minutos."
+              ]
+            }
+          },
+          "saida": "{\n  \"receita_id\": \"frango-assado\",\n  \"prato\": \"Frango assado\",\n  \"veredito\": \"BLOQUEADO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango assado: esse não dá. A receita precisa de forno e a senhora não tem (nem Air fryer, Forno elétrico, que resolveriam)\",\n  \"impedimentos\": [\n    {\n      \"tipo\": \"equipamento\",\n      \"id\": \"forno\",\n      \"motivo\": \"a receita precisa de forno e a senhora não tem (nem Air fryer, Forno elétrico, que resolveriam)\"\n    }\n  ],\n  \"perguntas\": [\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n      \"motivo\": \"Frango assado fica 50 minutos no forno\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": {\n        \"tipo\": \"horas\",\n        \"unidade\": \"horas\",\n        \"min\": 0.5,\n        \"max\": 12.0,\n        \"passo\": 0.5,\n        \"casas\": 2\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"assunto\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango assado? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Gosto de fazer\",\n          \"resposta\": \"gosta\"\n        },\n        {\n          \"rotulo\": \"Não gosto\",\n          \"resposta\": \"nao_gosta\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    }\n  ],\n  \"rendimento\": \"4 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0,0088 kg\",\n      \"custo\": {\n        \"valor\": 0.18,\n        \"texto\": \"R$ 0,18\"\n      },\n      \"derivacao\": \"2 × 4,4 g (dente de alho, pela referência de medidas do IBGE) = 8,8 g × R$ 20,00/kg = R$ 0,18\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"coxa e sobrecoxa de frango\",\n      \"quanto\": \"1 kg de coxa e sobrecoxa de frango\",\n      \"custo\": {\n        \"valor\": 8.97,\n        \"texto\": \"R$ 8,97\"\n      },\n      \"preco_de_referencia\": \"preço médio em São Paulo: R$ 8,97 pelo quilo (média de 3 mercados de São Paulo: R$ 9,99, R$ 7,98 e R$ 8,95 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Mambo (R$ 18,98 o quilo) e Oba Hortifruti (R$ 19,99 o quilo)); a senhora pode corrigir\"\n    },\n    {\n      \"ingrediente\": \"limão\",\n      \"quanto\": \"1 limão de limão\",\n      \"custo\": {\n        \"valor\": 1.07,\n        \"texto\": \"R$ 1,07\"\n      },\n      \"preco_de_referencia\": \"preço médio em São Paulo: R$ 12,78 pelo quilo (média de 5 mercados de São Paulo: R$ 13,98, R$ 12,99, R$ 17,99, R$ 10,95 e R$ 7,99 o quilo, em 27/09/2026); a senhora pode corrigir\"\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Forno\"\n    ],\n    \"tecnicas\": []\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Temperar a coxa e sobrecoxa com o alho, o suco de limão e o sal.\",\n        \"secao\": null,\n        \"requisitos\": [],\n        \"limites\": []\n      },\n      {\n        \"ordem\": 2,\n        \"texto\": \"Levar ao forno a 200 graus por 50 minutos.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"forno\",\n            \"nome\": \"Forno\",\n            \"estado\": \"nao_tem\",\n            \"suposto\": false,\n            \"evidencia\": \"levar ao forno a 200 graus por 50 minut...\",\n            \"trecho\": \"forno\",\n            \"rotulo_estado\": \"a senhora não tem\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"temperatura\",\n            \"minutos\": null,\n            \"graus\": 200,\n            \"texto\": \"forno a 200 °C\",\n            \"trecho\": \"200 graus\",\n            \"equipamento\": \"forno\"\n          },\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 50,\n            \"graus\": null,\n            \"texto\": \"50 min no forno\",\n            \"trecho\": \"50 minutos\",\n            \"equipamento\": \"forno\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"A receita precisa de forno e a senhora não tem (nem Air fryer, Forno elétrico, que resolveriam).\"\n  ],\n  \"confirmar_a_cozinha\": null,\n  \"ingredientes\": [\n    {\n      \"nome\": \"coxa e sobrecoxa de frango\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 kg\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 kg, R$ 8,97 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Alho\",\n      \"item_id\": \"alho\",\n      \"precisa\": {\n        \"texto\": \"2 dentes de alho (cerca de 8,8 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"300 g\"\n      },\n      \"sobra\": {\n        \"texto\": \"291 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Um alho pesa cerca de 4,4 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 4.4,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"2 dentes de alho\",\n          \"texto\": \"Quanto pesa um alho na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": {\n              \"cada\": \"1 unidade\",\n              \"tudo\": \"2 unidades\"\n            }\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"limão\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 limão (84 g)\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"84 g, R$ 1,07 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"falta comprar coxa e sobrecoxa de frango e limão, R$ 10,04 (pelo preço de referência); cabe nos R$ 80,00 que restam\",\n  \"orcamento\": {\n    \"inicial\": \"R$ 80,00\",\n    \"gasto\": \"R$ 0,00\",\n    \"restante\": \"R$ 80,00\"\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

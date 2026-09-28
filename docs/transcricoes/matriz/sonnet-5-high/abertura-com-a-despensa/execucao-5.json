@@ -1,0 +1,46 @@
+{
+  "cenario": "abertura-com-a-despensa",
+  "execucao": 5,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Oi! Sou a Maria. Tenho umas coisas paradas na despensa e queria ideias de prato pra vender no iFood. Por onde a gente começa?",
+      "resposta": "Oi, Dona Maria! Vamos começar pelo começo: o que já está guardado aí na despensa.\n\nA senhora tem 37 itens comprados, um total de R$ 663,39 investido. Isso é dinheiro parado até a gente decidir os pratos.\n\nAs coisas em que a senhora mais investiu são:\n\n- Alcaparras — R$ 82,00 (saiu R$ 41,00 o quilo)\n- Cobertura de chocolate — R$ 79,90\n- Carne moída (patinho) — R$ 42,00 (R$ 28,00 o quilo)\n- Miolo de alcatra — R$ 34,00 (R$ 42,50 o quilo)\n- Azeite de oliva extra virgem — R$ 30,99 (saiu R$ 61,98 o litro)\n- Peito de frango — R$ 28,00 (R$ 14,00 o quilo)\n- Feijão carioquinha — R$ 27,00 (R$ 9,00 o quilo)\n- Arroz branco tipo 1 — R$ 24,90 (R$ 4,98 o quilo)\n\nE a senhora tem R$ 80,00 livres para comprar o que faltar nos pratos que a gente escolher.\n\nAntes de eu ir atrás de receitas, uma coisa ficou pendente: a cobertura de chocolate que custou R$ 79,90 — não sei quanto vem na embalagem, então não consigo calcular o preço por quilo dela. A senhora lembra ou tem o rótulo à mão? Isso me ajuda a saber se dá pra entrar em algum doce.\n\nE me conta: pensando nesses ingredientes — carne moída, miolo de alcatra, frango, feijão, arroz — a senhora já tem em mente algum prato que curte fazer, ou prefere que eu busque ideias de receita que aproveitem isso?",
+      "sessao": "20260924_022506_b4fd2d",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 25988,
+      "uso": {
+        "entrada": 8,
+        "saida": 995,
+        "cache_leitura": 54332,
+        "cache_escrita": 12335
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

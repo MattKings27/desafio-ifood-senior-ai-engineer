@@ -1,0 +1,65 @@
+# Atualização de dependência é superfície de ataque e é dívida silenciosa: ninguém
+# abre um PR para subir uma versão de patch, e seis meses depois a CVE está lá.
+#
+# Durante a avaliação do desafio, as atualizações de rotina ficam pausadas:
+# `open-pull-requests-limit: 0` em cada ecossistema desliga só os PRs de versão.
+# As atualizações de segurança não obedecem a este limite e continuam abrindo PR,
+# e o pip-audit e o npm audit continuam rodando no CI toda semana. Para retomar a
+# rotina, basta voltar o limite para 5.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directories: ['/mise', '/gateway', '/retrieval', '/telemetria', '/auditor', '/evals']
+    schedule: { interval: weekly, day: monday }
+    open-pull-requests-limit: 0  # pausado durante a avaliação
+    labels: [dependencia, python]
+    commit-message: { prefix: 'deps' }
+    # Os pacotes Python não têm lockfile: o CI instala a versão mais nova que o
+    # piso aceita, a cada execução. Subir um piso que a versão nova já satisfaz
+    # não muda nada do que é testado, só abre PR. O piso sobe quando a versão
+    # nova sai da faixa; a CVE numa versão instalada quem pega é o pip-audit.
+    versioning-strategy: increase-if-necessary
+
+  - package-ecosystem: npm
+    directory: /webapp
+    schedule: { interval: weekly, day: monday }
+    open-pull-requests-limit: 0  # pausado durante a avaliação
+    labels: [dependencia, node]
+    commit-message: { prefix: 'deps' }
+    groups:
+      # Subir React, Next e os tipos em PRs separados quebra: eles têm que andar
+      # juntos. Agrupados, ou sobem os três ou não sobe nenhum.
+      react-e-next:
+        patterns: ['react', 'react-dom', 'next', '@types/react', '@types/react-dom']
+      # O vitest exige o @vitest/coverage-v8 na mesma versão, exata. Um PR que
+      # sobe só o vitest quebra a cobertura antes de rodar o primeiro teste.
+      vitest:
+        patterns: ['vitest', '@vitest/*']
+      lint:
+        patterns: ['eslint', '@eslint/*', 'typescript-eslint', 'eslint-plugin-*']
+    ignore:
+      # O eslint-plugin-jsx-a11y, que confere acessibilidade no lint, aceita o
+      # eslint só até o 9 (6.10.2, a versão mais nova, em 2026-09-24). Subir para
+      # o 10 exigiria --legacy-peer-deps, e o `npm ci` do CI recusa. Quando o
+      # plugin declarar suporte ao 10, este bloco sai.
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
+      # O TypeScript 7 é o compilador novo, e o typescript-eslint aceita só até
+      # o 6.0 (8.70.1, em 2026-09-24): o `npm ci` recusa a combinação.
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
+      # Os tipos do Node acompanham o Node que roda o projeto (22, no CI e no
+      # README). Tipos do 26 deixariam passar API que o 22 não tem.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+
+  # As próprias actions do CI. Sem isto, os SHAs fixados envelhecem para sempre,
+  # que é justamente o custo de fixar por SHA, e o dependabot é quem paga.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly, day: monday }
+    open-pull-requests-limit: 0  # pausado durante a avaliação
+    labels: [dependencia, ci]
+    commit-message: { prefix: 'ci' }

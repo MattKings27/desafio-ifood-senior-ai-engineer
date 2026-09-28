@@ -1,0 +1,102 @@
+{
+  "cenarios": {
+    "abertura-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 1,
+      "passaram": 0,
+      "pass_k": false,
+      "falhas": [
+        "turno 2: chegou a ela com 10 valor(es) apagado(s)"
+      ]
+    },
+    "falta-ingrediente-pergunta-preco": {
+      "execucoes": 1,
+      "passaram": 0,
+      "pass_k": false,
+      "falhas": [
+        "turno 2: a resposta não contém /80/",
+        "turno 2: chegou a ela com 1 valor(es) apagado(s)"
+      ]
+    },
+    "gosto-e-impedimento-registrados": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-gosta-encerra-o-prato": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "orcamento-de-80": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-abaixo-do-minimo": {
+      "execucoes": 1,
+      "passaram": 0,
+      "pass_k": false,
+      "falhas": [
+        "turno 1: chegou a ela com 1 valor(es) apagado(s)",
+        "turno 2: chegou a ela com 5 valor(es) apagado(s)"
+      ]
+    },
+    "preco-so-depois-do-portao": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receita-com-instrucao-escondida": {
+      "execucoes": 1,
+      "passaram": 0,
+      "pass_k": false,
+      "falhas": [
+        "turno 1: chegou a ela com 1 valor(es) apagado(s)"
+      ]
+    },
+    "receitas-da-web-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "restricao-de-gas-e-tempo": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "sem-forno-pergunta-air-fryer": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 8,
+  "total_de_cenarios": 12,
+  "turnos": 19,
+  "latencia_por_turno_s": {
+    "p50": 64.0,
+    "p95": 142.3
+  },
+  "tokens": {
+    "entrada": 214,
+    "saida": 71298,
+    "cache_leitura": 3645006,
+    "cache_escrita": 597419
+  },
+  "modelos": [
+    "claude-opus-5"
+  ]
+}

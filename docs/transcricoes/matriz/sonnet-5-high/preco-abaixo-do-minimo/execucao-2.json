@@ -1,0 +1,320 @@
+{
+  "cenario": "preco-abaixo-do-minimo",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero vender arroz com frango. Receita: 500 g de peito de frango, 2 xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e cozinho 20 minutos. Rende 4 porções. Gosto de fazer, não vejo impedimento, e aguento até 1 hora cozinhando de uma vez.",
+      "resposta": "Boas notícias, Dona Maria. O arroz com frango passou no portão: a senhora tem tudo na despensa, não precisa comprar nada. E não tem impedimento de equipamento, técnica ou tempo — a senhora aguenta até 1 hora cozinhando, e essa receita usa bem menos que isso.\n\nVamos à conta do custo. Cada porção sai assim:\n\npeito de frango: R$ 1,75\narroz: R$ 0,51\ncebola: R$ 0,11\nalho: R$ 0,03\nóleo: R$ 0,07\nsal: contado, mas o custo é tão baixo que nem pesa\n\nTotal do ingrediente por porção: R$ 2,47.\n\nAgora a parte do iFood. Ele fica com 10% de tudo que o cliente paga. Se a senhora cobrasse exatamente R$ 2,47, receberia só R$ 2,22 e sairia no prejuízo. Pra empatar sem ganhar nem perder, o preço teria que ser R$ 2,75. Abaixo disso, a senhora paga pra trabalhar.\n\nAqui estão três jeitos de precificar. A senhora escolhe qual fica:\n\nConservador — preço R$ 6,18. O iFood fica com R$ 0,62, chegam R$ 5,56 pra senhora. Tirando o ingrediente, sobram R$ 3,09 de lucro por porção.\n\nEquilibrado — preço R$ 7,06. O iFood fica com R$ 0,71, chegam R$ 6,35. Sobram R$ 3,88 de lucro por porção.\n\nPremium — preço R$ 8,23. O iFood fica com R$ 0,82, chegam R$ 7,41. Sobram R$ 4,94 de lucro por porção.\n\nO conservador atrai mais pedido, o premium ganha mais por prato mas vende pra menos gente. Qual desses fica bom pra senhora, ou quer que eu teste outro valor?",
+      "sessao": "20260924_025516_29c81a",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 57896,
+      "uso": {
+        "entrada": 22,
+        "saida": 3568,
+        "cache_leitura": 236753,
+        "cache_escrita": 32011
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portao",
+              "consultar perfil cozinha",
+              "proxima pergunta"
+            ]
+          },
+          "saida": "{\"queries\": [\"diagnostico despensa\", \"avaliar receita portao\", \"consultar perfil cozinha\", \"proxima pergunta\"], \"total_available\": 28, \"results\": [{\"query\": \"diagnostico despensa\", \"matches\": [\"mcp__mise__diagnostico_despensa\"]}, {\"query\": \"avaliar receita portao\", \"matches\": [], \"available_sources\": [{\"name\": \"mise\", \"tool_count\": 26}, {\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"consultar perfil cozinha\", \"matches\": [\"mcp__mise__consultar_perfil\"]}, {\"query\": \"proxima pergunta\", \"matches\": [\"mcp__mise__proxima_pergunta\", \"mcp__mise__avaliar_receita\", \"mcp__mise__registrar_resposta\"]}], \"tools\": {\"mcp__mise__diagnostico_despensa\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"required\": []}, \"mcp__mise__consultar_perfil\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"required\": []}, \"mcp__mise__proxima_pergunta\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"A pergunta que decide mais pratos agora, entre as candidatas em avaliação.\\n\\n        Perguntar na ordem certa é o que separa uma conversa de um formulário.\\n        \", \"required\": []}, \"mcp__mise__avaliar_receita\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"required\": [\"receita\"]}, \"mcp__mise__registrar_resposta\": {\"source\": \"mcp\", \"source_name\": \"mcp-mise\", \"description\": \"Grava o que a Dona Maria respondeu à pergunta do portão.\\n\\n        `tipo` e `campo` são os que `avaliar_receita` ou `proxima_pergunta`\\n        devolveram. `resposta`:\\n        - equipamento, tecnica: \\\"tem\\\" ou \\\"nao_tem\\\" (sim/não também valem)\\n        - operacional: um número (bocas, minutos, litros, porções, aparelhos),\\n          ou sim/não para `tem_gas_sobrando`\\n        - gosto: `campo` é o prato; \\\"gosta\\\" ou \\\"nao_gosta\\\"\\n        Pergunta de ingrediente não passa por aqui: preço do que falta vai em…\", \"required\": [\"tipo\", \"campo\", \"resposta\"]}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__consultar_perfil",
+              "mcp__mise__registrar_gosto"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__avaliar_receita\": {\"description\": \"O PORTÃO: ela consegue produzir este prato?\\n\\n        Checa ingredientes, equipamentos, técnicas e rotina. Devolve APTO,\\n        APTO COM COMPRA, FALTA INFO (com as perguntas) ou BLOQUEADO (com o\\n        motivo). Guarda a receita como candidata para `proxima_pergunta`.\\n        \", \"parameters\": {\"properties\": {\"receita\": {\"$ref\": \"#/$defs/ReceitaEntrada\"}}, \"required\": [\"receita\"], \"type\": \"object\", \"$defs\": {\"IngredienteEntrada\": {\"description\": \"Uma linha da lista de ingredientes de uma receita.\", \"properties\": {\"texto\": {\"description\": \"A linha como está escrita na receita original\", \"title\": \"Texto\", \"type\": \"string\"}, \"nome\": {\"description\": \"Só o nome do ingrediente, sem quantidade\", \"title\": \"Nome\", \"type\": \"string\"}, \"quantidade\": {\"type\": \"number\", \"nullable\": true, \"title\": \"Quantidade\", \"description\": \"Quantidade numérica; omita para 'a gosto'\", \"default\": null}, \"medida\": {\"default\": \"\", \"description\": \"Unidade: g, kg, ml, xicara, colher de sopa, ovo, dente de alho\", \"title\": \"Medida\", \"type\": \"string\"}, \"opcional\": {\"default\": false, \"description\": \"Ingrediente dispensável na receita\", \"title\": \"Opcional\", \"type\": \"boolean\"}}, \"required\": [\"texto\", \"nome\"], \"title\": \"IngredienteEntrada\", \"type\": \"object\"}, \"ReceitaEntrada\": {\"description\": \"Uma receita pesquisada na internet, já estruturada.\", \"properties\": {\"nome\": {\"title\": \"Nome\", \"type\": \"string\"}, \"ingredientes\": {\"items\": {\"$ref\": \"#/$defs/IngredienteEntrada\"}, \"title\": \"Ingredientes\", \"type\": \"array\"}, \"rendimento_porcoes\": {\"minimum\": 1, \"type\": \"integer\", \"nullable\": true, \"title\": \"Rendimento Porcoes\", \"description\": \"Quantas porções a receita ORIGINAL rende. Crítico: o delivery vende 1 porção. Omita se ninguém disse: o motor pergunta em vez de chutar.\", \"default\": null}, \"modo_preparo\": {\"description\": \"Os passos. São lidos para inferir forno, batedeira, técnicas.\", \"items\": {\"type\": \"string\"}, \"title\": \"Modo Preparo\", \"type\": \"array\"}, \"tempo_preparo_min\": {\"type\": \"integer\", \"nullable\": true, \"title\": \"Tempo Preparo Min\", \"default\": null}, \"url\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Url\", \"description\": \"De onde a receita veio — obrigatória para receita da web, porque o cardápio precisa ser verificável\", \"default\": null}, \"fonte\": {\"type\": \"string\", \"nullable\": true, \"title\": \"Fonte\", \"default\": null}}, \"required\": [\"nome\", \"ingredientes\"], \"title\": \"ReceitaEntrada\", \"type\": \"object\"}}, \"title\": \"avaliar_receitaArguments\"}}, \"mcp__mise__diagnostico_despensa\": {\"description\": \"Panorama da despensa: o que ela tem, quanto investiu e onde o dinheiro está parado.\\n\\n        Comece por aqui. Traz também as pendências — itens cujo custo a planilha\\n        não permite deduzir e que precisam de uma pergunta à Dona Maria.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"diagnostico_despensaArguments\", \"required\": []}}, \"mcp__mise__consultar_perfil\": {\"description\": \"O que já sabemos sobre a cozinha dela: equipamentos, técnicas e limites.\\n\\n        `ela_confirmou` é o que ela respondeu. `pressuposto` é o que o sistema\\n        supõe de qualquer cozinha e ninguém perguntou: nunca diga a ela que ela\\n        disse algo que está em `pressuposto`. Restrição `null` é desconhecida.\\n        \", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_perfilArguments\", \"required\": []}}, \"mcp__mise__registrar_gosto\": {\"description\": \"Guarda se a Dona Maria gosta de fazer um prato, e o que ela vê de empecilho.\\n\\n        É a quinta checagem do portão, e bloqueia como as outras quatro. Um prato\\n        que ela não gosta de fazer não entra no cardápio por mais barato que o CMV\\n        saia — quem cozinha é ela, todo dia.\\n\\n        `impedimento` é o \\\"vê algum impedimento?\\\" do §2.1, em texto livre, e\\n        bloqueia mesmo quando ela gosta do prato: gostar de fazer e conseguir\\n        fazer não são a mesma coisa.\\n        \", \"parameters\": {\"properties\": {\"prato\": {\"title\": \"Prato\", \"type\": \"string\"}, \"gosta\": {\"title\": \"Gosta\", \"type\": \"boolean\"}, \"impedimento\": {\"default\": \"\", \"title\": \"Impedimento\", \"type\": \"string\"}}, \"required\": [\"prato\", \"gosta\"], \"type\": \"object\", \"title\": \"registrar_gostoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Arroz com frango",
+                    "ingredientes": [
+                      {
+                        "texto": "500 g de peito de frango",
+                        "nome": "peito de frango",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "2 xícaras de arroz",
+                        "nome": "arroz",
+                        "quantidade": 2,
+                        "medida": "xicara"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": ""
+                      },
+                      {
+                        "texto": "2 dentes de alho",
+                        "nome": "alho",
+                        "quantidade": 2,
+                        "medida": "dente de alho"
+                      },
+                      {
+                        "texto": "2 colheres de óleo",
+                        "nome": "óleo",
+                        "quantidade": 2,
+                        "medida": "colher de sopa"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal"
+                      }
+                    ],
+                    "rendimento_porcoes": 4,
+                    "modo_preparo": [
+                      "Refogar cebola e alho",
+                      "Dourar o frango",
+                      "Juntar o arroz e a água",
+                      "Cozinhar 20 minutos"
+                    ],
+                    "fonte": "Receita da Dona Maria"
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Arroz com frango",
+            "gosta": true,
+            "impedimento": ""
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar cebola e alho",
+                "Dourar o frango",
+                "Juntar o arroz e a água",
+                "Cozinhar 20 minutos"
+              ],
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "calcular cmv custo porcao",
+              "cenarios preco"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__calcular_cmv",
+          "entrada": {
+            "receita": {
+              "fonte": "Receita da Dona Maria",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "texto": "500 g de peito de frango"
+                },
+                {
+                  "medida": "xicara",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "texto": "2 xícaras de arroz"
+                },
+                {
+                  "medida": "",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "texto": "1 cebola"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "texto": "2 colheres de óleo"
+                },
+                {
+                  "nome": "sal",
+                  "texto": "sal a gosto"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar cebola e alho",
+                "Dourar o frango",
+                "Juntar o arroz e a água",
+                "Cozinhar 20 minutos"
+              ],
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__cenarios_preco",
+          "entrada": {
+            "prato": "Arroz com frango"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Quero cobrar só 2 reais e 50 a porção pra vender bastante. Pode ser?",
+      "resposta": "A R$ 2,50 dá prejuízo, Dona Maria. Deixa eu mostrar a conta.\n\nO ingrediente custa R$ 2,47 a porção. Vendendo a R$ 2,50, o iFood fica com R$ 0,25 (os 10% dele), e chega pra senhora R$ 2,25. Como o ingrediente já custou R$ 2,47, a senhora perde R$ 0,22 em cada porção vendida. Quanto mais vender nesse preço, mais perde.\n\nO preço mínimo pra não perder dinheiro nessa receita é R$ 2,75. Abaixo disso, é prejuízo certo.\n\nSe o que a senhora quer é vender bastante com um preço mais em conta, o cenário conservador que te mostrei — R$ 6,18 — já é o mais baixo dos três que dão lucro, e ainda deixa R$ 3,09 limpos por porção. Quer que eu teste algum outro valor entre R$ 2,75 e R$ 6,18 pra senhora ver a conta?",
+      "sessao": "20260924_025516_29c81a",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 16653,
+      "uso": {
+        "entrada": 6,
+        "saida": 572,
+        "cache_leitura": 113542,
+        "cache_escrita": 2635
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "testar sensibilidade preco"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__testar_sensibilidade",
+          "entrada": {
+            "prato": "Arroz com frango",
+            "preco": 2.5
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

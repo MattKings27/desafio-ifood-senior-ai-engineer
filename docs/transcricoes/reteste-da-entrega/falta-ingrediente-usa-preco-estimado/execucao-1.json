@@ -1,0 +1,150 @@
+{
+  "cenario": "falta-ingrediente-usa-preco-estimado",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero fazer frango com creme de milho: 500 g de peito de frango, 1 lata de milho verde, 1 caixinha de creme de leite, 1 cebola, sal a gosto. Refoga o frango e junta o resto na panela, 30 minutos. Rende 4 porções. Gosto de fazer, sem impedimento, e fico até 2 horas cozinhando de boa.",
+      "resposta": "Pronto, anotei a receita como a senhora me passou, que gosta de fazer e que fica até 2 horas cozinhando. Com isso, o frango com creme de milho dá, comprando.\n\nO que a senhora já tem:\n  Peito de frango: precisa de 500 g, tem 2 kg, sobra 1,5 kg (R$ 7,00 na receita).\n  Cebola: 1 unidade, tem 1 kg. Considerei 70 g a cebola, pela tabela do IBGE; a senhora corrige se a sua for diferente (R$ 0,28).\n  Sal: a gosto, tem 1 kg.\n\nO que falta comprar:\n  Milho verde: 1 lata, R$ 3,43 pelo preço médio de 5 mercados de São Paulo (lata de 170 g).\n  Creme de leite: 1 caixinha, R$ 3,32 pelo preço médio de 6 mercados de São Paulo (caixinha de 200 g).\n\nOs dois juntos dão R$ 6,75, estimados. Cabe nos R$ 80,00 que a senhora ainda tem inteiros. Se a senhora paga outro valor por eles, me diga que eu anoto o seu.\n\nSó falta uma confirmação antes de seguir para a compra ou o preço: a senhora confirma que tem fogão e que sabe refogar? É o que essa receita usa, e eu não posso dar como certo sem a senhora dizer.",
+      "sessao": "20260927_190703_dbc2a3",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 24648,
+      "uso": {
+        "entrada": 8,
+        "saida": 1220,
+        "cache_leitura": 90655,
+        "cache_escrita": 22127
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango com creme de milho",
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 lata de milho verde",
+                  "nome": "milho verde",
+                  "quantidade": 1,
+                  "medida": "lata"
+                },
+                {
+                  "texto": "1 caixinha de creme de leite",
+                  "nome": "creme de leite",
+                  "quantidade": 1,
+                  "medida": "caixinha"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "modo_preparo": [
+                "Refoga o frango e junta o resto na panela, 30 minutos."
+              ],
+              "rendimento_porcoes": 4,
+              "tempo_cozimento_min": 30
+            }
+          },
+          "saida": "{\n  \"receita_id\": \"frango-com-creme-de-milho\",\n  \"prato\": \"Frango com creme de milho\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Frango com creme de milho: antes de decidir, preciso saber 2 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n      \"motivo\": \"Frango com creme de milho fica 30 minutos no fogo\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": {\n        \"tipo\": \"horas\",\n        \"unidade\": \"horas\",\n        \"min\": 0.5,\n        \"max\": 12.0,\n        \"passo\": 0.5,\n        \"casas\": 2\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"assunto\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer frango com creme de milho? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Gosto de fazer\",\n          \"resposta\": \"gosta\"\n        },\n        {\n          \"rotulo\": \"Não gosto\",\n          \"resposta\": \"nao_gosta\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    }\n  ],\n  \"rendimento\": \"4 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,07 kg\",\n      \"custo\": {\n        \"valor\": 0.28,\n        \"texto\": \"R$ 0,28\"\n      },\n      \"derivacao\": \"1 × 70 g (cebola média, pela referência de medidas do IBGE) = 70 g × R$ 4,00/kg = R$ 0,28\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"milho verde\",\n      \"quanto\": \"1 lata de milho verde\",\n      \"custo\": {\n        \"valor\": 3.43,\n        \"texto\": \"R$ 3,43\"\n      },\n      \"preco_de_referencia\": \"preço médio em São Paulo: R$ 3,43 pela lata de 170 g (média de 5 mercados de São Paulo: R$ 22,88, R$ 20,53, R$ 15,24, R$ 20,53 e R$ 21,71 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Oba Hortifruti (R$ 99,93 o quilo) e Casa Santa Luzia (R$ 118,07 o quilo)); a senhora pode corrigir\"\n    },\n    {\n      \"ingrediente\": \"creme de leite\",\n      \"quanto\": \"1 caixinha de creme de leite\",\n      \"custo\": {\n        \"valor\": 3.32,\n        \"texto\": \"R$ 3,32\"\n      },\n      \"preco_de_referencia\": \"preço médio em São Paulo: R$ 3,32 pela caixinha de 200 g (média de 6 mercados de São Paulo: R$ 14,95, R$ 16,45, R$ 9,95, R$ 22,35, R$ 17,45 e R$ 18,45 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Casa Santa Luzia (R$ 32,00 o quilo)); a senhora pode corrigir\"\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": [\n      \"Refogar\"\n    ]\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Refoga o frango e junta o resto na panela, 30 minutos.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"...o frango e junta o resto na panela, 30 minutos....\",\n            \"trecho\": \"na panela\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          },\n          {\n            \"tipo\": \"tecnica\",\n            \"id\": \"refogar\",\n            \"nome\": \"Refogar\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"refoga o frango e junta o resto...\",\n            \"trecho\": \"Refoga\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 30,\n            \"graus\": null,\n            \"texto\": \"30 min no fogo\",\n            \"trecho\": \"30 minutos\",\n            \"equipamento\": \"fogao\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"Responder: Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n    \"Dizer se a senhora gosta de fazer frango com creme de milho.\",\n    \"Confirmar que a senhora tem fogão e que sabe refogar.\"\n  ],\n  \"confirmar_a_cozinha\": {\n    \"pergunta\": \"Antes de aceitar, a senhora confirma que tem fogão e que sabe refogar?\",\n    \"itens\": [\n      {\n        \"tipo\": \"equipamento\",\n        \"id\": \"fogao\",\n        \"nome\": \"Fogão\"\n      },\n      {\n        \"tipo\": \"tecnica\",\n        \"id\": \"refogar\",\n        \"nome\": \"Refogar\"\n      }\n    ]\n  },\n  \"ingredientes\": [\n    {\n      \"nome\": \"Peito de frango\",\n      \"item_id\": \"peito-de-frango\",\n      \"precisa\": {\n        \"texto\": \"500 g\"\n      },\n      \"tem\": {\n        \"texto\": \"2 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"1,5 kg\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"milho verde\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 lata\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 lata, R$ 3,43 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"creme de leite\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 caixinha\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 caixinha, R$ 3,32 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Cebola\",\n      \"item_id\": \"cebola\",\n      \"precisa\": {\n        \"texto\": \"1 unidade (cerca de 70 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"930 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Uma cebola pesa cerca de 70 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 70.0,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"1 cebola\",\n          \"texto\": \"Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": null\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"falta comprar milho verde e creme de leite, R$ 6,75 (pelo preço de referência); cabe nos R$ 80,00 que restam\",\n  \"orcamento\": {\n    \"inicial\": \"R$ 80,00\",\n    \"gasto\": \"R$ 0,00\",\n    \"restante\": \"R$ 80,00\"\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Frango com creme de milho",
+            "gosta": true
+          },
+          "saida": "{\n  \"registrado\": \"Frango com creme de milho: gosta\",\n  \"efeito\": \"gosto confirmado; o portão segue para as outras checagens\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "2 horas"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"0 respondidos por ela · 17 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [\n      \"Frango com creme de milho\"\n    ],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Frango com creme de milho passa a dar.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "E esse preço do creme de leite, você tirou de onde?",
+      "resposta": "É uma estimativa, não um preço fixo. Veio da média de 6 mercados de São Paulo, consultada hoje, 27/09/2026: os preços por quilo foram R$ 14,95, R$ 16,45, R$ 9,95, R$ 22,35, R$ 17,45 e R$ 18,45. Dessa média saiu o valor da caixinha de 200 g, que é R$ 3,32.\n\nUm mercado ficou de fora da média por estar muito longe dos outros: a Casa Santa Luzia, a R$ 32,00 o quilo.\n\nSe a senhora paga outro valor na sua compra, me diga quanto e por qual embalagem, que eu anoto e o seu preço passa a valer na conta.",
+      "sessao": "20260927_190703_dbc2a3",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 13537,
+      "uso": {
+        "entrada": 4,
+        "saida": 249,
+        "cache_leitura": 41319,
+        "cache_escrita": 514
+      },
+      "chamadas": []
+    },
+    {
+      "pergunta": "Aqui no mercado da esquina o creme de leite sai 4 e 50 a caixinha.",
+      "resposta": "Anotado: creme de leite a R$ 4,50 a caixinha, o preço do seu mercado. Ele passa a valer no lugar da média, e refiz a conta do prato.\n\nA compra agora fica assim:\n  Creme de leite: 1 caixinha, R$ 4,50 (o seu preço).\n  Milho verde: 1 lata, R$ 3,43 (ainda pelo preço médio de São Paulo, que a senhora também pode corrigir).\n\nTotal da compra: R$ 7,93. Continua cabendo nos R$ 80,00, que estão inteiros.\n\nFica só aquela confirmação pendente antes de a senhora comprar ou fechar o preço: a senhora tem fogão e sabe refogar? É o que essa receita usa.",
+      "sessao": "20260927_190703_dbc2a3",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 15931,
+      "uso": {
+        "entrada": 8,
+        "saida": 503,
+        "cache_leitura": 126810,
+        "cache_escrita": 8390
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_preco_mercado",
+          "entrada": {
+            "ingrediente": "creme de leite",
+            "valor": 4.5,
+            "quantidade": 1,
+            "unidade": "caixinha",
+            "origem": "informado_por_ela"
+          },
+          "saida": "{\n  \"registrado\": \"creme de leite: R$ 4,50 por 1 caixinha (informado por ela)\",\n  \"casou_com_o_que_falta\": true,\n  \"o_que_falta_nos_pratos\": [\n    \"creme de leite\"\n  ],\n  \"orcamento_restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"observacao\": \"reavalie o prato: com o preço conhecido a avaliação já consegue dizer se a compra cabe no orçamento\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita_id": "frango-com-creme-de-milho"
+          },
+          "saida": "{\n  \"receita_id\": \"frango-com-creme-de-milho\",\n  \"prato\": \"Frango com creme de milho\",\n  \"veredito\": \"APTO COM COMPRA\",\n  \"pode_precificar\": true,\n  \"resumo\": \"Frango com creme de milho: dá, comprando 2 itens, R$ 7,93 no total; cabe nos R$ 80,00 que restam do orçamento\",\n  \"impedimentos\": [],\n  \"perguntas\": [],\n  \"rendimento\": \"4 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,07 kg\",\n      \"custo\": {\n        \"valor\": 0.28,\n        \"texto\": \"R$ 0,28\"\n      },\n      \"derivacao\": \"1 × 70 g (cebola média, pela referência de medidas do IBGE) = 70 g × R$ 4,00/kg = R$ 0,28\"\n    }\n  ],\n  \"falta_comprar\": [\n    {\n      \"ingrediente\": \"milho verde\",\n      \"quanto\": \"1 lata de milho verde\",\n      \"custo\": {\n        \"valor\": 3.43,\n        \"texto\": \"R$ 3,43\"\n      },\n      \"preco_de_referencia\": \"preço médio em São Paulo: R$ 3,43 pela lata de 170 g (média de 5 mercados de São Paulo: R$ 22,88, R$ 20,53, R$ 15,24, R$ 20,53 e R$ 21,71 o quilo, em 27/09/2026; fora da média, por ficar mais de 50% longe da mediana: Oba Hortifruti (R$ 99,93 o quilo) e Casa Santa Luzia (R$ 118,07 o quilo)); a senhora pode corrigir\"\n    },\n    {\n      \"ingrediente\": \"creme de leite\",\n      \"quanto\": \"1 caixinha de creme de leite\",\n      \"custo\": {\n        \"valor\": 4.5,\n        \"texto\": \"R$ 4,50\"\n      },\n      \"preco_de_referencia\": null\n    }\n  ],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": [\n      \"Refogar\"\n    ]\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Refoga o frango e junta o resto na panela, 30 minutos.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"...o frango e junta o resto na panela, 30 minutos....\",\n            \"trecho\": \"na panela\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          },\n          {\n            \"tipo\": \"tecnica\",\n            \"id\": \"refogar\",\n            \"nome\": \"Refogar\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"refoga o frango e junta o resto...\",\n            \"trecho\": \"Refoga\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 30,\n            \"graus\": null,\n            \"texto\": \"30 min no fogo\",\n            \"trecho\": \"30 minutos\",\n            \"equipamento\": \"fogao\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"Confirmar que a senhora tem fogão e que sabe refogar.\"\n  ],\n  \"confirmar_a_cozinha\": {\n    \"pergunta\": \"Antes de aceitar, a senhora confirma que tem fogão e que sabe refogar?\",\n    \"itens\": [\n      {\n        \"tipo\": \"equipamento\",\n        \"id\": \"fogao\",\n        \"nome\": \"Fogão\"\n      },\n      {\n        \"tipo\": \"tecnica\",\n        \"id\": \"refogar\",\n        \"nome\": \"Refogar\"\n      }\n    ]\n  },\n  \"ingredientes\": [\n    {\n      \"nome\": \"Peito de frango\",\n      \"item_id\": \"peito-de-frango\",\n      \"precisa\": {\n        \"texto\": \"500 g\"\n      },\n      \"tem\": {\n        \"texto\": \"2 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"1,5 kg\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"milho verde\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 lata\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 lata, R$ 3,43 pelo preço de referência\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"creme de leite\",\n      \"item_id\": null,\n      \"precisa\": {\n        \"texto\": \"1 caixinha\"\n      },\n      \"tem\": null,\n      \"sobra\": null,\n      \"situacao\": \"falta\",\n      \"compra\": {\n        \"texto\": \"1 caixinha, R$ 4,50\",\n        \"cabe\": true\n      },\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Cebola\",\n      \"item_id\": \"cebola\",\n      \"precisa\": {\n        \"texto\": \"1 unidade (cerca de 70 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"930 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Uma cebola pesa cerca de 70 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 70.0,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"1 cebola\",\n          \"texto\": \"Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": null\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"falta comprar milho verde e creme de leite, R$ 7,93 (com preço de referência para milho verde); cabe nos R$ 80,00 que restam\",\n  \"orcamento\": {\n    \"inicial\": \"R$ 80,00\",\n    \"gasto\": \"R$ 0,00\",\n    \"restante\": \"R$ 80,00\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

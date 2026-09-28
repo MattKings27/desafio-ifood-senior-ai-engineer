@@ -1,0 +1,134 @@
+{
+  "cenario": "nao-tenho-fogao-bloqueia",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 2: a resposta contém /(?<!não )(?<!nao )\\bd[aá] (pra|para) (a senhora )?fazer/, que não podia"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quero vender arroz com frango. Receita: 500 g de peito de frango, 2 xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e cozinho 20 minutos. Rende 4 porções.",
+      "resposta": "Boa notícia: a senhora já tem tudo na despensa para esse arroz com frango, não precisa comprar nada.\n\nPelo que a conferência achou, a receita usa:\n\n  Peito de frango: 500 g (a senhora tem 2 kg, sobra 1,5 kg)\n  Arroz branco tipo 1: 2 xícaras, cerca de 408 g (tem 5 kg, sobra 4,59 kg)\n  Cebola: 1 unidade, cerca de 70 g (tem 1 kg, sobra 930 g)\n  Alho: 2 dentes, cerca de 8,8 g (tem 300 g, sobra 291 g)\n  Óleo de soja: 2 colheres de sopa, 30 ml (tem 1 L, sobra 970 ml)\n  Sal: a gosto\n\nO peso da cebola e do dente de alho é estimado pela tabela de medidas do IBGE. Se na sua cozinha pesar diferente, é só me dizer que eu refaço a conta.\n\nAntes de chegar no preço, preciso saber duas coisas da senhora. A primeira é a mais importante: a senhora gosta de fazer arroz com frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha? Pergunto porque não adianta a conta fechar se a senhora não quer cozinhar o prato todo dia.",
+      "sessao": "20260927_181114_2d7c13",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 19095,
+      "uso": {
+        "entrada": 6,
+        "saida": 952,
+        "cache_leitura": 59412,
+        "cache_escrita": 12930
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Arroz com frango",
+              "rendimento_porcoes": 4,
+              "tempo_cozimento_min": 20,
+              "ingredientes": [
+                {
+                  "texto": "500 g de peito de frango",
+                  "nome": "peito de frango",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "2 xícaras de arroz",
+                  "nome": "arroz",
+                  "quantidade": 2,
+                  "medida": "xicara"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "2 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 2,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "2 colheres de óleo",
+                  "nome": "óleo",
+                  "quantidade": 2,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "modo_preparo": [
+                "Refogar a cebola e o alho.",
+                "Dourar o frango.",
+                "Juntar o arroz e a água e cozinhar por 20 minutos."
+              ]
+            }
+          },
+          "saida": "{\n  \"receita_id\": \"arroz-com-frango\",\n  \"prato\": \"Arroz com frango\",\n  \"veredito\": \"FALTA INFO\",\n  \"pode_precificar\": false,\n  \"resumo\": \"Arroz com frango: antes de decidir, preciso saber 2 coisas\",\n  \"impedimentos\": [],\n  \"perguntas\": [\n    {\n      \"tipo\": \"operacional\",\n      \"assunto\": \"rotina\",\n      \"campo\": \"tempo_max_por_fornada_min\",\n      \"texto\": \"Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n      \"motivo\": \"Arroz com frango fica 20 minutos no fogo ou no forno\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": {\n        \"tipo\": \"horas\",\n        \"unidade\": \"horas\",\n        \"min\": 0.5,\n        \"max\": 12.0,\n        \"passo\": 0.5,\n        \"casas\": 2\n      },\n      \"passos\": []\n    },\n    {\n      \"tipo\": \"gosto\",\n      \"assunto\": \"gosto\",\n      \"campo\": \"gosto\",\n      \"texto\": \"A senhora gosta de fazer arroz com frango? E vê algum impedimento pra preparar esse prato aí na sua cozinha?\",\n      \"motivo\": \"não adianta a conta fechar se a senhora não quer cozinhar o prato\",\n      \"compras\": [],\n      \"opcoes\": [\n        {\n          \"rotulo\": \"Gosto de fazer\",\n          \"resposta\": \"gosta\"\n        },\n        {\n          \"rotulo\": \"Não gosto\",\n          \"resposta\": \"nao_gosta\"\n        },\n        {\n          \"rotulo\": \"Não sei\",\n          \"resposta\": \"nao_sei\"\n        }\n      ],\n      \"entrada\": null,\n      \"passos\": []\n    }\n  ],\n  \"rendimento\": \"4 porções\",\n  \"avisos\": [],\n  \"ingredientes_na_despensa\": [\n    {\n      \"ingrediente\": \"Peito de frango\",\n      \"quantidade\": \"0,5 kg\",\n      \"custo\": {\n        \"valor\": 7.0,\n        \"texto\": \"R$ 7,00\"\n      },\n      \"derivacao\": \"500 g = 500 g × R$ 14,00/kg = R$ 7,00\"\n    },\n    {\n      \"ingrediente\": \"Arroz branco tipo 1\",\n      \"quantidade\": \"0,408 kg\",\n      \"custo\": {\n        \"valor\": 2.03,\n        \"texto\": \"R$ 2,03\"\n      },\n      \"derivacao\": \"2 xícaras = 480 ml × 0,85 g/ml = 408 g × R$ 4,98/kg = R$ 2,03\"\n    },\n    {\n      \"ingrediente\": \"Cebola\",\n      \"quantidade\": \"0,07 kg\",\n      \"custo\": {\n        \"valor\": 0.28,\n        \"texto\": \"R$ 0,28\"\n      },\n      \"derivacao\": \"1 × 70 g (cebola média, pela referência de medidas do IBGE) = 70 g × R$ 4,00/kg = R$ 0,28\"\n    },\n    {\n      \"ingrediente\": \"Alho\",\n      \"quantidade\": \"0,0088 kg\",\n      \"custo\": {\n        \"valor\": 0.18,\n        \"texto\": \"R$ 0,18\"\n      },\n      \"derivacao\": \"2 × 4,4 g (dente de alho, pela referência de medidas do IBGE) = 8,8 g × R$ 20,00/kg = R$ 0,18\"\n    },\n    {\n      \"ingrediente\": \"Óleo de soja\",\n      \"quantidade\": \"0,03 L\",\n      \"custo\": {\n        \"valor\": 0.27,\n        \"texto\": \"R$ 0,27\"\n      },\n      \"derivacao\": \"2 colheres de sopa = 30 ml × R$ 9,00/L = R$ 0,27\"\n    }\n  ],\n  \"falta_comprar\": [],\n  \"a_gosto\": [\n    \"sal\"\n  ],\n  \"exige\": {\n    \"equipamentos\": [\n      \"Fogão\"\n    ],\n    \"tecnicas\": [\n      \"Refogar\"\n    ]\n  },\n  \"por_passo\": {\n    \"passos\": [\n      {\n        \"ordem\": 1,\n        \"texto\": \"Refogar a cebola e o alho.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"refogar a cebola e o alho...\",\n            \"trecho\": \"Refogar\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          },\n          {\n            \"tipo\": \"tecnica\",\n            \"id\": \"refogar\",\n            \"nome\": \"Refogar\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"refogar a cebola e o alho....\",\n            \"trecho\": \"Refogar\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": []\n      },\n      {\n        \"ordem\": 2,\n        \"texto\": \"Dourar o frango.\",\n        \"secao\": null,\n        \"requisitos\": [],\n        \"limites\": []\n      },\n      {\n        \"ordem\": 3,\n        \"texto\": \"Juntar o arroz e a água e cozinhar por 20 minutos.\",\n        \"secao\": null,\n        \"requisitos\": [\n          {\n            \"tipo\": \"equipamento\",\n            \"id\": \"fogao\",\n            \"nome\": \"Fogão\",\n            \"estado\": \"tem\",\n            \"suposto\": true,\n            \"evidencia\": \"...untar o arroz e a agua e cozinhar por 20 minutos...\",\n            \"trecho\": \"cozinhar\",\n            \"rotulo_estado\": \"suposto\",\n            \"substituto\": null,\n            \"conferido\": true\n          }\n        ],\n        \"limites\": [\n          {\n            \"tipo\": \"tempo\",\n            \"minutos\": 20,\n            \"graus\": null,\n            \"texto\": \"20 min no fogo\",\n            \"trecho\": \"20 minutos\",\n            \"equipamento\": \"fogao\"\n          }\n        ]\n      }\n    ],\n    \"requisitos_da_receita\": []\n  },\n  \"pode_aceitar\": false,\n  \"falta_para_aceitar\": [\n    \"Responder: Quanto tempo a senhora consegue ficar cozinhando de uma vez, sem se estressar ou cansar?\",\n    \"Dizer se a senhora gosta de fazer arroz com frango.\",\n    \"Confirmar que a senhora tem fogão e que sabe refogar.\"\n  ],\n  \"confirmar_a_cozinha\": {\n    \"pergunta\": \"Antes de aceitar, a senhora confirma que tem fogão e que sabe refogar?\",\n    \"itens\": [\n      {\n        \"tipo\": \"equipamento\",\n        \"id\": \"fogao\",\n        \"nome\": \"Fogão\"\n      },\n      {\n        \"tipo\": \"tecnica\",\n        \"id\": \"refogar\",\n        \"nome\": \"Refogar\"\n      }\n    ]\n  },\n  \"ingredientes\": [\n    {\n      \"nome\": \"Peito de frango\",\n      \"item_id\": \"peito-de-frango\",\n      \"precisa\": {\n        \"texto\": \"500 g\"\n      },\n      \"tem\": {\n        \"texto\": \"2 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"1,5 kg\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Arroz branco tipo 1\",\n      \"item_id\": \"arroz-branco-tipo-1\",\n      \"precisa\": {\n        \"texto\": \"2 xícaras (cerca de 408 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"5 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"4,59 kg\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Cebola\",\n      \"item_id\": \"cebola\",\n      \"precisa\": {\n        \"texto\": \"1 unidade (cerca de 70 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": {\n        \"texto\": \"930 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Uma cebola pesa cerca de 70 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 70.0,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"1 cebola\",\n          \"texto\": \"Quanto pesa uma cebola na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": null\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Alho\",\n      \"item_id\": \"alho\",\n      \"precisa\": {\n        \"texto\": \"2 dentes de alho (cerca de 8,8 g)\"\n      },\n      \"tem\": {\n        \"texto\": \"300 g\"\n      },\n      \"sobra\": {\n        \"texto\": \"291 g\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": {\n        \"texto\": \"Um alho pesa cerca de 4,4 g, pela referência de medidas do IBGE; a senhora pode corrigir\",\n        \"gramas\": 4.4,\n        \"fonte\": \"IBGE, Pesquisa de Orçamentos Familiares 2008-2009: Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil\",\n        \"url\": \"https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabela_de_Medidas_Referidas_para_os_Alimentos_Consumidos_no_Brasil/tabelamedidas_bd.zip\",\n        \"pergunta\": {\n          \"tipo\": \"ingrediente\",\n          \"assunto\": \"medida\",\n          \"campo\": \"2 dentes de alho\",\n          \"texto\": \"Quanto pesa um alho na sua cozinha? Em gramas, eu refaço a conta.\",\n          \"motivo\": \"o peso da sua cozinha vale mais que a média da tabela\",\n          \"compras\": [],\n          \"opcoes\": [],\n          \"entrada\": {\n            \"tipo\": \"peso\",\n            \"unidade\": \"g\",\n            \"peso_de\": {\n              \"cada\": \"1 unidade\",\n              \"tudo\": \"2 unidades\"\n            }\n          },\n          \"passos\": []\n        }\n      }\n    },\n    {\n      \"nome\": \"Óleo de soja\",\n      \"item_id\": \"oleo-de-soja\",\n      \"precisa\": {\n        \"texto\": \"2 colheres de sopa (30 ml)\"\n      },\n      \"tem\": {\n        \"texto\": \"1 L\"\n      },\n      \"sobra\": {\n        \"texto\": \"970 ml\"\n      },\n      \"situacao\": \"tem\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    },\n    {\n      \"nome\": \"Sal\",\n      \"item_id\": \"sal\",\n      \"precisa\": {\n        \"texto\": \"a gosto\"\n      },\n      \"tem\": {\n        \"texto\": \"1 kg\"\n      },\n      \"sobra\": null,\n      \"situacao\": \"a_gosto\",\n      \"compra\": null,\n      \"medida_de_referencia\": null\n    }\n  ],\n  \"linhas_nao_entendidas\": [],\n  \"opcionais\": [],\n  \"falta_comprar_texto\": \"nada a comprar\",\n  \"orcamento\": {\n    \"inicial\": \"R$ 80,00\",\n    \"gasto\": \"R$ 0,00\",\n    \"restante\": \"R$ 80,00\"\n  },\n  \"orientacao\": \"NÃO calcule preço nem sugira que ela compre ingrediente para este prato enquanto a viabilidade não for confirmada.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Esqueci de contar que eu não tenho fogão. Cozinho só no micro-ondas.",
+      "resposta": "Que bom que a senhora contou agora, antes de qualquer conta de preço. Anotei na sua cozinha: sem fogão, e com micro-ondas.\n\nCom isso, esse arroz com frango, do jeito que a senhora me passou, não dá. A receita refoga a cebola e o alho, doura o frango e cozinha o arroz 20 minutos no fogo, e tudo isso pede fogão. Eu não vou fingir que dá para adaptar de cabeça, porque a senhora vai apostar dinheiro nisso.\n\nO que dá para fazer é procurar uma receita de arroz com frango feita no micro-ondas, que use o mesmo frango, arroz, cebola e alho que a senhora já tem. Aí eu confiro ela do zero com a sua cozinha. Quer que eu procure?",
+      "sessao": "20260927_181114_2d7c13",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 14225,
+      "uso": {
+        "entrada": 8,
+        "saida": 613,
+        "cache_leitura": 116588,
+        "cache_escrita": 14038
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "fogao",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"1 respondido por ela · 16 supostos de qualquer cozinha · 46 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [\n      \"Arroz com frango\"\n    ],\n    \"pendentes\": [],\n    \"texto\": \"Sem fogão, Arroz com frango deixa de dar.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "micro-ondas",
+            "resposta": "tem"
+          },
+          "saida": "{\n  \"erro\": \"equipamento 'micro-ondas' não existe no vocabulário controlado (31 conhecidos); você quis dizer 'microondas'?\",\n  \"categoria\": \"uso\",\n  \"tipo\": \"VocabularioDesconhecido\",\n  \"contexto\": {\n    \"especie\": \"equipamento\",\n    \"id\": \"micro-ondas\",\n    \"sugestoes\": \"('microondas',)\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "microondas",
+            "resposta": "tem",
+            "tipo": "equipamento"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"2 respondidos por ela · 16 supostos de qualquer cozinha · 45 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Nenhuma receita em avaliação muda com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

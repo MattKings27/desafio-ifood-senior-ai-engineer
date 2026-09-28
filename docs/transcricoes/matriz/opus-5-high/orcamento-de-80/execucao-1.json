@@ -1,0 +1,45 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda tem os R$ 80,00 inteiros.\n\nO motor mostra assim: R$ 0,00 de R$ 80,00 usados, restam R$ 80,00. Nenhuma compra registrada até agora.\n\nUma coisa importante: esse valor só muda quando eu gravo uma compra aqui. Então, se a senhora comprar alguma coisa na rua, me avise que eu lanço e a gente vê quanto sobra.\n\nE pra eu te ajudar a gastar esse dinheiro bem: quer que eu dê uma olhada na sua despensa primeiro, pra ver quais pratos já dão pra fazer com o que a senhora tem e o que de fato falta comprar?",
+      "sessao": "20260924_025612_89817f",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 22951,
+      "uso": {
+        "entrada": 6,
+        "saida": 474,
+        "cache_leitura": 39558,
+        "cache_escrita": 4227
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_orcamento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_orcamento\": {\"description\": \"Quanto dos R$ 80,00 de complementos ainda resta.\", \"parameters\": {\"properties\": {}, \"type\": \"object\", \"title\": \"consultar_orcamentoArguments\", \"required\": []}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "{\n  \"inicial\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"gasto\": {\n    \"valor\": 0.0,\n    \"texto\": \"R$ 0,00\"\n  },\n  \"restante\": {\n    \"valor\": 80.0,\n    \"texto\": \"R$ 80,00\"\n  },\n  \"fracao_usada\": 0.0,\n  \"texto\": \"R$ 0,00 de R$ 80,00 usados · restam R$ 80,00\",\n  \"compras\": []\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

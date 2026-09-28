@@ -1,0 +1,56 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "6e4c00239f0364e8",
+ "url": "https://www.receitasnestle.com.br/receitas/receita-feijao-carioca",
+ "receita": {
+  "@type": "Recipe",
+  "name": "Receita de Feijão Carioca",
+  "recipeIngredient": [
+   "2 xícaras (chá) de feijão carioca",
+   "1 5 litro de água (para o cozimento)",
+   "1 colher (sopa) de óleo",
+   "1 cebola picada",
+   "2 dentes de alho picados",
+   "1 tomate maduro picado",
+   "1 folha de louro",
+   "1 colher (chá) de páprica doce",
+   "1 colher (chá) de cominho em pó",
+   "1 colher (chá) de sal",
+   "1 pitada de pimenta-do-reino",
+   "Cheiro-verde picado para finalizar"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToSection",
+    "name": "Modo de Preparo",
+    "itemListElement": [
+     {
+      "@type": "HowToStep",
+      "text": "Depois de deixar o feijão de molho por 8 horas. Escorra o feijão, transfira para uma panela de pressão e adicione 1,5 litro de água. Cozinhe por 25 minutos após pegar pressão."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Em uma panela grande, aqueça o óleo e refogue a cebola até ficar transparente. Acrescente o alho e mexa por 1 minuto."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Adicione o tomate picado, a folha de louro, a páprica, o cominho e refogue até formar um molho."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Junte o feijão cozido com o caldo, ajuste o sal e a pimenta-do-reino.Cozinhe em fogo baixo por mais 10 minutos, até o caldo engrossar."
+     },
+     {
+      "@type": "HowToStep",
+      "text": "Finalize com cheiro-verde e sirva quente."
+     }
+    ]
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Modo de Preparo"
+  }
+ ]
+}

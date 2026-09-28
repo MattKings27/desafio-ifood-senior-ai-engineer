@@ -1,0 +1,57 @@
+{
+  "cenarios": {
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "falta-ingrediente-usa-preco-estimado": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-tenho-fogao-bloqueia": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "descobrir-o-que-consigo-cozinhar": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 4,
+  "total_de_cenarios": 4,
+  "turnos": 11,
+  "latencia_por_turno_s": {
+    "p50": 20.0,
+    "p95": 278.5
+  },
+  "tokens": {
+    "entrada": 80,
+    "saida": 10548,
+    "cache_leitura": 1182241,
+    "cache_escrita": 304206
+  },
+  "modelos": [
+    "claude-fable-5-1"
+  ],
+  "custo": {
+    "usd": 4.626335,
+    "partes_usd": {
+      "entrada": 0.0008,
+      "saida": 0.5274,
+      "leitura_de_cache": 0.29556,
+      "gravacao_de_cache": 3.802575
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 1.156584
+  },
+  "tokens_conferem_com_o_hermes": true
+}

@@ -1,0 +1,134 @@
+{"turno": 1, "t": 0.05, "seq": 1, "turno_id": "t-765f299362e7", "tipo": "turno.iniciado", "conversa_id": "cv-db50b8486909", "mensagem_id": "m-07fca6e6bcb8", "id_cliente": "u-263969db"}
+{"turno": 1, "t": 3.04, "seq": 2, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "De"}
+{"turno": 1, "t": 3.04, "seq": 3, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ixa eu ol"}
+{"turno": 1, "t": 3.04, "seq": 4, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "har a despensa da"}
+{"turno": 1, "t": 3.04, "seq": 5, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " senhora."}
+{"turno": 1, "t": 5.5, "seq": 6, "turno_id": "t-765f299362e7", "tipo": "atividade.iniciada", "atividade_id": "at-1", "ferramenta": "diagnostico_despensa", "rotulo": "olhando sua despensa", "rotulo_feito": "olhei sua despensa"}
+{"turno": 1, "t": 5.54, "seq": 7, "turno_id": "t-765f299362e7", "tipo": "atividade.concluida", "atividade_id": "at-1", "ok": true}
+{"turno": 1, "t": 5.54, "seq": 8, "turno_id": "t-765f299362e7", "tipo": "cartao", "cartao_id": "k-9a6f1aa943bd", "tipo_cartao": "despensa_resumo", "ref": {"rota": "/api/visao-geral", "parametros": {}}, "dados": {"kpis": {"despensa": {"total": {"valor": 663.39, "texto": "R$ 663,39"}, "itens": 37, "texto": "37 ingredientes", "rota": "/despensa"}}, "dinheiro_parado": {"total_itens": 37, "itens": [{"id": "alcaparras", "nome": "Alcaparras", "pago": {"valor": 82.0, "texto": "R$ 82,00"}, "fracao": 0.1236, "fracao_texto": "12%", "rota": "/despensa/alcaparras"}, {"id": "cobertura-de-chocolate", "nome": "Cobertura de chocolate", "pago": {"valor": 79.9, "texto": "R$ 79,90"}, "fracao": 0.1204, "fracao_texto": "12%", "rota": "/despensa/cobertura-de-chocolate"}, {"id": "carne-moida-patinho", "nome": "Carne moída (patinho)", "pago": {"valor": 42.0, "texto": "R$ 42,00"}, "fracao": 0.0633, "fracao_texto": "6%", "rota": "/despensa/carne-moida-patinho"}]}, "pendencias": [{"id": "cobertura-de-chocolate", "ingrediente": "Cobertura de chocolate", "pergunta": "Dona Maria, a cobertura de chocolate que a senhora comprou por R$ 79,90 — quanto vem na embalagem? Se estiver escrito no rótulo (em gramas ou ml), me diz que eu calculo certinho.", "impacto": {"valor": 79.9, "texto": "R$ 79,90"}, "rota": "/despensa/cobertura-de-chocolate"}]}, "gerado_texto": "conta de hoje, 09:38"}
+{"turno": 1, "t": 11.82, "seq": 9, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "\n\nA"}
+{"turno": 1, "t": 11.82, "seq": 10, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " sen"}
+{"turno": 1, "t": 11.82, "seq": 11, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "hora tem **"}
+{"turno": 1, "t": 11.83, "seq": 12, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "**"}
+{"turno": 1, "t": 11.83, "seq": 13, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " na"}
+{"turno": 1, "t": 11.83, "seq": 14, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " despensa, e os"}
+{"turno": 1, "t": 11.83, "seq": 15, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " dois it"}
+{"turno": 1, "t": 11.83, "seq": 16, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ens m"}
+{"turno": 1, "t": 11.83, "seq": 17, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ais caros são as alca"}
+{"turno": 1, "t": 11.83, "seq": 18, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "parras e a cobertura"}
+{"turno": 1, "t": 11.83, "seq": 19, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " de chocolate:"}
+{"turno": 1, "t": 11.83, "seq": 20, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " juntos somam **"}
+{"turno": 1, "t": 11.83, "seq": 21, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "**, qu"}
+{"turno": 1, "t": 11.83, "seq": 22, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ase um"}
+{"turno": 1, "t": 11.83, "seq": 23, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " quarto de"}
+{"turno": 1, "t": 11.83, "seq": 24, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " tudo. Alca"}
+{"turno": 1, "t": 11.83, "seq": 25, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "parra entra de colher em"}
+{"turno": 1, "t": 11.83, "seq": 26, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " colher, então esse din"}
+{"turno": 1, "t": 11.83, "seq": 27, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "heiro volta devagar"}
+{"turno": 1, "t": 11.83, "seq": 28, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": ".\n\nUma coisa"}
+{"turno": 1, "t": 11.83, "seq": 29, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " importante: o"}
+{"turno": 1, "t": 11.83, "seq": 30, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " pre"}
+{"turno": 1, "t": 11.84, "seq": 31, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ço das alcaparras é"}
+{"turno": 1, "t": 11.84, "seq": 32, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " **"}
+{"turno": 1, "t": 11.9, "seq": 33, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " o"}
+{"turno": 1, "t": 11.96, "seq": 34, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " quilo**, não "}
+{"turno": 1, "t": 12.06, "seq": 35, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " — o bal"}
+{"turno": 1, "t": 12.12, "seq": 36, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "de t"}
+{"turno": 1, "t": 12.17, "seq": 37, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "em 2 qu"}
+{"turno": 1, "t": 12.22, "seq": 38, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ilos. Se"}
+{"turno": 1, "t": 12.27, "seq": 39, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " a senhora cont"}
+{"turno": 1, "t": 12.33, "seq": 40, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "asse o"}
+{"turno": 1, "t": 12.38, "seq": 41, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " valor c"}
+{"turno": 1, "t": 12.43, "seq": 42, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "heio numa rece"}
+{"turno": 1, "t": 12.49, "seq": 43, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ita, "}
+{"turno": 1, "t": 12.54, "seq": 44, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ia ach"}
+{"turno": 1, "t": 12.59, "seq": 45, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ar que o"}
+{"turno": 1, "t": 12.64, "seq": 46, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " prato custa o"}
+{"turno": 1, "t": 12.7, "seq": 47, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " dobro do que cust"}
+{"turno": 1, "t": 12.75, "seq": 48, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "a.\n\nA cobertura"}
+{"turno": 1, "t": 12.8, "seq": 49, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " de chocolate eu "}
+{"turno": 1, "t": 12.86, "seq": 50, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ainda não consigo cal"}
+{"turno": 1, "t": 12.91, "seq": 51, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "cular. A"}
+{"turno": 1, "t": 12.96, "seq": 52, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " senhora pagou **"}
+{"turno": 1, "t": 13.02, "seq": 53, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "**"}
+{"turno": 1, "t": 13.07, "seq": 54, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": ", mas não"}
+{"turno": 1, "t": 13.12, "seq": 55, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " s"}
+{"turno": 1, "t": 13.18, "seq": 56, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "ei quanto vem na emb"}
+{"turno": 1, "t": 13.23, "seq": 57, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "alagem — se estiver"}
+{"turno": 1, "t": 13.28, "seq": 58, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " escrito no rótulo"}
+{"turno": 1, "t": 13.33, "seq": 59, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": ", em gramas ou em"}
+{"turno": 1, "t": 13.39, "seq": 60, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " ml, me"}
+{"turno": 1, "t": 13.45, "seq": 61, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " diz que"}
+{"turno": 1, "t": 13.5, "seq": 62, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " eu ac"}
+{"turno": 1, "t": 13.55, "seq": 63, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": "erto a"}
+{"turno": 1, "t": 13.59, "seq": 64, "turno_id": "t-765f299362e7", "tipo": "texto.parcial", "delta": " conta."}
+{"turno": 1, "t": 13.66, "seq": 65, "turno_id": "t-765f299362e7", "tipo": "texto.final", "texto": "Deixa eu olhar a despensa da senhora.\n\nA senhora tem **R$ 663,39** na despensa, e os dois itens mais caros são as alcaparras e a cobertura de chocolate: juntos somam **R$ 161,90**, quase um quarto de tudo. Alcaparra entra de colher em colher, então esse dinheiro volta devagar.\n\nUma coisa importante: o preço das alcaparras é **R$ 41,00 o quilo**, não R$ 82,00 — o balde tem 2 quilos. Se a senhora contasse o valor cheio numa receita, ia achar que o prato custa o dobro do que custa.\n\nA cobertura de chocolate eu ainda não consigo calcular. A senhora pagou **R$ 79,90**, mas não sei quanto vem na embalagem — se estiver escrito no rótulo, em gramas ou em ml, me diz que eu acerto a conta.", "retirados": 0}
+{"turno": 1, "t": 13.66, "seq": 66, "turno_id": "t-765f299362e7", "tipo": "sugestoes", "opcoes": [{"rotulo": "Receitas com isso", "texto": "Que receitas aproveitam o que está parado na despensa?"}]}
+{"turno": 1, "t": 13.66, "seq": 67, "turno_id": "t-765f299362e7", "tipo": "turno.concluido"}
+{"turno": 2, "t": 0.02, "seq": 1, "turno_id": "t-48a555e94a5b", "tipo": "turno.iniciado", "conversa_id": "cv-db50b8486909", "mensagem_id": "m-ea10a60ae526", "id_cliente": "u-735da6eb"}
+{"turno": 2, "t": 2.43, "seq": 2, "turno_id": "t-48a555e94a5b", "tipo": "atividade.iniciada", "atividade_id": "at-1", "ferramenta": "custo_unitario", "rotulo": "conferindo o custo de alcaparras", "rotulo_feito": "conferi o custo de alcaparras"}
+{"turno": 2, "t": 2.44, "seq": 3, "turno_id": "t-48a555e94a5b", "tipo": "atividade.concluida", "atividade_id": "at-1", "ok": true}
+{"turno": 2, "t": 2.45, "seq": 4, "turno_id": "t-48a555e94a5b", "tipo": "cartao", "cartao_id": "k-3a6ce1c4cf77", "tipo_cartao": "ingrediente", "ref": {"rota": "/api/despensa/itens/alcaparras", "parametros": {"id": "alcaparras", "ingrediente": "Alcaparras"}}, "dados": {"id": "alcaparras", "nome": "Alcaparras", "estoque": 2.0, "unidade": "kg", "pago": {"valor": 82.0, "texto": "R$ 82,00"}, "custo_unitario": {"valor": 41.0, "texto": "R$ 41,00/kg"}, "derivacao": "1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg", "confianca": "media", "rota": "/despensa/alcaparras"}, "gerado_texto": "conta de hoje, 09:38"}
+{"turno": 2, "t": 4.46, "seq": 5, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "\n\n**"}
+{"turno": 2, "t": 4.46, "seq": 6, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " o quilo."}
+{"turno": 2, "t": 4.46, "seq": 7, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "** A con"}
+{"turno": 2, "t": 4.46, "seq": 8, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ta é"}
+{"turno": 2, "t": 4.46, "seq": 9, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " simples: a senhora p"}
+{"turno": 2, "t": 4.46, "seq": 10, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "agou "}
+{"turno": 2, "t": 4.46, "seq": 11, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " por um balde de "}
+{"turno": 2, "t": 4.46, "seq": 12, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "2 quilos, e o"}
+{"turno": 2, "t": 4.46, "seq": 13, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " pre"}
+{"turno": 2, "t": 4.46, "seq": 14, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ço do"}
+{"turno": 2, "t": 4.46, "seq": 15, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " quilo é es"}
+{"turno": 2, "t": 4.46, "seq": 16, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "se valor dividido pel"}
+{"turno": 2, "t": 4.46, "seq": 17, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "os "}
+{"turno": 2, "t": 4.46, "seq": 18, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "2 quilos."}
+{"turno": 2, "t": 4.46, "seq": 19, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "\n\nUma "}
+{"turno": 2, "t": 4.46, "seq": 20, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ressalva: a planilha"}
+{"turno": 2, "t": 4.46, "seq": 21, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " regist"}
+{"turno": 2, "t": 4.46, "seq": 22, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ra 2 quilos de"}
+{"turno": 2, "t": 4.46, "seq": 23, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " peso do"}
+{"turno": 2, "t": 4.46, "seq": 24, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " balde."}
+{"turno": 2, "t": 4.46, "seq": 25, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " Se es"}
+{"turno": 2, "t": 4.47, "seq": 26, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "se peso for"}
+{"turno": 2, "t": 4.52, "seq": 27, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " com a salm"}
+{"turno": 2, "t": 4.57, "seq": 28, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "oura jun"}
+{"turno": 2, "t": 4.62, "seq": 29, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "to"}
+{"turno": 2, "t": 4.67, "seq": 30, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": ", a"}
+{"turno": 2, "t": 4.73, "seq": 31, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " alcaparra escor"}
+{"turno": 2, "t": 4.79, "seq": 32, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "rida s"}
+{"turno": 2, "t": 4.83, "seq": 33, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ai mais c"}
+{"turno": 2, "t": 4.88, "seq": 34, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ara do que "}
+{"turno": 2, "t": 4.99, "seq": 35, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " o quilo."}
+{"turno": 2, "t": 5.05, "seq": 36, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " Quando for cal"}
+{"turno": 2, "t": 5.1, "seq": 37, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "cular um"}
+{"turno": 2, "t": 5.15, "seq": 38, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " prato com"}
+{"turno": 2, "t": 5.2, "seq": 39, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " alcaparra"}
+{"turno": 2, "t": 5.26, "seq": 40, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": ", v"}
+{"turno": 2, "t": 5.31, "seq": 41, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ale a sen"}
+{"turno": 2, "t": 5.36, "seq": 42, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "hora con"}
+{"turno": 2, "t": 5.41, "seq": 43, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ferir no"}
+{"turno": 2, "t": 5.46, "seq": 44, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " rótulo se"}
+{"turno": 2, "t": 5.51, "seq": 45, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " ele"}
+{"turno": 2, "t": 5.57, "seq": 46, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " f"}
+{"turno": 2, "t": 5.62, "seq": 47, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ala em"}
+{"turno": 2, "t": 5.67, "seq": 48, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " peso drenado."}
+{"turno": 2, "t": 5.73, "seq": 49, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "\n\nAgora me"}
+{"turno": 2, "t": 5.78, "seq": 50, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " diz:"}
+{"turno": 2, "t": 5.83, "seq": 51, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " a"}
+{"turno": 2, "t": 5.88, "seq": 52, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " senhora gosta de f"}
+{"turno": 2, "t": 5.94, "seq": 53, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "azer prato com alca"}
+{"turno": 2, "t": 6.0, "seq": 54, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "parra? Qu"}
+{"turno": 2, "t": 6.06, "seq": 55, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ero saber p"}
+{"turno": 2, "t": 6.1, "seq": 56, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ra onde ol"}
+{"turno": 2, "t": 6.15, "seq": 57, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "har qu"}
+{"turno": 2, "t": 6.2, "seq": 58, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ando e"}
+{"turno": 2, "t": 6.25, "seq": 59, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "u for"}
+{"turno": 2, "t": 6.31, "seq": 60, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " procurar receita"}
+{"turno": 2, "t": 6.36, "seq": 61, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": " que fa"}
+{"turno": 2, "t": 6.41, "seq": 62, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ça es"}
+{"turno": 2, "t": 6.46, "seq": 63, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "se dinheiro volt"}
+{"turno": 2, "t": 6.49, "seq": 64, "turno_id": "t-48a555e94a5b", "tipo": "texto.parcial", "delta": "ar."}
+{"turno": 2, "t": 6.56, "seq": 65, "turno_id": "t-48a555e94a5b", "tipo": "texto.final", "texto": "**R$ 41,00 o quilo.** A conta é simples: a senhora pagou R$ 82,00 por um balde de 2 quilos, e o preço do quilo é esse valor dividido pelos 2 quilos.\n\nUma ressalva: a planilha registra 2 quilos de peso do balde. Se esse peso for com a salmoura junto, a alcaparra escorrida sai mais cara do que R$ 41,00 o quilo. Quando for calcular um prato com alcaparra, vale a senhora conferir no rótulo se ele fala em peso drenado.\n\nAgora me diz: a senhora gosta de fazer prato com alcaparra? Quero saber pra onde olhar quando eu for procurar receita que faça esse dinheiro voltar.", "retirados": 0}
+{"turno": 2, "t": 6.56, "seq": 66, "turno_id": "t-48a555e94a5b", "tipo": "sugestoes", "opcoes": [{"rotulo": "Receitas com ele", "texto": "Que receitas usam alcaparras?"}]}
+{"turno": 2, "t": 6.56, "seq": 67, "turno_id": "t-48a555e94a5b", "tipo": "turno.concluido"}

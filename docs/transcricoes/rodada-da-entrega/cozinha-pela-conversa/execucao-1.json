@@ -1,0 +1,37 @@
+{
+  "cenario": "cozinha-pela-conversa",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Só pra você saber, aqui em casa não tem liquidificador.",
+      "resposta": "Anotado, obrigado por avisar. Ficou gravado na tela da cozinha que a senhora não tem liquidificador. Quando eu for conferir receitas, as que pedem liquidificador já ficam de fora sem eu precisar perguntar de novo.\n\nSe quiser, posso começar a olhar a despensa e procurar receitas com o que a senhora já tem.",
+      "sessao": "20260927_175942_afa41d",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 11014,
+      "uso": {
+        "entrada": 6,
+        "saida": 315,
+        "cache_leitura": 59309,
+        "cache_escrita": 1826
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "equipamento",
+            "campo": "liquidificador",
+            "resposta": "nao_tem"
+          },
+          "saida": "{\n  \"registrado\": true,\n  \"nao_sei\": false,\n  \"perfil\": \"1 respondido por ela · 17 supostos de qualquer cozinha · 45 em aberto\",\n  \"impacto\": {\n    \"liberadas\": [],\n    \"bloqueadas\": [],\n    \"pendentes\": [],\n    \"texto\": \"Anotado. Ainda não há receita em avaliação para conferir com isso.\"\n  }\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

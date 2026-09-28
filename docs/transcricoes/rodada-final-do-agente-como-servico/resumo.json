@@ -1,0 +1,159 @@
+{
+  "cenarios": {
+    "abertura-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "avaliacao-pela-conversa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "conhecimento-com-fonte": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "contexto-da-tela": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "cozinha-pela-conversa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "despensa-pela-conversa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "falta-ingrediente-pergunta-preco": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "gosto-e-impedimento-registrados": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-gosta-encerra-o-prato": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-sei-sem-fonte": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-sei-vira-pendencia": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-tenho-fogao-bloqueia": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "orcamento-de-80": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-abaixo-do-minimo": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-preliminar-sem-compromisso": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receita-com-instrucao-escondida": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receitas-da-web-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "restricao-de-gas-e-tempo": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "sem-forno-pergunta-air-fryer": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "so-apresenta-o-que-da": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 21,
+  "total_de_cenarios": 21,
+  "turnos": 33,
+  "latencia_por_turno_s": {
+    "p50": 24.0,
+    "p95": 75.5
+  },
+  "tokens": {
+    "entrada": 318,
+    "saida": 34883,
+    "cache_leitura": 3388560,
+    "cache_escrita": 829735
+  },
+  "modelos": [
+    "claude-fable-5-1"
+  ],
+  "custo": {
+    "usd": 12.966157,
+    "partes_usd": {
+      "entrada": 0.00318,
+      "saida": 1.74415,
+      "leitura_de_cache": 0.84714,
+      "gravacao_de_cache": 10.371688
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 0.617436
+  },
+  "tokens_conferem_com_o_hermes": true
+}

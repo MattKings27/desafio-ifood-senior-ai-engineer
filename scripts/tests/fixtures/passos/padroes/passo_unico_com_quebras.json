@@ -1,0 +1,32 @@
+{
+ "padrao": "O preparo inteiro num HowToStep só, um passo por linha: cada linha é um passo",
+ "jsonld": {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Arroz com alho",
+  "recipeIngredient": [
+   "2 xícaras de arroz",
+   "1 cebola picada"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Cozinhe o arroz.<br>Refogue o alho.\nMisture tudo."
+   }
+  ]
+ },
+ "esperado": [
+  {
+   "texto": "Cozinhe o arroz.",
+   "secao": null
+  },
+  {
+   "texto": "Refogue o alho.",
+   "secao": null
+  },
+  {
+   "texto": "Misture tudo.",
+   "secao": null
+  }
+ ]
+}

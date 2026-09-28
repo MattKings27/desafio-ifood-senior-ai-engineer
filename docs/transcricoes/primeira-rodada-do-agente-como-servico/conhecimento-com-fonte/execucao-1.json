@@ -1,0 +1,51 @@
+{
+  "cenario": "conhecimento-com-fonte",
+  "execucao": 1,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Como faço um molho béchamel?",
+      "resposta": "O que eu tenho na base de cozinha, com a fonte:\n\nO béchamel se faz cozinhando farinha de trigo (ou amido de milho) na manteiga, e depois diluindo essa mistura com leite. Deve ficar cor de marfim, com aparência de creme e sem gosto de farinha crua. Fonte: Wikipédia, \"Molho bechamel\".\n\nEssa primeira parte, farinha cozida na manteiga derretida até virar um creme espesso e homogêneo, é o que se chama roux. Ele serve para engrossar molhos, sopas e guisados. Fonte: Wikipédia, \"Roux\".\n\nA base não traz quantidades nem passo a passo com tempos. Se a senhora quiser, procuro uma receita completa na internet e trago para o catálogo, com o site de onde veio. Assim a gente também confere se dá pra fazer com o que a senhora tem na despensa.",
+      "sessao": "20260927_060938_ade90f",
+      "modelo": "claude-fable-5-1",
+      "codigo_saida": 0,
+      "duracao_ms": 28223,
+      "uso": {
+        "entrada": 8,
+        "saida": 607,
+        "cache_leitura": 39465,
+        "cache_escrita": 5183
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__consultar_conhecimento"
+            ]
+          },
+          "saida": "{\"tools\": {\"mcp__mise__consultar_conhecimento\": {\"description\": \"Busca na plataforma inteira e na base de cozinha, com a fonte de cada trecho.\\n\\n        Use para responder o que está em alguma tela (o que ela tem na despensa\\n        e quanto pagou, o que a cozinha dela tem, o que uma receita pede passo a\\n        passo, o que ela decidiu, o que sobrou dos complementos) e para\\n        conhecimento de cozinha (técnica, conservação, segurança, embalagem,\\n        preço), que só pode ser dito com fonte.\\n\\n        `tipos` limita a busca a partes da plataforma: `despensa`, `cozinha`,\\n        `receita`, `avaliacao`, `cardapio`, `orcamento`, `conhecimento`. `k` é\\n        quantos trechos voltam, no máximo (padrão 6).\\n\\n        Devolve `trechos` (cada um com `id`, `tipo`, `rota`, `fonte`, `texto` e\\n        `pontuacao`), `nada_relevante` e `texto`. Repasse só o que os trechos\\n        dizem e cite a fonte. Com `nada_relevante`, diga que não sabe e ofereça\\n        procurar na internet: não responda de memória. Conta nova (custo de\\n        receita, preço, soma) sai das ferramentas de conta; do trecho, só o\\n        valor que já está escrito nele.\\n        \", \"parameters\": {\"properties\": {\"pergunta\": {\"title\": \"Pergunta\", \"type\": \"string\"}, \"tipos\": {\"items\": {\"type\": \"string\"}, \"type\": \"array\", \"nullable\": true, \"title\": \"Tipos\", \"default\": null}, \"k\": {\"default\": 6, \"title\": \"K\", \"type\": \"integer\"}}, \"required\": [\"pergunta\"], \"type\": \"object\", \"title\": \"consultar_conhecimentoArguments\"}}}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_conhecimento",
+          "entrada": {
+            "pergunta": "como fazer molho béchamel (molho branco): ingredientes, roux, técnica",
+            "tipos": [
+              "conhecimento",
+              "receita"
+            ]
+          },
+          "saida": "{\n  \"trechos\": [\n    {\n      \"id\": \"conhecimento:molho-bechamel-base\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"Wikipédia, Molho bechamel\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, O que é o molho bechamel: O molho bechamel é feito cozinhando farinha de trigo (ou amido de milho) na manteiga e depois diluindo essa mistura com leite. Deve ficar cor de marfim, com aparência de creme e sem gosto de farinha crua. Na fonte (pt.wikipedia.org, conferida em 26/09/2026): “é um molho que se obtém cozinhando farinha de trigo (ou amido de milho) em manteiga e depois diluindo essa mistura com leite. Deve ter coloração marfim, aparência de creme e sabor sem gosto de farinha crua.”\",\n      \"pontuacao\": 1.0\n    },\n    {\n      \"id\": \"conhecimento:feijao-de-molho-8-a-12-horas\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"FoRC/USP, Alimentos Sem Mitos: feijão de molho\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, Quanto tempo deixar o feijão de molho: Para o feijão, a maior parte dos estudos indica de 8 a 12 horas de molho, ou seja, deixar de molho na noite anterior e cozinhar no dia seguinte. Na fonte (alimentossemmitos.com.br, conferida em 26/09/2026): “A maior parte dos estudos indica um tempo entre 8 e 12 horas, ou seja, exatamente aquilo que nossas avós faziam: colocar o feijão de molho na noite anterior para cozer no dia seguinte.”\",\n      \"pontuacao\": 0.97\n    },\n    {\n      \"id\": \"conhecimento:roux-o-que-e\",\n      \"tipo\": \"conhecimento\",\n      \"rota\": null,\n      \"fonte\": \"Wikipédia, Roux\",\n      \"texto\": \"Conhecimento de cozinha, técnica de cozinha, O que é roux: Roux é uma preparação de origem francesa usada para engrossar molhos, sopas e guisados: farinha de trigo cozida na manteiga derretida até formar um creme espesso e homogêneo. Na fonte (pt.wikipedia.org, conferida em 26/09/2026): “é uma preparação originária da culinária da França utilizada como espessante de molhos, sopas ou guisados; consiste em cozinhar farinha de trigo em manteiga derretida, até formar um creme espesso e homogéneo.”\",\n      \"pontuacao\": 0.96\n    }\n  ],\n  \"nada_relevante\": false,\n  \"texto\": \"Achei 3 trechos com fonte sobre a pergunta.\"\n}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

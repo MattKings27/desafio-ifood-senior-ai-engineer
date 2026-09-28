@@ -1,0 +1,108 @@
+{
+  "cenarios": {
+    "abertura-com-a-despensa": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "falta-ingrediente-pergunta-preco": {
+      "execucoes": 5,
+      "passaram": 3,
+      "pass_k": false,
+      "falhas": [
+        "turno 1: devia fazer uma pergunta",
+        "turno 2: a resposta não contém /80/"
+      ]
+    },
+    "gosto-e-impedimento-registrados": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-gosta-encerra-o-prato": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "orcamento-de-80": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-abaixo-do-minimo": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-so-depois-do-portao": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receita-com-instrucao-escondida": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receitas-da-web-com-a-despensa": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "restricao-de-gas-e-tempo": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    },
+    "sem-forno-pergunta-air-fryer": {
+      "execucoes": 5,
+      "passaram": 5,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 11,
+  "total_de_cenarios": 12,
+  "turnos": 95,
+  "latencia_por_turno_s": {
+    "p50": 32.0,
+    "p95": 93.4
+  },
+  "tokens": {
+    "entrada": 1052,
+    "saida": 204476,
+    "cache_leitura": 13975776,
+    "cache_escrita": 2466710
+  },
+  "modelos": [
+    "claude-opus-5"
+  ],
+  "custo": {
+    "usd": 27.521985,
+    "partes_usd": {
+      "entrada": 0.00526,
+      "saida": 5.1119,
+      "leitura_de_cache": 6.987888,
+      "gravacao_de_cache": 15.416937
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 0.4587
+  },
+  "tokens_conferem_com_o_hermes": true
+}

@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Espelha o portão do CI nos arquivos em stage, e só neles.
+#
+# Roda o que é rápido e determinístico. Testes e tipos ficam de fora de propósito:
+# um pre-commit que demora meio minuto é um pre-commit que as pessoas contornam,
+# e um portão contornado não é portão. O CI cobre o resto.
+#
+# Instalado por `make bootstrap` via core.hooksPath. Para pular numa emergência,
+# o git já oferece --no-verify; não há razão para inventar outra saída.
+set -uo pipefail
+
+raiz="$(git rev-parse --show-toplevel)"
+cd "$raiz" || exit 1
+
+PY="$raiz/mise/.venv/bin/python"
+[ -x "$PY" ] || PY="$(command -v python3)"
+
+mapfile -t em_stage < <(git diff --cached --name-only --diff-filter=ACM)
+[ ${#em_stage[@]} -eq 0 ] && exit 0
+
+falhou=0
+
+# --- Python: lint e formatação, só nos arquivos em stage -------------------- #
+mapfile -t py < <(printf '%s\n' "${em_stage[@]}" | grep -E '\.py$' || true)
+if [ ${#py[@]} -gt 0 ] && [ -x "$PY" ]; then
+  if ! "$PY" -m ruff check --force-exclude "${py[@]}"; then falhou=1; fi
+  if ! "$PY" -m ruff format --check --force-exclude "${py[@]}"; then
+    echo "  corrija com: make formato"
+    falhou=1
+  fi
+fi
+
+# --- Segredo: o único que vale bloquear aqui -------------------------------- #
+# Um segredo que entra no histórico continua recuperável depois de removido.
+# É o erro mais barato de impedir e o mais caro de desfazer.
+if command -v gitleaks >/dev/null 2>&1; then
+  if ! gitleaks protect --staged --redact --no-banner; then
+    echo "  gitleaks encontrou segredo no que está em stage. O valor foi omitido de propósito."
+    falhou=1
+  fi
+fi
+
+# --- Estado de execução não se versiona ------------------------------------- #
+if printf '%s\n' "${em_stage[@]}" | grep -qE '^\.estado/|\.db$|^\.env'; then
+  echo "pre-commit: arquivo de estado ou de ambiente em stage. Isso não vai para o repositório."
+  falhou=1
+fi
+
+[ "$falhou" -ne 0 ] && echo && echo "pre-commit reprovou. Nada foi commitado."
+exit "$falhou"

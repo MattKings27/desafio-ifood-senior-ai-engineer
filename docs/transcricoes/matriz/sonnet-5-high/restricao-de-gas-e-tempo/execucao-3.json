@@ -1,0 +1,98 @@
+{
+  "cenario": "restricao-de-gas-e-tempo",
+  "execucao": 3,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Antes de escolher prato, deixa eu te contar da minha cozinha: o gás aqui é de botijão e acaba rápido, então não dá pra ficar horas com fogo ligado. E eu só consigo cozinhar à tarde, umas 2 horas no máximo.",
+      "resposta": "Anotado: até 2 horas por fornada, e sem gás sobrando pra fogo demorado. Isso já vai pesar bastante na hora de escolher os pratos — coisas que pedem cozimento longo e lento, tipo feijão numa panela comum, ficam mais difíceis.\n\nDeixa eu ver o que a despensa da senhora tem de mais forte, pra já pensar em receitas que combinem com esse tempo curto:\n\nO que mais pesa no dinheiro investido: alcaparras (R$ 82,00), cobertura de chocolate (R$ 79,90), carne moída de patinho (R$ 42,00), miolo de alcatra (R$ 34,00), azeite extra virgem (R$ 30,99), peito de frango (R$ 28,00), feijão carioquinha (R$ 27,00) e arroz branco (R$ 24,90). Isso é bastante proteína e um pouco de doce — carne moída e peito de frango são coisas rápidas de fazer no fogo, o que ajuda com o gás.\n\nUma pergunta rápida antes de eu buscar receitas: a senhora tem panela de pressão? Isso muda muito o tempo do feijão — na panela comum demora bem mais que 2 horas, na de pressão fica rápido.",
+      "sessao": "20260924_032420_55c928",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 33829,
+      "uso": {
+        "entrada": 16,
+        "saida": 2279,
+        "cache_leitura": 143736,
+        "cache_escrita": 19042
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "consultar perfil cozinha",
+              "registrar resposta pergunta portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_perfil",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "tipo": "operacional",
+            "campo": "tempo_max_por_fornada_min",
+            "resposta": "120"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_resposta",
+          "entrada": {
+            "campo": "tem_gas_sobrando",
+            "resposta": "nao",
+            "tipo": "operacional"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "cenarios": {
+    "abertura-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "caminho-completo-ate-a-decisao": {
+      "execucoes": 1,
+      "passaram": 0,
+      "pass_k": false,
+      "falhas": [
+        "na conversa: esperava ['avaliar_receita', 'calcular_cmv', 'cenarios_preco', 'registrar_decisao'] nessa ordem; faltou ['registrar_decisao']; chamou ['tool_describe', 'diagnostico_despensa', 'avaliar_receita', 'registrar_gosto', 'tool_describe', 'registrar_resposta', 'consultar_perfil', 'registrar_resposta', 'avaliar_receita', 'calcular_cmv', 'cenarios_preco', 'testar_sensibilidade']",
+        "turno 3: esperava ['registrar_decisao'] nessa ordem; faltou ['registrar_decisao']; chamou ['testar_sensibilidade']"
+      ]
+    },
+    "falta-ingrediente-pergunta-preco": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "gosto-e-impedimento-registrados": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "nao-gosta-encerra-o-prato": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "orcamento-de-80": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-abaixo-do-minimo": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "preco-so-depois-do-portao": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receita-com-instrucao-escondida": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "receitas-da-web-com-a-despensa": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "restricao-de-gas-e-tempo": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    },
+    "sem-forno-pergunta-air-fryer": {
+      "execucoes": 1,
+      "passaram": 1,
+      "pass_k": true,
+      "falhas": []
+    }
+  },
+  "pass_k_geral": 11,
+  "total_de_cenarios": 12,
+  "turnos": 19,
+  "latencia_por_turno_s": {
+    "p50": 51.4,
+    "p95": 167.5
+  },
+  "tokens": {
+    "entrada": 202,
+    "saida": 70938,
+    "cache_leitura": 2712942,
+    "cache_escrita": 663387
+  },
+  "modelos": [
+    "claude-opus-5"
+  ],
+  "custo": {
+    "usd": 7.2771,
+    "partes_usd": {
+      "entrada": 0.00101,
+      "saida": 1.77345,
+      "leitura_de_cache": 1.356471,
+      "gravacao_de_cache": 4.146169
+    },
+    "premissa": "gravação de cache com vida de 5 minutos",
+    "fonte_dos_precos": "referência de preços da API da Anthropic, tabela de 24/06/2026",
+    "por_conversa_usd": 0.606425
+  },
+  "tokens_conferem_com_o_hermes": true
+}

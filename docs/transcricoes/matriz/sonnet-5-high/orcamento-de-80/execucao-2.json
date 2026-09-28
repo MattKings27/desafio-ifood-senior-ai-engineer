@@ -1,0 +1,58 @@
+{
+  "cenario": "orcamento-de-80",
+  "execucao": 2,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Quanto eu ainda posso gastar comprando coisa que falta?",
+      "resposta": "A senhora ainda não gastou nada do complemento. Restam os R$ 80,00 inteiros, disponíveis pra comprar o que faltar nas receitas.",
+      "sessao": "20260924_025235_ce6916",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 11530,
+      "uso": {
+        "entrada": 10,
+        "saida": 380,
+        "cache_leitura": 69862,
+        "cache_escrita": 5461
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "consultar orçamento restante"
+            ]
+          },
+          "saida": "{\"queries\": [\"consultar orçamento restante\"], \"total_available\": 28, \"results\": [{\"query\": \"consultar orçamento restante\", \"matches\": [], \"available_sources\": [{\"name\": \"mise\", \"tool_count\": 26}, {\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "orçamento",
+              "consultar orcamento"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__consultar_orcamento",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

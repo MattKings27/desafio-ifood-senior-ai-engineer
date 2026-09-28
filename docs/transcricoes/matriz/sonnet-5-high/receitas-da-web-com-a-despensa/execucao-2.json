@@ -1,0 +1,442 @@
+{
+  "cenario": "receitas-da-web-com-a-despensa",
+  "execucao": 2,
+  "passou": false,
+  "falhas": [
+    "turno 1: a resposta não contém /(https?://|www\\.)?[a-z0-9-]+\\.(com|com\\.br|net|org)(\\.br)?/\\S+/"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Me acha umas receitas de verdade, da internet, que usem o que eu tenho parado aqui. Quero coisa que eu consiga vender.",
+      "resposta": "Consegui achar três receitas de verdade que aproveitam bem o que a senhora já tem parado. Antes de mostrar, um resumo rápido da despensa: a senhora investiu R$ 663,39 no total, e os itens que pesam mais são alcaparras (R$ 82,00), cobertura de chocolate (R$ 79,90), carne moída (R$ 42,00), miolo de alcatra (R$ 34,00), azeite (R$ 30,99), peito de frango (R$ 28,00), feijão (R$ 27,00) e arroz (R$ 24,90). Nenhum prato ainda usa esse dinheiro — é tudo capital parado por enquanto.\n\nAs três receitas que achei, todas de sites de receita de verdade:\n\n1. Filé ao molho de alcaparras — de receitas.globo.com\n   Usa as alcaparras e o azeite que já estão na despensa. Falta comprar filé mignon, mostarda e óleo de canola.\n\n2. Strogonoff de carne moída — de receitasnestle.com.br\n   Usa a carne moída que a senhora já comprou. Falta comprar mais patinho moído (a receita pede mais do que sobra), tomate e creme de leite.\n\n3. Colher de chocolate com brigadeiro gourmet — de dicasedicas.com.br\n   Usa a cobertura de chocolate. Essa é a que mais depende de compra: quase tudo teria que vir de fora.\n\nTambém achei uma de marmita com frango, arroz, feijão e legumes (que usaria três dos itens mais parados — frango, feijão e arroz de uma vez), mas o site de onde tirei bagunçou a lista de ingredientes na extração e ficou com nomes confusos. Não quero te mostrar receita malfeita: se a senhora tiver interesse nessa combinação, procuro uma fonte melhor.\n\nNenhuma dessas três está liberada ainda — falta eu saber se a senhora consegue e quer fazer cada uma. Começando pela que mais pratos ela afeta:\n\nA senhora gosta de fazer filé ao molho de alcaparras? E vê algum impedimento pra fazer isso aí na sua cozinha?",
+      "sessao": "20260924_031215_a9e19f",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 133113,
+      "uso": {
+        "entrada": 36,
+        "saida": 10677,
+        "cache_leitura": 790018,
+        "cache_escrita": 136101
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "diagnostico-despensa"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita",
+              "buscar receita na web"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "pesquisa-receitas"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita frango grelhado molho de alcaparras azeite receita caseira"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita bife de alcatra ao molho de alcaparras panela"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita strogonoff de carne moída patinho panela tudo gostoso"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita brigadeiro gourmet cobertura de chocolate fracionada colher"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__buscar_receita_na_web",
+                "arguments": {
+                  "url": "https://receitas.globo.com/tipos-de-prato/carnes/file-ao-molho-de-alcaparras-4d50cccd52e0b252bc007087.ghtml"
+                }
+              },
+              {
+                "name": "mcp__mise__buscar_receita_na_web",
+                "arguments": {
+                  "url": "https://www.receitasnestle.com.br/receitas/strogonoff-de-carne-moida"
+                }
+              },
+              {
+                "name": "mcp__mise__buscar_receita_na_web",
+                "arguments": {
+                  "url": "https://www.receitasnestle.com.br/receitas/brigadeiro-gourmet"
+                }
+              },
+              {
+                "name": "mcp__mise__buscar_receita_na_web",
+                "arguments": {
+                  "url": "https://www.tudogostoso.com.br/receita/101269-bife-ao-molho-de-alcaparras.html"
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://receitas.globo.com/tipos-de-prato/carnes/file-ao-molho-de-alcaparras-4d50cccd52e0b252bc007087.ghtml"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.receitasnestle.com.br/receitas/strogonoff-de-carne-moida"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.dicasedicas.com.br/receita/colher-de-chocolate-com-brigadeiro-gourmet"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "avaliar receita",
+              "comparar candidatas"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Filé ao Molho de Alcaparras",
+              "rendimento_porcoes": 8,
+              "url": "https://receitas.globo.com/tipos-de-prato/carnes/file-ao-molho-de-alcaparras-4d50cccd52e0b252bc007087.ghtml",
+              "fonte": "receitas.globo.com",
+              "ingredientes": [
+                {
+                  "texto": "1 quilo de filé mignon cortado em bifes",
+                  "nome": "filé mignon cortado em bifes",
+                  "quantidade": 1.0,
+                  "medida": "quilo"
+                },
+                {
+                  "texto": "2 cebolas grandes picadas em cubos",
+                  "nome": "cebolas grandes picadas em cubos",
+                  "quantidade": 2.0,
+                  "medida": "cebola"
+                },
+                {
+                  "texto": "5 colheres de sopa de alcaparras",
+                  "nome": "alcaparras",
+                  "quantidade": 5.0,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "4 colheres de sopa de mostarda",
+                  "nome": "mostarda",
+                  "quantidade": 4.0,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "4 colheres de sopa de manteiga",
+                  "nome": "manteiga",
+                  "quantidade": 4.0,
+                  "medida": "colher de sopa"
+                },
+                {
+                  "texto": "1 pitada de sal",
+                  "nome": "sal",
+                  "quantidade": 1.0,
+                  "medida": "pitada"
+                },
+                {
+                  "texto": "pimenta a gosto",
+                  "nome": "pimenta",
+                  "a_gosto": true
+                },
+                {
+                  "texto": "3 colheres de sopa de óleo de canola",
+                  "nome": "óleo de canola",
+                  "quantidade": 3.0,
+                  "medida": "colher de sopa"
+                }
+              ],
+              "modo_preparo": [
+                "Tempere os filés com o sal e a pimenta. Coloque as 3 colheres de óleo em uma frigideira grossa e frite os filés.",
+                "Acrescente no óleo que restou a manteiga e deixe derreter. Coloque as cebolas, as alcaparras, sal e um pouco de água e deixe engrossar.",
+                "Despeje a mistura em cima dos filés."
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "receitasnestle.com.br",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "bacon em cubos",
+                  "quantidade": 50.0,
+                  "texto": "50 g de bacon em cubos"
+                },
+                {
+                  "medida": "cebola",
+                  "nome": "cebola grande picada",
+                  "quantidade": 1.0,
+                  "texto": "1 cebola grande picada"
+                },
+                {
+                  "medida": "dente de alho",
+                  "nome": "dentes de alho",
+                  "quantidade": 2.0,
+                  "texto": "2 dentes de alho"
+                },
+                {
+                  "medida": "g",
+                  "nome": "patinho moído",
+                  "quantidade": 400.0,
+                  "texto": "400 g de patinho moído"
+                },
+                {
+                  "medida": "colher de cha",
+                  "nome": "sal",
+                  "quantidade": 1.0,
+                  "texto": "1 colher (chá) de sal"
+                },
+                {
+                  "medida": "pitada",
+                  "nome": "pimenta",
+                  "quantidade": 1.0,
+                  "texto": "1 pitada de pimenta"
+                },
+                {
+                  "medida": "tomate",
+                  "nome": "tomates grandes processados",
+                  "quantidade": 3.0,
+                  "texto": "3 tomates grandes processados"
+                },
+                {
+                  "medida": "caixinha",
+                  "nome": "NESTLÉ Creme de Leite Zero Lactose",
+                  "quantidade": 1.0,
+                  "texto": "1 caixinha de NESTLÉ Creme de Leite Zero Lactose"
+                }
+              ],
+              "modo_preparo": [
+                "Refogue o bacon, a cebola e o alho.",
+                "Junte o patinho moído, tempere e cozinhe.",
+                "Adicione os tomates processados e o creme de leite. Cozinhe até encorpar."
+              ],
+              "nome": "Strogonoff de Carne Moída",
+              "rendimento_porcoes": 2,
+              "url": "https://www.receitasnestle.com.br/receitas/strogonoff-de-carne-moida"
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "fonte": "dicasedicas.com.br",
+              "ingredientes": [
+                {
+                  "medida": "g",
+                  "nome": "Chocolate Harald Blend fracionado",
+                  "quantidade": 150.0,
+                  "texto": "150g Chocolate Harald Blend fracionado"
+                },
+                {
+                  "medida": "un",
+                  "nome": "Formas de acetato para colherzinhas",
+                  "quantidade": 12.0,
+                  "texto": "12 unidades Formas de acetato para colherzinhas"
+                },
+                {
+                  "medida": "lata",
+                  "nome": "Leite condensado",
+                  "quantidade": 1.0,
+                  "texto": "1 lata (395g) Leite condensado"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "Chocolate em pó 50% cacau",
+                  "quantidade": 5.0,
+                  "texto": "5 colheres de sopa Chocolate em pó 50% cacau"
+                },
+                {
+                  "medida": "colher de sopa",
+                  "nome": "Margarina sem sal",
+                  "quantidade": 1.0,
+                  "texto": "1 colher de sopa Margarina sem sal"
+                },
+                {
+                  "a_gosto": true,
+                  "nome": "Granulado preto",
+                  "texto": "a gosto Granulado preto"
+                },
+                {
+                  "a_gosto": true,
+                  "nome": "Granulado branco",
+                  "texto": "a gosto Granulado branco"
+                }
+              ],
+              "modo_preparo": [
+                "Derreta o chocolate fracionado em banho-maria, mexendo delicadamente até obter um creme liso e homogêneo.",
+                "Preencha as forminhas de acetato em formato de colher com o chocolate derretido, utilizando uma colher pequena para melhor precisão.",
+                "Leve à geladeira por 5 minutos, ou até que o chocolate esteja firme.",
+                "Desenforme as colherzinhas de chocolate com cuidado.",
+                "Em uma panela, misture o leite condensado, o chocolate em pó e a margarina.",
+                "Leve ao fogo brando, mexendo sem parar, até que o brigadeiro comece a desgrudar do fundo da panela (aproximadamente 10 minutos).",
+                "Retire do fogo e deixe esfriar completamente.",
+                "Após esfriar, faça bolinhas pequenas de brigadeiro, menores que o tamanho da colher.",
+                "Passe as bolinhas de brigadeiro no granulado preto e branco.",
+                "Coloque uma bolinha de brigadeiro em cada colher de chocolate.",
+                "Embale as colherzinhas com celofane e amarre com um fitilho."
+              ],
+              "nome": "Colher de Chocolate com Brigadeiro Gourmet",
+              "rendimento_porcoes": 12,
+              "url": "https://www.dicasedicas.com.br/receita/colher-de-chocolate-com-brigadeiro-gourmet"
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__comparar_candidatas",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita trufa cobertura de chocolate fracionada simples"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita frango grelhado arroz feijão prato feito marmita"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://receitas.band.com.br/the-chef/receita/marmita-de-arroz-feijao-frango-e-legumes-band-receitas-id-15411"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__proxima_pergunta",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

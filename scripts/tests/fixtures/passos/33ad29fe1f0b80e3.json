@@ -1,0 +1,101 @@
+{
+ "gravado_em": "2026-09-26",
+ "slug": "33ad29fe1f0b80e3",
+ "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida",
+ "receita": {
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bola de carne moída",
+  "recipeIngredient": [
+   "500 gramas de carne moída (usamos paleta)",
+   "1 cenoura",
+   "2 batatas médias",
+   "1 cebola",
+   "Sal a gosto",
+   "Pimenta calabresa a gosto",
+   "Chimichurri a gosto",
+   "Tempero vinagrete a gosto",
+   "Açafrão a gosto",
+   "Salsinha a gosto",
+   "Cebolinha a gosto",
+   "80 gramas de mussarela ralada",
+   "1 sachê de molho de tomate pronto (200 gramas)"
+  ],
+  "recipeInstructions": [
+   {
+    "@type": "HowToStep",
+    "text": "Separe os ingredientes e organize a bancada. Rale a cenoura e a batata, pique a cebola em cubinhos e prepare o restante dos temperos;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-01-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo1"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em uma tigela, misture a carne moída com a cenoura, a batata, a cebola e os temperos até formar uma massa homogênea;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-02-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo2"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Feito isso, modele as bolas de carne no tamanho desejado (fizemos 6 bolas de 150 gramas cada);",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-03-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo3"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Em uma frigideira com uma colher de sopa de óleo, grelhe as bolas até dourar de todos os lados, cerca de 8 minutos ao todo. Quando estiver terminando de grelhar, aproveite e preaqueça o seu forno a 180 ºC;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-04-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo4"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Transfira para um refratário (17x27cm);",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-05-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo5"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Cubra com o molho de tomate e adicione a mussarela por cima;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-06-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo6"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Leve ao forno preaquecido por cerca de 30 minutos;",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-07-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo7"
+   },
+   {
+    "@type": "HowToStep",
+    "text": "Retire do forno quando estiver bem assado e com o queijo derretido, e sirva. Bom apetite!",
+    "image": "https://www.receiteria.com.br/wp-content/uploads/bola-de-carne-moida-08-730x548.jpg",
+    "url": "https://www.receiteria.com.br/receita/bola-de-carne-moida/#passo8"
+   }
+  ]
+ },
+ "guardados": [
+  {
+   "texto": "Separe os ingredientes e organize a bancada. Rale a cenoura e a batata, pique a cebola em cubinhos e prepare o restante dos temperos;"
+  },
+  {
+   "texto": "Em uma tigela, misture a carne moída com a cenoura, a batata, a cebola e os temperos até formar uma massa homogênea;"
+  },
+  {
+   "texto": "Feito isso, modele as bolas de carne no tamanho desejado (fizemos 6 bolas de 150 gramas cada);"
+  },
+  {
+   "texto": "Em uma frigideira com uma colher de sopa de óleo, grelhe as bolas até dourar de todos os lados, cerca de 8 minutos ao todo. Quando estiver terminando de grelhar, aproveite e preaqueça o seu forno a 180 ºC;"
+  },
+  {
+   "texto": "Transfira para um refratário (17x27cm);"
+  },
+  {
+   "texto": "Cubra com o molho de tomate e adicione a mussarela por cima;"
+  },
+  {
+   "texto": "Leve ao forno preaquecido por cerca de 30 minutos;"
+  },
+  {
+   "texto": "Retire do forno quando estiver bem assado e com o queijo derretido, e sirva. Bom apetite!"
+  }
+ ]
+}

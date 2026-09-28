@@ -1,0 +1,202 @@
+{
+  "cenario": "nao-gosta-encerra-o-prato",
+  "execucao": 4,
+  "passou": true,
+  "falhas": [],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola, 4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.",
+      "resposta": "Boa notícia: a senhora já tem tudo na despensa para essa feijoada — feijão preto, bacon, cebola e alho, nada precisa ser comprado.\n\nSó falta uma coisa antes de eu poder falar de preço: a senhora gosta de fazer feijoada? E vê algum impedimento pra preparar esse prato aí na sua cozinha (tempo, panela, o que for)?",
+      "sessao": "20260924_025035_962764",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 26839,
+      "uso": {
+        "entrada": 16,
+        "saida": 1789,
+        "cache_leitura": 130152,
+        "cache_escrita": 19061
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__avaliar_receita",
+                "arguments": {
+                  "receita": {
+                    "nome": "Feijoada",
+                    "ingredientes": [
+                      {
+                        "texto": "1 kg de feijão preto",
+                        "nome": "feijão preto",
+                        "quantidade": 1,
+                        "medida": "kg"
+                      },
+                      {
+                        "texto": "500 g de bacon",
+                        "nome": "bacon",
+                        "quantidade": 500,
+                        "medida": "g"
+                      },
+                      {
+                        "texto": "1 cebola",
+                        "nome": "cebola",
+                        "quantidade": 1,
+                        "medida": "unidade"
+                      },
+                      {
+                        "texto": "4 dentes de alho",
+                        "nome": "alho",
+                        "quantidade": 4,
+                        "medida": "dente de alho"
+                      },
+                      {
+                        "texto": "sal a gosto",
+                        "nome": "sal"
+                      }
+                    ],
+                    "rendimento_porcoes": 8,
+                    "modo_preparo": [
+                      "Cozinhar na panela por 2 horas"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Feijoada",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de feijão preto",
+                  "nome": "feijão preto",
+                  "quantidade": 1,
+                  "medida": "kg"
+                },
+                {
+                  "texto": "500 g de bacon",
+                  "nome": "bacon",
+                  "quantidade": 500,
+                  "medida": "g"
+                },
+                {
+                  "texto": "1 cebola",
+                  "nome": "cebola",
+                  "quantidade": 1,
+                  "medida": "unidade"
+                },
+                {
+                  "texto": "4 dentes de alho",
+                  "nome": "alho",
+                  "quantidade": 4,
+                  "medida": "dente de alho"
+                },
+                {
+                  "texto": "sal a gosto",
+                  "nome": "sal"
+                }
+              ],
+              "rendimento_porcoes": 8,
+              "modo_preparo": [
+                "Cozinhar na panela por 2 horas"
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    },
+    {
+      "pergunta": "Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.",
+      "resposta": "Entendido, anotado. A feijoada sai do cardápio: a senhora não gosta de fazer, e quem cozinha todo dia é a senhora, então isso pesa mais que qualquer conta bonita de preço.\n\nO feijão preto, o bacon, a cebola e o alho continuam na despensa, prontos para entrar em outro prato. Quer que eu procure uma receita diferente que aproveite esses mesmos ingredientes, ou a senhora já tem outro prato em mente?",
+      "sessao": "20260924_025035_962764",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 11545,
+      "uso": {
+        "entrada": 6,
+        "saida": 408,
+        "cache_leitura": 79839,
+        "cache_escrita": 5426
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "registrar gosto prato"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__registrar_gosto",
+          "entrada": {
+            "prato": "Feijoada",
+            "gosta": false,
+            "impedimento": "Dá muito trabalho, ela detesta fazer"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

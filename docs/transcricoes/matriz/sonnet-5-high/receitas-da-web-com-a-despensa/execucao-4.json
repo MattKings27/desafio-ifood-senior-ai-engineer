@@ -1,0 +1,474 @@
+{
+  "cenario": "receitas-da-web-com-a-despensa",
+  "execucao": 4,
+  "passou": false,
+  "falhas": [
+    "turno 1: a resposta não contém /(https?://|www\\.)?[a-z0-9-]+\\.(com|com\\.br|net|org)(\\.br)?/\\S+/"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Me acha umas receitas de verdade, da internet, que usem o que eu tenho parado aqui. Quero coisa que eu consiga vender.",
+      "resposta": "Encontrei três receitas de verdade pra senhora olhar. Todas rendem 4 porções segundo o site. Nenhuma foi liberada pelo portão ainda — todas caíram em \"falta info\", ou seja: faltam algumas respostas antes de eu poder falar de preço.\n\n1. Carne moída com arroz (Carne moída com arroz, de tudogostoso.com.br)\n É a que mais aproveita o que a senhora já tem: 6 dos 9 ingredientes já estão na despensa (carne moída, arroz, cebola, óleo, salsinha, alho), usando R$ 13,36 do que já foi comprado. Falta comprar: milho verde, mais um pouco de salsinha, e ajinomoto (a água não conta como compra).\n\n2. Bife acebolado à Inglaterra (Bife acebolado à Inglaterra, de tudogostoso.com.br)\n Usa pouco da despensa: só sal, óleo e cebola (R$ 0,72). O grosso é comprar: alcatra em bifes, alho-poró, maionese, chá preto preparado. Também pede a técnica de selar carne.\n\n3. Frango grelhado (Frango grelhado, de tudogostoso.com.br)\n O portão não casou nenhum ingrediente com o que está na despensa — pede peito de frango em filés, alho, alecrim, orégano, pimenta-do-reino, tudo como compra nova. Isso é estranho porque a senhora tem peito de frango investido (R$ 28,00) na despensa; pode ser que o corte que essa receita pede (\"em filés\") seja diferente do que a senhora comprou. Vale a senhora me dizer como é o peito de frango que tem guardado.\n\nPra eu seguir com qualquer uma delas, preciso saber uma coisa de cada vez. Começando pela que mais aproveita o que já foi comprado:\n\nA senhora gosta de fazer carne moída com arroz? E vê algum impedimento pra fazer isso aí na sua cozinha?",
+      "sessao": "20260924_031611_04b0fe",
+      "modelo": "claude-sonnet-5",
+      "codigo_saida": 0,
+      "duracao_ms": 104250,
+      "uso": {
+        "entrada": 28,
+        "saida": 9130,
+        "cache_leitura": 410736,
+        "cache_escrita": 117525
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnóstico despensa",
+              "buscar receita na web",
+              "avaliar receita portão"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa panorama",
+              "consultar perfil cozinha",
+              "comparar candidatas"
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_call",
+          "entrada": {
+            "calls": [
+              {
+                "name": "mcp__mise__diagnostico_despensa",
+                "arguments": {}
+              },
+              {
+                "name": "mcp__mise__consultar_perfil",
+                "arguments": {}
+              }
+            ]
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__diagnostico_despensa",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "skill_view",
+          "entrada": {
+            "name": "pesquisa-receitas"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita caseira carne moída patinho panela quibe ou bolo de carne rendimento porções"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita caseira peito de frango grelhado ou strogonoff panela rendimento porções tudo gostoso"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita miolo de alcatra bife acebolado panela tudo gostoso"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita carne moída refogada simples molho tudo gostoso rendimento porções"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita peito de frango grelhado simples tudo gostoso rendimento porções"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "web_search",
+          "entrada": {
+            "query": "receita marmita arroz feijão carioquinha carne panela tudo gostoso porções"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.tudogostoso.com.br/receita/93729-bife-acebolado-a-inglaterra.html"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.tudogostoso.com.br/receita/22090-carne-moida-com-arroz.html"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__buscar_receita_na_web",
+          "entrada": {
+            "url": "https://www.tudogostoso.com.br/receita/118660-frango-grelhado.html"
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Bife acebolado à Inglaterra",
+              "rendimento_porcoes": 4,
+              "rendimento_informado": true,
+              "tempo_preparo_min": 25,
+              "origem": "web",
+              "url": "https://www.tudogostoso.com.br/receita/93729-bife-acebolado-a-inglaterra.html",
+              "fonte": "tudogostoso.com.br",
+              "ingredientes": [
+                {
+                  "texto": "500 g de alcatra cortada em bifes",
+                  "nome": "alcatra cortada em bifes",
+                  "quantidade": 500.0,
+                  "medida": "g",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher (chá) de sal",
+                  "nome": "sal",
+                  "quantidade": 1.0,
+                  "medida": "colher de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 colheres (sopa) de óleo",
+                  "nome": "óleo",
+                  "quantidade": 2.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 cebola grande cortada em tiras finas",
+                  "nome": "cebola grande cortada em tiras finas",
+                  "quantidade": 1.0,
+                  "medida": "cebola",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1/2 alho-poró cortado em rodelas",
+                  "nome": "alho-poró cortado em rodelas",
+                  "quantidade": 0.5,
+                  "medida": "",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "4 colheres (sopa) de água",
+                  "nome": "água",
+                  "quantidade": 4.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1/2 xícara (chá) de maionese HELLMANN'S",
+                  "nome": "maionese HELLMANN'S",
+                  "quantidade": 0.5,
+                  "medida": "xicara de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "5 colheres (sopa) de chá preto preparado",
+                  "nome": "chá preto preparado",
+                  "quantidade": 5.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "Cheiro-verde picado",
+                  "nome": "Cheiro-verde picado",
+                  "quantidade": null,
+                  "medida": "",
+                  "a_gosto": true
+                }
+              ],
+              "modo_preparo": [
+                "Tempere os bifes com o sal.",
+                "Em uma frigideira grande, aqueça o óleo.",
+                "Coloque os bifes e frite por 10 minutos ou até dourar dos dois lados. Retire da frigideira e mantenha em local aquecido.",
+                "Coloque a cebola e o alho-poró na frigideira em fogo baixo. Mexa até murchar um pouco.",
+                "Coloque a água e mexa até soltar todo o fundo da frigideira. Junte a maionese HELLMANN'S e o chá preparado. Misture até ficar homogêneo e formar um molho.",
+                "Polvilhe o cheiro-verde e misture. Sirva a seguir sobre os bifes."
+              ],
+              "equipamentos": [
+                "fogao",
+                "frigideira"
+              ],
+              "tecnicas": [
+                "fritar",
+                "selar"
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Carne moída com arroz",
+              "rendimento_porcoes": 4,
+              "rendimento_informado": true,
+              "tempo_preparo_min": 25,
+              "origem": "web",
+              "url": "https://www.tudogostoso.com.br/receita/22090-carne-moida-com-arroz.html",
+              "fonte": "tudogostoso.com.br",
+              "ingredientes": [
+                {
+                  "texto": "300 g de carne moída",
+                  "nome": "carne moída",
+                  "quantidade": 300.0,
+                  "medida": "g",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 xícaras de chá de arroz cru",
+                  "nome": "arroz cru",
+                  "quantidade": 2.0,
+                  "medida": "xicara de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 lata de milho verde escorrido",
+                  "nome": "milho verde escorrido",
+                  "quantidade": 1.0,
+                  "medida": "lata",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 cebola ralada",
+                  "nome": "cebola ralada",
+                  "quantidade": 1.0,
+                  "medida": "cebola",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 colheres sopa de óleo",
+                  "nome": "óleo",
+                  "quantidade": 2.0,
+                  "medida": "colher sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 xícara de chá de cheiro verde",
+                  "nome": "cheiro verde",
+                  "quantidade": 1.0,
+                  "medida": "xicara de cha",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 dentes de alho amassado",
+                  "nome": "dentes de alho amassado",
+                  "quantidade": 2.0,
+                  "medida": "dente de alho",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "2 latas de água (use a medida da lata de milho)",
+                  "nome": "água",
+                  "quantidade": 2.0,
+                  "medida": "lata",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher sopa de ajinomoto",
+                  "nome": "ajinomoto",
+                  "quantidade": 1.0,
+                  "medida": "colher sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "Queijo ralado a gosto",
+                  "nome": "Queijo ralado",
+                  "quantidade": null,
+                  "medida": "",
+                  "a_gosto": true
+                }
+              ],
+              "modo_preparo": [
+                "Em uma panela coloque o óleo e frite o alho e a cebola.",
+                "Depois acrescente a carne moída. Tempere com o ajinomoto refogando bem.",
+                "Deixe fritar.",
+                "Em seguida junte o arroz, o cheiro verde, o milho e junte um pouco de água.",
+                "Deixe cozinhar em fogo baixo até o arroz secar.",
+                "Depois de seco retire. Coloque na travessa e polvilhe queijo ralado por cima.",
+                "Sirva quente."
+              ],
+              "equipamentos": [
+                "fogao"
+              ],
+              "tecnicas": [
+                "fritar"
+              ]
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__avaliar_receita",
+          "entrada": {
+            "receita": {
+              "nome": "Frango grelhado",
+              "rendimento_porcoes": 4,
+              "rendimento_informado": true,
+              "tempo_preparo_min": 15,
+              "origem": "web",
+              "url": "https://www.tudogostoso.com.br/receita/118660-frango-grelhado.html",
+              "fonte": "tudogostoso.com.br",
+              "ingredientes": [
+                {
+                  "texto": "1 kg de peito de frango em filés",
+                  "nome": "peito de frango em filés",
+                  "quantidade": 1.0,
+                  "medida": "kg",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "4 dentes de alho socados",
+                  "nome": "dentes de alho socados",
+                  "quantidade": 4.0,
+                  "medida": "dente de alho",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher de sopa de alecrim",
+                  "nome": "alecrim",
+                  "quantidade": 1.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "1 colher de sopa de orégano",
+                  "nome": "orégano",
+                  "quantidade": 1.0,
+                  "medida": "colher de sopa",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "Suco de 1 limão médio (pode trocar por laranja)",
+                  "nome": "Suco de 1 limão médio",
+                  "quantidade": null,
+                  "medida": "",
+                  "a_gosto": true
+                },
+                {
+                  "texto": "1 pitada de pimenta-do-reino",
+                  "nome": "pimenta-do-reino",
+                  "quantidade": 1.0,
+                  "medida": "pitada",
+                  "a_gosto": false
+                },
+                {
+                  "texto": "Sal a gosto",
+                  "nome": "Sal",
+                  "quantidade": null,
+                  "medida": "",
+                  "a_gosto": true
+                }
+              ],
+              "modo_preparo": [
+                "Coloque os filés de frango em um tigela, adicione o alho, a seguir o alecrim e o orégano. Coloque o suco de 1 limão ou de 1 laranja, 1 pitada de pimenta-do-reino e sal a gosto.",
+                "Misture bem e deixe repousar por umas 3 horas para que pegue bem o tempero.",
+                "Unte uma frigideira de preferencia de starflon.",
+                "Doure os dois lados do filé até ficar uma cor bem morena ao seu gosto.",
+                "Sirva com arroz branco e uma boa salada!"
+              ],
+              "equipamentos": [
+                "frigideira"
+              ],
+              "tecnicas": []
+            }
+          },
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "mcp__mise__comparar_candidatas",
+          "entrada": {},
+          "saida": "",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}

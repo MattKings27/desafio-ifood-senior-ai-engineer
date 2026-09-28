@@ -1,0 +1,76 @@
+{
+  "cenario": "receitas-da-web-com-a-despensa",
+  "execucao": 1,
+  "passou": false,
+  "falhas": [
+    "turno 1: esperava ['diagnostico_despensa'] nessa ordem; faltou ['diagnostico_despensa']; chamou ['tool_search', 'tool_describe', 'tool_search']",
+    "turno 1: a resposta não contém /(https?://|www\\.)?[a-z0-9-]+\\.(com|com\\.br|net|org)(\\.br)?/\\S+/"
+  ],
+  "erro": null,
+  "turnos": [
+    {
+      "pergunta": "Me acha umas receitas de verdade, da internet, que usem o que eu tenho parado aqui. Quero coisa que eu consiga vender.",
+      "resposta": "Dona Maria, antes de tudo preciso ser honesta com a senhora sobre uma coisa.\n\nO sistema que lê a sua planilha da despensa não abriu nesta conversa. Tentei de tudo aqui: ele não está respondendo. Isso é problema da minha ferramenta, não da senhora.\n\nO que muda na prática, para a senhora saber onde pisa:\n\nPreço eu não vou dar hoje. Nem custo, nem lucro, nem quanto sobra depois da taxa do iFood. Esses números saem da conta que o sistema faz em cima dos preços que a senhora pagou de verdade. De cabeça eu não chuto, nem para dar exemplo. Com o dinheiro da senhora no meio, um número inventado é pior do que número nenhum.\n\nO que eu consigo fazer agora, e faço bem: caçar receita de verdade na internet, de fonte que eu mostro para a senhora, usando o que está parado aí na sua despensa. Isso eu adianto hoje. Aí quando o sistema voltar, eu passo cada uma pelo crivo e aí sim a gente fala de dinheiro.\n\nSó que sem a planilha abrindo, quem me conta o que tem aí é a senhora.\n\nEntão me diga: o que está parado na despensa? Aquilo que a senhora comprou e está encostado, que não saiu para prato nenhum ainda. Pode falar solto, do jeito que vier à cabeça: \"tenho três pacotes de lentilha, meio saco de fubá, uma caixa de leite de coco\". Quantidade certa não precisa agora, eu quero é saber o que é.\n\nCom essa lista na mão eu vou atrás das receitas.",
+      "sessao": "20260923_233324_831a7e",
+      "modelo": "claude-opus-5",
+      "codigo_saida": 0,
+      "duracao_ms": 69956,
+      "uso": {
+        "entrada": 8,
+        "saida": 3640,
+        "cache_leitura": 40059,
+        "cache_escrita": 12029
+      },
+      "chamadas": [
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "queries": [
+              "diagnostico despensa",
+              "avaliar receita portao",
+              "buscar receita na web",
+              "calcular cmv preco cenarios",
+              "registrar resposta perfil proxima pergunta"
+            ],
+            "limit": 25
+          },
+          "saida": "{\"queries\": [\"diagnostico despensa\", \"avaliar receita portao\", \"buscar receita na web\", \"calcular cmv preco cenarios\", \"registrar resposta perfil proxima pergunta\"], \"total_available\": 2, \"results\": [{\"query\": \"diagnostico despensa\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"avaliar receita portao\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"buscar receita na web\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"calcular cmv preco cenarios\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"registrar resposta perfil proxima pergunta\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_describe",
+          "entrada": {
+            "names": [
+              "mcp__mise__diagnostico_despensa",
+              "mcp__mise__avaliar_receita",
+              "mcp__mise__buscar_receita_na_web",
+              "mcp__mise__comparar_candidatas",
+              "mcp__mise__consultar_perfil"
+            ]
+          },
+          "saida": "{\"tools\": {}, \"not_found\": [\"mcp__mise__diagnostico_despensa\", \"mcp__mise__avaliar_receita\", \"mcp__mise__buscar_receita_na_web\", \"mcp__mise__comparar_candidatas\", \"mcp__mise__consultar_perfil\"], \"hint\": \"Names in not_found are not currently available. Re-run tool_search to refresh.\"}",
+          "erro": false,
+          "duracao_ms": null
+        },
+        {
+          "id": "",
+          "ferramenta": "tool_search",
+          "entrada": {
+            "limit": 25,
+            "queries": [
+              "mise",
+              "planilha despensa ingredientes",
+              "preco cardapio delivery ifood"
+            ]
+          },
+          "saida": "{\"queries\": [\"mise\", \"planilha despensa ingredientes\", \"preco cardapio delivery ifood\"], \"total_available\": 2, \"results\": [{\"query\": \"mise\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"planilha despensa ingredientes\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}, {\"query\": \"preco cardapio delivery ifood\", \"matches\": [], \"available_sources\": [{\"name\": \"session_search\", \"tool_count\": 1}, {\"name\": \"todo\", \"tool_count\": 1}], \"hint\": \"This query returned no lexical matches, but the sources above are connected and their tools remain available. Retry tool_search with the service name plus a concrete action or object before concluding the capability is unavailable.\"}], \"tools\": {}}",
+          "erro": false,
+          "duracao_ms": null
+        }
+      ]
+    }
+  ]
+}
