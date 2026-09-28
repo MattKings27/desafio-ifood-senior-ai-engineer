@@ -22,6 +22,10 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./src/teste/preparo.ts"],
     include: ["src/**/*.{test,a11y.test}.{ts,tsx}"],
+    // O axe percorre a tela inteira e passa dos 5 s padrão numa máquina mais lenta
+    // (o runner do CI, o notebook de quem avalia). O limite folgado não esconde
+    // teste que trava: um teste parado para aqui, só mais tarde.
+    testTimeout: 30_000,
     coverage: {
       provider: "v8",
       include: ["src/componentes/**", "src/lib/**"],
