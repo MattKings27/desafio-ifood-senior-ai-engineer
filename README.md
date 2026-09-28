@@ -26,7 +26,9 @@ preço, Cardápio) mostram a memória do agente e deixam que ela a corrija. O qu
 ela muda numa tela o agente lê no turno seguinte, e o que ele grava na conversa
 aparece na tela na hora.
 
-**Vídeo da demonstração: (link)**
+**Vídeo da demonstração:** [youtu.be/zHXVD6i2ptU](https://youtu.be/zHXVD6i2ptU).
+Para rodar, é um comando, `ANTHROPIC_API_KEY=sua-chave make comecar` (veja
+[Como rodar do zero](#como-rodar-do-zero)).
 
 O enunciado está em [`docs/DESAFIO.md`](docs/DESAFIO.md), e a planilha dela em
 [`dados/despensa_dona_maria.xlsx`](dados/despensa_dona_maria.xlsx).
