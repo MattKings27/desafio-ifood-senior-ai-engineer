@@ -68,11 +68,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip pip-audit
           # Os seis: o gateway depende de três pacotes locais que não estão no
-          # PyPI, e o que não é instalado não é auditado.
+          # PyPI, e o que não é instalado não é auditado. Os locais em si ficam
+          # de fora (--skip-editable): não estão no PyPI, e consultar o nome
+          # deles lá acharia outro projeto (existe um "mise" de terceiros).
           python -m pip install -e ./mise -e ./gateway -e ./retrieval -e ./telemetria \
             -e ./auditor -e ./evals
           set +e
-          pip-audit --progress-spinner off 2>&1 | tee /tmp/audit.log
+          pip-audit --progress-spinner off --skip-editable 2>&1 | tee /tmp/audit.log
           status=${PIPESTATUS[0]}
           set -e
           if [ "$status" -eq 0 ]; then
