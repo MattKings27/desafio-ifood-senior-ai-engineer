@@ -51,16 +51,24 @@ describe("o preço de referência no card", () => {
     const item: ItemDaGrade = { ...cardDoContrato(), referencias: [REFERENCIA] };
     montar(<CartaoDeReceita item={item} />);
 
-    expect(screen.getByText("Preço médio em São Paulo:")).toBeInTheDocument();
-    expect(screen.getByText(REFERENCIA.preco_medio_texto, { exact: false })).toBeInTheDocument();
-    expect(screen.getByText(/^Média de \d+ mercados de São Paulo: R\$/)).toBeInTheDocument();
-    const mercados = screen.getByRole("list", { name: "Mercados de São Paulo com creme de leite" });
+    // De qual ingrediente é, em destaque, com o selo; o preço por kg e de quantos mercados saiu.
+    const bloco = screen.getByRole("region", { name: "Preço de creme de leite" });
+    expect(within(bloco).getByText("Creme de leite")).toBeInTheDocument();
+    expect(within(bloco).getByText("Estimado")).toBeInTheDocument();
+    expect(within(bloco).getByText("Preço médio em São Paulo")).toBeInTheDocument();
+    expect(within(bloco).getByText(REFERENCIA.preco_medio_texto)).toBeInTheDocument();
+    expect(REFERENCIA.preco_medio_texto).toMatch(/\/kg$/);
+    expect(within(bloco).getByText(`média de ${REFERENCIA.mercados_na_media} mercados de São Paulo`)).toBeInTheDocument();
+    // A tabela de cada mercado: embalagem, preço e preço por kg, com o link do produto.
+    const mercados = within(bloco).getByRole("table", { name: "Preço de creme de leite em cada mercado de São Paulo" });
+    expect(within(mercados).getByRole("columnheader", { name: "Por kg" })).toBeInTheDocument();
     for (const fonte of REFERENCIA.fontes) {
       expect(within(mercados).getByRole("link", { name: fonte.site })).toHaveAttribute("href", fonte.url);
+      expect(within(mercados).getAllByText(fonte.embalagem_texto).length).toBeGreaterThan(0);
+      expect(within(mercados).getAllByText(fonte.por_unidade_texto).length).toBeGreaterThan(0);
     }
     const fora = REFERENCIA.fontes.filter((f) => !f.na_media);
-    expect(within(mercados).queryAllByText(/fora da média/)).toHaveLength(fora.length);
-    expect(screen.getByText("Estimado")).toBeInTheDocument();
+    expect(within(mercados).queryAllByText("fora da média")).toHaveLength(fora.length);
 
     const corrigir = screen.getByRole("button", { name: "corrigir o preço de creme de leite" });
     expect(corrigir).toHaveAttribute("aria-expanded", "false");

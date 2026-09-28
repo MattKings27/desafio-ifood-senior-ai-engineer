@@ -9,6 +9,9 @@
  * mostra cada mercado de São Paulo, com o preço e o link do produto.
  */
 
+import clsx from "clsx";
+import type { ReactNode } from "react";
+
 import type { PrecoDeReferencia } from "@/lib/api/receitas";
 
 import type { Correcao } from "./correcao";
@@ -47,11 +50,16 @@ export function ValorDeReferencia({
   /** O que o "corrigir" corrige, para o leitor de tela: "o preço de creme de leite". */
   oQue: string;
 }) {
+  if (precos) {
+    return (
+      <PrecoMedio precos={precos}>
+        {correcao ? <CorrigirValor receita={receita} correcao={correcao} oQue={oQue} /> : null}
+      </PrecoMedio>
+    );
+  }
   return (
     <div className="mt-1 text-xs text-texto-secundario">
-      {precos ? (
-        <PrecoMedio precos={precos} />
-      ) : (
+      {
         <p>
           <Estimado />
           {texto}
@@ -64,35 +72,85 @@ export function ValorDeReferencia({
             </>
           ) : null}
         </p>
-      )}
+      }
       {correcao ? <CorrigirValor receita={receita} correcao={correcao} oQue={oQue} /> : null}
     </div>
   );
 }
 
-/** "Preço médio em São Paulo: R$ 16,60 o quilo", a conta da média e cada mercado com o link. */
-function PrecoMedio({ precos }: { precos: PrecoDeReferencia }) {
+/**
+ * O preço estimado de um ingrediente que falta comprar, organizado para ela ler
+ * de cima para baixo: de qual ingrediente é, o preço por kg (L, un) em destaque,
+ * de quantos mercados saiu a média e, se ela quiser conferir, a tabela de cada
+ * mercado com o preço e o tamanho da embalagem e o preço por kg, com o link do
+ * produto. Três colunas, sem quebrar valor, para caber também no celular.
+ * Tudo vem escrito pela API; a tela só organiza.
+ */
+function PrecoMedio({ precos, children }: { precos: PrecoDeReferencia; children?: ReactNode }) {
+  const nome = maiuscula(precos.ingrediente);
+  const fora = precos.fontes.filter((fonte) => !fonte.na_media);
+  const media =
+    precos.mercados_na_media === 1
+      ? "preço de 1 mercado de São Paulo"
+      : `média de ${precos.mercados_na_media} mercados de São Paulo`;
   return (
-    <div>
-      <p>
-        <Estimado />
-        <span className="font-semibold text-tinta">{precos.titulo}:</span> {precos.preco_medio_texto}
+    <section aria-label={`Preço de ${precos.ingrediente}`} className="mt-2 rounded-lg border border-borda bg-secao/60 p-3 text-sm text-texto">
+      <p className="font-semibold text-tinta">
+        {nome} <Estimado />
       </p>
-      <p className="mt-0.5">{maiuscula(precos.media_texto)}.</p>
+      <p className="mt-1.5 text-xs text-apagado">{precos.titulo}</p>
+      <p className="mt-0.5">
+        <span className="text-base font-bold text-tinta tabular-nums">{precos.preco_medio_texto}</span>{" "}
+        <span className="text-texto-secundario">{media}</span>
+      </p>
       {precos.fontes.length > 0 ? (
-        <ul className="mt-1 space-y-0.5" aria-label={`Mercados de São Paulo com ${precos.ingrediente}`}>
-          {precos.fontes.map((item) => (
-            <li key={`${item.site}-${item.url}`}>
-              <a href={item.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-info underline underline-offset-2">
-                {item.site}
-              </a>
-              {`: ${item.preco_texto} (${item.por_unidade_texto})`}
-              {item.na_media ? null : ", fora da média"}
-            </li>
-          ))}
-        </ul>
+        <details className="mt-2">
+          <summary className="cursor-pointer text-sm font-semibold text-info underline-offset-2 hover:underline">
+            Ver o preço em cada mercado
+          </summary>
+          <div className="mt-2 overflow-x-auto">
+            <table className="w-full text-xs tabular-nums">
+              <caption className="sr-only">Preço de {precos.ingrediente} em cada mercado de São Paulo</caption>
+              <thead>
+                <tr className="text-left text-apagado">
+                  <th scope="col" className="py-1 pr-2 font-semibold">
+                    Mercado
+                  </th>
+                  <th scope="col" className="py-1 pr-2 text-right font-semibold">
+                    Embalagem
+                  </th>
+                  <th scope="col" className="py-1 text-right font-semibold whitespace-nowrap">
+                    Por {precos.unidade_base}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {precos.fontes.map((fonte) => (
+                  <tr key={`${fonte.site}-${fonte.url}`} className={clsx("border-t border-borda/60", !fonte.na_media && "text-apagado")}>
+                    <td className="py-1 pr-2">
+                      <a href={fonte.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-info underline underline-offset-2">
+                        {fonte.site}
+                      </a>
+                      {fonte.na_media ? null : <span className="block text-[0.6875rem]">fora da média</span>}
+                    </td>
+                    <td className="py-1 pr-2 text-right">
+                      <span className="block whitespace-nowrap">{fonte.preco_embalagem_texto}</span>
+                      <span className="block text-[0.6875rem] whitespace-nowrap text-apagado">{fonte.embalagem_texto}</span>
+                    </td>
+                    <td className="py-1 text-right whitespace-nowrap">{fonte.por_unidade_texto}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-xs text-apagado">
+            Preços de {precos.data_texto}.{" "}
+            {fora.length > 0 ? "O que ficou fora da média estava mais de 50% longe da mediana dos mercados." : null}
+          </p>
+        </details>
       ) : null}
-    </div>
+      {children ? <div className="mt-2">{children}</div> : null}
+    </section>
   );
 }
 

@@ -660,6 +660,8 @@ const PRECO_DE_REFERENCIA = {
   data_texto: "sempre",
   titulo: "sempre",
   preco_medio_texto: "sempre",
+  unidade_base: "sempre",
+  mercados_na_media: "sempre",
   media_texto: "sempre",
   fontes: "sempre",
 } satisfies Chaves<PrecoDeReferencia>;
@@ -668,6 +670,8 @@ const FONTE_DO_PRECO = {
   site: "sempre",
   produto: "sempre",
   preco_texto: "sempre",
+  embalagem_texto: "sempre",
+  preco_embalagem_texto: "sempre",
   por_unidade_texto: "sempre",
   url: "sempre",
   data_texto: "sempre",

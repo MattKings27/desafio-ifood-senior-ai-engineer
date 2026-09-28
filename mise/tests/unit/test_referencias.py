@@ -67,16 +67,16 @@ def do_arquivo() -> PrecosDeReferencia:
 def test_o_preco_medio_e_a_media_do_quilo_das_fontes() -> None:
     (creme,) = precos_do_arquivo([CREME]).precos
     assert creme.preco_medio == Decimal(20)
-    assert creme.preco_medio_texto == "R$ 20,00 o quilo"
+    assert creme.preco_medio_texto == "R$ 20,00/kg"
     assert creme.media_texto == (
-        "média de 3 mercados de São Paulo: R$ 18,00, R$ 20,00 e R$ 22,00 o quilo, em 27/09/2026"
+        "média de 3 mercados de São Paulo: R$ 18,00/kg, R$ 20,00/kg e R$ 22,00/kg, em 27/09/2026"
     )
     assert (
         creme.preco_texto == "R$ 4,00 pela caixinha de 200 g, preço médio em São Paulo, 27/09/2026"
     )
     assert creme.texto == (
         "preço médio em São Paulo: R$ 4,00 pela caixinha de 200 g (média de 3 mercados de São "
-        "Paulo: R$ 18,00, R$ 20,00 e R$ 22,00 o quilo, em 27/09/2026); a senhora pode corrigir"
+        "Paulo: R$ 18,00/kg, R$ 20,00/kg e R$ 22,00/kg, em 27/09/2026); a senhora pode corrigir"
     )
     assert creme.site == "mercado de São Paulo"
 
@@ -87,7 +87,7 @@ def test_a_fonte_mais_de_50_por_cento_longe_da_mediana_sai_da_media() -> None:
     assert [f.site for f in creme.fora_da_media] == ["Luzia"]
     assert creme.preco_medio == Decimal(20)
     assert creme.media_texto.endswith(
-        "; fora da média, por ficar mais de 50% longe da mediana: Luzia (R$ 45,00 o quilo)"
+        "; fora da média, por ficar mais de 50% longe da mediana: Luzia (R$ 45,00/kg)"
     )
     # Com duas, as duas entram: não se sabe qual das duas está fora.
     (duas,) = precos_do_arquivo([_creme(_fonte("Mambo", "3.60"), cara)]).precos
@@ -99,7 +99,7 @@ def test_uma_fonte_so_diz_o_mercado() -> None:
     (uma,) = precos_do_arquivo([_creme(_fonte("Mambo", "3.60"))]).precos
     assert uma.site == "Mambo"
     assert uma.media_texto == (
-        "preço de 1 mercado de São Paulo (Mambo): R$ 18,00 o quilo, em 27/09/2026"
+        "preço de 1 mercado de São Paulo (Mambo): R$ 18,00/kg, em 27/09/2026"
     )
     assert uma.preco_texto == "R$ 3,60 pela caixinha de 200 g, no Mambo, 27/09/2026"
     assert uma.texto.startswith("preço em São Paulo: R$ 3,60")
@@ -172,7 +172,7 @@ def test_a_caixa_de_tabletes_cota_os_tabletes() -> None:
     precos = precos_do_arquivo([CALDO])
     (caldo,) = precos.precos
     assert caldo.embalagem_texto == "caixa com 6 tabletes"
-    assert caldo.preco_medio_texto == "R$ 0,65 o tablete"
+    assert caldo.preco_medio_texto == "R$ 0,65/tablete"
     cotada = precos.cotar("MAGGI® Caldo Galinha", _unidades("2", "tablete"))
     assert cotada is not None
     referencia, na_embalagem = cotada

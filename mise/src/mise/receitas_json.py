@@ -450,13 +450,17 @@ def referencia_json(faltante: ItemFaltante) -> dict[str, Any] | None:
         "data_texto": referencia.data_texto,
         "titulo": _maiuscula(referencia.titulo),
         "preco_medio_texto": referencia.preco_medio_texto,
+        "unidade_base": referencia.unidade_base,
+        "mercados_na_media": len(referencia.na_media),
         "media_texto": referencia.media_texto,
         "fontes": [
             {
                 "site": fonte.site,
                 "produto": fonte.produto,
                 "preco_texto": fonte.preco_texto,
-                "por_unidade_texto": f"{Dinheiro(fonte.por_base)} {referencia.por_base_texto}",
+                "embalagem_texto": fonte.embalagem_texto,
+                "preco_embalagem_texto": str(fonte.preco),
+                "por_unidade_texto": f"{Dinheiro(fonte.por_base)}{referencia.por_base_texto}",
                 "url": fonte.url,
                 "data_texto": fonte.data_texto,
                 "na_media": fonte not in fora,

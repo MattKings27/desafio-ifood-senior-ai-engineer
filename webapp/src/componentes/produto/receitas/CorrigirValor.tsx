@@ -225,7 +225,9 @@ export function CorrigirValor({
         className="inline-flex min-h-8 items-center gap-1 rounded-sm font-semibold text-texto-secundario underline underline-offset-2 hover:text-tinta"
       >
         <PencilSimple size={13} weight="bold" aria-hidden="true" />
-        corrigir <span className="sr-only">{oQue}</span>
+        <span>
+          corrigir <span className="sr-only">{oQue}</span>
+        </span>
       </button>
       {aberto ? (
         <div className="mt-2 rounded-md bg-secao p-3">

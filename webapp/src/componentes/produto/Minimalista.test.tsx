@@ -55,15 +55,17 @@ const daCozinha = (id: string) => [...PERFIL.equipamentos, ...PERFIL.tecnicas].f
 
 const REFERENCIA: PrecoDeReferencia = {
   ingrediente: "milho verde",
-  texto: "Preço médio em São Paulo: R$ 3,40 pela lata de 170 g (média de 2 mercados de São Paulo: R$ 20,00 e R$ 20,00 o quilo, em 27/09/2026); a senhora pode corrigir.",
+  texto: "Preço médio em São Paulo: R$ 3,40 pela lata de 170 g (média de 2 mercados de São Paulo: R$ 20,00/kg e R$ 20,00/kg, em 27/09/2026); a senhora pode corrigir.",
   preco_texto: "R$ 3,40 pela lata de 170 g, preço médio em São Paulo, 27/09/2026",
   produto: "Milho Verde Quero Lata 170g",
   site: "mercado de São Paulo",
   url: "https://www.mambo.com.br/milho-verde-quero-lata-170g/p",
   data_texto: "27/09/2026",
   titulo: "Preço médio em São Paulo",
-  preco_medio_texto: "R$ 20,00 o quilo",
-  media_texto: "média de 2 mercados de São Paulo: R$ 20,00 e R$ 20,00 o quilo, em 27/09/2026",
+  preco_medio_texto: "R$ 20,00/kg",
+  unidade_base: "kg",
+  mercados_na_media: 2,
+  media_texto: "média de 2 mercados de São Paulo: R$ 20,00/kg e R$ 20,00/kg, em 27/09/2026",
   fontes: [],
 };
 

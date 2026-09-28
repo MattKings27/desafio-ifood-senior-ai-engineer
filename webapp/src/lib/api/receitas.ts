@@ -176,9 +176,13 @@ export type PrecoDeReferencia = {
   data_texto: string;
   /** "Preço médio em São Paulo", ou "Preço em São Paulo" com uma fonte só. */
   titulo: string;
-  /** "R$ 16,60 o quilo" */
+  /** "R$ 16,60/kg": a unidade sempre abreviada. */
   preco_medio_texto: string;
-  /** "média de 6 mercados de São Paulo: R$ 14,95, R$ 16,45, ... o quilo, em 27/09/2026" */
+  /** "kg", "L", "un": a unidade do preço médio e da coluna de cada mercado. */
+  unidade_base: string;
+  /** Quantos mercados entraram na média. */
+  mercados_na_media: number;
+  /** "média de 6 mercados de São Paulo: R$ 14,95/kg, R$ 16,45/kg, ..., em 27/09/2026" */
   media_texto: string;
   /** Cada mercado de São Paulo, com o preço e o link do produto. */
   fontes: FonteDoPreco[];
@@ -188,9 +192,13 @@ export type PrecoDeReferencia = {
 export type FonteDoPreco = {
   site: string;
   produto: string;
-  /** "R$ 2,99 por 200 g", ou "R$ 8,99 o quilo" no vendido a peso. */
+  /** "R$ 2,99 por 200 g", ou "R$ 8,99/kg" no vendido a peso. */
   preco_texto: string;
-  /** "R$ 14,95 o quilo" */
+  /** "200 g", "6 un", ou "a granel". */
+  embalagem_texto: string;
+  /** "R$ 2,99": o preço da embalagem. */
+  preco_embalagem_texto: string;
+  /** "R$ 14,95/kg" */
   por_unidade_texto: string;
   url: string;
   data_texto: string;

@@ -113,11 +113,11 @@ _FEMININAS: Final = frozenset(
 #: Como a embalagem se escreve para ela.
 _ESCRITA: Final[dict[str, str]] = {"sache": "sachê", "maco": "maço"}
 
-#: Como se diz a unidade-base no preço médio: "R$ 21,60 o quilo".
+#: A unidade-base, abreviada como no rótulo do mercado: "R$ 21,60/kg".
 _POR_BASE: Final[dict[Dimensao, str]] = {
-    Dimensao.MASSA: "o quilo",
-    Dimensao.VOLUME: "o litro",
-    Dimensao.CONTAGEM: "a unidade",
+    Dimensao.MASSA: "/kg",
+    Dimensao.VOLUME: "/L",
+    Dimensao.CONTAGEM: "/un",
 }
 
 #: As medidas caseiras que a tabela do IBGE pesa, com o volume que o motor dá a elas.
@@ -183,13 +183,19 @@ class FonteDoPreco:
 
     @property
     def preco_texto(self) -> str:
-        """ "R$ 3,79 por 200 g", "R$ 3,69 por 6 unidades", ou "R$ 8,99 o quilo" (a peso)."""
+        """ "R$ 3,79 por 200 g", "R$ 3,69 por 6 un", ou "R$ 8,99/kg" (a peso)."""
         if self.a_granel:
-            return f"{self.preco} o quilo"
+            return f"{self.preco}/kg"
+        return f"{self.preco} por {self.embalagem_texto}"
+
+    @property
+    def embalagem_texto(self) -> str:
+        """ "200 g", "6 un", ou "a granel" no vendido a peso."""
+        if self.a_granel:
+            return "a granel"
         if self.base.dimensao is Dimensao.CONTAGEM:
-            unidades = "unidade" if self.quantidade == 1 else "unidades"
-            return f"{self.preco} por {_numero(self.quantidade)} {unidades}"
-        return f"{self.preco} por {_numero(self.quantidade)} {self.unidade}"
+            return f"{_numero(self.quantidade)} un"
+        return f"{_numero(self.quantidade)} {self.unidade}"
 
 
 @dataclass(frozen=True, slots=True)
@@ -257,16 +263,20 @@ class PrecoDeReferencia:
 
     @property
     def preco_medio_texto(self) -> str:
-        """ "R$ 21,60 o quilo"."""
-        return f"{Dinheiro(self.preco_medio)} {self.por_base_texto}"
+        """ "R$ 21,60/kg"."""
+        return f"{Dinheiro(self.preco_medio)}{self.por_base_texto}"
 
     @property
     def por_base_texto(self) -> str:
-        """ "o quilo", "o litro", "a unidade", "o tablete": como se diz a unidade-base."""
+        """ "/kg", "/L", "/un", "/tablete": a unidade-base, abreviada."""
         if self.dimensao is Dimensao.CONTAGEM and self.cada:
-            artigo = "a" if self.cada in ("unidade", "caixa") else "o"
-            return f"{artigo} {_ESCRITA.get(_chave(self.cada), self.cada)}"
+            return f"/{_ESCRITA.get(_chave(self.cada), self.cada)}"
         return _POR_BASE[self.dimensao]
+
+    @property
+    def unidade_base(self) -> str:
+        """ "kg", "L", "un": o que vem depois da barra no preço médio."""
+        return self.por_base_texto.removeprefix("/")
 
     @property
     def data(self) -> dt.date:
@@ -283,7 +293,7 @@ class PrecoDeReferencia:
         "média de 3 mercados de São Paulo: R$ 18,95, R$ 21,60 e R$ 24,25 o quilo, em 27/09/2026".
         """
         validas = self.na_media
-        precos = _lista([str(Dinheiro(f.por_base)) for f in validas])
+        precos = _lista([f"{Dinheiro(f.por_base)}{self.por_base_texto}" for f in validas])
         datas = sorted({f.data for f in validas})
         quando = (
             f"em {datas[0]:%d/%m/%Y}"
@@ -291,20 +301,12 @@ class PrecoDeReferencia:
             else f"entre {datas[0]:%d/%m/%Y} e {datas[-1]:%d/%m/%Y}"
         )
         if len(validas) == 1:
-            texto = (
-                f"preço de 1 mercado de São Paulo ({validas[0].site}): "
-                f"{precos} {self.por_base_texto}, {quando}"
-            )
+            texto = f"preço de 1 mercado de São Paulo ({validas[0].site}): {precos}, {quando}"
         else:
-            texto = (
-                f"média de {len(validas)} mercados de São Paulo: "
-                f"{precos} {self.por_base_texto}, {quando}"
-            )
+            texto = f"média de {len(validas)} mercados de São Paulo: {precos}, {quando}"
         fora = self.fora_da_media
         if fora:
-            saiu = _lista(
-                [f"{f.site} ({Dinheiro(f.por_base)} {self.por_base_texto})" for f in fora]
-            )
+            saiu = _lista([f"{f.site} ({Dinheiro(f.por_base)}{self.por_base_texto})" for f in fora])
             texto += f"; fora da média, por ficar mais de 50% longe da mediana: {saiu}"
         return texto
 

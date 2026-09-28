@@ -471,11 +471,15 @@ número, a receita fica de fora, com o motivo, e ninguém pergunta.
   que fica mais de 50% longe da mediana sai da conta. Ela compra a menor
   embalagem que cobre o que falta, pelo preço médio; a compra continua tendo de
   caber nos R$ 80,00. O objeto `referencia` traz `titulo` ("Preço médio em São
-  Paulo"), `preco_medio_texto` ("R$ 16,60 o quilo"), `media_texto` ("média de
-  6 mercados de São Paulo: R$ 14,95, R$ 16,45, ... o quilo, em 27/09/2026") e
-  `fontes[]`, um por mercado: `site`, `produto`, `preco_texto` ("R$ 2,99 por
-  200 g"), `por_unidade_texto` ("R$ 14,95 o quilo"), `url`, `data_texto` e
-  `na_media` (`false` para a que ficou fora da média). Os campos de antes
+  Paulo"), `preco_medio_texto` ("R$ 16,60/kg", a unidade sempre abreviada),
+  `unidade_base` ("kg", "L", "un"), `mercados_na_media` (quantos entraram na
+  média), `media_texto` ("média de 6 mercados de São Paulo: R$ 14,95/kg,
+  R$ 16,45/kg, ..., em 27/09/2026") e `fontes[]`, um por mercado: `site`,
+  `produto`, `preco_texto` ("R$ 2,99 por 200 g"), `embalagem_texto` ("200 g",
+  ou "a granel"), `preco_embalagem_texto` ("R$ 2,99"), `por_unidade_texto`
+  ("R$ 14,95/kg"), `url`, `data_texto` e `na_media` (`false` para a que ficou
+  fora da média). A tela monta com eles a tabela dos mercados, sem desmontar
+  texto nem fazer conta. Os campos de antes
   continuam: `texto`, `preco_texto`, `produto`, `site`, `url`, `data_texto`.
   O item da despensa sem o preço que ela pagou também custa pela referência.
   Sem preço nenhum, a receita fica de fora e conta em
