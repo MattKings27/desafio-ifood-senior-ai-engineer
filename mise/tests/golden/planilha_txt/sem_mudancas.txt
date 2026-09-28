@@ -1,0 +1,135 @@
+DESPENSA DA DONA MARIA: transcrição da planilha despensa_dona_maria.xlsx
+Gerado em: 2026-09-25 10:00. Versão 1 (sem mudanças da senhora).
+Dinheiro como "R$ x,yy"; números com vírgula decimal. A planilha original não muda:
+o que a senhora mudou está em "Mudanças da senhora" e vale nos "Itens de hoje".
+
+== Aba "Despensa" da planilha (o estoque que ela informou) ==
+Ingrediente | Quantidade em estoque | Unidade
+Arroz branco tipo 1 | 5 | kg
+Feijão carioquinha | 3 | kg
+Feijão preto | 1 | kg
+Peito de frango | 2 | kg
+Carne moída (patinho) | 1,5 | kg
+Carne de panela (acém) | 1 | kg
+Miolo de alcatra | 0,8 | kg
+Bacon | 0,5 | kg
+Ovos | 30 | un
+Farinha de trigo | 2 | kg
+Farinha de mandioca | 1 | kg
+Macarrão espaguete | 1 | kg
+Polenta (fubá) | 1 | kg
+Batata | 3 | kg
+Queijo mussarela | 0,5 | kg
+Queijo parmesão ralado | 0,2 | kg
+Tomate | 2 | kg
+Cebola | 1 | kg
+Alho | 0,3 | kg
+Óleo de soja | 1 | L
+Manteiga | 0,5 | kg
+Sal | 1 | kg
+Açúcar | 1 | kg
+Leite integral | 2 | L
+Couve | 0,5 | kg
+Salsinha (cheiro-verde) | 0,1 | kg
+Caldo de carne (tempero) | 0,2 | kg
+Açafrão em pó (cúrcuma) | 0,2 | kg
+Alcaparras | 1 | balde 2kg
+Amêndoa fatiada | 0,3 | kg
+Chantilly | 1 | un 500g
+Leite ninho em pó | 1 | un 400g
+Cobertura de chocolate | 1 | un
+Azeite de oliva extra virgem | 1 | un 500ml
+Aceto balsâmico | 1 | un 500ml
+Canela em pó | 0,1 | kg
+Adoçante líquido | 1 | un 100ml
+
+== Aba "Precos" da planilha (quanto ela pagou) ==
+Ingrediente | Quantidade comprada | Unidade | Preço total pago (R$)
+Arroz branco tipo 1 | 5 | kg | R$ 24,90
+Feijão carioquinha | 3 | kg | R$ 27,00
+Feijão preto | 1 | kg | R$ 9,60
+Peito de frango | 2 | kg | R$ 28,00
+Carne moída (patinho) | 1,5 | kg | R$ 42,00
+Carne de panela (acém) | 1 | kg | R$ 23,20
+Miolo de alcatra | 0,8 | kg | R$ 34,00
+Bacon | 0,5 | kg | R$ 11,95
+Ovos | 30 | un | R$ 24,00
+Farinha de trigo | 2 | kg | R$ 10,30
+Farinha de mandioca | 1 | kg | R$ 8,60
+Macarrão espaguete | 1 | kg | R$ 13,99
+Polenta (fubá) | 1 | kg | R$ 10,00
+Batata | 3 | kg | R$ 18,00
+Queijo mussarela | 0,5 | kg | R$ 20,00
+Queijo parmesão ralado | 0,2 | kg | R$ 8,58
+Tomate | 2 | kg | R$ 16,00
+Cebola | 1 | kg | R$ 4,00
+Alho | 0,3 | kg | R$ 6,00
+Óleo de soja | 1 | L | R$ 9,00
+Manteiga | 0,5 | kg | R$ 20,00
+Sal | 1 | kg | R$ 1,85
+Açúcar | 1 | kg | R$ 4,28
+Leite integral | 2 | L | R$ 10,00
+Couve | 0,5 | kg | R$ 6,00
+Salsinha (cheiro-verde) | 0,1 | kg | R$ 2,10
+Caldo de carne (tempero) | 0,2 | kg | R$ 1,42
+Açafrão em pó (cúrcuma) | 0,2 | kg | R$ 2,16
+Alcaparras | 1 | balde 2kg | R$ 82,00
+Amêndoa fatiada | 0,3 | kg | R$ 18,00
+Chantilly | 1 | un 500g | R$ 23,67
+Leite ninho em pó | 1 | un 400g | R$ 15,18
+Cobertura de chocolate | 1 | un | R$ 79,90
+Azeite de oliva extra virgem | 1 | un 500ml | R$ 30,99
+Aceto balsâmico | 1 | un 500ml | R$ 12,99
+Canela em pó | 0,1 | kg | R$ 1,83
+Adoçante líquido | 1 | un 100ml | R$ 1,90
+
+== Mudanças da senhora ==
+(nenhuma)
+
+== Itens de hoje, com o custo unitário ==
+Ingrediente | Categoria | Tem | Pagou | Custo unitário | Conta
+Arroz branco tipo 1 | Grãos, farinhas e massas | 5 kg | R$ 24,90 | R$ 4,98/kg | R$ 24,90 ÷ 5 kg = R$ 4,98/kg
+Feijão carioquinha | Grãos, farinhas e massas | 3 kg | R$ 27,00 | R$ 9,00/kg | R$ 27,00 ÷ 3 kg = R$ 9,00/kg
+Feijão preto | Grãos, farinhas e massas | 1 kg | R$ 9,60 | R$ 9,60/kg | R$ 9,60 ÷ 1 kg = R$ 9,60/kg
+Peito de frango | Carnes e ovos | 2 kg | R$ 28,00 | R$ 14,00/kg | R$ 28,00 ÷ 2 kg = R$ 14,00/kg
+Carne moída (patinho) | Carnes e ovos | 1,5 kg | R$ 42,00 | R$ 28,00/kg | R$ 42,00 ÷ 1,5 kg = R$ 28,00/kg
+Carne de panela (acém) | Carnes e ovos | 1 kg | R$ 23,20 | R$ 23,20/kg | R$ 23,20 ÷ 1 kg = R$ 23,20/kg
+Miolo de alcatra | Carnes e ovos | 800 g | R$ 34,00 | R$ 42,50/kg | R$ 34,00 ÷ 0,8 kg = R$ 42,50/kg
+Bacon | Carnes e ovos | 500 g | R$ 11,95 | R$ 23,90/kg | R$ 11,95 ÷ 0,5 kg = R$ 23,90/kg
+Ovos | Carnes e ovos | 30 unidades | R$ 24,00 | R$ 0,80/un | R$ 24,00 ÷ 30 un = R$ 0,80/un
+Farinha de trigo | Grãos, farinhas e massas | 2 kg | R$ 10,30 | R$ 5,15/kg | R$ 10,30 ÷ 2 kg = R$ 5,15/kg
+Farinha de mandioca | Grãos, farinhas e massas | 1 kg | R$ 8,60 | R$ 8,60/kg | R$ 8,60 ÷ 1 kg = R$ 8,60/kg
+Macarrão espaguete | Grãos, farinhas e massas | 1 kg | R$ 13,99 | R$ 13,99/kg | R$ 13,99 ÷ 1 kg = R$ 13,99/kg
+Polenta (fubá) | Grãos, farinhas e massas | 1 kg | R$ 10,00 | R$ 10,00/kg | R$ 10,00 ÷ 1 kg = R$ 10,00/kg
+Batata | Hortifrúti | 3 kg | R$ 18,00 | R$ 6,00/kg | R$ 18,00 ÷ 3 kg = R$ 6,00/kg
+Queijo mussarela | Laticínios | 500 g | R$ 20,00 | R$ 40,00/kg | R$ 20,00 ÷ 0,5 kg = R$ 40,00/kg
+Queijo parmesão ralado | Laticínios | 200 g | R$ 8,58 | R$ 42,90/kg | R$ 8,58 ÷ 0,2 kg = R$ 42,90/kg
+Tomate | Hortifrúti | 2 kg | R$ 16,00 | R$ 8,00/kg | R$ 16,00 ÷ 2 kg = R$ 8,00/kg
+Cebola | Hortifrúti | 1 kg | R$ 4,00 | R$ 4,00/kg | R$ 4,00 ÷ 1 kg = R$ 4,00/kg
+Alho | Hortifrúti | 300 g | R$ 6,00 | R$ 20,00/kg | R$ 6,00 ÷ 0,3 kg = R$ 20,00/kg
+Óleo de soja | Óleos e azeites | 1 L | R$ 9,00 | R$ 9,00/L | R$ 9,00 ÷ 1 L = R$ 9,00/L
+Manteiga | Laticínios | 500 g | R$ 20,00 | R$ 40,00/kg | R$ 20,00 ÷ 0,5 kg = R$ 40,00/kg
+Sal | Temperos e condimentos | 1 kg | R$ 1,85 | R$ 1,85/kg | R$ 1,85 ÷ 1 kg = R$ 1,85/kg
+Açúcar | Confeitaria | 1 kg | R$ 4,28 | R$ 4,28/kg | R$ 4,28 ÷ 1 kg = R$ 4,28/kg
+Leite integral | Laticínios | 2 L | R$ 10,00 | R$ 5,00/L | R$ 10,00 ÷ 2 L = R$ 5,00/L
+Couve | Hortifrúti | 500 g | R$ 6,00 | R$ 12,00/kg | R$ 6,00 ÷ 0,5 kg = R$ 12,00/kg
+Salsinha (cheiro-verde) | Hortifrúti | 100 g | R$ 2,10 | R$ 21,00/kg | R$ 2,10 ÷ 0,1 kg = R$ 21,00/kg
+Caldo de carne (tempero) | Temperos e condimentos | 200 g | R$ 1,42 | R$ 7,10/kg | R$ 1,42 ÷ 0,2 kg = R$ 7,10/kg
+Açafrão em pó (cúrcuma) | Temperos e condimentos | 200 g | R$ 2,16 | R$ 10,80/kg | R$ 2,16 ÷ 0,2 kg = R$ 10,80/kg
+Alcaparras | Conservas e molhos | 2 kg (1 balde de 2 kg) | R$ 82,00 | R$ 41,00/kg | 1 × 2 kg = 2 kg; R$ 82,00 ÷ 2 kg = R$ 41,00/kg
+Amêndoa fatiada | Confeitaria | 300 g | R$ 18,00 | R$ 60,00/kg | R$ 18,00 ÷ 0,3 kg = R$ 60,00/kg
+Chantilly | Confeitaria | 500 g (1 embalagem de 500 g) | R$ 23,67 | R$ 47,34/kg | 1 × 0,5 kg = 0,5 kg; R$ 23,67 ÷ 0,5 kg = R$ 47,34/kg
+Leite ninho em pó | Laticínios | 400 g (1 embalagem de 400 g) | R$ 15,18 | R$ 37,95/kg | 1 × 0,4 kg = 0,4 kg; R$ 15,18 ÷ 0,4 kg = R$ 37,95/kg
+Cobertura de chocolate | Confeitaria | 1 kg (1 embalagem de 1 kg) | R$ 79,90 | R$ 79,90/kg | R$ 79,90 ÷ 1 kg = R$ 79,90/kg; o peso é cerca de 1 kg (estimativa: a embalagem de cobertura de chocolate com o preço mais perto dos R$ 79,90 que a senhora pagou é a de 1 kg, Cobertura Garoto Chocolate Ao Leite 1kg, R$ 71,30 no Carrefour, 27/09/2026; a senhora pode corrigir)
+Azeite de oliva extra virgem | Óleos e azeites | 500 ml (1 embalagem de 500 ml) | R$ 30,99 | R$ 61,98/L | 1 × 0,5 L = 0,5 L; R$ 30,99 ÷ 0,5 L = R$ 61,98/L
+Aceto balsâmico | Temperos e condimentos | 500 ml (1 embalagem de 500 ml) | R$ 12,99 | R$ 25,98/L | 1 × 0,5 L = 0,5 L; R$ 12,99 ÷ 0,5 L = R$ 25,98/L
+Canela em pó | Temperos e condimentos | 100 g | R$ 1,83 | R$ 18,30/kg | R$ 1,83 ÷ 0,1 kg = R$ 18,30/kg
+Adoçante líquido | Confeitaria | 100 ml (1 embalagem de 100 ml) | R$ 1,90 | R$ 19,00/L | 1 × 0,1 L = 0,1 L; R$ 1,90 ÷ 0,1 L = R$ 19,00/L
+Total: 37 itens, R$ 663,39 pagos.
+
+== O que ainda falta saber ==
+(nada)
+
+== Complementos (R$ 80,00) ==
+Gasto: R$ 0,00 · Restam: R$ 80,00
+(nenhuma compra)
