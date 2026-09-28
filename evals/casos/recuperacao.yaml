@@ -1,0 +1,267 @@
+# O conjunto dourado da busca da plataforma (`python -m evals.recuperacao`).
+#
+# Cada pergunta é feita no estado de referência (`evals.recuperacao.montar_estado`):
+# a planilha dela, uma cozinha com respostas pela tela e pela conversa, quatro
+# receitas em avaliação, uma decisão, uma compra, um preço e o leite que acabou,
+# mais a base de cozinha com fonte.
+#
+# `esperados` são os trechos que respondem à pergunta; qualquer um deles conta.
+# Sem `esperados`, a pergunta é de fora da plataforma e a resposta certa é
+# "não sei". `nota` diz o que o caso testa.
+
+# -- despensa ---------------------------------------------------------------
+
+- id: despensa-quanto-paguei
+  pergunta: Quanto eu paguei nas alcaparras?
+  esperados: [despensa:alcaparras]
+  nota: nome do item e verbo no passado (paguei e pagou)
+
+- id: despensa-custo-do-azeite
+  pergunta: Quanto sai o litro do azeite que eu comprei?
+  esperados: [despensa:azeite-de-oliva-extra-virgem]
+
+- id: despensa-leite-acabou
+  pergunta: Ainda tenho leite?
+  esperados: [despensa:leite-integral]
+  nota: o item que acabou continua na despensa, com o estoque zerado
+
+- id: despensa-carnes
+  pergunta: Que carnes eu tenho na despensa?
+  esperados: [despensa:carne-moida-patinho, despensa:carne-de-panela-acem, despensa:miolo-de-alcatra]
+  tipos: [despensa]
+  nota: filtro por tipo e vários trechos certos
+
+- id: despensa-dinheiro-parado
+  pergunta: Quanto dinheiro eu tenho parado na despensa no total?
+  esperados: [despensa:resumo]
+
+- id: despensa-pendencia
+  pergunta: O que falta eu dizer sobre a cobertura de chocolate?
+  esperados: [despensa:cobertura-de-chocolate]
+
+- id: despensa-linha-da-planilha
+  pergunta: Em que linha da planilha está o bacon?
+  esperados: [despensa:bacon]
+
+- id: despensa-sinonimo
+  pergunta: Tenho muçarela em casa?
+  esperados: [despensa:queijo-mussarela]
+  nota: sinônimo do casamento de ingrediente (muçarela e mussarela)
+
+# -- cozinha ----------------------------------------------------------------
+
+- id: cozinha-forno
+  pergunta: Eu já disse se tenho forno?
+  esperados: [cozinha:equipamento:forno]
+
+- id: cozinha-air-fryer
+  pergunta: Eu tenho air fryer?
+  esperados: [cozinha:equipamento:air_fryer]
+
+- id: cozinha-bocas
+  pergunta: Quantas bocas tem o meu fogão?
+  esperados: [cozinha:restricao:bocas_fogao]
+
+- id: cozinha-gas-de-reserva
+  pergunta: Tenho botijão de gás de reserva?
+  esperados: [cozinha:restricao:tem_gas_sobrando]
+
+- id: cozinha-tecnica
+  pergunta: Eu sei fazer massa fresca?
+  esperados: [cozinha:tecnica:massa_fresca, conhecimento:massa-fresca-proporcao-e-descanso]
+
+- id: cozinha-tempo-por-cozinhada
+  pergunta: Quanto tempo eu consigo ficar cozinhando de uma vez?
+  esperados: [cozinha:restricao:tempo_max_por_fornada_min]
+
+# -- receitas ---------------------------------------------------------------
+
+- id: receita-rendimento
+  pergunta: Quantas porções rende o arroz com frango?
+  esperados: [receita:arroz-com-frango]
+
+- id: receita-ingrediente
+  pergunta: O bolo de fubá leva coco ralado?
+  esperados: [receita:2bbb7aef61479a21:ingredientes]
+
+- id: receita-passo-numerado
+  pergunta: O que faço no passo 3 do frango xadrez?
+  esperados: [receita:frango-xadrez:passo-3]
+  nota: o cabeçalho contextual diz o número do passo
+
+- id: receita-aparelho-do-passo
+  pergunta: Qual receita usa o liquidificador?
+  esperados: [receita:2bbb7aef61479a21:passo-1, receita:pudim-de-leite:passo-1]
+
+- id: receita-banho-maria
+  pergunta: O pudim vai em banho-maria?
+  esperados: [receita:pudim-de-leite:passo-3]
+
+- id: receita-site
+  pergunta: De que site veio a receita do bolo de fubá?
+  esperados: [receita:2bbb7aef61479a21]
+
+- id: receita-o-que-comprar
+  pergunta: O que falta comprar para o frango xadrez?
+  esperados: [receita:frango-xadrez:ingredientes]
+
+# -- avaliação, cardápio e orçamento ------------------------------------------
+
+- id: avaliacao-gosto
+  pergunta: Eu disse que gosto de fazer o arroz com frango?
+  esperados: [avaliacao:arroz-com-frango]
+
+- id: avaliacao-impedimento
+  pergunta: Que impedimento eu falei para o pudim?
+  esperados: [avaliacao:pudim-de-leite]
+
+- id: cardapio-preco-aceito
+  pergunta: Por quanto eu aceitei vender o arroz com frango?
+  esperados: [cardapio:arroz-com-frango]
+
+- id: cardapio-resumo
+  pergunta: O que já está no meu cardápio?
+  esperados: [cardapio:resumo, cardapio:arroz-com-frango]
+
+- id: orcamento-restante
+  pergunta: Quanto sobrou dos meus complementos?
+  esperados: [orcamento]
+
+- id: orcamento-compra
+  pergunta: O que eu já comprei com o dinheiro dos complementos?
+  esperados: [orcamento:compra-1]
+
+- id: orcamento-preco-informado
+  pergunta: Quanto eu disse que custa o amendoim?
+  esperados: [orcamento:preco-amendoim]
+
+# -- base de cozinha --------------------------------------------------------
+
+- id: conhecimento-bechamel
+  pergunta: Como se faz molho bechamel?
+  esperados: [conhecimento:molho-bechamel-base, conhecimento:roux-o-que-e]
+
+- id: conhecimento-molho-branco
+  pergunta: Como engrossar um molho branco?
+  esperados: [conhecimento:roux-o-que-e, conhecimento:molho-bechamel-base]
+  nota: sinônimo de cozinha (molho branco e bechamel)
+
+- id: conhecimento-dias-na-geladeira
+  pergunta: Quantos dias a comida pronta dura na geladeira?
+  esperados: [conhecimento:comida-pronta-dura-5-dias-a-4-graus, conhecimento:alimento-cozido-3-dias-em-sao-paulo]
+
+- id: conhecimento-oleo-da-fritura
+  pergunta: Até quando posso usar o mesmo óleo da fritura?
+  esperados: [conhecimento:oleo-de-fritura-ate-180-graus]
+
+- id: conhecimento-ponto-da-carne
+  pergunta: Como fica a carne ao ponto e a bem passada?
+  esperados: [conhecimento:ponto-da-carne-ao-ponto-e-bem-passada]
+
+- id: conhecimento-air-fryer-no-lugar-do-forno
+  pergunta: A air fryer serve no lugar do forno?
+  esperados: [conhecimento:air-fryer-no-lugar-do-forno, conhecimento:air-fryer-como-funciona]
+
+- id: conhecimento-panela-de-pressao
+  pergunta: Até onde posso encher a panela de pressão?
+  esperados: [conhecimento:panela-de-pressao-no-maximo-2-3]
+
+- id: conhecimento-markup
+  pergunta: Qual a diferença entre markup e margem de lucro?
+  esperados: [conhecimento:markup-e-margem-sao-diferentes, conhecimento:markup-sobre-custo-margem-sobre-preco]
+
+- id: conhecimento-lacre
+  pergunta: Preciso lacrar a embalagem da entrega?
+  esperados: [conhecimento:lacre-obrigatorio-em-sao-paulo, conhecimento:entrega-a-60-graus-embalagem-lacrada]
+
+- id: conhecimento-descongelar
+  pergunta: Como descongelar a carne do jeito certo?
+  esperados: [conhecimento:descongelar-na-geladeira-e-nao-recongelar]
+
+- id: conhecimento-ficha-tecnica
+  pergunta: O que é ficha técnica de preparo?
+  esperados: [conhecimento:ficha-tecnica-de-preparo]
+
+- id: conhecimento-feijao-de-molho
+  pergunta: Quanto tempo deixo o feijão de molho?
+  esperados: [conhecimento:feijao-de-molho-8-a-12-horas]
+
+- id: conhecimento-reaproveitar-oleo
+  pergunta: Posso reaproveitar o óleo da fritura?
+  esperados: [conhecimento:oleo-de-fritura-ate-180-graus]
+
+- id: conhecimento-graus-do-oleo
+  pergunta: O óleo pode esquentar até quantos graus na fritura?
+  esperados: [conhecimento:oleo-de-fritura-ate-180-graus]
+
+# -- paráfrases, sem as palavras do trecho --------------------------------------
+
+- id: parafrase-comida-quente
+  pergunta: Por quanto tempo a comida pode ficar quentinha esperando o cliente?
+  esperados: [conhecimento:manter-quente-acima-de-60-graus, conhecimento:abaixo-de-60-graus-consumir-em-1-hora]
+  nota: >
+    paráfrase; o trecho fala em manter acima de 60 graus. Os n-gramas não acham,
+    o modelo multilíngue acha
+  conhecido: true
+
+- id: parafrase-esfriar-rapido
+  pergunta: Como esfrio a panela rápido antes de guardar na geladeira?
+  esperados: [conhecimento:esfriar-panela-em-agua-com-gelo, conhecimento:resfriar-de-60-a-10-graus-em-2-horas]
+
+- id: parafrase-levar-ao-cliente
+  pergunta: Tem regra para levar a marmita até o cliente?
+  esperados: [conhecimento:transporte-em-tempo-e-temperatura-seguros, conhecimento:transporte-em-compartimento-fechado, conhecimento:entrega-a-60-graus-embalagem-lacrada]
+  nota: marmita e entrega são sinônimos de embalagem e de delivery
+
+- id: parafrase-contas-do-mes
+  pergunta: Como sei se o que eu vendo paga as contas do mês?
+  esperados: [conhecimento:ponto-de-equilibrio, conhecimento:rateio-dos-custos-fixos-no-prato]
+  nota: >
+    paráfrase sem nenhuma palavra do trecho; os dois braços dizem "não sei", que
+    é o erro mais barato
+  conhecido: true
+
+# -- fora da plataforma: a resposta certa é "não sei" -----------------------
+
+- id: fora-capital
+  pergunta: Qual a capital da França?
+  nota: pergunta de conhecimento geral
+
+- id: fora-futebol
+  pergunta: Quem ganhou a Copa do Mundo de 2002?
+
+- id: fora-carro
+  pergunta: Como trocar o pneu do carro?
+
+- id: fora-piada
+  pergunta: Me conta uma piada.
+
+- id: fora-previsao
+  pergunta: Vai chover amanhã?
+
+- id: fora-matematica
+  pergunta: Qual é a integral de linha num campo vetorial?
+  nota: as palavras integral e linha aparecem na plataforma (leite integral, linha da planilha)
+
+- id: fora-dolar
+  pergunta: Quanto está o dólar hoje?
+
+- id: fora-time
+  pergunta: Qual o melhor time de futebol do Brasil?
+
+- id: fora-tempo-la-fora
+  pergunta: Como está o tempo lá fora hoje?
+  nota: >
+    tempo aparece em toda receita, mas aqui é o clima. Erro conhecido: a busca
+    por palavra não separa o tempo do clima do tempo da receita, e devolve os
+    trechos de tempo das receitas; quem lê que eles não falam de clima é o
+    agente
+  conhecido: true
+
+- id: fora-gasolina
+  pergunta: Qual o preço da gasolina no posto?
+  nota: preço aparece na plataforma, gasolina não
+
+- id: fora-carro-popular
+  pergunta: Quanto custa um carro popular?
+  nota: custa aparece na plataforma, carro não

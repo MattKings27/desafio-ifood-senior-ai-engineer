@@ -1,0 +1,41 @@
+nome: nao-sei-vira-pendencia
+secao: "2.2"
+descricao: >
+  Ela não sabe responder uma pergunta da cozinha. "Não sei" é resposta: o
+  agente grava como não sei, sem transformar em "tem" nem em "não tem", não
+  insiste e não trata o prato como liberado. A pergunta volta quando a receita
+  precisar. Ela já disse que gosta de fazer, então a pergunta da cozinha vem
+  logo; e o que falta comprar vem com o preço estimado, nunca com a pergunta
+  de quanto custa.
+
+nunca_chama: [calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_compra, registrar_decisao]
+chama_na_conversa: [registrar_gosto|registrar_avaliacao_da_receita]
+
+turnos:
+  - diz: >
+      Quero fazer frango assado pra vender, gosto muito de fazer: 1 kg de coxa
+      e sobrecoxa, 2 dentes de alho, suco de 1 limão, sal a gosto. Tempera e
+      leva ao forno a 200 graus por 50 minutos. Rende 4 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      responde_com: ['forno']
+      nao_responde_com:
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'
+      pergunta: true
+  - diz: >
+      Sobre o forno eu não sei: vou cozinhar na casa da minha irmã e não lembro
+      se lá tem.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+      nao_chama_com:
+        - { ferramenta: registrar_resposta, entrada: { resposta: tem } }
+        - { ferramenta: registrar_resposta, entrada: { resposta: sim } }
+        - { ferramenta: registrar_resposta, entrada: { resposta: nao_tem } }
+        - { ferramenta: registrar_resposta, entrada: { resposta: nao } }
+        - { ferramenta: registrar_resposta, entrada: { resposta: não } }
+      nao_responde_com:
+        - '(?<!não )(?<!nao )\bd[aá] (pra|para) (a senhora )?fazer'
+        # Trocar a pergunta do forno pela do preço seria perguntar o que a plataforma estima.
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'

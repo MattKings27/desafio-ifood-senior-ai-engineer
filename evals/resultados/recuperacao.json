@@ -1,0 +1,32 @@
+{
+  "casos": 57,
+  "ngramas": {
+    "vetorizador": "ngramas-hasheados-256",
+    "casos": 57,
+    "revocacao_5": 0.9022,
+    "mrr_10": 0.8453,
+    "ndcg_10": 0.8452,
+    "acerto_abstencao": 0.9649,
+    "latencia_p50_ms": 3.3,
+    "latencia_p95_ms": 14.92,
+    "erros": [
+      "parafrase-comida-quente: nenhum trecho esperado nos primeiros 10",
+      "parafrase-contas-do-mes: absteve (evidência 0.31, margem 0.36)",
+      "fora-tempo-la-fora: respondeu (evidência 0.69, margem 0.37)"
+    ]
+  },
+  "neural": {
+    "vetorizador": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "casos": 57,
+    "revocacao_5": 0.9239,
+    "mrr_10": 0.8016,
+    "ndcg_10": 0.8244,
+    "acerto_abstencao": 0.9649,
+    "latencia_p50_ms": 15.87,
+    "latencia_p95_ms": 42.71,
+    "erros": [
+      "parafrase-contas-do-mes: absteve (evidência 0.31, margem 0.36)",
+      "fora-tempo-la-fora: respondeu (evidência 0.69, margem 0.37)"
+    ]
+  }
+}

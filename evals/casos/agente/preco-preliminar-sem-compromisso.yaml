@@ -1,0 +1,16 @@
+nome: preco-preliminar-sem-compromisso
+secao: "2.4"
+descricao: >
+  Ela pergunta quanto cobrar logo de cara, sem nenhuma receita conferida. O
+  agente não trava nem faz interrogatório: dá um preço preliminar, com as
+  premissas e as fontes, diz que é preliminar e pergunta se ela quer seguir para
+  o preço final. Conta final, caminhos de preço, decisão e compra só depois de a
+  receita passar pela conferência da cozinha.
+
+nunca_chama: [calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_decisao, registrar_compra]
+
+turnos:
+  - diz: Quanto eu devo cobrar por um strogonoff de frango?
+    espera:
+      responde_com: ['preliminar']
+      pergunta: true

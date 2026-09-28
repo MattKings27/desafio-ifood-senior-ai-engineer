@@ -1,0 +1,1244 @@
+# Casos dourados do portão de viabilidade.
+#
+# Cada caso é uma afirmação sobre o que o sistema **deve** decidir. O valor deles
+# não está em passar: está em quebrar quando alguém mudar o comportamento sem
+# perceber. Um caso que nunca quebrou não provou nada ainda.
+#
+# `veredito` usa os rótulos que o motor devolve, não os nomes internos do enum,
+# porque é o rótulo que chega à Dona Maria.
+
+- nome: prato_simples_com_tudo_respondido
+  descricao: O caminho feliz. Se este quebrar, quebrou o básico.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+
+- nome: sem_modo_de_preparo_pergunta_como_ela_faz
+  descricao: >
+    Sem preparo não há equipamento a conferir, e "nada a conferir" não é "pode
+    fazer". Um bolo colado só com a lista de ingredientes saía APTO sem ninguém
+    perguntar do forno.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Bolo de cenoura
+    rendimento_porcoes: 8
+    ingredientes:
+      - { texto: "2 xícaras de farinha de trigo", nome: "farinha de trigo", quantidade: 2, medida: "xicara" }
+      - { texto: "3 ovos", nome: "ovos", quantidade: 3, medida: "ovo" }
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "Como a senhora faz"
+
+- nome: sem_forno_pergunta_pelo_substituto
+  descricao: >
+    "Não tenho forno" levava de volta a "a senhora tem forno?". A pergunta útil
+    é pela air fryer, que resolve a mesma receita.
+  perfil: so_sem_forno
+  gosto: gosta
+  receita:
+    nome: Frango assado
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+    modo_preparo: ["Leve ao forno a 180 C por 40 minutos."]
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "air fryer"
+
+- nome: rendimento_nao_informado_vira_pergunta
+  descricao: >
+    Um site que diz "rende 500 g" não diz quantas porções saem. Dividir o custo
+    por um número que ninguém informou, sem dizer que é estimativa, é inventar o
+    preço. Mudou de veredito: esperava FALTA INFO, e agora é APTO, com o preço
+    liberado. O rendimento nunca é pergunta: sem ele na receita, a plataforma
+    estima pelo peso dos ingredientes (1 xícara de arroz, cerca de 204 g) e pelo
+    peso de uma porção (350 g, premissa que ela muda), diz que é estimativa, e
+    ela corrige na receita. Menos de uma porção vira uma: a receita inteira.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_informado: false
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+    modo_preparo: ["Cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    rendimento_contendo: "cerca de 1 porção (estimativa: porções de 350 g; a senhora pode mudar)"
+
+- nome: forno_desconhecido_vira_pergunta
+  descricao: >
+    Não saber se ela tem forno não é o mesmo que ela não ter. O portão pergunta,
+    e é essa distinção que impede receita viável de ser descartada em silêncio.
+  perfil: vazio
+  gosto: gosta
+  receita:
+    nome: Frango assado
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+    modo_preparo: ["Leve ao forno a 180 C por 40 minutos."]
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "forno"
+
+- nome: sem_forno_nem_substituto_bloqueia
+  descricao: Air fryer e forno elétrico também negados, e aí não há saída.
+  perfil: sem_forno
+  gosto: gosta
+  receita:
+    nome: Frango assado
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+    modo_preparo: ["Leve ao forno a 180 C por 40 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+
+- nome: nao_gostar_bloqueia_mesmo_sendo_barato
+  descricao: >
+    §2.4. Quem cozinha é ela, todo dia. Um prato que ela não quer fazer não entra
+    no cardápio por mais barato que o CMV saia.
+  perfil: completo
+  gosto: nao_gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "não gosta"
+
+- nome: gosto_desconhecido_e_a_primeira_pergunta
+  descricao: §2.1. É a pergunta mais barata e a que mais elimina.
+  perfil: completo
+  gosto: desconhecido
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "gosta de fazer"
+
+- nome: impedimento_dela_bloqueia_mesmo_gostando
+  descricao: >
+    §2.1, "vê algum impedimento?". Gostar de fazer e conseguir fazer são coisas
+    diferentes, e é ela quem sabe a segunda.
+  perfil: completo
+  gosto: gosta
+  impedimento_dela: "meu filho tem alergia e eu não quero esse cheiro na casa"
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "alergia"
+
+- nome: gas_sem_reserva_bloqueia_fornada_longa
+  descricao: §2.2. Acabar o gás no meio estraga o pedido já vendido.
+  perfil: completo_sem_gas
+  gosto: gosta
+  receita:
+    nome: Feijoada
+    rendimento_porcoes: 8
+    tempo_preparo_min: 180
+    ingredientes:
+      - { texto: "1 kg de feijão preto", nome: "feijao preto", quantidade: 1, medida: "kg" }
+    modo_preparo: ["Cozinhe em fogo baixo por 3 horas."]
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "botijão"
+
+- nome: geladeira_sem_espaco_bloqueia_preparo_que_gela
+  descricao: §2.2. O preparo disputa espaço com a comida da casa.
+  perfil: completo_sem_geladeira
+  gosto: gosta
+  receita:
+    nome: Pudim
+    rendimento_porcoes: 8
+    ingredientes:
+      - { texto: "3 ovos", nome: "ovos", quantidade: 3, medida: "ovo" }
+    modo_preparo: ["Leve à geladeira por 4 horas."]
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "geladeira"
+
+- nome: tempo_de_preparo_declarado_nao_e_tempo_no_fogo
+  descricao: >
+    Era tempo_acima_do_limite_bloqueia, e esperava que a feijoada não desse. O
+    único tempo desta receita, 180 minutos, é o tempo de preparo que ela
+    declara, e o portão antigo o comparava com a hora que ela tem por cozinhada
+    como se fosse fogo. Tempo declarado pode trazer o feijão de molho e o
+    descanso: dizer "não dá" por ele era afirmar sem saber, o furo que misturava
+    o tempo total com o tempo no fogo. Agora conta o tempo dos passos, ou o
+    cozimento declarado; esta receita não tem nenhum dos dois, e o portão
+    pergunta como ela faz, que é de onde o tempo vem. A mesma feijoada com 180
+    minutos de cozimento declarados continua não dando, com a conta no motivo
+    (sem_tempo_nos_passos_usa_o_tempo_de_cozimento).
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Feijoada
+    rendimento_porcoes: 8
+    tempo_preparo_min: 180
+    ingredientes:
+      - { texto: "1 kg de feijão preto", nome: "feijao preto", quantidade: 1, medida: "kg" }
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "Como a senhora faz"
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: ingrediente_sem_preco_fica_de_fora_sem_pergunta
+  descricao: >
+    Era ingrediente_ausente_pede_o_preco, e esperava FALTA INFO com a pergunta
+    do preço. Mudou de veredito: agora é BLOQUEADO. O preço nunca se pergunta:
+    a trufa branca não tem preço em página de supermercado, e sem ele não dá
+    para confirmar que a compra cabe nos R$ 80,00; a receita fica de fora, com
+    o motivo, e o preço dela vale quando ela quiser dizer
+    (`registrar_preco_mercado`).
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Risoto de trufa
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "20 g de trufa branca", nome: "trufa branca", quantidade: 20, medida: "g" }
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "não achei em página de supermercado o preço de trufa branca"
+
+- nome: compra_que_estoura_o_orcamento_bloqueia
+  descricao: §2.3. O limite de R$ 80,00 é dela, não uma sugestão.
+  perfil: completo
+  gosto: gosta
+  precos: { "trufa branca": 95.00 }
+  orcamento_restante: 10.00
+  receita:
+    nome: Risoto de trufa
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "20 g de trufa branca", nome: "trufa branca", quantidade: 20, medida: "g" }
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "orçamento"
+
+- nome: compra_que_cabe_sem_o_tempo_da_receita_pergunta
+  descricao: >
+    Era compra_que_cabe_no_orcamento_libera, e esperava "dá, comprando". O
+    passo não diz quanto tempo o risoto fica no fogo, a receita não declara
+    tempo de cozimento, e ela tem 240 minutos por cozinhada. O portão antigo
+    pulava a conta do tempo quando a receita não dizia, e liberava a compra sem
+    saber se o prato cabe na cozinhada dela: era dizer que dá sem conferir.
+    Mudou de veredito outra vez: esperava FALTA INFO, e agora é APTO COM
+    COMPRA. Quatro horas por cozinhada é limite folgado (`LIMITE_FOLGADO_MIN`):
+    um risoto cujo passo não diz o tempo cabe nelas, e perguntar era
+    interrogatório. O portão não pergunta e avisa que não perguntou; com o
+    limite apertado, ele continua perguntando
+    (tempo_que_a_receita_nao_diz_com_limite_apertado_pergunta).
+  perfil: completo
+  gosto: gosta
+  precos: { "trufa branca": 18.00 }
+  orcamento_restante: 80.00
+  receita:
+    nome: Risoto de trufa
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "20 g de trufa branca", nome: "trufa branca", quantidade: 20, medida: "g" }
+    modo_preparo: ["Cozinhe o arroz na panela e finalize com a trufa."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    aviso_contendo: "não perguntei"
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: embalagem_opaca_usa_o_peso_estimado_com_fonte
+  descricao: >
+    Era embalagem_opaca_vira_pergunta_e_nao_estimativa. A armadilha que deu
+    R$ 15.980,00 uma vez: dividir preço por quantidade quando a quantidade é "1
+    unidade" e a receita pede gramas. Continua sem divisão por "1 unidade", e
+    mudou de veredito: esperava FALTA INFO com a pergunta do peso, e agora é
+    APTO. O peso vem estimado pela página do supermercado (a cobertura de 1 kg,
+    a de preço mais perto dos R$ 79,90), dito como estimativa: 200 g de R$
+    79,90/kg são R$ 15,98, divididos pelas 8 porções.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Bolo com cobertura
+    rendimento_porcoes: 8
+    ingredientes:
+      - { texto: "200 g de cobertura de chocolate", nome: "Cobertura de chocolate", quantidade: 200, medida: "g" }
+    modo_preparo: ["Derreta a cobertura na panela em fogo baixo por 10 minutos e cubra o bolo."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    custo_por_porcao: "R$ 2,00"
+
+# --------------------------------------------------------------------------- #
+# O que toda cozinha tem, as bocas, o tempo no fogo e o frio pelos passos.
+# Cada caso abaixo fecha um furo: com o portão antigo, ele decidia diferente.
+# --------------------------------------------------------------------------- #
+
+- nome: compra_que_cabe_com_o_tempo_nos_passos_libera
+  descricao: >
+    §2.3. Com o preço conhecido, a compra cabendo e o passo dizendo quanto
+    tempo o risoto fica no fogo, o prato segue.
+  perfil: completo
+  gosto: gosta
+  precos: { "trufa branca": 18.00 }
+  orcamento_restante: 80.00
+  receita:
+    nome: Risoto de trufa
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "20 g de trufa branca", nome: "trufa branca", quantidade: 20, medida: "g" }
+    modo_preparo: ["Cozinhe o arroz na panela por 25 minutos e finalize com a trufa."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+
+- nome: nao_tenho_fogao_bloqueia
+  descricao: >
+    O fogão é suposto em toda cozinha, e o portão pulava o suposto: com ela
+    dizendo que não tem fogão, o arroz refogado continuava "dá pra fazer". O
+    "não tenho" dela vale também para o que toda cozinha tem.
+  perfil: completo_sem_fogao
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "precisa de fogão e a senhora não tem"
+
+- nome: receita_contada_em_primeira_pessoa_sem_fogao_bloqueia
+  descricao: >
+    A receita que ela conta vem em primeira pessoa ("refogo a cebola, cozinho
+    20 minutos"), e o detector só conhecia "refogue" e "cozinhe": sem exigir
+    fogão, o "não tenho fogão" dela não bloqueava. As formas em primeira pessoa
+    também denunciam o fogão e o refogar.
+  perfil: completo_sem_fogao
+  gosto: gosta
+  receita:
+    nome: Arroz com frango da Dona Maria
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "2 xícaras de arroz", nome: "arroz", quantidade: 2, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogo a cebola e o alho, junto o arroz e a água e cozinho 20 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "precisa de fogão e a senhora não tem"
+
+- nome: nao_sei_do_fogao_pergunta
+  descricao: >
+    "Não sei se tenho fogão" voltava o fogão a suposto, e a receita passava sem
+    ninguém saber se havia fogão. O "não sei" fica em aberto, e o portão
+    pergunta quando a receita precisa.
+  perfil: completo_sem_saber_do_fogao
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "tem fogão"
+
+- nome: nao_faco_tecnica_basica_bloqueia
+  descricao: >
+    A técnica que toda cozinheira faz também passa pelo portão: o "não faço"
+    dela bloqueia com o motivo, como bloqueia a técnica difícil.
+  perfil: completo_sem_refogar
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "pede refogar, que a senhora disse não fazer"
+
+- nome: aceite_espera_ela_confirmar_o_que_toda_cozinha_tem
+  descricao: >
+    §2.2: antes de aceitar um prato, garantir que ela consegue produzi-lo. O
+    fogão e o refogar são supostos (ninguém pergunta item por item a uma
+    cozinheira de mão cheia), e a grade continua dizendo que dá. Mas suposto não
+    é garantia: o aceite é recusado até ela confirmar, numa pergunta só, o que a
+    receita usa disso.
+  perfil: completo_basico_suposto
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    aceite: recusado
+    confirmar_a_cozinha: [fogao, refogar]
+    pergunta_do_aceite: "Antes de aceitar, a senhora confirma que tem fogão e que sabe refogar?"
+
+- nome: aceite_liberado_depois_que_ela_confirma
+  descricao: >
+    Ela respondeu que sim, num toque: o fogão e o refogar passam a ser ditos por
+    ela, e o mesmo prato pode ser aceito. Nada mais é perguntado.
+  perfil: completo_basico_suposto
+  confirmou: [fogao, refogar]
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    aceite: liberado
+    confirmar_a_cozinha: []
+
+- nome: aceite_nao_pede_o_que_a_receita_nao_usa
+  descricao: >
+    O bolo de liquidificador não usa nada do que toda cozinha tem: o
+    liquidificador e o forno ela respondeu. Com o fogão ainda suposto, o aceite
+    não pergunta dele, porque a receita não precisa: só se pergunta o que decide.
+  perfil: completo_basico_suposto
+  gosto: gosta
+  receita:
+    nome: Bolo de liquidificador
+    rendimento_porcoes: 8
+    tempo_cozimento_min: 40
+    ingredientes:
+      - { texto: "3 ovos", nome: "ovos", quantidade: 3, medida: "ovo" }
+    modo_preparo: ["Bata tudo no liquidificador.", "Leve ao forno por 40 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    aceite: liberado
+    confirmar_a_cozinha: []
+
+- nome: outra_panela_com_uma_boca_avisa_sem_bloquear
+  descricao: >
+    "Em outra panela" pede duas bocas acesas ao mesmo tempo, e o portão não lia
+    isso. Com uma boca só, ela faz uma parte depois da outra: dá do mesmo
+    jeito, leva mais tempo, e isso vira aviso, não bloqueio.
+  perfil: completo_uma_boca
+  gosto: gosta
+  receita:
+    nome: Macarrão ao sugo
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "200 g de macarrão espaguete", nome: "macarrão espaguete", quantidade: 200, medida: "g" }
+      - { texto: "300 g de tomate", nome: "tomate", quantidade: 300, medida: "g" }
+      - { texto: "10 g de alho", nome: "alho", quantidade: 10, medida: "g" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo:
+      - "Cozinhe o macarrão em água fervente por 10 minutos."
+      - "Em outra panela, refogue o alho e junte o tomate; cozinhe por 15 minutos."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    aviso_contendo: "Com uma boca, a senhora faz uma parte depois da outra e leva mais tempo"
+
+- nome: outra_panela_com_duas_bocas_passa_sem_aviso
+  descricao: Com duas bocas, as duas panelas andam juntas, e não há o que avisar.
+  perfil: completo_duas_bocas
+  gosto: gosta
+  receita:
+    nome: Macarrão ao sugo
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "200 g de macarrão espaguete", nome: "macarrão espaguete", quantidade: 200, medida: "g" }
+      - { texto: "300 g de tomate", nome: "tomate", quantidade: 300, medida: "g" }
+      - { texto: "10 g de alho", nome: "alho", quantidade: 10, medida: "g" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo:
+      - "Cozinhe o macarrão em água fervente por 10 minutos."
+      - "Em outra panela, refogue o alho e junte o tomate; cozinhe por 15 minutos."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    sem_aviso: true
+
+- nome: outra_panela_sem_saber_as_bocas_pergunta
+  descricao: >
+    Sem saber quantas bocas o fogão tem, o portão não diz se ela faz as duas
+    panelas juntas ou uma depois da outra: pergunta.
+  perfil: completo_sem_saber_as_bocas
+  gosto: gosta
+  receita:
+    nome: Macarrão ao sugo
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "200 g de macarrão espaguete", nome: "macarrão espaguete", quantidade: 200, medida: "g" }
+      - { texto: "300 g de tomate", nome: "tomate", quantidade: 300, medida: "g" }
+      - { texto: "10 g de alho", nome: "alho", quantidade: 10, medida: "g" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo:
+      - "Cozinhe o macarrão em água fervente por 10 minutos."
+      - "Em outra panela, refogue o alho e junte o tomate; cozinhe por 15 minutos."
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "quantas bocas"
+
+- nome: tempo_ativo_acima_do_limite_bloqueia_com_a_conta
+  descricao: >
+    §2.2. O tempo que conta é o de fogo ligado, somado passo a passo, e o
+    motivo mostra a conta para ela conferir.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Feijoada
+    rendimento_porcoes: 8
+    ingredientes:
+      - { texto: "1 kg de feijão preto", nome: "feijao preto", quantidade: 1, medida: "kg" }
+    modo_preparo:
+      - "Cozinhe o feijão na panela de pressão por 40 minutos."
+      - "Junte as carnes e cozinhe em fogo baixo por 50 minutos."
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "pelos passos, 40 + 50 = 90 minutos no fogo; a senhora tem 60 por cozinhada"
+
+- nome: espera_na_geladeira_nao_conta_no_tempo
+  descricao: >
+    Doze horas de marinada na geladeira não são doze horas de fogão. O tempo
+    total declarado, 760 minutos, estourava a hora que ela tem; pelos passos,
+    são 40 minutos de forno, e cabem.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Frango assado
+    rendimento_porcoes: 4
+    tempo_total_min: 760
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+    modo_preparo:
+      - "Tempere o frango e deixe marinar por 12 horas na geladeira."
+      - "Asse no forno por 40 minutos."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+
+- nome: sem_tempo_nos_passos_usa_o_tempo_de_cozimento
+  descricao: >
+    Os passos não dizem quanto tempo a feijoada fica no fogo, e a receita
+    declara 180 minutos de cozimento: vale o declarado, e não cabe numa hora.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Feijoada
+    rendimento_porcoes: 8
+    tempo_cozimento_min: 180
+    ingredientes:
+      - { texto: "1 kg de feijão preto", nome: "feijao preto", quantidade: 1, medida: "kg" }
+    modo_preparo: ["Cozinhe o feijão com as carnes em fogo baixo até desmanchar."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "a receita diz que o cozimento leva 180 minutos; a senhora tem 60 por cozinhada"
+
+- nome: tempo_total_curto_dispensa_a_pergunta
+  descricao: >
+    Os passos não dizem o tempo de fogo, mas a receita inteira, com as esperas,
+    leva 25 minutos: o fogo não passa disso, e cabe na hora dela sem pergunta.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Arroz simples
+    rendimento_porcoes: 2
+    tempo_total_min: 25
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "sal a gosto", nome: "sal" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela até secar."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+
+- nome: receita_sem_fogo_nao_tem_tempo_a_conferir
+  descricao: >
+    Misturar e levar à geladeira não acende fogo nem liga aparelho. Não há
+    tempo de fogo a conferir, e perguntar seria perguntar à toa.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Creme de ninho
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "200 g de leite ninho em pó", nome: "leite ninho em pó", quantidade: 200, medida: "g" }
+      - { texto: "200 g de chantilly", nome: "chantilly", quantidade: 200, medida: "g" }
+    modo_preparo:
+      - "Misture o leite em pó com o chantilly."
+      - "Cubra e deixe gelar por 2 horas."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+
+- nome: geladeira_com_espaco_desconhecido_pergunta
+  descricao: >
+    "Deixe gelar" não dizia geladeira, e o portão nem perguntava do espaço. O
+    frio agora vem dos passos, e sem saber quanto cabe na geladeira dela o
+    portão pergunta.
+  perfil: completo_sem_saber_da_geladeira
+  gosto: gosta
+  receita:
+    nome: Creme de ninho
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "200 g de leite ninho em pó", nome: "leite ninho em pó", quantidade: 200, medida: "g" }
+      - { texto: "200 g de chantilly", nome: "chantilly", quantidade: 200, medida: "g" }
+    modo_preparo:
+      - "Misture o leite em pó com o chantilly."
+      - "Cubra e deixe gelar por 2 horas."
+  espera:
+    veredito: FALTA INFO
+    permite_precificar: false
+    pergunta_contendo: "espaço na geladeira"
+
+- nome: sem_espaco_na_geladeira_bloqueia_o_que_gela
+  descricao: >
+    Sem espaço nenhum na geladeira, o creme que precisa gelar não dá, e o
+    motivo aponta o passo que leva ao frio.
+  perfil: completo_sem_geladeira
+  gosto: gosta
+  receita:
+    nome: Creme de ninho
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "200 g de leite ninho em pó", nome: "leite ninho em pó", quantidade: 200, medida: "g" }
+      - { texto: "200 g de chantilly", nome: "chantilly", quantidade: 200, medida: "g" }
+    modo_preparo:
+      - "Misture o leite em pó com o chantilly."
+      - "Cubra e deixe gelar por 2 horas."
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "precisa de espaço na geladeira (passo 2)"
+
+- nome: passo_sem_tempo_nao_esconde_o_cozimento_declarado
+  descricao: >
+    Três minutos de alho não são o tempo da feijoada. Quando um passo que vai
+    ao fogo não diz o tempo, a soma dos outros é só um mínimo, e vale o
+    cozimento que a receita declara.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Feijoada
+    rendimento_porcoes: 8
+    tempo_cozimento_min: 180
+    ingredientes:
+      - { texto: "1 kg de feijão preto", nome: "feijao preto", quantidade: 1, medida: "kg" }
+    modo_preparo:
+      - "Cozinhe o feijão com as carnes em fogo baixo até desmanchar."
+      - "Refogue o alho por 3 minutos."
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "a receita diz que o cozimento leva 180 minutos"
+
+- nome: duas_bocas_fazem_as_panelas_juntas_caber
+  descricao: >
+    Arroz e feijão em panelas separadas somam 65 minutos um depois do outro,
+    mas com duas bocas acesas ao mesmo tempo são 35, e cabem na hora dela.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Arroz e feijão
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "200 g de feijão carioquinha", nome: "feijão carioquinha", quantidade: 200, medida: "g" }
+    modo_preparo:
+      - "Cozinhe o arroz na panela por 35 minutos."
+      - "Em outra panela, cozinhe o feijão por 30 minutos."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    sem_aviso: true
+
+- nome: uma_boca_faz_uma_panela_depois_da_outra
+  descricao: >
+    Com uma boca só, a outra panela espera: 35 + 30 = 65 minutos de fogo, que
+    não cabem na hora dela, e o aviso diz por quê.
+  perfil: completo_rapido_uma_boca
+  gosto: gosta
+  receita:
+    nome: Arroz e feijão
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz", quantidade: 1, medida: "xicara" }
+      - { texto: "200 g de feijão carioquinha", nome: "feijão carioquinha", quantidade: 200, medida: "g" }
+    modo_preparo:
+      - "Cozinhe o arroz na panela por 35 minutos."
+      - "Em outra panela, cozinhe o feijão por 30 minutos."
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "pelos passos, 35 + 30 = 65 minutos no fogo; a senhora tem 60 por cozinhada"
+    aviso_contendo: "Com uma boca"
+
+- nome: sem_fogao_a_receita_da_air_fryer_continua
+  descricao: >
+    "Cozinhe na air fryer" não pede fogão. A cozinha sem fogão não pode perder
+    justamente as receitas que ela consegue fazer.
+  perfil: completo_sem_fogao
+  gosto: gosta
+  receita:
+    nome: Frango na air fryer
+    rendimento_porcoes: 2
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+    modo_preparo:
+      - "Tempere o frango."
+      - "Cozinhe na air fryer por 25 minutos."
+  espera:
+    veredito: APTO
+    permite_precificar: true
+
+
+# --------------------------------------------------------------------------- #
+# A despensa linha por linha: o que ela tem, o que falta e o que não deu para ler
+# --------------------------------------------------------------------------- #
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: tempero_sem_quantidade_vai_a_gosto
+  descricao: >
+    Era linha_que_nao_deu_para_ler_vira_pergunta, e esperava FALTA INFO com a
+    pergunta "Não entendi quanto vai de temperos de sua preferência". Mudou de
+    veredito: agora é APTO. Tempero sem quantidade fica a gosto (a regra que já
+    valia para "Sal" e "Azeite"): os temperos da preferência dela são a gosto
+    dela, e nada se pergunta.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Arroz temperado
+    rendimento_porcoes: 2
+    ingredientes:
+      - { linha: "1 xícara de arroz" }
+      - { linha: "temperos de sua preferência" }
+    modo_preparo: ["Cozinhe o arroz na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "temperos de sua preferência": a_gosto, "Arroz branco tipo 1": tem }
+
+- nome: opcional_que_ela_nao_tem_fica_listado
+  descricao: >
+    §2.3. A uva-passa é opcional e a despensa não tem. Ela não vira compra, mas
+    também não some: fica listada como opcional, e o prato dá sem ela.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Frango com uva-passa
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "500 g de peito de frango", nome: "peito de frango", quantidade: 500, medida: "g" }
+      - { linha: "1 xícara de uva-passa (opcional)" }
+    modo_preparo: ["Cozinhe o frango na panela por 25 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "Peito de frango": tem, "uva-passa": opcional }
+    opcional_listado: "uva-passa"
+
+- nome: estoque_parcial_compra_so_o_resto
+  descricao: >
+    §2.3. A receita pede 2 kg de cebola e ela tem 1 kg: o que ela tem entra na
+    conta ao custo da planilha, e só o resto vira compra, que cabe nos R$ 80.
+  perfil: completo
+  gosto: gosta
+  precos: { "cebola": 8.00 }
+  orcamento_restante: 80.00
+  receita:
+    nome: Sopa de cebola
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "2 kg de cebola", nome: "cebola", quantidade: 2, medida: "kg" }
+    modo_preparo: ["Refogue a cebola na panela por 30 minutos."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "Cebola": tem_parte }
+
+- nome: resto_do_estoque_parcial_acima_do_orcamento_bloqueia
+  descricao: >
+    §2.3. A mesma sopa, com a compra do resto acima do que sobra dos R$ 80: a
+    parte que ela tem não salva a conta, e o prato não dá.
+  perfil: completo
+  gosto: gosta
+  precos: { "cebola": 50.00 }
+  orcamento_restante: 20.00
+  receita:
+    nome: Sopa de cebola
+    rendimento_porcoes: 4
+    ingredientes:
+      - { texto: "2 kg de cebola", nome: "cebola", quantidade: 2, medida: "kg" }
+    modo_preparo: ["Refogue a cebola na panela por 30 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "orçamento"
+    situacao: { "Cebola": tem_parte }
+
+- nome: receita_digitada_com_endereco_falso_nao_e_da_internet
+  descricao: >
+    §2.1. O modelo digita uma receita e põe um endereço que ninguém leu. Antes
+    isso bastava para ela virar "receita da internet", com a fonte que o modelo
+    quisesse. Só a página que o servidor buscou é da internet: a digitada é a
+    que ela passou, e o endereço não fica.
+  entrada: digitada
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Arroz da internet
+    rendimento_porcoes: 2
+    url: "https://receitas-que-ninguem-leu.exemplo/arroz"
+    fonte: "TudoGostoso"
+    ingredientes:
+      - { texto: "1 xícara de arroz", nome: "arroz" }
+    modo_preparo: ["Cozinhe o arroz na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    origem: informada_por_ela
+    sem_endereco: true
+
+# ---------------------------------------------------------------------------
+# O parecido pergunta, o peito da receita de frango e a água da torneira
+# ---------------------------------------------------------------------------
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: parecido_vira_compra_com_a_decisao_dita
+  descricao: >
+    Era parecido_pergunta_em_vez_de_virar_tem_ou_compra, e esperava FALTA INFO
+    com "A receita pede canela. É a sua canela em pó?". Mudou de veredito: agora
+    é APTO COM COMPRA. "Canela" pode ser em pau, e em pó é outra forma do
+    produto: o parecido nunca vira "tem", a regra decide pelo lado seguro (não
+    é o dela, vira compra) e a decisão fica dita e corrigível. O preço da canela
+    vem do caso, para o veredito não depender do arquivo de referências.
+  perfil: completo
+  gosto: gosta
+  precos: { "canela": 5.00 }
+  orcamento_restante: 80.00
+  receita:
+    nome: Arroz doce com canela
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 xícara de arroz" }
+      - { linha: "1 colher de sopa de canela" }
+    modo_preparo: ["Cozinhe o arroz na panela por 20 minutos e polvilhe a canela."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "canela": falta }
+
+- nome: peito_na_receita_de_frango_e_o_peito_dela
+  descricao: >
+    Verificação real. "1 peito cortado em 4 filés" em "Frango com alcaparras"
+    saía como compra de um peito, com o peito de frango na despensa dela. Numa
+    receita de frango, o peito é o dela. Mudou de veredito: esperava FALTA
+    INFO (o peso de um peito e o preço do limão), e agora é APTO COM COMPRA. O
+    peso de um peito sai da tabela de medidas do IBGE (180 g, que ela pode
+    corrigir), e o limão, que falta, sai do preço de referência conferido na
+    página do supermercado; a compra cabe nos R$ 80,00.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Frango com alcaparras
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 peito cortado em 4 filés" }
+      - { linha: "Suco de 1 limão" }
+    modo_preparo: ["Tempere o frango com o limão e frite na frigideira por 15 minutos."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "Peito de frango": tem, "limão": falta }
+
+- nome: peso_informado_por_ela_destrava_o_custo
+  descricao: >
+    Verificação real. Sem o peso de "1 peito cortado em 4 filés", a conferência
+    perguntava quanto pesa um peito e o prato não tinha custo; ela respondia e
+    não havia onde gravar. Mudou de veredito antes da resposta: esperava FALTA
+    INFO, e agora é APTO, porque a tabela de medidas do IBGE diz o peso de um
+    peito (180 g), com a incerteza de medida caseira. O peso dela continua
+    valendo mais: com "300 g" dito por ela, o custo sai do peso que ela disse,
+    300 g × R$ 14,00/kg do peito da despensa, dividido pelas 2 porções.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Frango com alcaparras
+    rendimento_porcoes: 2
+    ingredientes:
+      - { linha: "1 peito cortado em 4 filés" }
+      - { linha: "sal a gosto" }
+    modo_preparo: ["Tempere os filés com sal e grelhe na frigideira por 15 minutos."]
+  antes_da_resposta:
+    veredito: APTO
+    permite_precificar: true
+  resposta_dela:
+    - { linha: "1 peito cortado em 4 filés", peso: "300 g" }
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    custo_por_porcao: "R$ 2,10"
+    situacao: { "Peito de frango": tem }
+
+- nome: agua_da_torneira_nao_entra_na_compra
+  descricao: >
+    Verificação real. "1/2 xícara de água" virava "Falta comprar: água" e a
+    pergunta do preço da água. A água da torneira vai na receita e não se compra.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Arroz simples com água
+    rendimento_porcoes: 2
+    ingredientes:
+      - { linha: "1 xícara de arroz" }
+      - { linha: "2 xícaras de água" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela por 20 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "água": tem }
+
+# ---------------------------------------------------------------------------
+# Menos perguntas: o que a plataforma estabelece com fonte, e o que é dela
+# ---------------------------------------------------------------------------
+
+- nome: preco_de_referencia_que_cabe_libera_a_compra
+  descricao: >
+    Ela não disse quanto custa o creme de leite. O preço médio em São Paulo,
+    a média do quilo em seis supermercados de São Paulo (R$ 16,60 o quilo, a
+    caixinha de 200 g por R$ 3,32), cota a compra, diz que é referência e com
+    que fontes, e a compra cabe nos R$ 80,00: dá, comprando, sem perguntar o
+    preço. Mudou de número quando o preço de um mercado só virou a média de São
+    Paulo: era R$ 2,75 por porção com os R$ 3,99 de um mercado.
+  perfil: completo
+  gosto: gosta
+  orcamento_restante: 80.00
+  receita:
+    nome: Frango ao creme
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "500 g de peito de frango" }
+      - { linha: "1 caixinha de creme de leite" }
+    modo_preparo: ["Refogue o frango na panela por 20 minutos e junte o creme de leite."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    custo_por_porcao: "R$ 2,58"
+    situacao: { "Peito de frango": tem, "creme de leite": falta }
+
+- nome: preco_de_referencia_que_passa_do_orcamento_bloqueia
+  descricao: >
+    A regra dos R$ 80,00 vale para o preço de referência como para qualquer
+    outro. Um quilo de filé de pescada são dois pacotes de 500 g a R$ 25,90, e
+    restam R$ 30,00: não cabe, e o motivo diz que o preço é de referência e
+    que ela pode corrigir.
+  perfil: completo
+  gosto: gosta
+  orcamento_restante: 30.00
+  receita:
+    nome: Peixe na panela
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 kg de filé de pescada" }
+    modo_preparo: ["Cozinhe o peixe na panela por 20 minutos."]
+  espera:
+    veredito: BLOQUEADO
+    impedimento_contendo: "preço de referência"
+
+- nome: preco_dela_vale_mais_que_a_referencia
+  descricao: >
+    O mesmo peixe, com o preço que ela disse (R$ 20,00): o dela vence o de
+    referência, a compra cabe nos R$ 30,00, e o prato volta a dar.
+  perfil: completo
+  gosto: gosta
+  precos: { "filé de pescada": 20.00 }
+  orcamento_restante: 30.00
+  receita:
+    nome: Peixe na panela
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 kg de filé de pescada" }
+    modo_preparo: ["Cozinhe o peixe na panela por 20 minutos."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: xicara_de_coco_ralado_pela_tabela_do_usda_cota_a_compra
+  descricao: >
+    Era referencia_que_nao_se_compara_continua_perguntando, e esperava FALTA
+    INFO com a pergunta do preço. Mudou de veredito: agora é APTO COM COMPRA.
+    A xícara de coco ralado pesa 93 g pela tabela de porções do USDA (linha
+    citada e conferida), e com o peso o preço de referência do pacote de 100 g
+    cota a compra, que cabe nos R$ 80,00.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Cocada de panela
+    rendimento_porcoes: 8
+    ingredientes:
+      - { linha: "1 xícara de coco ralado" }
+      - { linha: "1 xícara de açúcar" }
+    modo_preparo: ["Cozinhe o coco com o açúcar na panela por 20 minutos, mexendo."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "coco ralado": falta }
+
+- nome: pacote_da_receita_e_o_pacote_da_planilha_dela
+  descricao: >
+    "1 pacote de feijão preto": a planilha dela diz que ela comprou o feijão
+    preto em 1 kg de uma vez, e esse é o pacote. A conta sai sem perguntar
+    quanto pesa o pacote: 1 kg × R$ 9,60/kg, dividido pelas 4 porções.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Feijão preto simples
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 pacote de feijão preto" }
+    modo_preparo: ["Cozinhe o feijão na panela de pressão por 40 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    custo_por_porcao: "R$ 2,40"
+    situacao: { "Feijão preto": tem }
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: medida_que_o_ibge_nao_diz_vem_da_tabela_do_usda
+  descricao: >
+    Era medida_que_a_tabela_nao_diz_continua_perguntando, e esperava FALTA INFO
+    com "Não sei quanto pesa uma colher de sopa de alcaparras". Mudou de
+    veredito: agora é APTO. A tabela do IBGE diz a colher de sobremesa de
+    alcaparras, e não a de sopa; a tabela de porções do USDA diz (8,6 g a colher
+    de sopa, escorrida), e a medida sai com a fonte, sem pergunta.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Frango com alcaparras
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "500 g de peito de frango" }
+      - { linha: "2 colheres de sopa de alcaparras" }
+    modo_preparo: ["Grelhe o frango na frigideira por 15 minutos e junte as alcaparras."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "Alcaparras": tem }
+
+- nome: tempo_que_a_receita_nao_diz_com_limite_folgado_nao_pergunta
+  descricao: >
+    Ela disse que tem 10 horas por cozinhada. A receita não diz quanto tempo o
+    risoto fica no fogo, e com 4 horas ou mais o portão não pergunta: passa, e
+    avisa que não perguntou.
+  perfil: completo_dez_horas
+  gosto: gosta
+  receita:
+    nome: Arroz de panela
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "2 xícaras de arroz" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela até secar."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    aviso_contendo: "não perguntei"
+
+# a pergunta virou valor pré-determinado com fonte: à Dona Maria só se pergunta gosto, equipamento, técnica e limite operacional.
+- nome: tempo_que_a_receita_nao_diz_com_limite_apertado_fica_de_fora
+  descricao: >
+    Era tempo_que_a_receita_nao_diz_com_limite_apertado_pergunta, e esperava
+    FALTA INFO com "Pelos passos não dá para saber quanto tempo". Mudou de
+    veredito: agora é BLOQUEADO. Com uma hora por cozinhada, o limite é
+    apertado; o tempo da receita não se pergunta, e sem ele não dá para
+    confirmar que cabe: a receita fica de fora, com o motivo, e ela diz o
+    tempo na receita se quiser. A segurança da cozinha fica igual: nada
+    libera preço nem compra sem saber que cabe.
+  perfil: completo_rapido
+  gosto: gosta
+  receita:
+    nome: Arroz de panela
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "2 xícaras de arroz" }
+    modo_preparo: ["Refogue o arroz e cozinhe na panela até secar."]
+  espera:
+    veredito: BLOQUEADO
+    permite_precificar: false
+    impedimento_contendo: "não dá para confirmar que cabe"
+
+- nome: rendimento_estimado_pelo_peso_dos_ingredientes
+  descricao: >
+    O rendimento não é perguntado. A receita não diz quantas porções rende: 1
+    pacote de feijão preto (o pacote dela, 1 kg) e 2 litros de água pesam cerca
+    de 3 kg, e com porções de 350 g saem cerca de 9. O texto diz que é
+    estimativa e que ela pode mudar; o custo por porção sai dividido por 9.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Feijão preto de panela
+    rendimento_informado: false
+    ingredientes:
+      - { linha: "1 pacote de feijão preto" }
+      - { linha: "2 litros de água" }
+    modo_preparo: ["Cozinhe o feijão na panela de pressão por 40 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    rendimento_contendo: "cerca de 9 porções (estimativa: porções de 350 g; a senhora pode mudar)"
+    custo_por_porcao: "R$ 1,07"
+
+# ---------------------------------------------------------------------------
+# A plataforma decide e diz de onde tirou: o casamento, a marca, a quantidade
+# que a receita não diz e a medida caseira sem fonte própria.
+# ---------------------------------------------------------------------------
+
+- nome: mandioca_nao_e_farinha_de_mandioca
+  descricao: >
+    A forma do produto decide: farinha é outro produto que o ingrediente cru.
+    "1 kg de mandioca cozida" não é a farinha de mandioca dela: vira compra, e a
+    decisão fica dita ("considerei que mandioca não é a sua farinha de
+    mandioca"), corrigível. Nunca um falso "ela tem".
+  perfil: completo
+  gosto: gosta
+  precos: { "mandioca": 8.00 }
+  orcamento_restante: 80.00
+  receita:
+    nome: Mandioca cozida
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 kg de mandioca cozida com sal" }
+    modo_preparo: ["Cozinhe a mandioca na panela de pressão por 20 minutos."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "mandioca": falta }
+
+- nome: marca_nao_muda_o_ingrediente
+  descricao: >
+    "Queijo Parmesão TIROLEZ ralado" é o queijo parmesão ralado dela: a marca
+    sai antes de casar, e a linha usa o que ela tem, sem pergunta.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Polenta com queijo
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 xícara (chá) de fubá" }
+      - { linha: "3 colheres (sopa) de Queijo Parmesão TIROLEZ ralado" }
+    modo_preparo: ["Cozinhe o fubá na panela por 30 minutos, mexendo, e junte o queijo."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "Queijo parmesão ralado": tem, "Polenta (fubá)": tem }
+
+- nome: linha_sem_quantidade_vira_estimativa_com_fonte
+  descricao: >
+    "Milho", sem quantidade, em "Frango xadrez à minha moda": a receita não diz
+    quanto, e a plataforma considera a unidade de venda, a lata de 170 g da
+    página do produto que cota a compra, dita como estimativa e corrigível. A
+    compra cabe nos R$ 80,00, e nada se pergunta.
+  perfil: completo
+  gosto: gosta
+  orcamento_restante: 80.00
+  receita:
+    nome: Frango xadrez
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "500 g de peito de frango" }
+      - { linha: "Milho" }
+    modo_preparo: ["Refogue o frango na panela por 20 minutos e junte o milho."]
+  espera:
+    veredito: APTO COM COMPRA
+    permite_precificar: true
+    situacao: { "Peito de frango": tem, "Milho": falta }
+
+- nome: medida_caseira_sem_fonte_propria_usa_a_classe
+  descricao: >
+    Nenhuma tabela diz quanto pesa um maço de couve: vale a classe das verduras
+    de folha, com a base citada (o maço de alface da tabela do IBGE, 200 g),
+    dita como estimativa. A linha usa a couve dela, sem pergunta.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Couve refogada
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "1 maço de couve" }
+      - { linha: "2 dentes de alho" }
+    modo_preparo: ["Refogue o alho e a couve na frigideira por 5 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "Couve": tem }
+
+- nome: couro_do_bacon_e_o_bacon_dela
+  descricao: >
+    "1 couro do bacon" é a pele da mesma peça do bacon dela, como o coração da
+    alcatra é o miolo: a linha usa o bacon da despensa, com a decisão dita
+    ("Considerei que couro do bacon é o seu bacon...") e o peso de um pedaço de
+    toucinho pela tabela do IBGE (10 g), estimativa que ela corrige. Nada vira
+    compra nem pergunta.
+  perfil: completo
+  gosto: gosta
+  receita:
+    nome: Feijão com couro do bacon
+    rendimento_porcoes: 4
+    ingredientes:
+      - { linha: "500 g de feijão carioca" }
+      - { linha: "1 couro do bacon" }
+    modo_preparo: ["Cozinhe o feijão com o couro do bacon na panela de pressão por 40 minutos."]
+  espera:
+    veredito: APTO
+    permite_precificar: true
+    situacao: { "Bacon": tem, "Feijão carioquinha": tem }

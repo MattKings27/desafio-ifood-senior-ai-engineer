@@ -1,0 +1,17 @@
+nome: contexto-da-tela
+secao: "2.3"
+descricao: >
+  Ela pergunta pela tela, com "nisso", e a linha entre colchetes diz o que ela
+  tem aberto. O agente usa a linha: responde sobre aquele ingrediente, com o
+  valor vindo de uma ferramenta, sem perguntar qual é e sem mexer em nada.
+
+nunca_chama: [atualizar_despensa, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: |
+      Quanto eu paguei nisso?
+
+      [a senhora está vendo o ingrediente Alcaparras]
+    espera:
+      responde_com: ['alcaparra', 'R\$ ?\d']
+      nao_responde_com: ['qual (ingrediente|item|produto)', 'de qual']

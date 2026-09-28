@@ -1,0 +1,11 @@
+nome: orcamento-de-80
+secao: "2.3"
+descricao: >
+  Ela pergunta quanto ainda pode gastar. O número vem da ferramenta, com o
+  limite de R$ 80 do enunciado, e não da cabeça do modelo.
+
+turnos:
+  - diz: Quanto eu ainda posso gastar comprando coisa que falta?
+    espera:
+      chama_em_ordem: [consultar_orcamento]
+      responde_com: ['R\$ ?80']

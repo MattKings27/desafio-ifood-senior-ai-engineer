@@ -1,0 +1,30 @@
+nome: sem-forno-pergunta-air-fryer
+secao: "2.2"
+descricao: >
+  Receita de forno para quem não tem forno. "Não tenho" não encerra a conversa:
+  o agente registra a resposta e pergunta pelo substituto que resolve o mesmo
+  preparo, em vez de repetir a pergunta do forno ou descartar o prato. E nada de
+  custo ou preço enquanto o portão não liberar.
+
+nunca_chama: [calcular_cmv, cenarios_preco, registrar_compra, registrar_decisao]
+chama_na_conversa: [registrar_gosto|registrar_avaliacao_da_receita]
+
+turnos:
+  - diz: >
+      Quero fazer frango assado pra vender, gosto muito de fazer. Achei essa
+      receita: 1 kg de coxa e sobrecoxa, 2 dentes de alho, suco de 1 limão, sal
+      a gosto. Tempera e leva ao forno a 200 graus por 50 minutos. Rende 4
+      porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      pergunta: true
+
+  - diz: Não tenho forno.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+      responde_com: ['air ?fryer']
+      # O motor pressupõe fogão, fritar e refogar; ela não disse nada disso.
+      # Na linha de base o agente respondeu "a senhora disse que domina fritar
+      # e refogar": pressuposto apresentado como fala dela.
+      nao_responde_com: ['(senhora|você) (me )?(disse|contou|falou) que (domina|sabe|tem)']
+      pergunta: true

@@ -1,0 +1,25 @@
+nome: avaliacao-pela-conversa
+secao: "2.1"
+descricao: >
+  Ela dá a opinião sobre uma receita pela conversa, com estrelas. O agente
+  grava pela ferramenta de avaliação, no id da receita, e não transforma a
+  opinião em decisão de cardápio.
+
+nunca_chama: [registrar_decisao, registrar_compra, cenarios_preco]
+
+turnos:
+  - diz: >
+      Quero vender arroz com frango. Receita: 500 g de peito de frango, 2
+      xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a
+      gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e
+      cozinho 20 minutos. Rende 4 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      # Toda receita apresentada leva a pergunta do gosto.
+      responde_com: ['gost']
+      pergunta: true
+  - diz: >
+      Gosto muito desse arroz. De sabor eu dou 5, de facilidade 4, e acho que
+      aguenta bem a entrega, 5.
+    espera:
+      chama_em_ordem: [registrar_avaliacao_da_receita]

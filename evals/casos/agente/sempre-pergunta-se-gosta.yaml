@@ -1,0 +1,52 @@
+nome: sempre-pergunta-se-gosta
+secao: "2.1"
+descricao: >
+  Ela traz uma receita e não diz nada sobre gostar de fazer. O agente confere a
+  receita e pergunta se ela gosta de fazer o prato antes de qualquer pergunta
+  da cozinha: se ela não gostar, não há o que conferir. Com a resposta dela,
+  grava o gosto na hora, no mesmo lugar que a tela de receitas lê para separar
+  "Gosto de fazer" de "Não gosto de fazer", e só então pergunta o que a
+  cozinha precisa, uma coisa por vez. Peso, medida, quantidade e preço já vêm
+  da receita e da pesquisa: nada disso vira pergunta.
+
+nunca_chama: [calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Achei essa receita de escondidinho de carne moída: 500 g de carne moída,
+      1 kg de batata, 1 cebola, 2 dentes de alho, 1 caixinha de creme de leite,
+      100 g de queijo mussarela, sal a gosto. Cozinha a batata e amassa, refoga
+      a carne com a cebola e o alho, monta em camadas e leva ao forno por 20
+      minutos. Rende 6 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      # Ela ainda não disse se gosta: gravar um gosto agora seria inventar o dela.
+      nao_chama: [registrar_gosto, registrar_avaliacao_da_receita]
+      responde_com: ['gost']
+      nao_responde_com:
+        # O gosto vem antes da cozinha: o forno só se pergunta depois do sim dela.
+        - 'tem forno[^.?\n]{0,60}\?'
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'
+        - '(qual|me diz|me diga)[^.?\n]{0,12}o pre[çc]o[^.?\n]{0,40}\?'
+        - 'quanto pesa[^.?\n]{0,60}\?'
+        - 'quanto vai de [^.?\n]{0,40}\?'
+        - '[ée] o seu [^.?\n]{0,40}\?'
+      pergunta: true
+  - diz: Gosto sim, é um dos pratos que eu mais gosto de fazer.
+    espera:
+      # As duas gravam o gosto na tabela `gostos`, que a conferência e a tela leem.
+      chama_em_ordem: [registrar_gosto|registrar_avaliacao_da_receita]
+      nao_chama_com:
+        - { ferramenta: registrar_gosto, entrada: { gosta: false } }
+        - { ferramenta: registrar_avaliacao_da_receita, entrada: { gosta: false } }
+      # Com o gosto dito, a pergunta da cozinha que segura o prato: o forno.
+      responde_com: ['forno']
+      nao_responde_com:
+        - 'quanto (a senhora )?(paga|pagou|costuma pagar)'
+        - 'quanto (custa|sai)[^.?\n]{0,60}(a[ií] (na|no|em)|na sua regi|no seu mercado|a[ií]\?)'
+        - '(qual|me diz|me diga)[^.?\n]{0,12}o pre[çc]o[^.?\n]{0,40}\?'
+        - 'quanto pesa[^.?\n]{0,60}\?'
+        - 'quanto vai de [^.?\n]{0,40}\?'
+        - '[ée] o seu [^.?\n]{0,40}\?'
+      pergunta: true

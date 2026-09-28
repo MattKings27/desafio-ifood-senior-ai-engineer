@@ -1,0 +1,28 @@
+nome: nao-gosta-encerra-o-prato
+secao: "2.1"
+descricao: >
+  Ela não gosta de fazer o prato. Não adianta a conta fechar: o agente grava a
+  opinião, não calcula nada e oferece outro caminho.
+
+nunca_chama: [calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_compra]
+
+turnos:
+  - diz: >
+      Pensei em fazer feijoada: 1 kg de feijão preto, 500 g de bacon, 1 cebola,
+      4 dentes de alho, sal a gosto. Cozinha na panela por 2 horas. Rende 8 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      # Toda receita apresentada leva a pergunta do gosto.
+      responde_com: ['gost']
+      pergunta: true
+  - diz: Na verdade eu detesto fazer feijoada, dá muito trabalho e eu não gosto.
+    espera:
+      # As duas gravam o "não gosto" na tabela `gostos`, que o portão lê.
+      chama_em_ordem: [registrar_gosto|registrar_avaliacao_da_receita]
+      # Registrar a recusa é certo; aceitar o prato, não.
+      nao_chama_com:
+        - { ferramenta: registrar_decisao, entrada: { decisao: aceito } }
+      # Se ela não gosta, não há cozinha a conferir para este prato.
+      nao_responde_com:
+        - 'tem (panela|fog[aã]o|forno|liquidificador|batedeira|air ?fryer)[^.?\n]{0,40}\?'
+        - 'quantas bocas'

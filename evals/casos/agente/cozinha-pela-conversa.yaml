@@ -1,0 +1,16 @@
+nome: cozinha-pela-conversa
+secao: "2.2"
+descricao: >
+  Ela conta, sem ninguém perguntar, que não tem um equipamento. O agente
+  grava no perfil da cozinha na hora, como "não tem", em vez de só dizer que
+  anotou. Equipamento não é item da despensa.
+
+nunca_chama: [atualizar_despensa, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: Só pra você saber, aqui em casa não tem liquidificador.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+      nao_chama_com:
+        - { ferramenta: registrar_resposta, entrada: { resposta: tem } }
+        - { ferramenta: registrar_resposta, entrada: { resposta: nao_sei } }

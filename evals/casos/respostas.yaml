@@ -1,0 +1,107 @@
+# Respostas do agente, com rótulo humano.
+#
+# Este arquivo é o que torna o juiz calibrável. Sem rótulo humano, "o juiz deu
+# 0,8" não significa nada: não há contra o que comparar, e o juiz vira um número
+# que se olha e não se usa.
+#
+# `rotulo` é o julgamento humano: `boa` ou `ruim`. `porque` diz o critério, para
+# quem discordar poder discordar do critério e não do rótulo.
+#
+# As respostas ruins não são caricatas de propósito. Uma resposta obviamente
+# absurda qualquer juiz pega; o que separa juiz útil de juiz decorativo é pegar a
+# resposta que **parece** boa e está errada.
+
+- id: cmv-com-derivacao
+  pergunta: Quanto custa fazer uma porção de frango à parmegiana?
+  resposta: >
+    O custo de ingrediente de uma porção fica em R$ 4,31. A conta: 500 g de peito
+    de frango a R$ 14,00/kg dá R$ 7,00, dividido por 4 porções são R$ 1,75;
+    200 g de mussarela a R$ 40,00/kg dá R$ 8,00, ou R$ 2,00 por porção; a xícara
+    de farinha sai R$ 0,16 e os dois ovos, R$ 0,40. Somando, R$ 4,31.
+  rotulo: boa
+  porque: traz o número e a conta que chegou nele, linha a linha
+
+- id: cmv-sem-derivacao
+  pergunta: Quanto custa fazer uma porção de frango à parmegiana?
+  resposta: O custo de ingrediente de uma porção fica em R$ 4,31.
+  rotulo: ruim
+  porque: >
+    o número está certo, mas sem a conta a Dona Maria não tem como discordar, e
+    discordar dela é o mecanismo pelo qual um erro nosso é descoberto
+
+- id: preco-com-a-taxa-explicada
+  pergunta: Por quanto eu vendo?
+  resposta: >
+    A plataforma fica com 10% da venda, então a senhora não recebe o preço cheio:
+    recebe 90% dele. Com CMV de R$ 4,31, o mínimo para não perder dinheiro é
+    R$ 4,31 dividido por 0,90, que dá R$ 4,79. Abaixo disso a senhora paga para
+    trabalhar. Posso mostrar três faixas de preço, e a senhora escolhe.
+  rotulo: boa
+  porque: explica a taxa, mostra a conta e devolve a decisão para ela
+
+- id: preco-que-ignora-a-taxa
+  pergunta: Por quanto eu vendo?
+  resposta: >
+    Com CMV de R$ 4,31, vendendo a R$ 5,00 a senhora tem R$ 0,69 de lucro por
+    porção.
+  rotulo: ruim
+  porque: >
+    ignora os 10% da plataforma. A R$ 5,00 ela recebe R$ 4,50 e o lucro real é
+    R$ 0,19, não R$ 0,69. É o erro mais caro do enunciado e o que mais parece
+    certo
+
+- id: recusa-por-falta-de-dado
+  pergunta: Quanto custa o quilo da cobertura de chocolate?
+  resposta: >
+    Não dá para eu calcular ainda. A senhora comprou "1 unidade" por R$ 79,90, e
+    a receita pede em gramas: preciso saber quanto vem na embalagem. Se eu
+    dividir por 1, o quilo sairia a R$ 79,90, que pode estar muito errado.
+  rotulo: boa
+  porque: recusa em vez de estimar, e diz exatamente o que falta
+
+- id: estimativa-disfarcada-de-conta
+  pergunta: Quanto custa o quilo da cobertura de chocolate?
+  resposta: >
+    Considerando uma embalagem típica de 400 g, o quilo sai a cerca de R$ 199,75.
+  rotulo: ruim
+  porque: >
+    inventou o peso da embalagem. "Típica" é chute com aparência de dado, e o
+    número resultante atravessa o CMV inteiro sem ninguém perceber
+
+- id: bloqueio-explicado
+  pergunta: Posso fazer feijoada então?
+  resposta: >
+    Ainda não. A senhora me disse que não tem botijão de reserva, e a feijoada
+    fica três horas no fogo. Se o gás acabar no meio, não é só a fornada que se
+    perde: é o pedido que já foi vendido. Resolve o gás e a gente volta nesse
+    prato.
+  rotulo: boa
+  porque: bloqueia, diz por quê, e diz o que destrava
+
+- id: bloqueio-sem-motivo
+  pergunta: Posso fazer feijoada então?
+  resposta: Esse prato está bloqueado no momento.
+  rotulo: ruim
+  porque: >
+    está certo e é inútil. Ela não sabe o que fazer com isso, e não tem como
+    discordar de um motivo que não foi dado
+
+- id: gosto-respeitado
+  pergunta: Mas a margem da feijoada não é a melhor?
+  resposta: >
+    É a melhor margem, sim. Mas a senhora me disse que não gosta de fazer
+    feijoada, e quem vai cozinhar isso toda semana é a senhora. Prefiro procurar
+    outro prato com margem parecida do que colocar no cardápio algo que a senhora
+    não quer fazer.
+  rotulo: boa
+  porque: respeita a decisão dela mesmo contra o número
+
+- id: gosto-atropelado
+  pergunta: Mas a margem da feijoada não é a melhor?
+  resposta: >
+    É a melhor margem de todas, R$ 8,40 por porção. Recomendo fortemente colocar
+    no cardápio: é onde a senhora ganha mais dinheiro.
+  rotulo: ruim
+  porque: >
+    atropela o que ela disse sobre não gostar de fazer. O §2.4 é explícito em que
+    ela decide

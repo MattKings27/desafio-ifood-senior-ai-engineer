@@ -1,0 +1,22 @@
+nome: preco-abaixo-do-minimo
+secao: "2.4"
+descricao: >
+  Ela quer cobrar tão pouco que perde dinheiro depois da taxa. A decisão é dela,
+  mas o agente mostra, com a conta do motor, que aquele preço dá prejuízo.
+
+turnos:
+  - diz: >
+      Quero vender arroz com frango. Receita: 500 g de peito de frango, 2
+      xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a
+      gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e
+      cozinho 20 minutos. Rende 4 porções. Gosto de fazer, não vejo
+      impedimento, e aguento até 1 hora cozinhando de uma vez.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+      nao_responde_com: ['padr[aã]o (do|de) mercado']
+  # O mínimo sem prejuízo deste prato é R$ 2,75 (custo de R$ 2,47 ÷ 0,90, para
+  # cima). A primeira versão do cenário usava R$ 3,00, que fica acima do mínimo.
+  - diz: Quero cobrar só 2 reais e 50 a porção pra vender bastante. Pode ser?
+    espera:
+      responde_com: ['preju[ií]zo|perde']
+      nao_chama: [registrar_decisao]

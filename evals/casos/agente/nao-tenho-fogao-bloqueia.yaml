@@ -1,0 +1,26 @@
+nome: nao-tenho-fogao-bloqueia
+secao: "2.2"
+descricao: >
+  Fogão é o que toda cozinha costuma ter, e a conferência supõe que ela tem. Ela
+  diz que não tem: o "não tenho" dela vale mais que a suposição, bloqueia o prato
+  de fogão, e o agente diz isso com clareza, sem oferecer o prato como
+  possível.
+
+nunca_chama: [estimar_preco_preliminar, calcular_cmv, cenarios_preco, testar_sensibilidade, registrar_compra, registrar_decisao]
+
+turnos:
+  - diz: >
+      Quero vender arroz com frango. Receita: 500 g de peito de frango, 2
+      xícaras de arroz, 1 cebola, 2 dentes de alho, 2 colheres de óleo, sal a
+      gosto. Refogo cebola e alho, douro o frango, junto o arroz e a água e
+      cozinho 20 minutos. Rende 4 porções.
+    espera:
+      chama_em_ordem: [avaliar_receita]
+  - diz: Esqueci de contar que eu não tenho fogão. Cozinho só no micro-ondas.
+    espera:
+      chama_em_ordem: [registrar_resposta]
+      nao_chama_com:
+        - { ferramenta: registrar_resposta, entrada: { campo: fogao, resposta: tem } }
+      responde_com: ['fog[aã]o']
+      # "o que dá para fazer é procurar outra" não diz que este prato dá.
+      nao_responde_com: ['(?<!não )(?<!nao )(?<!que )(?<!se )(?<!")(?<!“)\bd[aá] (pra|para) (a senhora )?fazer']
