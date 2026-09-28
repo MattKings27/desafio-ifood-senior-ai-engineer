@@ -43,7 +43,7 @@ flowchart TB
 | gateway HTTP | `gateway/src/gateway/http.py` e `rotas/` | as rotas da tela e da conversa, dono do turno do chat, máscara, cards e ações |
 | gateway MCP | `gateway/src/gateway/principal.py` | o servidor `mise` que o Hermes sobe, com autenticação, escopos, limite de taxa, cota, disjuntor e trilha de auditoria |
 | Hermes | perfil criado por `hermes/bootstrap.sh` | o laço do agente, as sessões, a compressão, a reserva de modelo e o servidor de API |
-| `mise` | `mise/src/mise/` | custo, viabilidade, preço, catálogo, avaliações, dossiê, corpus da busca, preço de referência (média de São Paulo) e peso estimado da embalagem, com a fonte, as 26 ferramentas |
+| `mise` | `mise/src/mise/` | custo, viabilidade, preço, catálogo, avaliações, dossiê, corpus da busca, preço de referência (média de São Paulo) e peso estimado da embalagem, com a fonte, as 27 ferramentas |
 | `retrieval` | `retrieval/src/retrieval/` | busca de página só em endereço público, extração de JSON-LD e microdata, índice híbrido |
 | `auditor` | `auditor/src/auditor/` | refaz a conta do preço sem importar o motor |
 | `telemetria` | `telemetria/src/telemetria/` | rastro OpenTelemetry, métricas por ferramenta, custo do modelo |

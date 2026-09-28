@@ -72,8 +72,8 @@ cartões mandam "[a senhora já respondeu pela tela: ...]", para o agente não
 gravar a mesma resposta de novo.
 
 **Ferramentas e MCP.** O motor entra como o servidor MCP `mise`, que o Hermes
-sobe com o `python -m gateway.principal` do ambiente do projeto, e oferece 26
-ferramentas, 19 de leitura e 7 de escrita
+sobe com o `python -m gateway.principal` do ambiente do projeto, e oferece 27
+ferramentas, 20 de leitura e 7 de escrita
 ([`mise/src/mise/mcp_server.py`](mise/src/mise/mcp_server.py)). Entre os dois
 fica uma política em código, com o escopo de cada ferramenta, cobrado quando o
 ambiente define os tokens, limite de taxa, cota, disjuntor e trilha de auditoria
@@ -448,20 +448,160 @@ Mais casos, com o chat da web por dentro, em
 
 ## Como o agente cumpre o enunciado
 
-| § | O que o agente faz | Onde está | O que prova |
-|---|---|---|---|
-| 2.1 | Parte da despensa, pesquisa na web, traz cada receita pelo servidor (JSON-LD ou microdata, com site e link), mostra só o que a cozinha permite e pergunta, de cada receita, se ela gosta de fazer e se vê impedimento; ela também dá estrelas e notas | `mise/src/mise/ferramentas/receitas.py`, `retrieval/src/retrieval/extrator.py`, `mise/src/mise/catalogo.py`, `mise/src/mise/receitas_json.py`, skill `pesquisa-receitas` | `retrieval/tests/test_extrator.py`, `mise/tests/unit/test_catalogo.py`, `mise/tests/unit/test_avaliacoes.py`; cenários `receitas-da-web-com-a-despensa`, `so-apresenta-o-que-da`, `sempre-pergunta-se-gosta`, `gosto-e-impedimento-registrados`, `nao-gosta-encerra-o-prato` |
-| 2.2 | Depois do gosto, confere equipamento, técnica e rotina (bocas, gás, geladeira, energia, tempo ativo no fogo contra o tempo por cozinhada). Pergunta o que falta, uma coisa por vez; "não sei" fica em aberto e volta quando uma receita precisar, e "não tenho" bloqueia. Preço final, compra e aceite recusam prato não liberado, e aceite e compra pedem, numa pergunta só, a confirmação do que toda cozinha tem e a receita usa; cada receita traz o checklist de produção | `mise/src/mise/viabilidade.py`, `mise/src/mise/perfil.py`, `mise/src/mise/certeza.py`, `mise/src/mise/checklist.py`, skill `elicitacao-restricoes` | `mise/tests/unit/test_viabilidade.py`, `test_portao_pressuposto.py`, `test_restricoes_operacionais.py`; 61 casos em `evals/casos/portao.yaml`; cenários `sem-forno-pergunta-air-fryer`, `restricao-de-gas-e-tempo`, `nao-tenho-fogao-bloqueia`, `nao-sei-vira-pendencia` |
-| 2.3 | Para cada ingrediente, quanto a receita pede, quanto ela tem e o que falta. Medida e quantidade vêm da receita e da tabela de medidas do IBGE; o que falta sai pelo preço médio de São Paulo, a média das fontes lidas em oito supermercados paulistas, seis na capital ou na Grande São Paulo e dois no interior, com cada fonte, dito como estimativa e com um "corrigir" para o preço dela (`make conferir-referencias` prova cada fonte de novo). A compra é somada e comparada com o que resta dos R$ 80,00 | `mise/src/mise/receitas_json.py`, `mise/src/mise/referencias.py`, `dados/precos_de_referencia.json`, `mise/src/mise/unidades.py`, `mise/src/mise/compras.py`, `mise/src/mise/dossie.py`, `retrieval/src/retrieval/quantidades.py` | `mise/tests/unit/test_preco_do_que_falta.py`, `mise/tests/unit/test_referencias.py`, `retrieval/tests/test_quantidades.py`, `mise/tests/unit/test_dossie.py`; cenários `falta-ingrediente-usa-preco-estimado`, `orcamento-de-80` |
-| 2.4 | Custo unitário da planilha depois de normalizar a unidade, custo por porção linha a linha com as compras, mínimo `CMV ÷ 0,90` arredondado para cima, lucro `0,90·P − CMV`, três cenários sem recomendar nenhum, a conta de qualquer preço que ela propuser e o aceite só quando ela decide | `mise/src/mise/despensa.py`, `cmv.py`, `preco.py`, `auditor/`, skill `precificacao-delivery` | `mise/tests/golden/test_despensa_real.py`, `mise/tests/unit/test_preco.py`, `mise/tests/property/test_preco_invariantes.py`, `auditor/tests/test_auditor.py`; cenários `caminho-completo-ate-a-decisao`, `preco-abaixo-do-minimo`, `preco-preliminar-sem-compromisso` |
+O enunciado, parte por parte, com o que foi feito e onde conferir. Cada
+afirmação aponta para o código, um teste ou um cenário do agente real que a
+prova.
 
-A planilha tem armadilhas. Em 6 dos 37 itens a unidade mistura grandeza e
-embalagem ("balde 2kg", "un 500ml"), e a divisão direta erra, porque as
-alcaparras custam R$ 41,00 o quilo, e não R$ 82,00. A cobertura de chocolate
-não diz o peso, e o motor não chuta nem pergunta. Ele estima o peso pela
-embalagem de supermercado com o preço mais perto do que ela pagou, diz que é
-estimativa e de onde veio, e aceita a correção dela
-([`mise/src/mise/embalagens.py`](mise/src/mise/embalagens.py)).
+### O contexto, as três coisas que a Dona Maria não sabe
+
+Ela não sabe quais receitas consegue produzir com a despensa, se tem os
+utensílios e as habilidades para cada prato, nem quanto cobrar para o delivery
+dar lucro depois da taxa. As três perguntas têm resposta na conversa e na
+plataforma. A tela de Receitas mostra só o que ela consegue fazer, com o que tem
+ou comprando dentro do orçamento. A Cozinha guarda os equipamentos, as técnicas
+e os limites da rotina que ela respondeu, e cada receita traz o checklist de
+produção. O Pôr preço calcula o custo por porção, o preço mínimo e os cenários,
+e o prato aceito vai para o Cardápio.
+
+### O desafio, o Hermes Agent instalado e customizado
+
+O Hermes Agent 0.21.4 é instalado do repositório oficial, pelo instalador do
+próprio commit testado, e roda num perfil dedicado com o modelo, os arquivos de
+contexto, as ferramentas MCP, o plugin de guard-rail, a memória e as cinco skills
+do projeto. Cada decisão está justificada em [O Hermes Agent neste
+projeto](#o-hermes-agent-neste-projeto) e nos [ADRs](docs/adr/README.md). O fluxo
+não é linear. Ela pode pular da despensa para o preço e voltar a uma receita, e o
+agente acompanha, porque o estado mora no dossiê dela, e não na ordem da conversa.
+
+**Onde conferir.** [`hermes/`](hermes/), [`scripts/instalar_hermes.sh`](scripts/instalar_hermes.sh),
+[`hermes/config.overlay.yaml`](hermes/config.overlay.yaml) e [`hermes/SOUL.md`](hermes/SOUL.md).
+
+### 2.1 Pesquisa de receitas viáveis
+
+O agente parte da despensa e do orçamento, monta a pauta de busca, primeiro os
+pratos cuja base inteira está na despensa e depois os itens com dinheiro parado,
+e pesquisa na web com o `web_search` do Hermes. Cada endereço encontrado passa
+pelo servidor, que baixa a página com regras de rede seguras e só aceita receita
+estruturada em JSON-LD ou microdata, em português, com o site, o link e o crédito
+da foto. O modelo nunca escreve receita no catálogo. Ao apresentar cada
+candidata, o agente pergunta se ela gosta de cozinhar aquilo e se vê algum
+impedimento, e grava a resposta. A tela separa as receitas em Gosto de fazer e
+Não gosto de fazer, e cada card pergunta primeiro o gosto.
+
+**Onde conferir.** [`mise/src/mise/ferramentas/receitas.py`](mise/src/mise/ferramentas/receitas.py),
+[`retrieval/src/retrieval/extrator.py`](retrieval/src/retrieval/extrator.py),
+[`mise/src/mise/catalogo.py`](mise/src/mise/catalogo.py), a skill
+[`pesquisa-receitas`](hermes/skills/consultoria-gastronomica/pesquisa-receitas/SKILL.md), os testes em
+[`retrieval/tests/test_extrator.py`](retrieval/tests/test_extrator.py) e os cenários
+`receitas-da-web-com-a-despensa`, `sempre-pergunta-se-gosta` e
+`gosto-e-impedimento-registrados`.
+
+### 2.2 Elicitação de restrições, o coração do desafio
+
+A garantia de que ela consegue produzir o prato está no código, e não na boa
+vontade do modelo. O portão de viabilidade confere cada receita contra o perfil da
+cozinha dela, numa taxonomia de 31 equipamentos e 32 técnicas.
+
+Os utensílios e equipamentos saem do modo de preparo, lido pelo motor. Fogão,
+forno, panela de pressão, air fryer e liquidificador aparecem quando a receita
+pede, e o fogão conta bocas: duas panelas ao mesmo tempo pedem duas. As técnicas
+também saem do modo de preparo, de massa fresca, béchamel e ponto de carne a
+refogar e empanar, e a receita que ela conta em primeira pessoa ("refogo a cebola,
+cozinho 20 minutos") exige o mesmo que o imperativo. As restrições operacionais
+são as quatro que o enunciado nomeia, energia (quantos aparelhos ligados ao mesmo
+tempo), gás, espaço na geladeira e tempo por cozinhada, este contado pelo tempo
+ativo no fogo, sem as esperas.
+
+O agente só pergunta o que é dela, se gosta do prato, os equipamentos, as técnicas
+e os limites da rotina, uma pergunta por vez, começando pela que libera mais
+receitas. Peso, medida, quantidade e preço nunca viram pergunta. O que ela não
+disse por conta própria, o agente pergunta. "Não sei" fica em aberto e volta
+quando uma receita precisar, e "não tenho" bloqueia o prato com o motivo, mesmo
+que ainda faltem outras respostas.
+
+Ela não consegue comprar ingrediente para um prato que não pode fazer. Preço
+final, compra e aceite são recusados enquanto o portão não libera, e o aceite e a
+compra ainda pedem, numa pergunta só, a confirmação do que toda cozinha tem e a
+receita usa. O botão "Responder agora" do Início abre essa conversa em tela cheia,
+com o agente conduzindo.
+
+**Onde conferir.** [`mise/src/mise/viabilidade.py`](mise/src/mise/viabilidade.py),
+[`mise/src/mise/taxonomia.py`](mise/src/mise/taxonomia.py), [`mise/src/mise/perfil.py`](mise/src/mise/perfil.py),
+[`mise/src/mise/certeza.py`](mise/src/mise/certeza.py), a skill
+[`elicitacao-restricoes`](hermes/skills/consultoria-gastronomica/elicitacao-restricoes/SKILL.md), os 61 casos
+dourados em [`evals/casos/portao.yaml`](evals/casos/portao.yaml) e os cenários
+`descobrir-o-que-consigo-cozinhar`, `sem-forno-pergunta-air-fryer`,
+`restricao-de-gas-e-tempo`, `nao-tenho-fogao-bloqueia` e `nao-sei-vira-pendencia`.
+
+### 2.3 Coleta e preenchimento de ingredientes
+
+Para cada receita, o motor casa cada linha de ingrediente com a despensa dela e
+mostra quanto a receita pede, quanto ela tem e quanto sobra. O casamento decide
+sem perguntar. A marca sai do nome antes de comparar, os sinônimos de açougue
+valem (coração da alcatra é o miolo de alcatra dela) e a forma do produto conta
+(mandioca não é farinha de mandioca). Na dúvida, o item vira compra, nunca um
+falso "a senhora tem". Medida caseira vira grama pelas tabelas do IBGE e do USDA,
+com a linha citada.
+
+O que falta sai pelo preço médio em São Paulo, a média de oito supermercados
+paulistas lidos pelo servidor, com cada mercado, a embalagem e o preço por kg à
+vista, e um "corrigir" para o preço dela. Um ingrediente que ainda não tem preço é
+cotado na hora, e cada preço é provado de novo por `make conferir-referencias`,
+que busca a página e confere o trecho literal. A compra soma o que falta e é
+comparada com o que resta dos R$ 80,00.
+
+**Onde conferir.** [`mise/src/mise/receitas_json.py`](mise/src/mise/receitas_json.py),
+[`mise/src/mise/casamento.py`](mise/src/mise/casamento.py), [`mise/src/mise/referencias.py`](mise/src/mise/referencias.py),
+[`retrieval/src/retrieval/precos.py`](retrieval/src/retrieval/precos.py), [`dados/precos_de_referencia.json`](dados/precos_de_referencia.json),
+os testes em [`mise/tests/unit/test_referencias.py`](mise/tests/unit/test_referencias.py) e
+[`mise/tests/unit/test_preco_do_que_falta.py`](mise/tests/unit/test_preco_do_que_falta.py), e os cenários
+`falta-ingrediente-usa-preco-estimado` e `orcamento-de-80`.
+
+### 2.4 Aceitação, CMV e preço de venda
+
+O aceite só acontece quando ela gostou, a cozinha tem os utensílios e as
+habilidades confirmados e os ingredientes estão garantidos, na despensa ou numa
+compra que cabe no orçamento. Antes disso, a ferramenta de decisão recusa.
+
+O custo unitário vem do cruzamento das duas abas da planilha, preço total pago
+dividido pela quantidade comprada, depois de normalizar as unidades que misturam
+grandeza e embalagem. O CMV é a soma de quantidade usada vezes custo unitário de
+cada ingrediente, mais as compras complementares, com a conta de cada linha
+escrita. Com a taxa de 10%, ela recebe 0,90·P. O preço mínimo é CMV ÷ 0,90,
+arredondado para cima no centavo, e o lucro é 0,90·P − CMV. O agente mostra três
+cenários de margem com a conta explicada, não recomenda nenhum, faz a conta de
+qualquer preço que ela propuser e registra só o que ela decide. Um auditor
+independente refaz a conta antes de o preço ser gravado.
+
+**Onde conferir.** [`mise/src/mise/despensa.py`](mise/src/mise/despensa.py),
+[`mise/src/mise/cmv.py`](mise/src/mise/cmv.py), [`mise/src/mise/preco.py`](mise/src/mise/preco.py),
+[`auditor/`](auditor/), a skill
+[`precificacao-delivery`](hermes/skills/consultoria-gastronomica/precificacao-delivery/SKILL.md), os testes em
+[`mise/tests/golden/test_despensa_real.py`](mise/tests/golden/test_despensa_real.py),
+[`mise/tests/unit/test_preco.py`](mise/tests/unit/test_preco.py),
+[`mise/tests/property/test_preco_invariantes.py`](mise/tests/property/test_preco_invariantes.py) e
+[`auditor/tests/test_auditor.py`](auditor/tests/test_auditor.py), e os cenários
+`caminho-completo-ate-a-decisao` e `preco-abaixo-do-minimo`.
+
+### Os dados de entrada
+
+A planilha [`dados/despensa_dona_maria.xlsx`](dados/despensa_dona_maria.xlsx) é lida nas duas abas,
+Despensa e Precos, e a plataforma mostra exatamente o que ela diz, com `make
+conciliar` provando zero divergência. A planilha tem armadilhas. Em 6 dos 37 itens
+a unidade mistura grandeza e embalagem ("balde 2kg", "un 500ml"), e a divisão
+direta erra, porque as alcaparras custam R$ 41,00/kg, e não R$ 82,00/kg. A
+cobertura de chocolate não diz o peso, e o motor não chuta nem pergunta. Ele
+estima o peso pela embalagem de supermercado com o preço mais perto do que ela
+pagou, diz que é estimativa e de onde veio, e aceita a correção dela
+([`mise/src/mise/embalagens.py`](mise/src/mise/embalagens.py)). O orçamento de R$ 80,00 para
+complementos é o limite de toda compra.
+
+### Os entregáveis
+
+O repositório traz o Hermes configurado e todas as customizações em
+[`hermes/`](hermes/), sobe do zero com `make comecar` e guarda a medição do agente real,
+com as transcrições, em [`docs/transcricoes/`](docs/transcricoes/LEIA.md). O vídeo
+da demonstração está no link do topo deste README.
 
 ## Arquitetura
 
@@ -483,7 +623,7 @@ flowchart LR
 
 | Pacote | Papel |
 |---|---|
-| `mise` | O motor, com custo, viabilidade, preço e preço preliminar, catálogo de receitas, avaliações, dossiê em SQLite, corpus da busca e as 26 ferramentas MCP (19 de leitura, 7 de escrita). Nenhuma linha chama modelo |
+| `mise` | O motor, com custo, viabilidade, preço e preço preliminar, catálogo de receitas, avaliações, dossiê em SQLite, corpus da busca e as 27 ferramentas MCP (20 de leitura, 7 de escrita). Nenhuma linha chama modelo |
 | `gateway` | As duas portas do motor, o servidor MCP que o Hermes sobe, com escopos, limite de taxa, cota, disjuntor e trilha de auditoria, e a API HTTP do site, dona do turno do chat, com a máscara, os cards e as ações |
 | `retrieval` | Busca de página só em endereço público, extração de JSON-LD e microdata, leitura dos preços nos supermercados, índice híbrido da plataforma e a base de cozinha conferida |
 | `auditor` | Refaz a conta do preço sem importar o motor, por A2A ou no mesmo processo |

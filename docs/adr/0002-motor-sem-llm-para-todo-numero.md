@@ -8,7 +8,7 @@ erra conta e erra com convicção, e aqui o erro vira prejuízo de quem vende.
 
 A planilha tem armadilhas que uma divisão direta não vê. Em 6 dos 37 itens a
 coluna de unidade mistura grandeza e embalagem ("balde 2kg", "un 500ml"), e as
-alcaparras custam R$ 41,00 o quilo, e não R$ 82,00
+alcaparras custam R$ 41,00/kg, e não R$ 82,00/kg
 (`mise/tests/golden/test_despensa_real.py`, `ARMADILHAS`). A cobertura de
 chocolate foi comprada como "1 un" por R$ 79,90, sem peso.
 
