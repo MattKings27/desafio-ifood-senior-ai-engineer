@@ -1,0 +1,144 @@
+# Técnicas de cozinha: molhos, ponto da carne, massa fresca, refogado e outras.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: molho-bechamel-base
+  titulo: O que é o molho bechamel
+  categoria: tecnica
+  texto: O molho bechamel é feito cozinhando farinha de trigo (ou amido de milho) na manteiga e depois
+    diluindo essa mistura com leite. Deve ficar cor de marfim, com aparência de creme e sem gosto
+    de farinha crua.
+  trecho: é um molho que se obtém cozinhando farinha de trigo (ou amido de milho) em manteiga e depois
+    diluindo essa mistura com leite. Deve ter coloração marfim, aparência de creme e sabor sem gosto
+    de farinha crua.
+  fonte_titulo: Wikipédia, Molho bechamel
+  fonte_url: https://pt.wikipedia.org/wiki/Molho_bechamel
+  verificado_em: 2026-09-26
+  palavras: [bechamel, molho branco, farinha, manteiga, leite]
+
+- id: roux-o-que-e
+  titulo: O que é roux
+  categoria: tecnica
+  texto: 'Roux é uma preparação de origem francesa usada para engrossar molhos, sopas e guisados:
+    farinha de trigo cozida na manteiga derretida até formar um creme espesso e homogêneo.'
+  trecho: é uma preparação originária da culinária da França utilizada como espessante de molhos,
+    sopas ou guisados; consiste em cozinhar farinha de trigo em manteiga derretida, até formar um
+    creme espesso e homogéneo.
+  fonte_titulo: Wikipédia, Roux
+  fonte_url: https://pt.wikipedia.org/wiki/Roux
+  verificado_em: 2026-09-26
+  palavras: [roux, engrossar, espessante, farinha, manteiga, molho]
+
+- id: refogado-comeca-pela-cebola
+  titulo: Como funciona o refogado
+  categoria: tecnica
+  texto: O refogado começa com uma fritura leve da cebola; quando entram o tomate e os outros ingredientes,
+    o líquido que eles soltam transforma a preparação num guisado.
+  trecho: O refogado, por exemplo, começa por uma fritura leve da cebola mas, quando se mistura o
+    tomate e outros ingredientes, o líquido libertado transforma a preparação num guisado; um processo
+    semelhante acontece nos estufados.
+  fonte_titulo: Wikipédia, Fritura
+  fonte_url: https://pt.wikipedia.org/wiki/Fritura
+  verificado_em: 2026-09-26
+  palavras: [refogar, refogado, cebola, tomate, guisado]
+
+- id: banho-maria-no-forno
+  titulo: Banho-maria no forno
+  categoria: tecnica
+  texto: O banho-maria no forno é usado sobretudo para cozinhar preparações com muito ovo, como pudins
+    e o crème brûlée tradicional.
+  trecho: O banho-maria no forno é usado sobretudo para cozinhar preparações com grande quantidade
+    de ovos, como é o caso dos pudins, ou para fazer o crème brûlée tradicional (leite creme francês).
+  fonte_titulo: Wikipédia, Banho-maria
+  fonte_url: https://pt.wikipedia.org/wiki/Banho-maria
+  verificado_em: 2026-09-26
+  palavras: [banho-maria, forno, pudim, ovos, crème brûlée]
+
+- id: caramelizacao-do-acucar
+  titulo: O que é caramelizar
+  categoria: tecnica
+  texto: Caramelização é o escurecimento dos açúcares pelo calor, que acontece sem aminoácidos ou
+    proteínas e envolve temperaturas acima de 120 °C. Não deve ser confundida com a reação de Maillard.
+  trecho: Caramelização é um tipo de "escurecimento não enzimático", e não deve ser confundida com
+    a reação de Maillard. Se dá pela degradação de açúcares em ausência de aminoácidos ou proteínas
+    e pode ocorrer tanto em meio ácido quanto em meio básico. Envolve temperaturas elevadas acima
+    de 120°c
+  fonte_titulo: Wikipédia, Caramelização
+  fonte_url: https://pt.wikipedia.org/wiki/Carameliza%C3%A7%C3%A3o
+  verificado_em: 2026-09-26
+  palavras: [caramelizar, caramelização, açúcar, caramelo, dourar]
+
+- id: selar-carne-acima-de-170-graus
+  titulo: Selar a carne em fogo alto
+  categoria: tecnica
+  texto: Segundo o Jornal da Unicamp, o maior problema de contaminação da carne está na parte externa.
+    Cozinhar acima de 170 °C faz uma selagem externa que reduz os microrganismos da superfície da
+    peça.
+  trecho: O maior problema de contaminação da carne reside externamente. Quando o cozimento ocorre
+    numa temperatura superior a 170º C, é possível fazer uma “selagem” externa, reduzindo os microrganismos
+    da superfície da peça de carne.
+  fonte_titulo: Jornal da Unicamp, Para deixar a carne no ponto (2013)
+  fonte_url: https://www2.unicamp.br/unicamp/ju/564/para-deixar-carne-no-ponto
+  verificado_em: 2026-09-26
+  palavras: [selar, selagem, carne, fogo alto, superfície]
+
+- id: branquear-legumes-como-fazer
+  titulo: Como branquear legumes
+  categoria: tecnica
+  texto: Branquear é mergulhar a hortaliça em água fervente por pouco tempo e, em seguida, em água
+    gelada pelo mesmo tempo. Terminado o resfriamento, escorre-se a água.
+  trecho: O branqueamento consiste na imersão da hortaliça em água fervente por um breve tempo, seguido
+    da imersão em água gelada pelo mesmo período. Cumprido o tempo de resfriamento, deve-se escorrer
+    a água.
+  fonte_titulo: Embrapa Hortaliças, Use o congelador para evitar o desperdício
+  fonte_url: https://www.embrapa.br/web/hortalicas/hortalica-nao-e-so-salada/secoes/congelador-e-desperdicio
+  verificado_em: 2026-09-26
+  palavras: [branquear, branqueamento, legumes, hortaliças, água gelada]
+
+- id: feijao-de-molho-8-a-12-horas
+  titulo: Quanto tempo deixar o feijão de molho
+  categoria: tecnica
+  texto: Para o feijão, a maior parte dos estudos indica de 8 a 12 horas de molho, ou seja, deixar
+    de molho na noite anterior e cozinhar no dia seguinte.
+  trecho: 'A maior parte dos estudos indica um tempo entre 8 e 12 horas, ou seja, exatamente aquilo
+    que nossas avós faziam: colocar o feijão de molho na noite anterior para cozer no dia seguinte.'
+  fonte_titulo: 'FoRC/USP, Alimentos Sem Mitos: feijão de molho'
+  fonte_url: https://alimentossemmitos.com.br/deixar-o-feijao-de-molho-antes-de-cozinha-lo-ajuda-a-eliminar-antinutrientes
+  verificado_em: 2026-09-26
+  palavras: [feijão, remolho, deixar de molho, cozimento, grãos]
+
+- id: ponto-da-carne-ao-ponto-e-bem-passada
+  titulo: Carne ao ponto e bem passada
+  categoria: tecnica
+  texto: Ao ponto, a carne fica grelhada por fora e rosada por dentro e a temperatura não passa de
+    70 graus. Bem passada, fica cozida por dentro, muito firme e quase seca, e chega a 75 graus.
+  trecho: Ao ponto É a carne grelhada por fora e rosada por dentro. Está mais próxima do cozimento,
+    porém levemente mal passada. Sua temperatura não ultrapassa os 70 graus, deve ficar no fogo por
+    8 minutos e sua textura é bem firme. Bem passada É a carne totalmente grelhada por fora e cozida
+    por dentro. Sua textura é muito firme, quase seca, e sua temperatura alcança a marca dos 75 graus.
+  fonte_titulo: 'BeefPoint, Ao ponto: o cozimento perfeito das carnes'
+  fonte_url: https://beefpoint.com.br/ao-ponto-o-cozimento-perfeito-das-carnes/
+  verificado_em: 2026-09-26
+  palavras: [ponto da carne, ao ponto, bem passada, bife, temperatura]
+
+- id: massa-fresca-proporcao-e-descanso
+  titulo: 'Massa fresca: proporção, sova e descanso'
+  categoria: tecnica
+  texto: Na massa fresca, a proporção tradicional é de 1 ovo para cada 100 g de farinha de trigo;
+    se a massa ficar seca demais, junta-se um pouco de água. Depois ela é sovada e descansa pelo menos
+    30 minutos antes de ser aberta.
+  trecho: Tradicionalmente a proporção utilizada é de 1 ovo para cada 100 gramas de farinha de trigo.
+    Os dois ingredientes são misturados e, caso a massa esteja muito seca, uma pequena quantidade
+    de água é adicionada à massa. A massa é então sovada e passa por um descanso de pelo menos 30
+    minutos antes de ser aberta.
+  fonte_titulo: Cozinha Técnica, Massa fresca
+  fonte_url: https://cozinhatecnica.com/2023/03/massa-fresca/
+  verificado_em: 2026-09-26
+  palavras: [massa fresca, macarrão caseiro, ovos, farinha, sovar, descanso]

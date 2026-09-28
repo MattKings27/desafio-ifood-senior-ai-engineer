@@ -1,0 +1,146 @@
+# Equipamentos e o que faz o papel de cada um: air fryer, forno, panela de pressão, micro-ondas.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: air-fryer-como-funciona
+  titulo: Como funciona a air fryer
+  categoria: equipamento
+  texto: A air fryer frita, grelha e assa com ar quente em alta velocidade, sem óleo, chegando em
+    média a 200 °C, como um miniforno de convecção rápida.
+  trecho: A fritadeira sem óleo tem as funções de fritar, grelhar e assar utilizando ar quente em
+    alta velocidade sem o uso de óleo, chegando em média a 200ºC, como se fosse um miniforno de convecção
+    rápida,
+  fonte_titulo: Wikipédia, Fritadeira de ar (air fryer)
+  fonte_url: https://pt.wikipedia.org/wiki/Air_fryer
+  verificado_em: 2026-09-26
+  palavras: [air fryer, fritadeira sem óleo, fritadeira elétrica, ar quente, forno]
+
+- id: air-fryer-no-lugar-do-forno
+  titulo: Air fryer no lugar do forno
+  categoria: equipamento
+  texto: Comparada ao forno, a air fryer é mais rápida e gasta menos energia, mas não cozinha muitas
+    porções de uma vez; alguns modelos têm cesto maior.
+  trecho: Face ao forno, é mais rápido e eficiente, pelo que consome menos energia. Mas não permite
+    cozinhar muitas doses de cada vez. Ainda assim, alguns modelos têm um cesto maior.
+  fonte_titulo: DECO PROteste (Portugal), 3 dicas essenciais para usar bem a air fryer
+  fonte_url: https://www.deco.proteste.pt/eletrodomesticos/air-fryer/dicas/dicas-essenciais-usar-bem-air-fryer
+  verificado_em: 2026-09-26
+  palavras: [air fryer, forno, porções, capacidade, fornada]
+
+- id: air-fryer-cesto-ate-a-metade
+  titulo: Não encher demais o cesto da air fryer
+  categoria: equipamento
+  texto: Na air fryer, não encha demais o cesto (no máximo até a metade) e pré-aqueça o aparelho por
+    3 a 5 minutos.
+  trecho: Não encher demasiado o cesto (até metade). Pré-aquecer a air fryer durante 3 a 5 minutos.
+  fonte_titulo: DECO PROteste (Portugal), 3 dicas essenciais para usar bem a air fryer
+  fonte_url: https://www.deco.proteste.pt/eletrodomesticos/air-fryer/dicas/dicas-essenciais-usar-bem-air-fryer
+  verificado_em: 2026-09-26
+  palavras: [air fryer, cesto, encher, pré-aquecer, quantidade]
+
+- id: panela-de-pressao-no-maximo-2-3
+  titulo: Panela de pressão cheia até 2/3
+  categoria: equipamento
+  texto: Use a panela de pressão com no máximo 2/3 do volume interno. Acima disso, a pressão pode
+    subir demais, o líquido transbordar e entupir a válvula principal, a do pino.
+  trecho: Limite o uso da panela a 2/3 do volume interno. Se você enchê-la além dessa medida, a pressão
+    interna poderá aumentar muito, fazendo com que o líquido transborde e entupa a válvula principal
+    (válvula com pino);
+  fonte_titulo: Proteste, Cuidados ao usar a panela de pressão
+  fonte_url: https://www.proteste.org.br/eletrodomesticos/fogao/noticia/cuidados-ao-usar-a-panela-de-pressao
+  verificado_em: 2026-09-26
+  palavras: [panela de pressão, encher, capacidade, válvula, segurança]
+
+- id: panela-de-pressao-nunca-forcar-a-tampa
+  titulo: Nunca forçar a tampa da panela de pressão
+  categoria: equipamento
+  texto: 'Nunca force a tampa da panela de pressão para abrir: quando não houver mais pressão dentro,
+    ela abre com facilidade.'
+  trecho: 'Muito importante: jamais pressione a tampa para que ela abra. Quando não houver mais pressão
+    interna, ela abrirá facilmente;'
+  fonte_titulo: Proteste, Cuidados ao usar a panela de pressão
+  fonte_url: https://www.proteste.org.br/eletrodomesticos/fogao/noticia/cuidados-ao-usar-a-panela-de-pressao
+  verificado_em: 2026-09-26
+  palavras: [panela de pressão, abrir, tampa, pressão, segurança]
+
+- id: panela-de-pressao-valvula-entupida
+  titulo: Resíduo na válvula da panela de pressão
+  categoria: equipamento
+  texto: Um dos riscos da panela de pressão é o acúmulo de resíduos dentro da válvula, que acaba entupindo
+    e impede a saída do ar, justamente o que garante pressão e segurança no uso.
+  trecho: Um dos fatores de risco é o acúmulo de resíduos dentro da válvula, que acaba entupindo,
+    o que impede a saída do ar, que garante pressão e segurança ao uso da panela.
+  fonte_titulo: Ipem-SP (órgão delegado do Inmetro), orientação publicada no ABC do ABC
+  fonte_url: https://abcdoabc.com.br/ipem-sp-orienta-sobre-a-compra-e-uso-da-panela-de-pressao/
+  verificado_em: 2026-09-26
+  palavras: [panela de pressão, válvula, entupida, limpeza, segurança]
+
+- id: panela-de-pressao-nao-levantar-a-valvula
+  titulo: Não levantar a válvula para tirar a pressão
+  categoria: equipamento
+  texto: Nunca levante a válvula da panela de pressão com a mão ou com algum objeto para apressar
+    a saída da pressão; a peça foi projetada para suportar a pressão do cozimento.
+  trecho: Jamais levante a válvula com a mão ou com qualquer objeto para acelerar a saída da pressão.
+    A peça foi projetada para suportar o nível de pressão do cozimento.
+  fonte_titulo: Ipem-SP (órgão delegado do Inmetro), orientação publicada no ABC do ABC
+  fonte_url: https://abcdoabc.com.br/ipem-sp-orienta-sobre-a-compra-e-uso-da-panela-de-pressao/
+  verificado_em: 2026-09-26
+  palavras: [panela de pressão, válvula, pino, tirar pressão, segurança]
+
+- id: micro-ondas-aquece-de-forma-desigual
+  titulo: Por que o micro-ondas aquece desigual
+  categoria: equipamento
+  texto: O micro-ondas aquece de forma desigual em parte porque a energia não se distribui por igual
+    dentro do forno e em parte porque cada região do alimento absorve energia num ritmo diferente.
+  trecho: O aquecimento desigual em alimentos cozidos no micro-ondas pode ser parcialmente devido
+    à distribuição desigual da energia das micro-ondas dentro do forno e, em parte, devido às diferentes
+    taxas de absorção de energia em diferentes partes dos alimentos.
+  fonte_titulo: Wikipédia, Forno de micro-ondas
+  fonte_url: https://pt.wikipedia.org/wiki/Forno_de_micro-ondas
+  verificado_em: 2026-09-26
+  palavras: [micro-ondas, aquecer, desigual, frio no meio, reaquecer]
+
+- id: micro-ondas-repouso-e-termometro
+  titulo: Repouso e termômetro depois do micro-ondas
+  categoria: equipamento
+  texto: Depois de cozinhar no micro-ondas, recomenda-se deixar o alimento em repouso para as temperaturas
+    se igualarem e usar um termômetro de alimentos para conferir a temperatura interna.
+  trecho: Portanto, recomenda-se um período de repouso após o cozimento para permitir que as temperaturas
+    dos alimentos se equalizem, bem como o uso de um termômetro de alimentos para verificar as temperaturas
+    internas.
+  fonte_titulo: Wikipédia, Forno de micro-ondas
+  fonte_url: https://pt.wikipedia.org/wiki/Forno_de_micro-ondas
+  verificado_em: 2026-09-26
+  palavras: [micro-ondas, termômetro, temperatura interna, repouso, reaquecer]
+
+- id: micro-ondas-recipiente-adequado
+  titulo: Recipiente próprio para micro-ondas
+  categoria: equipamento
+  texto: Recipientes próprios para micro-ondas podem trazer o termo "seguro para micro-ondas", o símbolo
+    de três linhas onduladas uma acima da outra ou instruções de uso no micro-ondas.
+  trecho: Os produtos podem usar o termo "seguro para micro-ondas", podem conter um símbolo de micro-ondas
+    (três linhas de ondas, uma acima da outra) ou simplesmente fornecer instruções para o uso adequado
+    do forno de micro-ondas.
+  fonte_titulo: Wikipédia, Forno de micro-ondas
+  fonte_url: https://pt.wikipedia.org/wiki/Forno_de_micro-ondas
+  verificado_em: 2026-09-26
+  palavras: [micro-ondas, recipiente, pote, plástico, símbolo]
+
+- id: forno-a-gas-e-forno-eletrico
+  titulo: Forno a gás e forno elétrico
+  categoria: equipamento
+  texto: Entre os fornos domésticos, os a gás são os mais usuais e econômicos; os elétricos são úteis
+    para aquecer alimentos rapidamente.
+  trecho: Entre os fornos domésticos, os mais usuais e econômicos se servem de queimadores de gás.
+    Os fornos elétricos, são úteis para aquecimento rápido de alimentos.
+  fonte_titulo: Wikipédia, Forno
+  fonte_url: https://pt.wikipedia.org/wiki/Forno
+  verificado_em: 2026-09-26
+  palavras: [forno, forno a gás, forno elétrico, aquecer, assar]

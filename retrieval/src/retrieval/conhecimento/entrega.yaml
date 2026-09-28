@@ -1,0 +1,116 @@
+# Entrega e embalagem: transporte, lacre, etiqueta e embalagem própria para alimento.
+#
+# Cada fato tem o `trecho` copiado letra por letra da página em `fonte_url`, e a
+# data em que alguém conferiu que ele estava lá (`verificado_em`). O `texto` diz o
+# que o fato diz, sem acrescentar nada que o trecho não diga. Fato sem página que
+# o sustente não entra.
+#
+# `make conferir-conhecimento` busca cada página de novo e prova que cada trecho
+# continua nela; os testes fazem a mesma prova com as páginas gravadas em
+# `scripts/tests/fixtures/conhecimento_paginas.json`.
+
+- id: transporte-em-tempo-e-temperatura-seguros
+  titulo: Transporte da comida pronta
+  categoria: delivery
+  texto: Da distribuição até a entrega, a comida pronta deve ser armazenada e transportada em condições
+    de tempo e temperatura que não comprometam sua qualidade sanitária, e a temperatura deve ser monitorada
+    nessas etapas.
+  trecho: O armazenamento e o transporte do alimento preparado, da distribuição até a entrega ao consumo,
+    deve ocorrer em condições de tempo e temperatura que não comprometam sua qualidade higiênico-sanitária.
+    A temperatura do alimento preparado deve ser monitorada durante essas etapas.
+  fonte_titulo: Anvisa, Resolução RDC nº 216/2004 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000216&seqAto=000&valorAno=2004&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [transporte, entrega, temperatura, delivery, motoboy]
+
+- id: transporte-em-compartimento-fechado
+  titulo: Transporte em compartimento fechado (São Paulo)
+  categoria: delivery
+  texto: Na cidade de São Paulo, o transporte de refeições prontas deve ser feito em veículos fechados
+    ou em compartimentos fechados e próprios para essa finalidade.
+  trecho: O transporte de refeições prontas para consumo deve ser realizado em veículos fechados ou
+    compartimentos fechados e próprios para este fim.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [transporte, baú, moto, entrega, delivery]
+
+- id: refeicao-pronta-identificada
+  titulo: Identificação da refeição pronta (São Paulo)
+  categoria: delivery
+  texto: Na cidade de São Paulo, refeições prontas devem ir em recipientes de material sanitário ou
+    embalagens próprias para alimentos, identificados com nome e endereço do produtor, data de preparo
+    e prazo de validade.
+  trecho: As refeições prontas para consumo devem ser acondicionadas em recipientes de material sanitário
+    ou embalagens próprias para alimentos devidamente identificados com o nome e o endereço do estabelecimento
+    produtor, a data de preparo e o prazo de validade.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [embalagem, etiqueta, rótulo, validade, delivery]
+
+- id: caixa-isotermica-permitida
+  titulo: Caixa isotérmica (São Paulo)
+  categoria: delivery
+  texto: A portaria paulistana permite usar caixa isotérmica ou similar, com revestimento interno
+    e externo liso, atóxico, resistente, impermeável e lavável, e tampa ou fechamento bem ajustado.
+  trecho: É permitida a utilização de caixa isotérmica ou similar, com revestimento interno e externo,
+    de material liso, atóxico, resistente, impermeável e lavável, com tampa ou outro sistema de fechamento
+    perfeitamente ajustado.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [caixa térmica, isotérmica, bag, transporte, delivery]
+
+- id: lacre-obrigatorio-em-sao-paulo
+  titulo: Lacre na embalagem de entrega (São Paulo)
+  categoria: delivery
+  texto: Na cidade de São Paulo, quem entrega comida para consumo imediato é obrigado a usar selo
+    de garantia ou lacre destrutível nas embalagens, que não pode ser removido ou violado, para garantir
+    a integridade do alimento.
+  trecho: Os estabelecimentos que fazem entrega de alimentos para consumo imediato são obrigados a
+    usarem selo de garantia ou lacre destrutível nas embalagens de entrega. O selo de garantia ou
+    lacre destrutível é aquele que não pode ser removido ou violado visando garantir a integridade
+    do alimento.
+  fonte_titulo: Prefeitura de São Paulo, Portaria SMS nº 2.619/2011
+  fonte_url: https://legislacao.prefeitura.sp.gov.br/portaria-secretaria-municipal-da-saude-2619-de-6-de-dezembro-de-2011
+  verificado_em: 2026-09-26
+  palavras: [lacre, selo, embalagem, delivery, violação]
+
+- id: entrega-a-60-graus-embalagem-lacrada
+  titulo: Chegar quente e com embalagem lacrada
+  categoria: delivery
+  texto: A Vigilância Sanitária de Manaus orienta que a comida pronta chegue ao cliente na temperatura
+    adequada para consumo, 60 °C, e que todas as embalagens sejam adequadas, limpas e lacradas.
+  trecho: o alimento pronto deve chegar ao cliente na temperatura adequada para consumo (60ºC) e todas
+    as embalagens devem ser adequadas, limpas e lacradas, para que possam ser higienizadas com solução
+    clorada ou álcool antes de abertas.
+  fonte_titulo: Prefeitura de Manaus, recomendações da Vigilância Sanitária para delivery (2020)
+  fonte_url: https://www.manaus.am.gov.br/noticia/coronavirus/confira-recomendacoes-para-servico-de-delivery-em-prevencao-a-covid-19/
+  verificado_em: 2026-09-26
+  palavras: [entrega, 60 graus, embalagem, lacre, delivery]
+
+- id: etiqueta-com-horario-de-saida
+  titulo: Etiqueta com horário de saída
+  categoria: delivery
+  texto: A Vigilância Sanitária de Manaus também orienta que o produto pronto chegue com etiqueta
+    informando o horário de saída e o tempo de segurança para o consumo.
+  trecho: Os produtos prontos também devem chegar com etiqueta que informe o horário de saída e o
+    tempo de segurança para o consumo.
+  fonte_titulo: Prefeitura de Manaus, recomendações da Vigilância Sanitária para delivery (2020)
+  fonte_url: https://www.manaus.am.gov.br/noticia/coronavirus/confira-recomendacoes-para-servico-de-delivery-em-prevencao-a-covid-19/
+  verificado_em: 2026-09-26
+  palavras: [etiqueta, horário, delivery, entrega, consumo]
+
+- id: embalagem-apropriada-para-alimentos
+  titulo: Embalagem apropriada para alimentos
+  categoria: delivery
+  texto: Embalagens e utensílios que tocam o alimento precisam ser fabricados com boas práticas para
+    não passar ao alimento componentes indesejáveis, tóxicos ou contaminantes.
+  trecho: As embalagens e equipamentos que estejam em contato direto com alimentos devem ser fabricados
+    em conformidade com as boas práticas de fabricação para que, nas condições normais ou previsíveis
+    de emprego, não produzam migração para os alimentos de componentes indesejáveis, tóxicos ou contaminantes
+  fonte_titulo: Anvisa, Resolução RDC nº 91/2001 (AnvisaLegis)
+  fonte_url: https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&link=S&tipo=RDC&numeroAto=00000091&seqAto=000&valorAno=2001&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_modulo=134&cod_menu=1696
+  verificado_em: 2026-09-26
+  palavras: [embalagem, marmita, pote, material, contato com alimento]
